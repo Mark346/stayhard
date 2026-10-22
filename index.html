@@ -1,0 +1,785 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Stay Hard</title>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Stay Hard">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="theme-color" content="#F1F4EE">
+<link rel="apple-touch-icon" href="icon-180.png">
+<link rel="icon" href="icon-180.png">
+<link rel="manifest" href="manifest.json">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Figtree:wght@400;500;600;700&display=swap">
+<style>
+/* Layout: phone app — scrollende tabpagina's met kaarten, vaste tabbalk onderaan */
+:root{
+  --bg:#F1F4EE; --surface:#FFFFFF; --fg:#15201A; --muted:#5D6A62; --line:#DDE3DA;
+  --accent:#E2541B; --accent-ink:#FFFFFF; --accent-soft:#FBE3D7;
+  --pitch:#2E8B3E; --pitch-line:rgba(255,255,255,.35); --cone:#FF8A1F; --me:#2563EB; --foe:#DC2626; --run:#FFE14D;
+  --c-gez:#0F7C78; --c-fit:#C2410C; --c-voe:#2F7D32;
+  --dark:#15201A; --dark-fg:#F1F4EE; --dark-muted:#A8B4AC;
+  --fig:#15201A; --fig-back:#9AA59E;
+  --f-display:"Bricolage Grotesque","Arial Narrow",system-ui,sans-serif;
+  --f-body:"Figtree",system-ui,-apple-system,"Segoe UI",sans-serif;
+  color-scheme:light;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0E1411; --surface:#18201C; --fg:#E8EDE9; --muted:#97A39B; --line:#29332E;
+  --accent:#FF7A3D; --accent-ink:#15100C; --accent-soft:#3A2418;
+  --pitch:#23692F; --c-gez:#3CC2BC; --c-fit:#FF8A4C; --c-voe:#6CC870;
+  --dark:#E8EDE9; --dark-fg:#0E1411; --dark-muted:#4D5A52;
+  --fig:#E8EDE9; --fig-back:#5F6B64; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0E1411; --surface:#18201C; --fg:#E8EDE9; --muted:#97A39B; --line:#29332E;
+  --accent:#FF7A3D; --accent-ink:#15100C; --accent-soft:#3A2418;
+  --pitch:#23692F; --c-gez:#3CC2BC; --c-fit:#FF8A4C; --c-voe:#6CC870;
+  --dark:#E8EDE9; --dark-fg:#0E1411; --dark-muted:#4D5A52;
+  --fig:#E8EDE9; --fig-back:#5F6B64; color-scheme:dark}
+
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--f-body);font-size:16px;line-height:1.5;
+  padding-top:env(safe-area-inset-top,0px)}
+a{color:inherit}
+.page{max-width:620px;margin:0 auto;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));
+  padding-block:18px calc(96px + env(safe-area-inset-bottom,0px));display:flex;flex-direction:column;gap:22px}
+.view[hidden]{display:none}
+.view{display:flex;flex-direction:column;gap:18px}
+
+.eyebrow{font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+h1{font-family:var(--f-display);font-weight:800;font-size:clamp(32px,9vw,42px);line-height:1.02;margin:4px 0 0;letter-spacing:-.02em;text-wrap:balance}
+h1 em{font-style:normal;color:var(--accent)}
+h2{font-family:var(--f-display);font-weight:800;font-size:24px;line-height:1.1;margin:0;text-wrap:balance}
+h3{font-family:var(--f-display);font-weight:600;font-size:20px;line-height:1.15;margin:0;text-wrap:balance}
+.intro{color:var(--muted);margin:4px 0 0}
+
+/* motivatie */
+.quote{background:var(--dark);color:var(--dark-fg);border-radius:22px;padding:24px 22px;display:flex;flex-direction:column;gap:10px}
+.quote .eyebrow{color:var(--dark-muted)}
+.quote p{font-family:var(--f-display);font-weight:800;font-size:26px;line-height:1.15;margin:0;text-wrap:balance}
+.quote.small p{font-size:21px}
+.quote.alt{background:var(--accent);color:var(--accent-ink)}
+.quote.alt .eyebrow{color:inherit;opacity:.75}
+.quote.green{background:var(--pitch);color:#fff}
+.quote.green .eyebrow{color:rgba(255,255,255,.75)}
+
+/* kaarten */
+.card{background:var(--surface);border:1px solid var(--line);border-radius:20px;overflow:hidden;display:flex;flex-direction:column}
+.card .body{padding:16px 18px 18px;display:flex;flex-direction:column;gap:10px}
+.card p{margin:0}
+.meta{display:flex;flex-wrap:wrap;gap:6px}
+.pill{font-size:12px;font-weight:700;padding:4px 10px;border-radius:999px;background:var(--bg);color:var(--muted)}
+.pill.hot{background:var(--accent-soft);color:var(--accent)}
+ol.steps{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:4px;color:var(--muted);font-size:15px}
+.actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:4px}
+.btn{font:700 14px var(--f-body);border-radius:999px;padding:10px 16px;border:0;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:8px}
+.btn.play{background:var(--accent);color:var(--accent-ink)}
+.btn.ghost{background:transparent;color:var(--fg);box-shadow:inset 0 0 0 1.5px var(--line)}
+.btn.ghost[aria-pressed="true"]{background:var(--c-voe);color:#fff;box-shadow:none}
+.btn:focus-visible,.tab:focus-visible,.chip:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.fig{display:block;width:100%;height:auto}
+.figwrap{background:var(--pitch)}
+.figwrap.home{background:var(--bg);border-bottom:1px solid var(--line)}
+.figwrap.home .fig{max-height:210px}
+
+/* habits */
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chips::-webkit-scrollbar{display:none}
+.chip{flex:none;font:600 14px var(--f-body);padding:8px 14px;border-radius:999px;border:1px solid var(--line);background:var(--surface);color:var(--fg);cursor:pointer}
+.chip[aria-pressed="true"]{background:var(--dark);color:var(--dark-fg);border-color:var(--dark)}
+.habit{display:grid;grid-template-columns:48px 1fr;gap:14px;padding:16px;align-items:start}
+.habit .ico{width:48px;height:48px;border-radius:14px;display:grid;place-items:center}
+.habit .ico svg{width:26px;height:26px}
+.habit .txt{display:flex;flex-direction:column;gap:6px;min-width:0}
+.habit .how{font-size:15px;color:var(--muted)}
+.habit .how b{color:var(--fg)}
+
+/* nieuws */
+.lane{display:flex;align-items:center;gap:10px}
+.dot{width:10px;height:10px;border-radius:3px;flex:none}
+.news{background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:4px 18px}
+.item{padding:12px 0;border-top:1px solid var(--line);display:flex;flex-direction:column;gap:2px}
+.item:first-child{border-top:0}
+.item h4{font:600 16px/1.3 var(--f-body);margin:0}
+.item p{margin:0;color:var(--muted);font-size:15px}
+.item a{font-size:12px;font-weight:700;color:var(--muted);text-decoration:none;margin-top:2px;align-self:flex-start}
+.updated{font-size:12px;color:var(--muted)}
+
+/* tabbalk */
+.tabbar{position:fixed;left:0;right:0;bottom:0;z-index:20;background:color-mix(in srgb,var(--surface) 92%,transparent);
+  -webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);border-top:1px solid var(--line);
+  padding:6px max(8px,env(safe-area-inset-right,0px)) calc(6px + env(safe-area-inset-bottom,0px)) max(8px,env(safe-area-inset-left,0px))}
+.tabbar .row{max-width:620px;margin:0 auto;display:grid;grid-template-columns:repeat(6,1fr)}
+.tab{background:none;border:0;color:var(--muted);font:600 11px var(--f-body);display:flex;flex-direction:column;align-items:center;gap:3px;padding:6px 0;cursor:pointer;border-radius:12px}
+.tab svg{width:24px;height:24px}
+.tab[aria-selected="true"]{color:var(--accent)}
+
+/* filmpje */
+.video{position:relative;display:block;width:100%;aspect-ratio:16/9;max-width:100%;background:#000;border:0;padding:0;cursor:pointer;overflow:hidden}
+.video img{width:100%;height:100%;object-fit:cover;display:block;opacity:.85}
+.video .playbig{position:absolute;inset:0;display:grid;place-items:center}
+.video .playbig span{width:64px;height:64px;border-radius:50%;background:var(--accent);display:grid;place-items:center;box-shadow:0 4px 18px rgba(0,0,0,.35)}
+.video iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.vlabel{position:absolute;left:10px;bottom:10px;font:700 12px var(--f-body);color:#fff;background:rgba(0,0,0,.55);padding:4px 10px;border-radius:999px}
+
+/* uitdaging */
+.challenge{background:var(--accent-soft);border-radius:20px;padding:18px 20px;display:flex;flex-direction:column;gap:8px}
+.challenge .eyebrow{color:var(--accent)}
+.challenge p{margin:0;font-family:var(--f-display);font-weight:600;font-size:20px;line-height:1.25;text-wrap:balance}
+
+/* nieuw-label, meer tonen */
+.pill.new{background:var(--c-voe);color:#fff}
+.more{align-self:center;font:700 14px var(--f-body);background:none;border:1.5px solid var(--line);color:var(--fg);border-radius:999px;padding:10px 18px;cursor:pointer}
+.more:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.sub{font-family:var(--f-display);font-weight:800;font-size:22px;margin:8px 0 0}
+.btn.add{background:transparent;color:var(--fg);box-shadow:inset 0 0 0 1.5px var(--line)}
+.habit .actions{margin-top:2px}
+
+/* voetbal IQ quiz */
+.quiz .opts{display:flex;flex-direction:column;gap:8px}
+.quiz .opts button{text-align:left;font:600 15px var(--f-body);padding:12px 14px;border-radius:14px;border:1.5px solid var(--line);background:var(--bg);color:var(--fg);cursor:pointer}
+.quiz .opts button.right{border-color:var(--c-voe);background:color-mix(in srgb,var(--c-voe) 14%,var(--surface))}
+.quiz .opts button.wrong{border-color:var(--foe);background:color-mix(in srgb,var(--foe) 12%,var(--surface))}
+.quiz .opts button:disabled{cursor:default}
+.quiz .why{font-size:15px;color:var(--muted)}
+.quiz .why b{color:var(--fg)}
+.legend{display:flex;flex-wrap:wrap;gap:12px;font-size:13px;color:var(--muted)}
+.legend span{display:inline-flex;align-items:center;gap:6px}
+.legend i{width:12px;height:12px;border-radius:50%;display:inline-block}
+
+/* gesegmenteerde keuze */
+.seg{display:grid;grid-template-columns:1fr 1fr;background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:4px}
+.seg button{font:700 15px var(--f-body);border:0;background:none;color:var(--muted);padding:9px;border-radius:999px;cursor:pointer}
+.seg button[aria-pressed="true"]{background:var(--dark);color:var(--dark-fg)}
+.seg button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+
+/* plaatjes */
+.posterrow{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:4px;align-items:center}
+.posterrow .more{flex:none}
+.poster{border-radius:18px;overflow:hidden;position:relative;color:#fff;flex:none;width:min(230px,62vw);scroll-snap-align:start}
+.poster svg{display:block;width:100%;height:auto}
+.poster .ptxt{position:absolute;left:14px;right:14px;bottom:12px;display:flex;flex-direction:column;gap:1px}
+.poster .ptxt b{font-family:var(--f-display);font-weight:800;font-size:22px;line-height:1.05;text-wrap:balance}
+.poster .ptxt span{font-weight:600;font-size:12px;opacity:.92;line-height:1.3}
+.vcard .body{gap:6px}
+.note{font-size:14px;color:var(--muted);margin:0}
+
+/* planner */
+.week{display:flex;flex-direction:column;gap:12px}
+.pday{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:14px 16px;display:flex;flex-direction:column;gap:8px}
+.pday.today{border-color:var(--accent);box-shadow:0 0 0 1px var(--accent)}
+.pday header{display:flex;align-items:baseline;justify-content:space-between;gap:8px}
+.pday h3{font-size:19px}
+.pday .date{font-size:13px;color:var(--muted)}
+.pday .empty{font-size:14px;color:var(--muted)}
+.pitem{display:grid;grid-template-columns:28px 1fr 32px;gap:10px;align-items:center;padding:6px 0;border-top:1px solid var(--line)}
+.pitem:first-of-type{border-top:0}
+.pitem input{width:22px;height:22px;accent-color:var(--c-voe);margin:0}
+.pitem .t{min-width:0}
+.pitem .t b{display:block;font-weight:600;font-size:15px;line-height:1.3}
+.pitem .t span{font-size:12px;color:var(--muted)}
+.pitem.done .t b{text-decoration:line-through;color:var(--muted)}
+.pitem .x{width:32px;height:32px;border:0;background:none;color:var(--muted);font-size:20px;border-radius:50%;cursor:pointer}
+.addform{display:flex;flex-wrap:wrap;gap:8px}
+.dayadd{display:flex;gap:8px;margin-top:2px}
+.dayadd input{flex:1;min-width:0;font:500 15px var(--f-body);padding:9px 12px;border-radius:12px;border:1px solid var(--line);background:var(--bg);color:var(--fg)}
+.dayadd button{font:700 14px var(--f-body);border:0;border-radius:12px;padding:0 14px;background:var(--dark);color:var(--dark-fg);cursor:pointer}
+.daynote{font:500 15px var(--f-body);width:100%;min-height:44px;resize:vertical;padding:9px 12px;border-radius:12px;border:1px dashed var(--line);background:transparent;color:var(--fg)}
+.dayadd input:focus-visible,.daynote:focus-visible{outline:2px solid var(--accent);outline-offset:1px}
+.addform input,.addform select{font:500 16px var(--f-body);padding:11px 14px;border-radius:14px;border:1px solid var(--line);background:var(--surface);color:var(--fg);min-width:0}
+.addform input{flex:1 1 180px}
+.progress{height:10px;background:var(--line);border-radius:999px;overflow:hidden}
+.progress i{display:block;height:100%;background:var(--c-voe);border-radius:999px;width:0}
+
+/* dag kiezen */
+.sheet-bg{position:fixed;inset:0;background:rgba(0,0,0,.4);z-index:40}
+.sheet{position:fixed;left:0;right:0;bottom:0;z-index:41;background:var(--surface);border-radius:22px 22px 0 0;
+  padding:20px max(16px,env(safe-area-inset-right,0px)) calc(20px + env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px));
+  display:flex;flex-direction:column;gap:14px;max-width:620px;margin:0 auto}
+.days{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+.days button{font:700 15px var(--f-body);padding:12px 4px;border-radius:14px;border:1px solid var(--line);background:var(--bg);color:var(--fg);cursor:pointer}
+.days button.today{border-color:var(--accent);color:var(--accent)}
+.toast{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(84px + env(safe-area-inset-bottom,0px));z-index:50;background:var(--dark);color:var(--dark-fg);font-weight:600;padding:10px 18px;border-radius:999px;font-size:14px;max-width:calc(100% - 32px)}
+
+@media (prefers-reduced-motion: no-preference){
+  .pose-a{animation:pa 2.4s ease-in-out infinite}
+  .pose-b{animation:pb 2.4s ease-in-out infinite}
+  @keyframes pa{0%,40%{opacity:1}50%,90%{opacity:0}100%{opacity:1}}
+  @keyframes pb{0%,40%{opacity:0}50%,90%{opacity:1}100%{opacity:0}}
+}
+@media (prefers-reduced-motion: reduce){.pose-b{display:none}}
+</style>
+</head>
+<body>
+<main class="page">
+
+  <section class="view" id="v-start">
+    <header>
+      <div class="eyebrow" id="today">Vandaag</div>
+      <h1 id="hello">Klaar voor <em>vandaag?</em></h1>
+    </header>
+    <div class="quote" id="q-today"><div class="eyebrow">Motivatie van de dag</div><p></p></div>
+    <div class="challenge" id="challenge"><div class="eyebrow">Uitdaging van vandaag</div><p></p></div>
+    <div id="habit-today"></div>
+    <div id="drill-today"></div>
+    <h2>Het nieuws</h2>
+    <div id="news"><p class="intro">Nieuws wordt geladen…</p></div>
+    <div class="updated" id="updated"></div>
+  </section>
+
+  <section class="view" id="v-voetbal" hidden>
+    <header>
+      <div class="eyebrow">Voetbal</div>
+      <h1 id="vb-title">Oefeningen met <em>de bal</em></h1>
+      <p class="intro">Alleen, tegen een muur of met een maatje. Tik op de knop voor een voorbeeldfilmpje.</p>
+    </header>
+    <div class="seg" role="group" aria-label="Kies"><button type="button" id="seg-drills" aria-pressed="true">Oefeningen</button><button type="button" id="seg-iq" aria-pressed="false">Voetbal IQ</button></div>
+    <div id="drills" class="view"></div>
+    <div id="iq" class="view" hidden>
+      <p class="intro">Slimmer spelen begint in je hoofd. Elke dag nieuwe lessen en situaties om jezelf te testen.</p>
+      <div class="legend"><span><i style="background:var(--me)"></i>Jij</span><span><i style="background:#60A5FA"></i>Teamgenoot</span><span><i style="background:var(--foe)"></i>Tegenstander</span><span><i style="background:var(--run)"></i>Looplijn</span><span><i style="background:#fff;border:1px solid var(--line)"></i>Bal</span></div>
+      <h2 class="sub">Wat doe jij?</h2>
+      <div id="iq-quiz" class="view" style="gap:12px"></div>
+      <h2 class="sub">Lessen van vandaag</h2>
+      <div id="iq-lessons" class="view"></div>
+    </div>
+  </section>
+
+  <section class="view" id="v-thuis" hidden>
+    <header>
+      <div class="eyebrow">Thuis trainen</div>
+      <h1>Sterk worden <em>zonder sportschool</em></h1>
+      <p class="intro">Geen spullen nodig. Kies er 4 en doe ze achter elkaar, dan heb je een complete training. Na het trainen: herstel.</p>
+    </header>
+    <div class="seg" role="group" aria-label="Kies"><button type="button" id="seg-train" aria-pressed="true">Training</button><button type="button" id="seg-rest" aria-pressed="false">Herstel</button></div>
+    <div id="exercises" class="view"></div>
+    <div id="recovery" class="view" hidden></div>
+  </section>
+
+  <section class="view" id="v-gezond" hidden>
+    <header>
+      <div class="eyebrow">Gezond leven</div>
+      <h1>Kleine habits, <em>groot verschil</em></h1>
+      <p class="intro">Kleine habits voor vandaag en grote habits voor een hele week. Zet ze in je planner.</p>
+    </header>
+    <div class="chips" id="chips"></div>
+    <div id="habits" class="view" style="gap:12px"></div>
+  </section>
+
+  <section class="view" id="v-planner" hidden>
+    <header>
+      <div class="eyebrow" id="weeklabel">Deze week</div>
+      <h1>Mijn <em>weekplanner</em></h1>
+      <p class="intro">Tik bij een oefening of habit op <b>+ Planner</b>, of typ zelf iets bij een dag. Je kunt per dag ook een notitie schrijven.</p>
+    </header>
+    <div class="progress" aria-hidden="true"><i id="prog"></i></div>
+    <div class="updated" id="progtxt"></div>
+    <form class="addform" id="addform">
+      <input id="addtext" type="text" placeholder="Bijvoorbeeld: training om 18:00" maxlength="80" aria-label="Wat wil je plannen?">
+      <select id="addday" aria-label="Dag"></select>
+      <button class="btn play" type="submit">Zet erin</button>
+    </form>
+    <div class="week" id="week"></div>
+  </section>
+
+  <section class="view" id="v-mindset" hidden>
+    <header>
+      <div class="eyebrow">Mindset</div>
+      <h1>Hoofd <em>sterk</em></h1>
+      <p class="intro">Scroll door voor een zetje als je even geen zin hebt.</p>
+    </header>
+    <div id="posters" class="posterrow"></div>
+    <h2 class="sub">Filmpjes</h2>
+    <div id="mvideos" class="view" style="gap:12px"></div>
+    <h2 class="sub">Woorden om te onthouden</h2>
+    <div id="quotes" class="view" style="gap:12px"></div>
+  </section>
+</main>
+
+<nav class="tabbar" aria-label="Menu">
+  <div class="row" role="tablist">
+    <button class="tab" role="tab" data-v="start" aria-selected="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>Start</button>
+    <button class="tab" role="tab" data-v="voetbal" aria-selected="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7l4 3-1.5 4.5h-5L8 10z"/><path d="M12 7V3M16 10l4-1M14.5 14.5l2.5 3.5M9.5 14.5L7 18M8 10L4 9"/></svg>Voetbal</button>
+    <button class="tab" role="tab" data-v="thuis" aria-selected="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 7v10M18 7v10M3 10v4M21 10v4M6 12h12"/></svg>Thuis</button>
+    <button class="tab" role="tab" data-v="gezond" aria-selected="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M12 20s-7-4.5-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.5-7 10-7 10z"/></svg>Gezond</button>
+    <button class="tab" role="tab" data-v="mindset" aria-selected="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M13 2L4 14h7l-1 8 9-12h-7z"/></svg>Mindset</button>
+    <button class="tab" role="tab" data-v="planner" aria-selected="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"><rect x="3.5" y="5" width="17" height="15" rx="2.5"/><path d="M3.5 10h17M8 3v4M16 3v4M8 14l2 2 4-4"/></svg>Planner</button>
+  </div>
+</nav>
+
+<script src="tips.js"></script>
+<script src="data.js"></script>
+<script>
+const $ = s => document.querySelector(s);
+const el = (tag, cls, text) => { const e = document.createElement(tag); if (cls) e.className = cls; if (text != null) e.textContent = text; return e; };
+const NS = "http://www.w3.org/2000/svg";
+const svgEl = (tag, attrs) => { const e = document.createElementNS(NS, tag); for (const k in attrs) e.setAttribute(k, attrs[k]); return e; };
+const yt = q => "https://www.youtube.com/results?search_query=" + encodeURIComponent(q);
+// In Claude (tijdens het ontwikkelen) mag de pagina geen filmpjes insluiten; dan tonen we een link.
+const IN_CLAUDE = typeof window.claude !== "undefined";
+const store = (k, v) => { try { if (v === undefined) return JSON.parse(localStorage.getItem(k) || "null"); localStorage.setItem(k, JSON.stringify(v)); } catch (e) { return null; } };
+
+const now = new Date();
+const dayNr = Math.floor((now - new Date(now.getFullYear(), 0, 0)) / 864e5);
+const pick = (arr, salt = 0) => arr[(dayNr + salt) % arr.length];
+const isoOf = d => d.getFullYear() + "-" + String(d.getMonth()+1).padStart(2,"0") + "-" + String(d.getDate()).padStart(2,"0");
+const TODAY = isoOf(now);
+
+// ---------- dagelijkse wissel ----------
+// Elke lijst toont een selectie die uit twee helften bestaat. Elke helft blijft 2 dagen staan,
+// en ze wisselen om de beurt: zo is elke dag de helft nieuw en de andere helft van gisteren.
+// De nieuwe helft loopt de lijst op volgorde door, dus eerst komt alles een keer langs
+// (de eerste weken is elke wissel echt nieuw). Daarna komen dingen gewoon terug.
+const DAY = Math.floor(Date.UTC(now.getFullYear(), now.getMonth(), now.getDate()) / 864e5);
+const START = (() => { const s = store("dagstart-start"); if (typeof s === "number" && s <= DAY) return s; store("dagstart-start", DAY); return DAY; })();
+const REL = DAY - START;                              // dagen sinds de eerste keer openen op deze telefoon
+function rng(seed) { let x = (seed >>> 0) || 1; return () => (x = (Math.imul(x, 1664525) + 1013904223) >>> 0) / 4294967296; }
+function shuffle(arr, seed) { const a = [...arr], r = rng(seed); for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(r() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; }
+function rotate(pool, size, salt) {
+  const base = shuffle(pool, 9973 * salt + 7);       // vaste volgorde per lijst
+  const halves = [base.filter((_, i) => i % 2 === 0), base.filter((_, i) => i % 2 === 1)];
+  const take = [Math.ceil(size / 2), Math.floor(size / 2)];
+  const out = [[], []];
+  [0, 1].forEach(g => {
+    const list = halves[g], k = Math.min(take[g], list.length);
+    if (!k) return;
+    const period = Math.floor((REL + g) / 2);
+    const fresh = (REL + g) % 2 === 0;               // deze helft is vandaag gewisseld
+    for (let n = 0; n < k; n++) out[g].push({item: list[(period * k + n) % list.length], fresh});
+  });
+  const mixed = [];
+  for (let i = 0; i < Math.max(out[0].length, out[1].length); i++) { if (out[0][i]) mixed.push(out[0][i]); if (out[1][i]) mixed.push(out[1][i]); }
+  return mixed;
+}
+// Toon de selectie van vandaag, met een knop om alles te zien.
+function rotatedList(box, pool, size, salt, make, label) {
+  box.textContent = "";
+  rotate(pool, size, salt).forEach(({item, fresh}) => box.append(make(item, fresh)));
+  if (pool.length > size) {
+    const m = el("button", "more", "Toon alle " + pool.length + " " + label); m.type = "button";
+    m.onclick = () => { box.textContent = ""; pool.forEach(it => box.append(make(it, false))); };
+    box.append(m);
+  }
+}
+const newPill = fresh => fresh ? [el("span", "pill new", "Nieuw vandaag")] : [];
+
+// ---------- tekeningen ----------
+function drillFig(f) {
+  const s = svgEl("svg", {viewBox:"0 0 160 100", class:"fig", role:"img", "aria-label":"Tekening van de oefening"});
+  const defs = svgEl("defs", {});
+  [["ab","#fff"],["ar","var(--run)"]].forEach(([id,c]) => {
+    const m = svgEl("marker", {id, viewBox:"0 0 10 10", refX:"8", refY:"5", markerWidth:"5", markerHeight:"5", orient:"auto-start-reverse"});
+    m.append(svgEl("path", {d:"M0 0L10 5L0 10z", fill:c})); defs.append(m);
+  });
+  s.append(defs);
+  s.append(svgEl("rect", {x:0,y:0,width:160,height:100,fill:"var(--pitch)"}));
+  for (let i = 0; i < 8; i++) if (i % 2) s.append(svgEl("rect", {x:i*20,y:0,width:20,height:100,fill:"rgba(255,255,255,.05)"}));
+  if (f.wall) { s.append(svgEl("rect", {x:146,y:8,width:10,height:84,fill:"#B9AE9C"})); for (let y = 8; y < 92; y += 8) s.append(svgEl("line", {x1:146,y1:y,x2:156,y2:y,stroke:"#8F8573","stroke-width":".8"})); }
+  if (f.goal) { s.append(svgEl("path", {d:"M146 14V86", stroke:"#fff","stroke-width":"3",fill:"none"})); s.append(svgEl("path", {d:"M146 14h10M146 86h10", stroke:"#fff","stroke-width":"2"}));
+    s.append(svgEl("circle", {cx:146,cy:24,r:5,fill:"none",stroke:"var(--run)","stroke-width":"1.5","stroke-dasharray":"2 2"})); s.append(svgEl("circle", {cx:146,cy:76,r:5,fill:"none",stroke:"var(--run)","stroke-width":"1.5","stroke-dasharray":"2 2"})); }
+  if (f.ladder) { s.append(svgEl("rect", {x:36,y:38,width:104,height:24,fill:"none",stroke:"#fff","stroke-width":"1.5"})); for (let x = 49; x < 140; x += 13) s.append(svgEl("line", {x1:x,y1:38,x2:x,y2:62,stroke:"#fff","stroke-width":"1.5"})); }
+  (f.paths || []).forEach(p => s.append(svgEl("path", {d:p.d, fill:"none", stroke:p.t==="ball"?"#fff":"var(--run)", "stroke-width":p.t==="ball"?"1.6":"2.2", "stroke-dasharray":p.t==="ball"?"4 3":"none", "marker-end":p.t==="ball"?"url(#ab)":"url(#ar)", "stroke-linecap":"round"})));
+  (f.cones || []).forEach(([x,y]) => s.append(svgEl("path", {d:`M${x} ${y-6}L${x+5} ${y+4}H${x-5}z`, fill:"var(--cone)", stroke:"#fff","stroke-width":".8"})));
+  const player = (pt, c, label) => { s.append(svgEl("circle", {cx:pt[0], cy:pt[1], r:7, fill:c, stroke:"#fff","stroke-width":"1.5"})); const t = svgEl("text", {x:pt[0], y:pt[1]+3.5, "text-anchor":"middle", "font-size":"9", "font-weight":"700", fill:"#fff", "font-family":"Figtree,system-ui"}); t.textContent = label; s.append(t); };
+  if (f.goalLeft) { s.append(svgEl("path", {d:"M14 14V86", stroke:"#fff","stroke-width":"3",fill:"none"})); s.append(svgEl("path", {d:"M14 14h-10M14 86h-10", stroke:"#fff","stroke-width":"2"})); }
+  if (f.zones) [33, 66].forEach(y => s.append(svgEl("line", {x1:20, y1:y, x2:110, y2:y, stroke:"#fff", "stroke-width":"1", "stroke-dasharray":"2 4", opacity:".7"})));
+  if (f.line) s.append(svgEl("line", {x1:f.line, y1:4, x2:f.line, y2:96, stroke:"#fff", "stroke-width":"1.2", "stroke-dasharray":"3 3", opacity:".8"}));
+  if (f.look && f.me) { const [x,y] = f.me; s.append(svgEl("path", {d:`M${x-11} ${y-13} A16 16 0 0 0 ${x-11} ${y+13}`, stroke:"var(--run)", "stroke-width":"2", fill:"none", "stroke-dasharray":"3 3"})); s.append(svgEl("path", {d:`M${x+11} ${y-13} A16 16 0 0 1 ${x+11} ${y+13}`, stroke:"var(--run)", "stroke-width":"2", fill:"none", "stroke-dasharray":"3 3"})); }
+  (f.mates || []).forEach(pt => player(pt, "#60A5FA", "T"));
+  (f.foes || []).forEach(pt => player(pt, "var(--foe)", "M"));
+  if (f.talk && f.me) { const [x,y] = f.me; s.append(svgEl("rect", {x:x-18, y:y-30, width:36, height:15, rx:7, fill:"#fff"})); const t = svgEl("text", {x, y:y-19.5, "text-anchor":"middle", "font-size":"9", "font-weight":"700", fill:"#15201A", "font-family":"Figtree,system-ui"}); t.textContent = "Man!"; s.append(t); }
+  if (f.foe) player(f.foe, "var(--foe)", "M");
+  if (f.me) player(f.me, "var(--me)", "J");
+  if (f.ball) { s.append(svgEl("circle", {cx:f.ball[0], cy:f.ball[1], r:3.6, fill:"#fff", stroke:"#15201A","stroke-width":"1"})); s.append(svgEl("circle", {cx:f.ball[0], cy:f.ball[1], r:1.2, fill:"#15201A"})); }
+  return s;
+}
+
+function figure(pose, cls) {
+  const g = svgEl("g", {class:cls, "stroke-linecap":"round", "stroke-linejoin":"round", fill:"none"});
+  const line = (pts, c, w) => g.append(svgEl("polyline", {points:pts.map(p => p.join(",")).join(" "), stroke:c, "stroke-width":w}));
+  line([pose.p, pose.k2, pose.f2], "var(--fig-back)", 5);
+  line([pose.s, pose.e2, pose.w2], "var(--fig-back)", 4.5);
+  line([pose.s, pose.p], "var(--fig)", 6);
+  line([pose.p, pose.k1, pose.f1], "var(--fig)", 5);
+  line([pose.s, pose.e1, pose.w1], "var(--fig)", 4.5);
+  g.append(svgEl("circle", {cx:pose.h[0], cy:pose.h[1], r:6.5, fill:"var(--accent)"}));
+  return g;
+}
+function exerciseFig(ex) {
+  const s = svgEl("svg", {viewBox:"-10 -12 140 108", class:"fig", role:"img", "aria-label":"Poppetje dat de oefening voordoet"});
+  s.append(svgEl("line", {x1:-10, y1:91, x2:130, y2:91, stroke:"var(--line)", "stroke-width":"2"}));
+  if (ex.wall) s.append(svgEl("rect", {x:30, y:0, width:6, height:91, fill:"var(--line)"}));
+  if (ex.wallX) s.append(svgEl("rect", {x:ex.wallX, y:20, width:6, height:71, fill:"var(--line)"}));
+  s.append(figure(ex.poses[0], "pose-a"));
+  s.append(figure(ex.poses[1], "pose-b"));
+  return s;
+}
+
+// ---------- habits ----------
+const THEMES = {
+  bewegen:{label:"Bewegen", color:"var(--c-fit)", path:"M13 2L4 14h7l-1 8 9-12h-7z"},
+  eten:{label:"Eten", color:"var(--c-voe)", path:"M12 8c-4-2-8 0-8 5 0 4 3 8 5 8 1.2 0 2-.6 3-.6s1.8.6 3 .6c2 0 5-4 5-8 0-5-4-7-8-5zM12 8c0-2 1-4 3-5"},
+  drinken:{label:"Drinken", color:"#2563EB", path:"M12 3c3 4.5 6 8 6 11.5a6 6 0 0 1-12 0C6 11 9 7.5 12 3z"},
+  slapen:{label:"Slapen", color:"#6D28D9", path:"M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z"},
+  hoofd:{label:"Hoofd", color:"var(--c-gez)", path:"M12 20s-7-4.5-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.5-7 10-7 10z"},
+  herstel:{label:"Herstel", color:"#0891B2", path:"M4 14c3 0 3-4 6-4s3 4 6 4 3-4 4-4M4 19c3 0 3-4 6-4s3 4 6 4 3-4 4-4"}
+};
+const THEME_FIX = {"Zwakke voet, sterke voet":"bewegen","Passen tegen de muur":"bewegen","Rechtop zitten":"bewegen","Eten zonder scherm":"eten","Lees iets over je favoriete speler":"hoofd","Wedstrijd terugkijken in je hoofd":"hoofd","Een rustdag per week":"herstel","Na elke training rekken":"herstel","Elke ochtend 10 minuten mobiliteit":"bewegen","Elke zondag je week plannen":"hoofd","Een week op vaste tijd naar bed":"slapen"};
+function themeOf(t) {
+  if (t.theme) return t.theme;
+  if (THEME_FIX[t.title]) return THEME_FIX[t.title];
+  const s = (t.title + " " + t.text).toLowerCase();
+  if (/\b(?:water|drink|bidon|frisdrank|cola|plas|hydrat)/.test(s)) return "drinken";
+  if (/\b(?:slaap|bed|slapen|scherm|licht|ogen)/.test(s)) return "slapen";
+  if (/\b(?:eet|eten|groente|fruit|ontbijt|lunch|noten|brood|zout|bord|eiwit|snoep|snack|tanden)/.test(s)) return "eten";
+  if (/\b(?:adem|compliment|dankbaar|lach|doel|verlies|mediteer|rust|teamgenoot|juich|leer|coach|speler)/.test(s)) return "hoofd";
+  return "bewegen";
+}
+const SMALL = TIPS.map(t => ({...t, size:"klein", theme: themeOf(t)}));
+const BIG = BIG_HABITS.map(t => ({...t, theme: themeOf(t)}));
+const HABITS = [...SMALL, ...BIG, ...RECOVERY_TIPS.map(t => ({...t, size:"klein"}))];
+
+function icon(theme) {
+  const th = THEMES[theme] || THEMES.bewegen;
+  const box = el("div", "ico"); box.style.background = `color-mix(in srgb, ${th.color} 14%, transparent)`;
+  const s = svgEl("svg", {viewBox:"0 0 24 24", fill:"none", stroke:th.color, "stroke-width":"2", "stroke-linejoin":"round", "stroke-linecap":"round"});
+  s.append(svgEl("path", {d:th.path})); box.append(s); return box;
+}
+function habitCard(h, fresh) {
+  const c = el("article", "card habit");
+  c.append(icon(h.theme));
+  const t = el("div", "txt");
+  const meta = el("div", "meta");
+  meta.append(...newPill(fresh));
+  if (h.size === "groot") meta.append(el("span", "pill hot", "Grote habit"));
+  meta.append(el("span", "pill", (THEMES[h.theme] || THEMES.bewegen).label));
+  t.append(meta, el("h3", null, h.title), el("p", null, h.text));
+  const how = el("p", "how"); how.append(el("b", null, "Zo doe je het: "), h.how); t.append(how);
+  const act = el("div", "actions"); act.append(planBtn({kind: h.size === "groot" ? "Grote habit" : (h.theme === "herstel" ? "Herstel" : "Habit"), title: h.title, meta: h.how}));
+  t.append(act);
+  c.append(t); return c;
+}
+
+// ---------- kaarten ----------
+function tryBtn(key) {
+  const done = new Set(store("dagstart-tried") || []);
+  const b = el("button", "btn ghost"); b.type = "button";
+  const set = on => { b.setAttribute("aria-pressed", on); b.textContent = on ? "✓ Geprobeerd" : "Geprobeerd"; };
+  set(done.has(key));
+  b.onclick = () => { const d = new Set(store("dagstart-tried") || []); d.has(key) ? d.delete(key) : d.add(key); store("dagstart-tried", [...d]); set(d.has(key)); };
+  return b;
+}
+function playBtn(item) {
+  const a = el("a", "btn play"); a.target = "_blank"; a.rel = "noopener";
+  a.href = item.video ? "https://www.youtube.com/watch?v=" + item.video : yt(item.yt);
+  a.innerHTML = '<svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M7 4v16l13-8z"/></svg>';
+  a.append(item.video ? "Open op YouTube" : "Zoek filmpjes"); return a;
+}
+function videoBlock(item) {
+  if (!item.video || IN_CLAUDE) return null;
+  const b = el("button", "video"); b.type = "button"; b.setAttribute("aria-label", "Speel filmpje: " + item.title);
+  const img = document.createElement("img"); img.loading = "lazy"; img.alt = ""; img.src = "https://i.ytimg.com/vi/" + item.video + "/hqdefault.jpg"; img.onerror = () => img.remove();
+  const pb = el("div", "playbig"); pb.innerHTML = '<span><svg width="26" height="26" viewBox="0 0 24 24" fill="#fff"><path d="M7 4v16l13-8z"/></svg></span>';
+  b.append(img, pb, el("span", "vlabel", "Filmpje"));
+  b.onclick = () => {
+    const f = document.createElement("iframe");
+    f.src = "https://www.youtube-nocookie.com/embed/" + item.video + "?autoplay=1&rel=0&playsinline=1" + (item.maxSec ? "&end=" + item.maxSec : "");
+    f.allow = "autoplay; encrypted-media; picture-in-picture; fullscreen"; f.allowFullscreen = true; f.title = item.title;
+    b.replaceChildren(f); b.onclick = null; b.style.cursor = "default";
+  };
+  return b;
+}
+
+function drillCard(d, fresh) {
+  const c = el("article", "card");
+  const w = el("div", "figwrap"); w.append(drillFig(d.fig)); c.append(w);
+  const b = el("div", "body");
+  const meta = el("div", "meta"); meta.append(...newPill(fresh), el("span", "pill hot", d.level), el("span", "pill", d.time));
+  const ol = el("ol", "steps"); d.steps.forEach(s => ol.append(el("li", null, s)));
+  const vb = videoBlock(d); if (vb) c.append(vb);
+  const act = el("div", "actions"); act.append(playBtn(d), planBtn({kind:"Voetbal", title:d.title, meta:d.time}), tryBtn("d:" + d.title));
+  b.append(meta, el("h3", null, d.title), el("p", null, d.text), ol, act);
+  c.append(b); return c;
+}
+function exerciseCard(x, fresh, kind = "Thuis") {
+  const c = el("article", "card");
+  const w = el("div", "figwrap home"); w.append(exerciseFig(x)); c.append(w);
+  const b = el("div", "body");
+  const meta = el("div", "meta"); meta.append(...newPill(fresh), el("span", "pill hot", x.reps), el("span", "pill", x.target));
+  const vb = videoBlock(x); if (vb) c.append(vb);
+  const act = el("div", "actions"); act.append(playBtn(x), planBtn({kind, title:x.title, meta:x.reps}), tryBtn("x:" + x.title));
+  b.append(meta, el("h3", null, x.title), el("p", null, x.text), act);
+  c.append(b); return c;
+}
+
+// ---------- start ----------
+function renderStart() {
+  const d = now.toLocaleDateString("nl-NL", {weekday:"long", day:"numeric", month:"long"});
+  $("#today").textContent = d;
+  const hr = now.getHours();
+  $("#hello").innerHTML = (hr < 12 ? "Goedemorgen" : hr < 18 ? "Goedemiddag" : "Goedenavond") + ", <em>kampioen</em>";
+  $("#q-today p").textContent = pick(MOTIVATION);
+  $("#challenge p").textContent = pick(CHALLENGES, 11);
+  const ht = el("div"); ht.append(el("div", "eyebrow", "Habit van vandaag")); ht.style.cssText = "display:flex;flex-direction:column;gap:8px";
+  ht.append(habitCard(pick(SMALL, 7))); $("#habit-today").append(ht);
+  const dt = el("div"); dt.append(el("div", "eyebrow", "Oefening van vandaag")); dt.style.cssText = "display:flex;flex-direction:column;gap:8px";
+  dt.append(drillCard(pick(DRILLS, 3))); $("#drill-today").append(dt);
+  loadNews();
+}
+
+const CATS = {voetbal:{label:"Voetbal", color:"var(--c-voe)"}, fitness:{label:"Sport en fitness", color:"var(--c-fit)"}, gezondheid:{label:"Gezondheid", color:"var(--c-gez)"}};
+async function loadNews() {
+  const box = $("#news");
+  try {
+    const r = await fetch("news.json?t=" + Date.now(), {cache:"no-store"});
+    const data = await r.json();
+    box.textContent = "";
+    box.style.cssText = "display:flex;flex-direction:column;gap:14px";
+    let any = false;
+    for (const key of Object.keys(CATS)) {
+      const items = (data.items || []).filter(i => i.cat === key);
+      if (!items.length) continue; any = true;
+      const lane = el("div", "lane"); const dot = el("span", "dot"); dot.style.background = CATS[key].color;
+      lane.append(dot, el("h3", null, CATS[key].label));
+      const list = el("div", "news");
+      items.forEach(it => { const a = el("div", "item"); a.append(el("h4", null, it.title)); if (it.text) a.append(el("p", null, it.text));
+        if (it.url) { const l = el("a", null, (it.source || "Bron") + " ↗"); l.href = it.url; l.target = "_blank"; l.rel = "noopener"; a.append(l); } list.append(a); });
+      box.append(lane, list);
+    }
+    if (!any) box.append(el("p", "intro", "Vandaag nog geen nieuws gevonden. Kijk later nog eens."));
+    if (data.updated) { const u = new Date(data.updated); $("#updated").textContent = "Nieuws bijgewerkt: " + u.toLocaleString("nl-NL", {weekday:"short", day:"numeric", month:"short", hour:"2-digit", minute:"2-digit"}); }
+  } catch (e) {
+    box.textContent = ""; box.append(el("p", "intro", "Het nieuws kon niet geladen worden. Heb je internet?"));
+  }
+}
+
+// ---------- planner ----------
+// Een vaste weekplanning (per weekdag) die op de telefoon zelf wordt bewaard.
+const DAYS = ["Maandag","Dinsdag","Woensdag","Donderdag","Vrijdag","Zaterdag","Zondag"];
+const todayIdx = (now.getDay() + 6) % 7;            // 0 = maandag
+const monday = new Date(now.getFullYear(), now.getMonth(), now.getDate() - todayIdx);
+const dateOf = i => new Date(monday.getFullYear(), monday.getMonth(), monday.getDate() + i);
+const getPlan = () => { const p = store("dagstart-plan"); return Array.isArray(p) && p.length === 7 ? p : [[],[],[],[],[],[],[]]; };
+const getDone = () => store("dagstart-plandone") || {};
+function addToPlan(day, entry) {
+  const p = getPlan();
+  p[day].push({id: Date.now().toString(36) + Math.random().toString(36).slice(2, 6), kind: entry.kind, title: entry.title, meta: entry.meta || ""});
+  store("dagstart-plan", p); renderPlanner();
+}
+function toast(text) {
+  const t = el("div", "toast", text); t.setAttribute("role", "status"); document.body.append(t);
+  setTimeout(() => t.remove(), 2200);
+}
+function chooseDay(entry) {
+  const bg = el("div", "sheet-bg"); const sh = el("div", "sheet"); sh.setAttribute("role", "dialog"); sh.setAttribute("aria-label", "Kies een dag");
+  const close = () => { bg.remove(); sh.remove(); };
+  bg.onclick = close;
+  const grid = el("div", "days");
+  DAYS.forEach((d, i) => { const b = el("button", i === todayIdx ? "today" : "", d.slice(0, 2)); b.type = "button"; b.setAttribute("aria-label", d);
+    b.onclick = () => { addToPlan(i, entry); close(); toast("Gepland op " + d.toLowerCase()); }; grid.append(b); });
+  const cancel = el("button", "btn ghost", "Annuleren"); cancel.type = "button"; cancel.onclick = close;
+  sh.append(el("div", "eyebrow", "Zet in je planner"), el("h3", null, entry.title), grid, cancel);
+  document.body.append(bg, sh); grid.querySelector("button").focus();
+}
+function planBtn(entry) {
+  const b = el("button", "btn add", "+ Planner"); b.type = "button"; b.onclick = () => chooseDay(entry); return b;
+}
+function renderPlanner() {
+  const p = getPlan(), done = getDone(), week = $("#week");
+  week.textContent = "";
+  let total = 0, ok = 0;
+  const end = dateOf(6);
+  $("#weeklabel").textContent = "Week van " + monday.toLocaleDateString("nl-NL", {day:"numeric", month:"short"}) + " t/m " + end.toLocaleDateString("nl-NL", {day:"numeric", month:"short"});
+  DAYS.forEach((d, i) => {
+    const iso = isoOf(dateOf(i));
+    const box = el("section", "pday" + (i === todayIdx ? " today" : ""));
+    const hd = el("header"); hd.append(el("h3", null, d + (i === todayIdx ? " · vandaag" : "")), el("span", "date", dateOf(i).toLocaleDateString("nl-NL", {day:"numeric", month:"short"})));
+    box.append(hd);
+    if (!p[i].length) box.append(el("p", "empty", "Nog niets gepland."));
+    p[i].forEach(it => {
+      const key = iso + "|" + it.id, isDone = !!done[key];
+      total++; if (isDone) ok++;
+      const row = el("div", "pitem" + (isDone ? " done" : ""));
+      const cb = document.createElement("input"); cb.type = "checkbox"; cb.checked = isDone; cb.id = "cb-" + it.id; cb.setAttribute("aria-label", it.title + " gedaan");
+      cb.onchange = () => { const dn = getDone(); cb.checked ? dn[key] = true : delete dn[key]; store("dagstart-plandone", dn); renderPlanner(); };
+      const t = el("label", "t"); t.htmlFor = cb.id; t.append(el("b", null, it.title), el("span", null, [it.kind, it.meta].filter(Boolean).join(" · ")));
+      const x = el("button", "x", "×"); x.type = "button"; x.setAttribute("aria-label", "Verwijder " + it.title);
+      x.onclick = () => { const pl = getPlan(); pl[i] = pl[i].filter(e => e.id !== it.id); store("dagstart-plan", pl); renderPlanner(); };
+      row.append(cb, t, x); box.append(row);
+    });
+    // zelf typen voor deze dag
+    const f = el("form", "dayadd");
+    const inp = document.createElement("input"); inp.type = "text"; inp.maxLength = 80; inp.id = "add-" + i; inp.placeholder = "Typ iets voor " + d.toLowerCase() + "…"; inp.setAttribute("aria-label", "Iets plannen op " + d.toLowerCase());
+    const ab = el("button", null, "+"); ab.type = "submit"; ab.setAttribute("aria-label", "Toevoegen");
+    f.append(inp, ab);
+    f.addEventListener("submit", e => { e.preventDefault(); const v = inp.value.trim(); if (!v) return; addToPlan(i, {kind:"Eigen", title:v}); setTimeout(() => { const n = document.getElementById("add-" + i); if (n) n.focus(); }, 0); });
+    // notitie voor deze dag
+    const notes = store("dagstart-notes") || {};
+    const ta = document.createElement("textarea"); ta.className = "daynote"; ta.id = "note-" + i; ta.rows = 1; ta.maxLength = 500;
+    ta.placeholder = "Notitie, bv. wedstrijd om 10:00"; ta.setAttribute("aria-label", "Notitie voor " + d.toLowerCase()); ta.value = notes[i] || "";
+    ta.addEventListener("input", () => { const n = store("dagstart-notes") || {}; n[i] = ta.value; store("dagstart-notes", n); });
+    box.append(f, ta);
+    week.append(box);
+  });
+  $("#prog").style.width = total ? Math.round(ok / total * 100) + "%" : "0";
+  $("#progtxt").textContent = total ? ok + " van " + total + " gedaan deze week" : "Je planner is nog leeg. Voeg je eerste oefening of habit toe.";
+}
+DAYS.forEach((d, i) => { const o = el("option", null, d); o.value = i; if (i === todayIdx) o.selected = true; $("#addday").append(o); });
+$("#addform").addEventListener("submit", e => {
+  e.preventDefault(); const v = $("#addtext").value.trim(); if (!v) return;
+  addToPlan(Number($("#addday").value), {kind:"Eigen", title:v}); $("#addtext").value = ""; toast("Gepland op " + DAYS[$("#addday").value].toLowerCase());
+});
+
+// ---------- voetbal IQ ----------
+function iqCard(l, fresh) {
+  const c = el("article", "card");
+  const w = el("div", "figwrap"); w.append(drillFig(l.fig)); c.append(w);
+  const b = el("div", "body");
+  const meta = el("div", "meta"); meta.append(...newPill(fresh), el("span", "pill hot", "Voetbal IQ"));
+  const how = el("p", "how"); how.style.cssText = "font-size:15px;color:var(--muted)"; how.append(el("b", null, "Zo oefen je het: "), l.how);
+  const act = el("div", "actions"); act.append(planBtn({kind:"Voetbal IQ", title:l.title, meta:l.how}), tryBtn("iq:" + l.title));
+  b.append(meta, el("h3", null, l.title), el("p", null, l.text), how, act); c.append(b);
+  return c;
+}
+function quizCard(q, fresh) {
+  const c = el("article", "card quiz"); const b = el("div", "body");
+  const meta = el("div", "meta"); meta.append(...newPill(fresh), el("span", "pill hot", "Wat doe jij?"));
+  const opts = el("div", "opts"); const why = el("p", "why"); why.hidden = true;
+  q.options.forEach((o, i) => {
+    const btn = el("button", null, o); btn.type = "button";
+    btn.onclick = () => {
+      opts.querySelectorAll("button").forEach((x, j) => { x.disabled = true; if (j === q.answer) x.classList.add("right"); });
+      if (i !== q.answer) btn.classList.add("wrong");
+      why.textContent = ""; why.append(el("b", null, i === q.answer ? "Goed! " : "Bijna. "), q.why); why.hidden = false;
+    };
+    opts.append(btn);
+  });
+  b.append(meta, el("h3", null, q.q), opts, why); c.append(b);
+  return c;
+}
+rotatedList($("#iq-quiz"), IQ_QUIZ, 3, 11, (q, f) => quizCard(q, f), "situaties");
+// Lessen: elke dag 2 lessen die je nog nooit hebt gehad. Elke 14 dagen komt er één oude les terug als herhaling.
+function renderIqLessons() {
+  const box = $("#iq-lessons"); box.textContent = "";
+  const base = shuffle(IQ_LESSONS, 9973 * 12 + 7), n = 2;
+  const at = i => base[i % base.length];
+  for (let i = 0; i < n; i++) box.append(iqCard(at(REL * n + i), true));
+  if (REL >= 14 && REL % 14 === 0) {               // herhaling: de eerste les van 14 dagen geleden
+    const c = iqCard(at((REL - 14) * n), false);
+    c.querySelector(".meta").prepend(el("span", "pill", "Herhaling"));
+    box.append(c);
+  }
+  const left = Math.max(0, Math.ceil((base.length - (REL + 1) * n) / n));
+  box.append(el("p", "note", left ? "Nog " + left + " dagen met lessen die je nog niet hebt gehad." : "Je hebt alle lessen gehad. Ze komen nu opnieuw langs."));
+  const m = el("button", "more", "Toon alle " + IQ_LESSONS.length + " lessen"); m.type = "button";
+  m.onclick = () => { box.textContent = ""; IQ_LESSONS.forEach(l => box.append(iqCard(l, false))); };
+  box.append(m);
+}
+renderIqLessons();
+$("#seg-drills").onclick = () => { $("#seg-drills").setAttribute("aria-pressed", true); $("#seg-iq").setAttribute("aria-pressed", false); $("#drills").hidden = false; $("#iq").hidden = true; $("#vb-title").innerHTML = "Oefeningen met <em>de bal</em>"; };
+$("#seg-iq").onclick = () => { $("#seg-drills").setAttribute("aria-pressed", false); $("#seg-iq").setAttribute("aria-pressed", true); $("#drills").hidden = true; $("#iq").hidden = false; $("#vb-title").innerHTML = "Slimmer <em>spelen</em>"; };
+
+// ---------- voetbal en thuis ----------
+rotatedList($("#drills"), DRILLS, 6, 1, (d, f) => drillCard(d, f), "oefeningen");
+rotatedList($("#exercises"), EXERCISES, 6, 2, (x, f) => exerciseCard(x, f, "Thuis"), "oefeningen");
+function renderRecovery() {
+  const box = $("#recovery");
+  rotatedList(box, RECOVERY, 6, 3, (x, f) => exerciseCard(x, f, "Herstel"), "rekoefeningen");
+  box.append(el("h2", "sub", "Herstel-tips"));
+  const tips = el("div", "view"); tips.style.gap = "12px"; box.append(tips);
+  rotatedList(tips, RECOVERY_TIPS, 4, 4, (h, f) => habitCard(h, f), "tips");
+}
+renderRecovery();
+function seg(which) {
+  $("#seg-train").setAttribute("aria-pressed", which === "train"); $("#seg-rest").setAttribute("aria-pressed", which === "rest");
+  $("#exercises").hidden = which !== "train"; $("#recovery").hidden = which !== "rest";
+}
+$("#seg-train").onclick = () => seg("train"); $("#seg-rest").onclick = () => seg("rest");
+
+// ---------- habits ----------
+let filter = "vandaag";
+function renderHabits() {
+  const box = $("#habits"); box.textContent = "";
+  if (filter === "vandaag") {
+    rotate(SMALL, 8, 5).forEach(({item, fresh}) => box.append(habitCard(item, fresh)));
+    box.append(el("h2", "sub", "Grote habits"));
+    rotate(BIG, 4, 6).forEach(({item, fresh}) => box.append(habitCard(item, fresh)));
+    return;
+  }
+  HABITS.filter(h => filter === "alles" || (filter === "groot" ? h.size === "groot" : h.theme === filter)).forEach(h => box.append(habitCard(h, false)));
+}
+[["vandaag","Vandaag"], ["groot","Grote habits"], ["alles","Alles"], ...Object.entries(THEMES).map(([k,v]) => [k, v.label])].forEach(([k, label]) => {
+  const c = el("button", "chip", label); c.type = "button"; c.setAttribute("aria-pressed", k === filter);
+  c.onclick = () => { filter = k; document.querySelectorAll("#chips .chip").forEach(x => x.setAttribute("aria-pressed", x === c)); renderHabits(); };
+  $("#chips").append(c);
+});
+renderHabits();
+
+// ---------- mindset ----------
+const ART = {
+  mountain: ["#1E3A5F","#F59E0B", '<path d="M0 230 L110 90 L170 160 L230 60 L340 230Z" fill="#2E5A88"/><path d="M230 60 L255 95 L240 92 L230 105 L218 90 L205 96Z" fill="#fff"/><path d="M40 230 Q120 200 150 170 T230 70" stroke="#F59E0B" stroke-width="4" fill="none" stroke-dasharray="2 9" stroke-linecap="round"/><circle cx="280" cy="50" r="18" fill="#F59E0B"/>'],
+  sun: ["#E2541B","#FFD27A", '<circle cx="170" cy="200" r="80" fill="#FFD27A"/><path d="M0 200 H340 V230 H0Z" fill="#B23C0E"/><g stroke="#FFD27A" stroke-width="6" stroke-linecap="round"><path d="M170 90V60M90 125 70 105M250 125 270 105M60 190H30M280 190H310"/></g>'],
+  stairs: ["#15201A","#6CC870", '<path d="M40 230 V190 H100 V150 H160 V110 H220 V70 H300 V230Z" fill="#2F7D32"/><circle cx="235" cy="48" r="10" fill="#fff"/><path d="M235 58 V80 M235 66 L222 74 M235 66 L248 60 M235 80 L226 96 M235 80 L246 94" stroke="#fff" stroke-width="5" stroke-linecap="round"/>'],
+  goal: ["#2E8B3E","#FFFFFF", '<rect x="70" y="60" width="200" height="110" fill="none" stroke="#fff" stroke-width="6"/><g stroke="rgba(255,255,255,.35)" stroke-width="1.5"><path d="M90 60V170M110 60V170M130 60V170M150 60V170M170 60V170M190 60V170M210 60V170M230 60V170M250 60V170M70 82H270M70 104H270M70 126H270M70 148H270"/></g><circle cx="240" cy="90" r="16" fill="#fff" stroke="#15201A" stroke-width="3"/><path d="M120 220 Q170 150 226 98" stroke="#fff" stroke-width="3" stroke-dasharray="6 6" fill="none"/>'],
+  bolt: ["#6D28D9","#FDE047", '<path d="M190 30 L120 140 H170 L150 220 L230 100 H178Z" fill="#FDE047"/>'],
+  road: ["#0F172A","#38BDF8", '<path d="M130 230 L165 40 H175 L210 230Z" fill="#334155"/><path d="M170 220V200M170 180V160M170 140V122M170 106V92M170 78V68" stroke="#fff" stroke-width="4"/><circle cx="170" cy="40" r="28" fill="#38BDF8" opacity=".9"/>'],
+  ball: ["#C2410C","#FFFFFF", '<circle cx="170" cy="120" r="70" fill="#fff"/><path d="M170 85 L203 108 L190 147 H150 L137 108Z" fill="#15201A"/><path d="M170 85V50M203 108 236 98M190 147 210 178M150 147 130 178M137 108 104 98" stroke="#15201A" stroke-width="4"/>'],
+  trophy: ["#0E7490","#FCD34D", '<path d="M120 50 H220 V100 A50 50 0 0 1 120 100Z" fill="#FCD34D"/><path d="M120 62 H92 A24 24 0 0 0 120 108 M220 62 H248 A24 24 0 0 1 220 108" stroke="#FCD34D" stroke-width="8" fill="none"/><rect x="160" y="148" width="20" height="30" fill="#FCD34D"/><rect x="130" y="178" width="80" height="16" rx="4" fill="#FCD34D"/>']
+};
+function posterCard(p) {
+  const [bg, , art] = ART[p.art] || ART.sun;
+  const c = el("figure", "poster"); c.style.margin = "0"; c.style.background = bg;
+  c.innerHTML = `<svg viewBox="0 0 340 300" role="img" aria-label="${p.big}"><rect width="340" height="300" fill="${bg}"/>${art}<rect y="210" width="340" height="90" fill="${bg}" opacity=".55"/></svg>`;
+  const t = el("figcaption", "ptxt"); t.append(el("b", null, p.big), el("span", null, p.small)); c.append(t);
+  return c;
+}
+function mvideoCard(v, fresh) {
+  const c = el("article", "card vcard");
+  const vb = videoBlock(v); if (vb) c.append(vb);
+  const b = el("div", "body");
+  const meta = el("div", "meta"); meta.append(...newPill(fresh));
+  if (v.goggins) meta.append(el("span", "pill hot", "Filmpje van David Goggins"));
+  meta.append(el("span", "pill", v.short ? "Short" : "Filmpje"));
+  b.append(meta);
+  const a = el("a", "btn play"); a.href = "https://www.youtube.com/" + (v.short ? "shorts/" : "watch?v=") + v.video; a.target = "_blank"; a.rel = "noopener"; a.textContent = "Bekijk op YouTube ↗";
+  const act = el("div", "actions"); act.append(a);
+  b.append(el("h3", null, (v.goggins ? "David Goggins: " : "") + v.title), el("p", "note", v.note), act); c.append(b);
+  return c;
+}
+rotatedList($("#posters"), POSTERS, 4, 7, p => posterCard(p), "plaatjes");
+// Elke dag 5 filmpjes: 3 Shorts (waarvan één van David Goggins) en 2 langere filmpjes.
+function renderMindsetVideos() {
+  const box = $("#mvideos"); box.textContent = "";
+  const cap = v => ({...v, maxSec: 600});            // veiligheid: in de app nooit langer dan 10 minuten
+  const goggins = {item: GOGGINS_VIDEOS[REL % GOGGINS_VIDEOS.length], fresh: true};
+  const shorts = rotate(MINDSET_VIDEOS, 2, 10), longs = rotate(LONG_VIDEOS, 2, 13);
+  [goggins, longs[0], shorts[0], longs[1], shorts[1]].filter(Boolean).forEach(({item, fresh}) => box.append(mvideoCard(cap(item), fresh)));
+  const all = [...GOGGINS_VIDEOS, ...MINDSET_VIDEOS, ...LONG_VIDEOS];
+  const m = el("button", "more", "Toon alle " + all.length + " filmpjes"); m.type = "button";
+  m.onclick = () => { box.textContent = ""; all.forEach(v => box.append(mvideoCard(cap(v), false))); };
+  box.append(m);
+}
+renderMindsetVideos();
+const styles = ["", "alt", "green"]; let qi = 0;
+rotatedList($("#quotes"), MOTIVATION, 8, 9, m => { const q = el("div", "quote small " + styles[qi++ % 3]); q.append(el("p", null, m)); return q; }, "teksten");
+
+// ---------- tabs ----------
+function show(v) {
+  if (!document.getElementById("v-" + v)) v = "start";
+  document.querySelectorAll(".view[id^='v-']").forEach(s => s.hidden = s.id !== "v-" + v);
+  document.querySelectorAll(".tab").forEach(t => t.setAttribute("aria-selected", t.dataset.v === v));
+  if (v === "planner") renderPlanner();
+  window.scrollTo(0, 0);
+}
+document.querySelectorAll(".tab").forEach(t => t.onclick = () => { history.replaceState(null, "", "#" + t.dataset.v); show(t.dataset.v); });
+renderStart();
+renderPlanner();
+show((location.hash || "").slice(1) || "start");
+</script>
+</body>
+</html>
