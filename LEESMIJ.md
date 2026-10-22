@@ -62,6 +62,7 @@ op GitHub spelen ze gewoon af.
 - Habits en tips: `tips.js`
 - Voetbaloefeningen, thuisoefeningen, filmpjes, motivatie en uitdagingen: `data.js`
 - Herstel, grote habits, plaatjes en mindset-filmpjes: ook in `data.js`
+- Dagles (de lessen van 5 minuten): `lessen.js`
 - Nieuwsbronnen: bovenaan `update_news.py`
 
 Wijzig een bestand in GitHub via het potloodje en klik **Commit changes**. De app is binnen een minuut bijgewerkt.

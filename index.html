@@ -140,6 +140,22 @@ ol.steps{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:4px;c
 .btn.add{background:transparent;color:var(--fg);box-shadow:inset 0 0 0 1.5px var(--line)}
 .habit .actions{margin-top:2px}
 
+/* dagles */
+.lesson .body{gap:14px}
+.lesson .situ{font-family:var(--f-display);font-weight:600;font-size:19px;line-height:1.3;margin:0;text-wrap:balance}
+.lesson h4{font:800 13px var(--f-body);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:0 0 4px}
+.lesson ol{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:6px}
+.lesson .doe{background:var(--accent-soft);border-radius:16px;padding:14px 16px;display:flex;flex-direction:column;gap:8px}
+.lesson .doe h4{color:var(--accent)}
+.lesson .timer{font:800 22px var(--f-display);font-variant-numeric:tabular-nums}
+.lesson .onthoud{background:var(--dark);color:var(--dark-fg);border-radius:16px;padding:14px 16px;font-family:var(--f-display);font-weight:800;font-size:20px;line-height:1.2;text-wrap:balance}
+.lesson .onthoud small{display:block;font:700 12px var(--f-body);letter-spacing:.08em;text-transform:uppercase;color:var(--dark-muted);margin-bottom:4px}
+details.past{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:12px 16px}
+details.past summary{cursor:pointer;font-weight:700}
+details.past .plist{display:flex;flex-direction:column;gap:6px;margin-top:10px}
+details.past .plist button{text-align:left;font:600 15px var(--f-body);background:var(--bg);border:1px solid var(--line);color:var(--fg);border-radius:12px;padding:10px 12px;cursor:pointer}
+.startles{display:flex;flex-direction:column;gap:8px;background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:16px 18px}
+
 /* voetbal IQ quiz */
 .quiz .opts{display:flex;flex-direction:column;gap:8px}
 .quiz .opts button{text-align:left;font:600 15px var(--f-body);padding:12px 14px;border-radius:14px;border:1.5px solid var(--line);background:var(--bg);color:var(--fg);cursor:pointer}
@@ -196,6 +212,38 @@ ol.steps{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:4px;c
 .progress{height:10px;background:var(--line);border-radius:999px;overflow:hidden}
 .progress i{display:block;height:100%;background:var(--c-voe);border-radius:999px;width:0}
 
+/* instellingen */
+.gear{position:fixed;z-index:30;top:calc(env(safe-area-inset-top,0px) + 12px);right:max(12px,calc(env(safe-area-inset-right,0px) + 12px));
+  width:36px;height:36px;border-radius:50%;border:1px solid var(--line);background:var(--surface);color:var(--fg);display:grid;place-items:center;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,.08)}
+.gear svg{width:19px;height:19px}
+.gear.playing{color:var(--accent);border-color:var(--accent)}
+.gear:focus-visible,.swatch:focus-visible,.bgopt:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.view > header{padding-right:44px}
+.sheet.settings{height:var(--sheet-h,70vh);max-height:94vh;min-height:150px;overflow:hidden;padding-top:0;gap:0}
+.sheet.settings .scroll{overflow-y:auto;flex:1;display:flex;flex-direction:column;gap:12px;padding-bottom:8px;overscroll-behavior:contain}
+.grab{flex:none;display:flex;flex-direction:column;align-items:center;gap:4px;padding:10px 0 12px;cursor:grab;touch-action:none;user-select:none;-webkit-user-select:none}
+.grab:active{cursor:grabbing}
+.grab i{width:44px;height:5px;border-radius:999px;background:var(--line);display:block}
+.grab span{font-size:11px;color:var(--muted)}
+.sizebtns{display:flex;gap:6px;justify-content:center}
+.sizebtns button{font:600 12px var(--f-body);border:1px solid var(--line);background:var(--bg);color:var(--fg);border-radius:999px;padding:4px 10px;cursor:pointer}
+.sheet-bg.light{background:rgba(0,0,0,.18)}
+.sheet h3.st{font-size:18px;margin-top:4px}
+.swatches{display:flex;flex-wrap:wrap;gap:10px;padding:4px}
+.swatch{width:40px;height:40px;border-radius:50%;border:3px solid var(--surface);box-shadow:0 0 0 1.5px var(--line);cursor:pointer}
+.swatch[aria-pressed="true"]{box-shadow:0 0 0 3px var(--fg)}
+.bgopts{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.bgopt{border-radius:14px;padding:10px 6px;font:700 13px var(--f-body);cursor:pointer;border:2px solid transparent;display:flex;flex-direction:column;align-items:center;gap:6px}
+.bgopt i{width:100%;height:26px;border-radius:8px;display:block}
+.bgopt[aria-pressed="true"]{border-color:var(--accent)}
+.beats{display:flex;flex-direction:column;gap:8px}
+.beat{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:10px 12px;border-radius:14px;border:1px solid var(--line);background:var(--bg)}
+.beat b{display:block;font-size:15px}
+.beat span{font-size:12px;color:var(--muted)}
+.beat button{flex:none;width:42px;height:42px;border-radius:50%;border:0;background:var(--accent);color:var(--accent-ink);font-size:16px;cursor:pointer}
+.vol{display:flex;align-items:center;gap:10px;font-size:14px;color:var(--muted)}
+.vol input{flex:1;accent-color:var(--accent)}
+
 /* dag kiezen */
 .sheet-bg{position:fixed;inset:0;background:rgba(0,0,0,.4);z-index:40}
 .sheet{position:fixed;left:0;right:0;bottom:0;z-index:41;background:var(--surface);border-radius:22px 22px 0 0;
@@ -225,6 +273,7 @@ ol.steps{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:4px;c
     </header>
     <div class="quote" id="q-today"><div class="eyebrow">Motivatie van de dag</div><p></p></div>
     <div class="challenge" id="challenge"><div class="eyebrow">Uitdaging van vandaag</div><p></p></div>
+    <div class="startles" id="startles"></div>
     <div id="habit-today"></div>
     <div id="drill-today"></div>
     <h2>Het nieuws</h2>
@@ -293,13 +342,19 @@ ol.steps{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:4px;c
       <h1>Hoofd <em>sterk</em></h1>
       <p class="intro">Scroll door voor een zetje als je even geen zin hebt.</p>
     </header>
+    <div class="seg" role="group" aria-label="Kies"><button type="button" id="seg-mot" aria-pressed="true">Motivatie</button><button type="button" id="seg-les" aria-pressed="false">Dagles</button></div>
+    <div id="dagles" class="view" hidden></div>
+    <div id="motivatie" class="view">
     <div id="posters" class="posterrow"></div>
     <h2 class="sub">Filmpjes</h2>
     <div id="mvideos" class="view" style="gap:12px"></div>
     <h2 class="sub">Woorden om te onthouden</h2>
     <div id="quotes" class="view" style="gap:12px"></div>
+    </div>
   </section>
 </main>
+
+<button class="gear" id="gear" type="button" aria-label="Instellingen"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg></button>
 
 <nav class="tabbar" aria-label="Menu">
   <div class="row" role="tablist">
@@ -314,6 +369,7 @@ ol.steps{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:4px;c
 
 <script src="tips.js"></script>
 <script src="data.js"></script>
+<script src="lessen.js"></script>
 <script>
 const $ = s => document.querySelector(s);
 const el = (tag, cls, text) => { const e = document.createElement(tag); if (cls) e.className = cls; if (text != null) e.textContent = text; return e; };
@@ -663,17 +719,12 @@ function quizCard(q, fresh) {
   return c;
 }
 rotatedList($("#iq-quiz"), IQ_QUIZ, 3, 11, (q, f) => quizCard(q, f), "situaties");
-// Lessen: elke dag 2 lessen die je nog nooit hebt gehad. Elke 14 dagen komt er één oude les terug als herhaling.
+// Lessen: elke dag 2 lessen die je nog nooit hebt gehad, zonder herhalingen.
 function renderIqLessons() {
   const box = $("#iq-lessons"); box.textContent = "";
   const base = shuffle(IQ_LESSONS, 9973 * 12 + 7), n = 2;
   const at = i => base[i % base.length];
   for (let i = 0; i < n; i++) box.append(iqCard(at(REL * n + i), true));
-  if (REL >= 14 && REL % 14 === 0) {               // herhaling: de eerste les van 14 dagen geleden
-    const c = iqCard(at((REL - 14) * n), false);
-    c.querySelector(".meta").prepend(el("span", "pill", "Herhaling"));
-    box.append(c);
-  }
   const left = Math.max(0, Math.ceil((base.length - (REL + 1) * n) / n));
   box.append(el("p", "note", left ? "Nog " + left + " dagen met lessen die je nog niet hebt gehad." : "Je hebt alle lessen gehad. Ze komen nu opnieuw langs."));
   const m = el("button", "more", "Toon alle " + IQ_LESSONS.length + " lessen"); m.type = "button";
@@ -767,6 +818,309 @@ function renderMindsetVideos() {
 renderMindsetVideos();
 const styles = ["", "alt", "green"]; let qi = 0;
 rotatedList($("#quotes"), MOTIVATION, 8, 9, m => { const q = el("div", "quote small " + styles[qi++ % 3]); q.append(el("p", null, m)); return q; }, "teksten");
+
+// ---------- instellingen: kleuren ----------
+const ACCENTS = [["oranje","#E2541B"],["rood","#DC2626"],["roze","#DB2777"],["paars","#7C3AED"],["blauw","#2563EB"],["cyaan","#0891B2"],["groen","#16A34A"],["goud","#CA8A04"]];
+const BGS = {
+  normaal: null,   // volgt licht/donker van de telefoon
+  nacht:  {label:"Nacht",  scheme:"dark",  bg:"#0B0F14", surface:"#151B23", fg:"#E8EDF2", muted:"#93A0AE", line:"#253040", dark:"#E8EDF2", darkfg:"#0B0F14", darkmuted:"#4F5B68", figback:"#5A6573"},
+  oceaan: {label:"Oceaan", scheme:"dark",  bg:"#0B1E33", surface:"#12304D", fg:"#E6F0FA", muted:"#9DB4CC", line:"#1F4266", dark:"#E6F0FA", darkfg:"#0B1E33", darkmuted:"#4B6684", figback:"#5D7A99"},
+  bos:    {label:"Bos",    scheme:"dark",  bg:"#0E1F17", surface:"#163024", fg:"#E5F2EA", muted:"#97B3A3", line:"#22453A", dark:"#E5F2EA", darkfg:"#0E1F17", darkmuted:"#4C6A5B", figback:"#5C7D6C"},
+  zand:   {label:"Zand",   scheme:"light", bg:"#F6EFE3", surface:"#FFFBF4", fg:"#2B2118", muted:"#7A6A58", line:"#E6D9C4", dark:"#2B2118", darkfg:"#F6EFE3", darkmuted:"#B9A68E", figback:"#A8977F"},
+  ijs:    {label:"IJs",    scheme:"light", bg:"#EAF3FA", surface:"#FFFFFF", fg:"#11283D", muted:"#5B7086", line:"#D3E2EE", dark:"#11283D", darkfg:"#EAF3FA", darkmuted:"#8DA3B8", figback:"#9DB0C2"}
+};
+function applyLook() {
+  const st = store("stayhard-look") || {}, r = document.documentElement.style;
+  ["--accent","--accent-soft","--accent-ink","--bg","--surface","--fg","--muted","--line","--dark","--dark-fg","--dark-muted","--fig","--fig-back","color-scheme"].forEach(p => r.removeProperty(p));
+  const b = BGS[st.bg];
+  if (b) {
+    r.setProperty("--bg", b.bg); r.setProperty("--surface", b.surface); r.setProperty("--fg", b.fg); r.setProperty("--muted", b.muted);
+    r.setProperty("--line", b.line); r.setProperty("--dark", b.dark); r.setProperty("--dark-fg", b.darkfg); r.setProperty("--dark-muted", b.darkmuted);
+    r.setProperty("--fig", b.fg); r.setProperty("--fig-back", b.figback); r.setProperty("color-scheme", b.scheme);
+  }
+  if (st.accent) {
+    r.setProperty("--accent", st.accent); r.setProperty("--accent-ink", "#FFFFFF");
+    r.setProperty("--accent-soft", "color-mix(in srgb, " + st.accent + " 16%, var(--surface))");
+  }
+  const meta = document.querySelector('meta[name="theme-color"]'); if (meta) meta.content = b ? b.bg : "#F1F4EE";
+}
+applyLook();
+
+// ---------- instellingen: muziek (eigen beats, gemaakt in de app zelf) ----------
+// ---- Muziek: 3 soorten, elk met 3 nummers. Alles wordt in de app zelf gemaakt (geen internet nodig).
+// Patronen hebben 16 stappen per maat. hat: 1 = dicht, 2 = open, 3 = roffel. bass/melody: halve tonen boven de grondtoon, null = stil.
+const MIN = [0, 3, 7], MAJ = [0, 4, 7], MIN7 = [0, 3, 7, 10], MAJ7 = [0, 4, 7, 11];
+const GENRES = [
+  {id:"hiphop", name:"Hiphop", sub:"Beatbox-vibe en boom-bap"},
+  {id:"trap", name:"Trap & Phonk", sub:"Zware bas voor hard trainen"},
+  {id:"chill", name:"Chill lo-fi", sub:"Rustig voor huiswerk en herstel"}
+];
+const BEATS = [
+  // --- Hiphop
+  {genre:"hiphop", id:"boombap", name:"Boom Bap", sub:"Klassieke hiphop met piano", bpm:90, root:50, swing:.16,
+   kick:[1,0,0,0,0,0,0,1,0,0,1,0,0,0,0,0], snare:[0,0,0,0,1,0,0,0,0,0,0,0,1,0,0,0], hat:[1,0,1,0,1,0,1,0,1,0,1,0,1,0,2,0],
+   bass:[0,null,null,null,null,null,null,0,null,null,3,null,null,null,null,null], bassType:"saw",
+   chords:[[0,MIN7],[5,MIN7],[3,MAJ7],[10,MAJ7]], chordSteps:[0,6], chordInst:"piano",
+   melody:[null,null,null,null,null,null,null,null,null,null,null,null,15,null,12,null, null,null,null,null,null,null,null,null,10,null,null,12,null,null,null,null], melInst:"piano"},
+  {genre:"hiphop", id:"straat", name:"Straatbeat", sub:"Stoer en strak met scratch-gevoel", bpm:94, root:45, swing:.12,
+   kick:[1,0,0,1,0,0,0,0,1,0,1,0,0,0,0,0], snare:[0,0,0,0,1,0,0,0,0,0,0,0,1,0,0,1], hat:[1,0,1,1,1,0,1,0,1,0,1,1,1,0,1,0],
+   bass:[0,null,null,0,null,null,null,null,7,null,5,null,null,null,3,null], bassType:"saw",
+   chords:[[0,MIN],[0,MIN],[8,MAJ],[7,MAJ]], chordSteps:[0], chordInst:"brass",
+   melody:[24,null,null,22,null,null,19,null,null,null,null,null,null,null,null,null, 24,null,null,22,null,null,26,null,24,null,null,null,null,null,null,null], melInst:"pluck"},
+  {genre:"hiphop", id:"beatbox", name:"Beatbox", sub:"Alleen mondgeluiden en een brommende bas", bpm:92, root:43, swing:.1, beatbox:true,
+   kick:[1,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0], snare:[0,0,0,0,1,0,0,0,0,0,0,0,1,0,0,0], hat:[0,0,1,0,0,1,0,0,1,0,0,1,0,0,1,1],
+   bass:[0,null,null,null,null,null,0,null,null,null,3,null,null,null,5,null], bassType:"hum", chords:null, melody:null},
+  // --- Trap & Phonk
+  {genre:"trap", id:"phonk", name:"Gym Phonk", sub:"Cowbell-melodie en zware 808", bpm:140, root:41, swing:0,
+   kick:[1,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0], snare:[0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0], hat:[1,0,1,0,1,0,1,0,1,0,1,0,3,0,3,0], clap:true,
+   bass:[0,null,null,null,null,null,null,null,null,null,0,null,null,null,3,null], bassType:"808",
+   chords:null, melody:[12,null,12,null,15,null,12,null,null,null,10,null,12,null,null,null, 12,null,12,null,17,null,15,null,null,null,12,null,10,null,null,null], melInst:"cowbell"},
+  {genre:"trap", id:"energie", name:"Trap Energie", sub:"Snelle hi-hats en een donkere melodie", bpm:146, root:43, swing:0,
+   kick:[1,0,0,0,0,0,0,1,0,0,0,0,0,0,1,0], snare:[0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0], hat:[1,1,1,0,1,1,3,0,1,1,1,0,3,3,1,0], clap:true,
+   bass:[0,null,null,null,null,null,null,0,null,null,null,null,null,null,5,null], bassType:"808",
+   chords:[[0,MIN],[8,MAJ],[3,MAJ],[10,MAJ]], chordSteps:[0], chordInst:"pad",
+   melody:[24,null,null,27,null,null,26,null,24,null,null,null,22,null,null,null, 24,null,null,27,null,null,29,null,27,null,26,null,24,null,null,null], melInst:"bell"},
+  {genre:"trap", id:"winterarc", name:"Winter Arc", sub:"Donker en episch, langzaam opbouwend", bpm:130, root:38, swing:0,
+   kick:[1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0], snare:[0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0], hat:[1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0], clap:true,
+   bass:[0,null,null,null,null,null,null,null,null,null,null,null,-2,null,null,null], bassType:"808",
+   chords:[[0,MIN],[-4,MAJ],[3,MAJ],[-2,MAJ]], chordSteps:[0], chordInst:"pad",
+   melody:[24,null,null,null,null,null,22,null,null,null,20,null,null,null,null,null, 19,null,null,null,null,null,20,null,22,null,null,null,null,null,null,null], melInst:"bell"},
+  // --- Chill lo-fi
+  {genre:"chill", id:"lofi", name:"Lo-fi Focus", sub:"Warme piano en zacht geknisper", bpm:78, root:53, swing:.2, crackle:true,
+   kick:[1,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0], snare:[0,0,0,0,1,0,0,0,0,0,0,0,1,0,0,0], hat:[1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0],
+   bass:[0,null,null,null,null,null,null,null,null,null,7,null,null,null,null,null], bassType:"soft",
+   chords:[[0,MAJ7],[9,MIN7],[2,MIN7],[7,MAJ]], chordSteps:[0,10], chordInst:"ep",
+   melody:[16,null,null,14,null,null,12,null,null,null,null,null,null,null,null,null, 19,null,null,16,null,14,null,null,12,null,null,null,null,null,null,null], melInst:"ep"},
+  {genre:"chill", id:"nadetraining", name:"Na de training", sub:"Langzaam en ontspannen", bpm:70, root:48, swing:.18, crackle:true,
+   kick:[1,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0], snare:[0,0,0,0,1,0,0,0,0,0,0,0,1,0,0,0], hat:[0,0,1,0,0,0,1,0,0,0,1,0,0,0,1,0],
+   bass:[0,null,null,null,null,null,null,null,5,null,null,null,null,null,null,null], bassType:"soft",
+   chords:[[0,MAJ7],[5,MAJ7],[4,MIN7],[9,MIN7]], chordSteps:[0], chordInst:"ep",
+   melody:[null,null,null,null,19,null,null,null,17,null,null,null,16,null,null,null, null,null,null,null,14,null,null,null,12,null,null,null,null,null,null,null], melInst:"bell"},
+  {genre:"chill", id:"huiswerk", name:"Huiswerk", sub:"Rustig ritme om je te concentreren", bpm:86, root:50, swing:.15, crackle:true,
+   kick:[1,0,0,0,0,0,0,1,0,0,1,0,0,0,0,0], snare:[0,0,0,0,1,0,0,0,0,0,0,0,1,0,0,0], hat:[1,0,1,0,1,0,1,1,1,0,1,0,1,0,1,0],
+   bass:[0,null,null,null,null,null,null,0,null,null,3,null,null,null,null,null], bassType:"soft",
+   chords:[[0,MIN7],[3,MAJ7],[5,MIN7],[7,MIN7]], chordSteps:[0,8], chordInst:"ep",
+   melody:[15,null,null,null,14,null,12,null,null,null,10,null,null,null,null,null, 15,null,17,null,15,null,14,null,12,null,null,null,null,null,null,null], melInst:"pluck"}
+];
+const music = {ctx:null, gain:null, fx:null, timer:null, beat:null, step:0, next:0, noise:null, genre:"hiphop"};
+const freq = m => 440 * Math.pow(2, (m - 69) / 12);
+function noiseBuf(ctx) { const b = ctx.createBuffer(1, ctx.sampleRate * 2, ctx.sampleRate), d = b.getChannelData(0); for (let i = 0; i < d.length; i++) d[i] = Math.random() * 2 - 1; return b; }
+function setupFx(ctx, out) {
+  const send = ctx.createGain(), delay = ctx.createDelay(1), fb = ctx.createGain(), lp = ctx.createBiquadFilter();
+  delay.delayTime.value = .3; fb.gain.value = .3; lp.type = "lowpass"; lp.frequency.value = 2200;
+  send.connect(delay); delay.connect(lp); lp.connect(fb); fb.connect(delay); lp.connect(out);
+  return send;
+}
+// --- geluiden
+function env(g, t, vol, attack, dur) { g.gain.setValueAtTime(0.0001, t); g.gain.linearRampToValueAtTime(vol, t + attack); g.gain.exponentialRampToValueAtTime(.0001, t + dur); }
+function osc(t, f, dur, {type = "sine", vol = .2, attack = .005, cutoff = 4000, q = 0, fx = 0, glideTo = null, detune = 0} = {}) {
+  const {ctx, gain} = music, o = ctx.createOscillator(), fl = ctx.createBiquadFilter(), g = ctx.createGain();
+  o.type = type; o.frequency.setValueAtTime(f, t); o.detune.value = detune; if (glideTo) o.frequency.exponentialRampToValueAtTime(glideTo, t + Math.min(dur, .15));
+  fl.type = "lowpass"; fl.frequency.value = cutoff; fl.Q.value = q; env(g, t, vol, attack, dur);
+  o.connect(fl).connect(g); g.connect(gain); if (fx) { const sd = ctx.createGain(); sd.gain.value = fx; g.connect(sd).connect(music.fx); }
+  o.start(t); o.stop(t + dur + .05);
+}
+function noise(t, dur, type, f, vol, {q = 1, attack = .001} = {}) {
+  const {ctx, gain} = music, n = ctx.createBufferSource(), fl = ctx.createBiquadFilter(), g = ctx.createGain();
+  n.buffer = music.noise; fl.type = type; fl.frequency.value = f; fl.Q.value = q; env(g, t, vol, attack, dur);
+  n.connect(fl).connect(g).connect(gain); n.start(t, Math.random()); n.stop(t + dur + .02);
+}
+function kick(t, style) {
+  const {ctx, gain} = music, o = ctx.createOscillator(), g = ctx.createGain();
+  const top = style === "trap" ? 160 : style === "chill" ? 110 : 140, end = style === "chill" ? 50 : 42;
+  o.frequency.setValueAtTime(top, t); o.frequency.exponentialRampToValueAtTime(end, t + .1);
+  env(g, t, style === "chill" ? .6 : .95, .002, style === "chill" ? .22 : .32); o.connect(g).connect(gain); o.start(t); o.stop(t + .35);
+  if (style !== "chill") noise(t, .02, "lowpass", 2500, .25);            // tikje voor punch
+}
+function snare(t, style) {
+  if (style === "chill") { noise(t, .09, "bandpass", 2600, .22, {q:2}); osc(t, 330, .05, {vol:.08}); return; }   // zachte rim
+  noise(t, .2, "bandpass", style === "hiphop" ? 1900 : 2200, .55, {q:.8}); osc(t, 190, .1, {type:"triangle", vol:.25, glideTo:150});
+}
+function clap(t) { [0, .011, .022].forEach((d, k) => noise(t + d, k === 2 ? .18 : .03, "bandpass", 1300, .5, {q:1.2})); }
+function hat(t, kind, style, stepDur) {
+  const vol = style === "chill" ? .06 : .11;
+  if (kind === 2) { noise(t, .22, "highpass", 7000, vol * .9); return; }
+  if (kind === 3) { for (let k = 0; k < 3; k++) noise(t + k * stepDur / 3, .03, "highpass", 8500, vol * (.7 + k * .15)); return; }
+  noise(t, .035, "highpass", 8500, vol);
+}
+function bass(t, midi, dur, type) {
+  if (type === "808") { osc(t, freq(midi + 12), dur * 1.6, {type:"sine", vol:.55, glideTo:freq(midi), attack:.004}); osc(t, freq(midi + 12), .06, {type:"triangle", vol:.15}); return; }
+  if (type === "hum") { osc(t, freq(midi), dur, {type:"sawtooth", vol:.18, cutoff:300, attack:.03}); return; }
+  if (type === "soft") { osc(t, freq(midi), dur, {type:"triangle", vol:.28, cutoff:600, attack:.01}); return; }
+  osc(t, freq(midi), dur, {type:"sawtooth", vol:.22, cutoff:450});
+}
+function inst(t, midi, dur, kind) {
+  const f = freq(midi);
+  if (kind === "piano") { osc(t, f, dur, {type:"triangle", vol:.12, cutoff:2500}); osc(t, f * 2, dur * .5, {type:"sine", vol:.04}); return; }
+  if (kind === "ep") { osc(t, f, dur, {type:"sine", vol:.11, attack:.01, fx:.2}); osc(t, f * 2, dur * .6, {type:"triangle", vol:.025, cutoff:1800}); return; }
+  if (kind === "brass") { osc(t, f, dur, {type:"sawtooth", vol:.07, cutoff:1300, attack:.03}); return; }
+  if (kind === "pad") { osc(t, f, dur, {type:"sawtooth", vol:.035, cutoff:900, attack:.35, detune:-6, fx:.3}); osc(t, f, dur, {type:"sawtooth", vol:.035, cutoff:900, attack:.35, detune:6}); return; }
+  if (kind === "cowbell") { osc(t, f, .22, {type:"square", vol:.06, cutoff:3200, q:4, fx:.15}); osc(t, f * 1.5, .22, {type:"square", vol:.05, cutoff:3200, q:4}); return; }
+  if (kind === "bell") { osc(t, f, dur * 1.5, {type:"sine", vol:.1, fx:.4}); osc(t, f * 3, dur * .4, {type:"sine", vol:.025}); return; }
+  osc(t, f, .25, {type:"sawtooth", vol:.08, cutoff:1600, fx:.3});            // pluck
+}
+// beatbox-geluiden: "boem", "pff", "ts", "k"
+function bbKick(t) { osc(t, 90, .14, {type:"sine", vol:.8, glideTo:55}); noise(t, .05, "lowpass", 400, .35); }
+function bbSnare(t) { noise(t, .12, "bandpass", 3200, .5, {q:.7, attack:.004}); noise(t, .05, "highpass", 6000, .15); }
+function bbHat(t, roll, stepDur) { const one = tt => noise(tt, .028, "bandpass", 9000, .12, {q:3}); one(t); if (roll) one(t + stepDur / 2); }
+// --- één stap van de maat
+function hit(t) {
+  const b = music.beat, s = music.step % 16, bar = Math.floor(music.step / 16), stepDur = 60 / b.bpm / 4;
+  if (s % 2 === 1) t += stepDur * b.swing;                                 // swing
+  const style = b.genre, section = Math.floor(bar / 4) % 2, intro = bar < 1;
+  const chord = b.chords ? b.chords[bar % 4] : [0, MIN], base = b.root + chord[0];
+  if (b.crackle && s === 0) { noise(t, stepDur * 16, "highpass", 3000, .015); for (let k = 0; k < 5; k++) noise(t + Math.random() * stepDur * 16, .004, "highpass", 2000, .12); }
+  if (b.chords && (b.chordSteps || [0]).includes(s)) {
+    const len = (b.chordInst === "pad" ? 16 : (b.chordSteps.length > 1 ? 5 : 8)) * stepDur;
+    chord[1].forEach(iv => inst(t, base + iv, len, b.chordInst));
+  }
+  if (intro && !b.beatbox) return;                                         // 1 maat intro met alleen akkoorden
+  if (b.beatbox) { if (b.kick[s]) bbKick(t); if (b.snare[s]) bbSnare(t); if (b.hat[s]) bbHat(t, s === 15, stepDur); }
+  else {
+    if (b.kick[s]) kick(t, style);
+    if (b.snare[s]) { b.clap ? clap(t) : snare(t, style); }
+    if (b.hat[s] && !(style === "trap" && bar % 8 === 0 && s < 8)) hat(t, b.hat[s], style, stepDur);
+  }
+  const bn = b.bass[s]; if (bn !== null && bn !== undefined) bass(t, b.root - 12 + chord[0] * (b.bassType === "808" ? 0 : 1) + bn, stepDur * (b.bassType === "808" ? 6 : 3), b.bassType);
+  const m = b.melody ? b.melody[(bar % 2) * 16 + s] : null;
+  if (m !== null && m !== undefined && (section === 1 || style === "trap")) inst(t, b.root + m, stepDur * 3, b.melInst);
+  if (bar % 4 === 3 && s >= 14 && !b.beatbox) noise(t, .07, "bandpass", 1500, style === "chill" ? .06 : .16);   // klein roffeltje
+}
+function startBeat(b) {
+  try {
+    if (!music.ctx) { const AC = window.AudioContext || window.webkitAudioContext; music.ctx = new AC(); music.gain = music.ctx.createGain(); music.gain.connect(music.ctx.destination); music.noise = noiseBuf(music.ctx); music.fx = setupFx(music.ctx, music.gain); }
+    music.ctx.resume();
+  } catch (e) { toast("Muziek werkt niet op dit apparaat."); return; }
+  stopBeat(true);
+  music.beat = b; music.step = 0; music.next = music.ctx.currentTime + .05;
+  music.gain.gain.value = (store("stayhard-volume") ?? 60) / 100 * .9;
+  music.timer = setInterval(() => {
+    const stepDur = 60 / b.bpm / 4;
+    while (music.next < music.ctx.currentTime + .12) { hit(music.next); music.next += stepDur; music.step++; }
+  }, 25);
+  $("#gear").classList.add("playing"); renderBeats();
+}
+function stopBeat(silent) {
+  if (music.timer) clearInterval(music.timer); music.timer = null; music.beat = null;
+  $("#gear").classList.remove("playing"); if (!silent) renderBeats();
+}
+function renderBeats() {
+  const box = document.getElementById("beats"); if (!box) return; box.textContent = "";
+  const tabs = el("div", "chips");
+  GENRES.forEach(g => { const c = el("button", "chip", g.name); c.type = "button"; c.setAttribute("aria-pressed", music.genre === g.id);
+    c.onclick = () => { music.genre = g.id; store("stayhard-genre", g.id); renderBeats(); }; tabs.append(c); });
+  const g = GENRES.find(x => x.id === music.genre) || GENRES[0];
+  box.append(tabs, el("p", "note", g.sub));
+  BEATS.filter(b => b.genre === g.id).forEach(b => {
+    const row = el("div", "beat"); const t = el("div"); t.append(el("b", null, b.name), el("span", null, b.sub + " · " + b.bpm + " bpm"));
+    const on = music.beat === b; const btn = el("button", null, on ? "■" : "▶"); btn.type = "button"; btn.setAttribute("aria-label", (on ? "Stop " : "Speel ") + b.name);
+    btn.onclick = () => on ? stopBeat() : startBeat(b);
+    row.append(t, btn); box.append(row);
+  });
+}
+music.genre = store("stayhard-genre") || "hiphop";
+
+// ---------- instellingen: scherm ----------
+function openSettings() {
+  const bg = el("div", "sheet-bg light"), sh = el("div", "sheet settings"); sh.setAttribute("role", "dialog"); sh.setAttribute("aria-label", "Instellingen");
+  // Schuiven en kleiner maken: sleep het streepje bovenaan omhoog of omlaag. Helemaal naar beneden = sluiten.
+  const vh = () => window.innerHeight;
+  const setH = px => { const h = Math.max(150, Math.min(vh() * .94, px)); sh.style.setProperty("--sheet-h", h + "px"); return h; };
+  setH((store("stayhard-sheet") || .7) * vh());
+  const grab = el("div", "grab"); grab.setAttribute("aria-hidden", "true"); grab.append(el("i"), el("span", null, "Sleep om te schuiven"));
+  let startY = 0, startH = 0, dragging = false;
+  grab.addEventListener("pointerdown", e => { dragging = true; startY = e.clientY; startH = sh.getBoundingClientRect().height; grab.setPointerCapture(e.pointerId); });
+  grab.addEventListener("pointermove", e => { if (dragging) setH(startH + (startY - e.clientY)); });
+  const endDrag = e => { if (!dragging) return; dragging = false; const h = startH + (startY - e.clientY);
+    if (h < 110) { close(); return; } store("stayhard-sheet", setH(h) / vh()); };
+  grab.addEventListener("pointerup", endDrag); grab.addEventListener("pointercancel", endDrag);
+  const sizes = el("div", "sizebtns");
+  [["Klein", .35], ["Half", .55], ["Groot", .9]].forEach(([t, f]) => { const b = el("button", null, t); b.type = "button"; b.onclick = () => store("stayhard-sheet", setH(f * vh()) / vh()); sizes.append(b); });
+  const scroll = el("div", "scroll");
+  const close = () => { bg.remove(); sh.remove(); $("#gear").focus(); };
+  bg.onclick = close;
+  const st = () => store("stayhard-look") || {};
+  const save = patch => { store("stayhard-look", {...st(), ...patch}); applyLook(); paint(); };
+  const sw = el("div", "swatches"), bgs = el("div", "bgopts");
+  function paint() {
+    sw.textContent = ""; bgs.textContent = "";
+    ACCENTS.forEach(([n, c]) => { const b = el("button", "swatch"); b.type = "button"; b.style.background = c; b.setAttribute("aria-label", "Kleur " + n);
+      b.setAttribute("aria-pressed", (st().accent || "#E2541B") === c); b.onclick = () => save({accent: c}); sw.append(b); });
+    Object.entries(BGS).forEach(([k, v]) => { const b = el("button", "bgopt"); b.type = "button"; const cur = st().bg || "normaal";
+      const sample = el("i"); sample.style.background = v ? v.bg : "linear-gradient(90deg,#F1F4EE 50%,#0E1411 50%)"; sample.style.border = "1px solid var(--line)";
+      b.style.background = "var(--bg)"; b.style.color = "var(--fg)"; b.append(sample, v ? v.label : "Normaal");
+      b.setAttribute("aria-pressed", cur === k); b.onclick = () => save({bg: k === "normaal" ? null : k}); bgs.append(b); });
+  }
+  paint();
+  const reset = el("button", "btn ghost", "Normale kleuren"); reset.type = "button";
+  reset.onclick = () => { store("stayhard-look", {}); applyLook(); paint(); toast("Normale kleuren terug"); };
+  const beats = el("div", "beats"); beats.id = "beats";
+  const vol = el("label", "vol"); const vr = document.createElement("input"); vr.type = "range"; vr.min = 0; vr.max = 100; vr.id = "volume"; vr.value = store("stayhard-volume") ?? 60;
+  vr.oninput = () => { store("stayhard-volume", Number(vr.value)); if (music.gain) music.gain.gain.value = vr.value / 100 * .9; };
+  vol.append("Volume", vr);
+  const done = el("button", "btn play", "Klaar"); done.type = "button"; done.onclick = close;
+  scroll.append(sizes, el("div", "eyebrow", "Instellingen"), el("h3", "st", "Kleur"), sw, el("h3", "st", "Achtergrond"), bgs, reset,
+    el("h3", "st", "Muziek"), el("p", "note", "Kies een soort en een nummer. Ze spelen zolang de app open is."), beats, vol, done);
+  sh.append(grab, scroll);
+  document.body.append(bg, sh); renderBeats();
+  sh.querySelector("button").focus();
+}
+$("#gear").onclick = openSettings;
+
+// ---------- dagles: elke dag één les van ongeveer 5 minuten ----------
+const lesIdx = REL % DAILY_LESSONS.length;
+function lessonCard(l, nr, today) {
+  const c = el("article", "card lesson"), b = el("div", "body");
+  const meta = el("div", "meta"); meta.append(el("span", "pill hot", "Les " + nr + " van " + DAILY_LESSONS.length), el("span", "pill", "± 5 minuten"));
+  if (today) meta.prepend(el("span", "pill new", "Vandaag"));
+  const sec = (h, node) => { const d = el("div"); d.append(el("h4", null, h), node); return d; };
+  const tips = el("ol"); l.steps.forEach(t => tips.append(el("li", null, t)));
+  // oefening met timer van 3 minuten
+  const doe = el("div", "doe"); doe.append(el("h4", null, "Doe het nu"), el("p", null, l.doe));
+  const tm = el("div", "timer", "3:00"); const tb = el("button", "btn play", "Start 3 minuten"); tb.type = "button"; let iv = null;
+  tb.onclick = () => { if (iv) { clearInterval(iv); iv = null; tm.textContent = "3:00"; tb.textContent = "Start 3 minuten"; return; }
+    let left = 180; tb.textContent = "Stop"; iv = setInterval(() => { left--; tm.textContent = Math.floor(left / 60) + ":" + String(left % 60).padStart(2, "0");
+      if (left <= 0) { clearInterval(iv); iv = null; tm.textContent = "Klaar!"; tb.textContent = "Start 3 minuten"; } }, 1000); };
+  const row = el("div", "actions"); row.style.alignItems = "center"; row.append(tb, tm); doe.append(row);
+  const ont = el("div", "onthoud"); ont.append(el("small", null, "Onthoud"), l.onthoud);
+  const done = new Set(store("stayhard-lessen") || []); const key = "les:" + l.title;
+  const db = el("button", "btn ghost"); db.type = "button";
+  const set = on => { db.setAttribute("aria-pressed", on); db.textContent = on ? "✓ Les gedaan" : "Les gedaan"; };
+  set(done.has(key)); db.onclick = () => { const d = new Set(store("stayhard-lessen") || []); d.has(key) ? d.delete(key) : d.add(key); store("stayhard-lessen", [...d]); set(d.has(key)); };
+  const act = el("div", "actions"); act.append(db, planBtn({kind:"Dagles", title:l.title, meta:"± 5 minuten"}));
+  b.append(meta, el("h3", null, l.title), el("p", "situ", l.intro), sec("Waarom dit belangrijk is", el("p", null, l.why)),
+    sec("Zo doe je het", tips), doe, sec("Veelgemaakte fout", el("p", null, l.fout)), ont, act);
+  c.append(b); return c;
+}
+function renderDagles() {
+  const box = $("#dagles"); box.textContent = "";
+  box.append(el("p", "intro", "Elke dag een voetballes van 5 minuten over techniek, aannames, duelkracht en voorbereiden. Lees de les en doe daarna de oefening."));
+  const holder = el("div"); holder.append(lessonCard(DAILY_LESSONS[lesIdx], lesIdx + 1, true)); box.append(holder);
+  if (REL > 0) {
+    const det = el("details", "past"); det.append(el("summary", null, "Eerdere lessen teruglezen"));
+    const list = el("div", "plist");
+    for (let r = REL - 1; r >= Math.max(0, REL - DAILY_LESSONS.length + 1); r--) {
+      const i = r % DAILY_LESSONS.length, b = el("button", null, "Les " + (i + 1) + ": " + DAILY_LESSONS[i].title); b.type = "button";
+      b.onclick = () => { holder.textContent = ""; holder.append(lessonCard(DAILY_LESSONS[i], i + 1, false)); holder.scrollIntoView({behavior:"smooth"}); };
+      list.append(b);
+    }
+    det.append(list); box.append(det);
+  }
+}
+renderDagles();
+function mindsetSeg(which) {
+  $("#seg-mot").setAttribute("aria-pressed", which === "mot"); $("#seg-les").setAttribute("aria-pressed", which === "les");
+  $("#motivatie").hidden = which !== "mot"; $("#dagles").hidden = which !== "les";
+}
+$("#seg-mot").onclick = () => mindsetSeg("mot"); $("#seg-les").onclick = () => mindsetSeg("les");
+(() => {   // kaart op de startpagina
+  const l = DAILY_LESSONS[lesIdx], box = $("#startles");
+  const b = el("button", "btn play", "Start de les"); b.type = "button";
+  b.onclick = () => { history.replaceState(null, "", "#mindset"); show("mindset"); mindsetSeg("les"); };
+  const meta = el("div", "meta"); meta.append(el("span", "pill hot", "Dagles · ± 5 min"));
+  const act = el("div", "actions"); act.append(b);
+  box.append(meta, el("h3", null, l.title), el("p", "note", l.intro), act);
+})();
 
 // ---------- tabs ----------
 function show(v) {
