@@ -114,9 +114,9 @@ ol.steps{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:4px;c
 .tabbar{position:fixed;left:0;right:0;bottom:0;z-index:20;background:color-mix(in srgb,var(--surface) 92%,transparent);
   -webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);border-top:1px solid var(--line);
   padding:6px max(8px,env(safe-area-inset-right,0px)) calc(6px + env(safe-area-inset-bottom,0px)) max(8px,env(safe-area-inset-left,0px))}
-.tabbar .row{max-width:620px;margin:0 auto;display:grid;grid-template-columns:repeat(7,1fr)}
-.tab{background:none;border:0;color:var(--muted);font:600 10.5px var(--f-body);min-width:0;display:flex;flex-direction:column;align-items:center;gap:3px;padding:6px 0;cursor:pointer;border-radius:12px}
-.tab svg{width:24px;height:24px}
+.tabbar .row{max-width:660px;margin:0 auto;display:grid;grid-template-columns:repeat(8,1fr)}
+.tab{background:none;border:0;color:var(--muted);font:600 9.5px var(--f-body);min-width:0;display:flex;flex-direction:column;align-items:center;gap:3px;padding:6px 0;cursor:pointer;border-radius:12px}
+.tab svg{width:22px;height:22px}
 .tab[aria-selected="true"]{color:var(--accent)}
 
 /* filmpje */
@@ -170,6 +170,105 @@ details.past .plist button{text-align:left;font:600 15px var(--f-body);backgroun
 
 /* gesegmenteerde keuze */
 .seg.seg3{grid-template-columns:repeat(3,1fr)}
+.seg.seg4{grid-template-columns:repeat(4,1fr)}
+.prolist{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:6px}
+.prolist b{color:var(--accent)}
+.avoid{border-left:4px solid var(--foe);background:var(--bg);border-radius:10px;padding:10px 12px;display:flex;flex-direction:column;gap:2px}
+.avoid small{font-weight:800;font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--foe)}
+.vdsaved summary{list-style:none;cursor:pointer;padding:14px 18px;display:flex;flex-direction:column;gap:4px;align-items:flex-start}
+.vdsaved summary::-webkit-details-marker{display:none}
+.vdsaved summary b{font-size:16px}
+.vdsaved summary small{color:var(--muted)}
+.vdsaved details[open] summary small{display:none}
+.vdsaved .timeline{border:0;padding:0}
+/* speler: records, checklist, posities, blessures */
+.rec{display:grid;grid-template-columns:34px minmax(0,1fr);gap:4px 12px;align-items:start}
+.rec .ricon{font-size:28px;line-height:1;grid-row:span 2}
+.rec h3{margin:0;font-size:17px}
+.rec .rbest{display:flex;flex-wrap:wrap;gap:6px}
+.rec .rhow{grid-column:1/-1;color:var(--muted);font-size:14px;margin:0}
+.rec .radd{grid-column:1/-1;display:flex;gap:8px;min-width:0;align-self:stretch}
+.rec .radd .btn{flex:none}
+.rec .radd input{flex:1;min-width:0;width:0;font:600 16px var(--f-body);padding:10px 12px;border-radius:12px;border:1px solid var(--line);background:var(--bg);color:var(--fg)}
+.rec svg{grid-column:1/-1;width:100%;height:46px}
+.chk{display:flex;flex-direction:column;gap:2px}
+.chk label{display:flex;gap:10px;align-items:flex-start;padding:8px 0;border-bottom:1px solid var(--line);font-size:15px;cursor:pointer}
+.chk label:last-child{border-bottom:0}
+.chk input{width:22px;height:22px;flex:none;accent-color:var(--accent);margin:0}
+.chk label.done span{text-decoration:line-through;color:var(--muted)}
+.progress{height:10px;border-radius:999px;background:var(--line);overflow:hidden}
+.progress i{display:block;height:100%;background:var(--accent);border-radius:999px;transition:width .3s}
+.pitchwrap{background:var(--pitch);border-radius:20px;padding:10px}
+.pitchwrap svg{display:block;width:100%;max-width:380px;margin:0 auto;height:auto}
+.posbtn{cursor:pointer}
+.posbtn circle{transition:r .15s}
+.posbtn:focus{outline:none}
+.posbtn:focus-visible circle,.posbtn.on circle{stroke:#FFE14D;stroke-width:1.6}
+.poscard ul{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:4px}
+.bles details{border:1px solid var(--line);border-radius:14px;background:var(--surface)}
+.bles summary{cursor:pointer;padding:14px 16px;font-weight:700;font-size:16px}
+.bles .bin{padding:0 16px 14px;display:flex;flex-direction:column;gap:8px}
+.bles .bin ul{margin:0;padding-left:20px}
+.warn{border-left:4px solid var(--foe);background:var(--bg);border-radius:10px;padding:10px 12px}
+.vakgrid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.vak{display:flex;flex-direction:column;align-items:flex-start;gap:4px;text-align:left;padding:14px;border-radius:18px;border:1px solid var(--line);background:var(--surface);color:var(--fg);cursor:pointer;font:inherit;min-height:120px}
+.vak b{font-size:16px}
+.vak small{color:var(--muted);font-size:12.5px;line-height:1.3}
+.vak .vicon{font-size:26px;line-height:1}
+.vak .vcount{margin-top:auto;font-weight:800;font-size:13px;color:var(--accent)}
+.vak.leeg{opacity:.55}
+.vak:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.osec{margin:18px 0 4px;font-size:18px;display:flex;justify-content:space-between;align-items:baseline}
+.osec small{font:600 13px var(--f-body);color:var(--muted)}
+.seg.seg4 button{padding:9px 4px;font-size:14px}
+.seg.seg5{grid-template-columns:repeat(5,1fr)}
+.md-top{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px}
+.md-stat{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:12px 10px;display:flex;flex-direction:column;align-items:center;text-align:center;gap:2px;min-width:0}
+.md-stat b{font-family:var(--f-display);font-size:28px;line-height:1}
+.md-stat small{color:var(--muted);font-size:12px;line-height:1.2}
+.md-rank{background:var(--dark);color:var(--dark-fg);border-radius:22px;padding:18px 20px;display:flex;flex-direction:column;gap:8px}
+.md-rank .eyebrow{color:var(--dark-muted)}
+.md-rank h3{font-size:26px;font-weight:800}
+.md-bar{height:10px;border-radius:99px;background:rgba(128,128,128,.35);overflow:hidden}
+.md-bar i{display:block;height:100%;background:var(--accent);border-radius:99px}
+.md-rank p{margin:0;color:var(--dark-muted);font-size:14px}
+.md-list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:6px}
+.md-list li{display:flex;align-items:center;gap:10px;padding:10px 12px;border:1px solid var(--line);border-radius:14px;background:var(--surface)}
+.md-list li.done span.t{text-decoration:line-through;color:var(--muted)}
+.md-list input[type=checkbox]{width:22px;height:22px;accent-color:var(--accent);flex:none}
+.md-list span.t{flex:1;min-width:0;overflow-wrap:anywhere}
+.md-list .pts{font-weight:800;font-size:13px;color:var(--accent);white-space:nowrap}
+.md-list .del{border:0;background:none;color:var(--muted);font-size:18px;cursor:pointer;padding:0 4px}
+.md-sug{display:flex;flex-wrap:wrap;gap:6px}
+.md-sug .chip{font-size:13px;padding:6px 10px;white-space:normal;text-align:left;max-width:100%;overflow-wrap:anywhere}
+.md-ideas{border:1px solid var(--line);border-radius:14px;padding:10px 12px}
+.md-ideas summary{font-weight:700;cursor:pointer}
+.md-ideas h4{margin:12px 0 6px;font-size:14px}
+.md-chill{background:var(--accent-soft);border-radius:20px;padding:16px 18px;display:flex;flex-direction:column;gap:8px}
+.md-chill b.big{font-family:var(--f-display);font-size:22px}
+.rtlist{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px}
+.rtlist li{display:grid;grid-template-columns:auto 1fr;column-gap:10px;padding:8px 0;border-top:1px solid var(--line)}
+.rtlist li b{font-size:13px;color:var(--accent);white-space:nowrap}
+.rtlist li small{grid-column:2;color:var(--muted)}
+#sp-pos details .bin p{margin:0 0 6px}
+.seg.seg5 button{padding:9px 2px;font-size:12.5px}
+/* analyse */
+.anform{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.anform label{display:flex;flex-direction:column;gap:4px;font-weight:600;font-size:13px;color:var(--muted)}
+.anform label.wide{grid-column:1/-1}
+.anform input,.anform select,.anform textarea{font:500 16px var(--f-body);padding:10px 12px;border-radius:12px;border:1px solid var(--line);background:var(--bg);color:var(--fg);min-width:0;width:100%;box-sizing:border-box}
+.anform textarea{min-height:70px;resize:vertical;line-height:1.4}
+.anlist{display:flex;flex-direction:column;gap:10px}
+.anitem{border:1px solid var(--line);border-radius:14px;padding:12px 14px;display:flex;flex-direction:column;gap:4px;background:var(--bg)}
+.anitem b{font-size:15px}
+.anitem small{color:var(--muted)}
+.anstats{display:flex;flex-wrap:wrap;gap:6px}
+.player h3{margin:0}
+.player ul{margin:0;padding-left:20px}
+.player ol{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:6px}
+.answer{border:1px solid var(--line);border-radius:12px;padding:10px 12px;background:var(--bg)}
+.answer summary{cursor:pointer;font-weight:700}
+.answer p{margin:8px 0 0}
 .seg{display:grid;grid-template-columns:1fr 1fr;background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:4px}
 .seg button{font:700 15px var(--f-body);border:0;background:none;color:var(--muted);padding:9px;border-radius:999px;cursor:pointer}
 .seg button[aria-pressed="true"]{background:var(--dark);color:var(--dark-fg)}
@@ -360,6 +459,7 @@ details.past .plist button{text-align:left;font:600 15px var(--f-body);backgroun
       <div class="eyebrow" id="today">Vandaag</div>
       <h1 id="hello">Klaar voor <em>vandaag?</em></h1>
     </header>
+    <div id="mijndag"></div>
     <div class="quote" id="q-today"><div class="eyebrow">Motivatie van de dag</div><p></p></div>
     <div class="challenge" id="challenge"><div class="eyebrow">Uitdaging van vandaag</div><p></p></div>
     <div id="product-today" style="display:flex;flex-direction:column;gap:8px"></div>
@@ -377,13 +477,14 @@ details.past .plist button{text-align:left;font:600 15px var(--f-body);backgroun
       <h1 id="vb-title">Oefeningen met <em>de bal</em></h1>
       <p class="intro">Alleen, tegen een muur of met een maatje. Tik op de knop voor een voorbeeldfilmpje.</p>
     </header>
-    <div class="seg seg3" role="group" aria-label="Kies"><button type="button" id="seg-drills" aria-pressed="true">Oefeningen</button><button type="button" id="seg-tricks" aria-pressed="false">Trucjes</button><button type="button" id="seg-iq" aria-pressed="false">Voetbal IQ</button></div>
+    <div class="seg seg4" role="group" aria-label="Kies"><button type="button" id="seg-drills" aria-pressed="true">Oefenen</button><button type="button" id="seg-tricks" aria-pressed="false">Trucjes</button><button type="button" id="seg-iq" aria-pressed="false">IQ</button><button type="button" id="seg-analyse" aria-pressed="false">Analyse</button></div>
     <div id="tricksbox" class="view" hidden>
       <p class="intro">Elke dag nieuwe trucjes. Kijk eerst het filmpje, bekijk de beelden en lees daarna de stappen. Oefen eerst langzaam, zonder tegenstander.</p>
       <label class="mirror"><input type="checkbox" id="mirror"> Ik ben linksbenig (links en rechts omdraaien in de uitleg)</label>
       <div id="tricks" class="view"></div>
     </div>
-    <div id="drills" class="view"></div>
+    <div id="drillwrap" class="view"><div class="chips" id="drillchips"></div><div id="drills" class="view"></div></div>
+    <div id="analyse" class="view" hidden></div>
     <div id="iq" class="view" hidden>
       <p class="intro">Slimmer spelen begint in je hoofd. Elke dag nieuwe lessen en situaties om jezelf te testen.</p>
       <div class="legend"><span><i style="background:var(--me)"></i>Jij</span><span><i style="background:#60A5FA"></i>Teamgenoot</span><span><i style="background:var(--foe)"></i>Tegenstander</span><span><i style="background:var(--run)"></i>Looplijn</span><span><i style="background:#fff;border:1px solid var(--line)"></i>Bal</span></div>
@@ -416,20 +517,34 @@ details.past .plist button{text-align:left;font:600 15px var(--f-body);backgroun
     <div id="habits" class="view" style="gap:12px"></div>
   </section>
 
+  <section class="view" id="v-speler" hidden>
+    <header>
+      <div class="eyebrow">Speler</div>
+      <h1 id="sp-title">Mijn <em>records</em></h1>
+      <p class="intro" id="sp-intro">Test jezelf één keer per maand en zie hoe je beter wordt.</p>
+    </header>
+    <div class="seg seg4" role="group" aria-label="Kies"><button type="button" id="seg-rec" aria-pressed="true">Records</button><button type="button" id="seg-check" aria-pressed="false">Wedstrijd</button><button type="button" id="seg-pos" aria-pressed="false">Posities</button><button type="button" id="seg-bles" aria-pressed="false">Blessures</button></div>
+    <div id="sp-rec" class="view"></div>
+    <div id="sp-check" class="view" hidden></div>
+    <div id="sp-pos" class="view" hidden></div>
+    <div id="sp-bles" class="view" hidden></div>
+  </section>
+
   <section class="view" id="v-planner" hidden>
     <header>
       <div class="eyebrow" id="weeklabel">Deze week</div>
       <h1>Mijn <em>weekplanner</em></h1>
       <p class="intro">Tik bij een oefening of habit op <b>+ Planner</b>, of typ zelf iets bij een dag. Je kunt per dag ook een notitie schrijven.</p>
     </header>
-    <div class="seg" role="group" aria-label="Kies"><button type="button" id="seg-week" aria-pressed="true">Weekplanner</button><button type="button" id="seg-voorbeeld" aria-pressed="false">Voorbeelddag</button></div>
+    <div class="seg seg3" role="group" aria-label="Kies"><button type="button" id="seg-week" aria-pressed="true">Weekplanner</button><button type="button" id="seg-voorbeeld" aria-pressed="false">Voorbeelddag</button><button type="button" id="seg-routine" aria-pressed="false">Routines</button></div>
+    <div id="routines" class="view" hidden></div>
     <div id="voorbeeld" class="view" hidden>
       <p class="intro">Zo kan je dag eruitzien, met je vaste trainingen en de taken uit de app van vandaag. Kies een dag om die te bekijken. Je trainingen zet je zelf in je weekplanner.</p>
       <div class="seg" role="group" aria-label="Soort week"><button type="button" id="vd-school" aria-pressed="true">Schoolweek</button><button type="button" id="vd-vrij" aria-pressed="false">Week zonder school</button></div>
       <div class="daypick" id="daypick"></div>
       <div class="daytype" id="daytype"></div>
       <div class="timeline" id="timeline"></div>
-      <div class="actions"><button class="btn play" type="button" id="tasks2plan">Zet de taken in mijn planner</button></div>
+      <div class="actions"><button class="btn play" type="button" id="tasks2plan">Zet de taken in mijn planner</button><span id="vdsave"></span></div>
       <details class="fixedset" id="fixedset"><summary>Mijn vaste week aanpassen (trainingen, gym, wedstrijd)</summary><div id="fixrows"></div></details>
     </div>
     <div id="wk" class="view">
@@ -468,8 +583,11 @@ details.past .plist button{text-align:left;font:600 15px var(--f-body);backgroun
       <h1>Hoofd <em>sterk</em></h1>
       <p class="intro">Scroll door voor een zetje als je even geen zin hebt.</p>
     </header>
-    <div class="seg" role="group" aria-label="Kies"><button type="button" id="seg-mot" aria-pressed="true">Motivatie</button><button type="button" id="seg-les" aria-pressed="false">Dagles</button></div>
+    <div class="seg seg5" role="group" aria-label="Kies"><button type="button" id="seg-mot" aria-pressed="true">Motivatie</button><button type="button" id="seg-les" aria-pressed="false">Dagles</button><button type="button" id="seg-focus" aria-pressed="false">Focus</button><button type="button" id="seg-leider" aria-pressed="false">Leider</button><button type="button" id="seg-tegen" aria-pressed="false">Tegenslag</button></div>
     <div id="dagles" class="view" hidden></div>
+    <div id="focus" class="view" hidden></div>
+    <div id="leider" class="view" hidden></div>
+    <div id="tegenslag" class="view" hidden></div>
     <div id="motivatie" class="view">
     <div id="posters" class="posterrow"></div>
     <h2 class="sub">Filmpjes</h2>
@@ -491,6 +609,7 @@ details.past .plist button{text-align:left;font:600 15px var(--f-body);backgroun
     <button class="tab" role="tab" data-v="gezond" aria-selected="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M12 20s-7-4.5-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.5-7 10-7 10z"/></svg>Gezond</button>
     <button class="tab" role="tab" data-v="mindset" aria-selected="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M13 2L4 14h7l-1 8 9-12h-7z"/></svg>Mindset</button>
     <button class="tab" role="tab" data-v="opslag" aria-selected="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M6 3h12v18l-6-4-6 4z"/></svg>Opslag</button>
+    <button class="tab" role="tab" data-v="speler" aria-selected="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"><path d="M7 4h10v5a5 5 0 0 1-10 0z"/><path d="M7 6H4a3 3 0 0 0 3 4M17 6h3a3 3 0 0 1-3 4M12 14v4M8 21h8M9 18h6"/></svg>Speler</button>
     <button class="tab" role="tab" data-v="planner" aria-selected="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"><rect x="3.5" y="5" width="17" height="15" rx="2.5"/><path d="M3.5 10h17M8 3v4M16 3v4M8 14l2 2 4-4"/></svg>Planner</button>
   </div>
 </nav>
@@ -507,6 +626,13 @@ details.past .plist button{text-align:left;font:600 15px var(--f-body);backgroun
 <script src="meer6.js"></script>
 <script src="meer7.js"></script>
 <script src="meer8.js"></script>
+<script src="analyse.js"></script>
+<script src="speler.js"></script>
+<script src="focus.js"></script>
+<script src="hervatting.js"></script>
+<script src="meer9.js"></script>
+<script src="meer10.js"></script>
+<script src="meer11.js"></script>
 <script src="maak.js"></script>
 <script>
 const $ = s => document.querySelector(s);
@@ -723,6 +849,97 @@ function exerciseCard(x, fresh, kind = "Thuis") {
   c.append(b); return c;
 }
 
+// ---------- mijn dag: taken, punten, streak, rang en chilltijd ----------
+const PUNTEN = {klein:3, gemiddeld:5, groot:8}, CHILL_PER = 15, STREAK_MIN = 3;
+const RANGEN = [[0,"Beginner","🥚"],[3,"Amateur","⚽"],[7,"Clubspeler","👟"],[14,"Selectiespeler","📋"],[21,"Talent","⭐"],[30,"Jeugdinternational","🧢"],[45,"Profdebuut","✍️"],[60,"Prof","💼"],[90,"Basisspeler","🔥"],[120,"Topspeler","🚀"],[180,"International","🌍"],[270,"Wereldster","🌟"],[365,"Legende","🏆"]];
+const getTaken = () => store("stayhard-dagtaken") || {};
+const dagPunten = list => (list || []).filter(t => t.done).reduce((a, t) => a + t.p, 0);
+const telt = list => (list || []).filter(t => t.done).length >= STREAK_MIN;
+function streakNu() {
+  const all = getTaken(); let n = 0, d = DAY - 1;
+  while (telt(all[d])) { n++; d--; }
+  return n + (telt(all[DAY]) ? 1 : 0);
+}
+function rangVan(st) { let r = RANGEN[0], i = 0; RANGEN.forEach((x, k) => { if (st >= x[0]) { r = x; i = k; } }); return {r, next: RANGEN[i + 1]}; }
+let chillIv = null;
+function renderMijnDag() {
+  const box = $("#mijndag"); box.textContent = ""; box.style.cssText = "display:flex;flex-direction:column;gap:12px";
+  const all = getTaken(), vandaag = all[DAY] || [];
+  const st = streakNu(), best = Math.max(store("stayhard-beststreak") || 0, st); store("stayhard-beststreak", best);
+  const totaal = Object.values(all).reduce((a, l) => a + dagPunten(l), 0);
+  const verdiend = Math.floor(totaal / CHILL_PER), gebruikt = store("stayhard-chill-used") || 0, over = Math.max(0, verdiend - gebruikt);
+  // rang
+  const {r, next} = rangVan(st);
+  const rk = el("div", "md-rank");
+  rk.append(el("div", "eyebrow", "Jouw rang"), el("h3", null, r[2] + " " + r[1]));
+  if (next) { const bar = el("div", "md-bar"), i = el("i"); i.style.width = Math.round((st - r[0]) / (next[0] - r[0]) * 100) + "%"; bar.append(i); rk.append(bar, el("p", null, "Nog " + (next[0] - st) + (next[0] - st === 1 ? " dag" : " dagen") + " streak tot " + next[2] + " " + next[1] + ".")); }
+  else rk.append(el("p", null, "Je hebt de hoogste rang. Houd hem vast!"));
+  rk.append(el("p", null, "Je streak groeit elke dag dat je minstens " + STREAK_MIN + " taken afvinkt. Sla je een dag over, dan begin je weer bij 0."));
+  box.append(rk);
+  // cijfers
+  const top = el("div", "md-top");
+  const stat = (n, t) => { const d = el("div", "md-stat"); d.append(el("b", null, String(n)), el("small", null, t)); return d; };
+  top.append(stat("🔥 " + st, "dagen streak"), stat(dagPunten(vandaag), "punten vandaag"), stat(best, "langste streak"));
+  box.append(top);
+  // taken
+  const tc = el("article", "card"), tb = el("div", "body");
+  tb.append(el("div", "eyebrow", "Mijn taken voor vandaag"));
+  if (!vandaag.length) tb.append(el("p", "intro", "✍️ Schrijf eerst op welke taken je vandaag gaat doen. Elke taak die je afvinkt geeft punten: klein " + PUNTEN.klein + ", gemiddeld " + PUNTEN.gemiddeld + " en groot " + PUNTEN.groot + "."));
+  const save = list => { const a = getTaken(); a[DAY] = list; store("stayhard-dagtaken", a); renderMijnDag(); };
+  const ul = el("ul", "md-list");
+  vandaag.forEach((t, k) => {
+    const li = el("li", t.done ? "done" : null), cb = el("input"); cb.type = "checkbox"; cb.checked = !!t.done; cb.setAttribute("aria-label", "Gedaan: " + t.t);
+    cb.onchange = () => { const l = (getTaken()[DAY] || []).slice(); l[k] = {...l[k], done: cb.checked}; const was = telt(getTaken()[DAY]); save(l); if (cb.checked) toast("+" + t.p + " punten" + (!was && telt(l) ? " · streak binnen voor vandaag! 🔥" : "")); };
+    li.append(cb, el("span", "t", t.t), el("span", "pts", "+" + t.p));
+    if (!t.done) { const d = el("button", "del", "×"); d.type = "button"; d.setAttribute("aria-label", "Verwijder " + t.t); d.onclick = () => { const l = (getTaken()[DAY] || []).filter((_, j) => j !== k); save(l); }; li.append(d); }
+    ul.append(li);
+  });
+  tb.append(ul);
+  const f = el("form", "addform"), inp = el("input"), sel = el("select");
+  inp.type = "text"; inp.maxLength = 80; inp.placeholder = "Bijvoorbeeld: 15 minuten muurpasses"; inp.setAttribute("aria-label", "Nieuwe taak");
+  [["klein","Klein: kort klusje (+" + PUNTEN.klein + ")"],["gemiddeld","Gemiddeld: 15-30 min (+" + PUNTEN.gemiddeld + ")"],["groot","Groot: ± een uur (+" + PUNTEN.groot + ")"]].forEach(([v, l]) => { const o = el("option", null, l); o.value = v; sel.append(o); });
+  sel.value = "gemiddeld"; sel.setAttribute("aria-label", "Hoe groot is de taak?");
+  const add = (text, size) => { text = text.trim(); if (!text) return; const l = (getTaken()[DAY] || []).slice(); if (l.some(x => x.t === text)) { toast("Die taak staat er al"); return; } l.push({t: text, p: PUNTEN[size], done:false}); save(l); };
+  const ab = el("button", "btn play", "+ Voeg toe"); ab.type = "submit";
+  f.onsubmit = e => { e.preventDefault(); add(inp.value, sel.value); };
+  f.append(inp, sel, ab); tb.append(el("small", null, "Typ zelf een taak, kies hoe groot hij is en tik op + Voeg toe. Hoe groter de taak, hoe meer punten. Of kies hieronder een idee (het getal is het aantal punten)."), f);
+  // ideeën om toe te voegen, per soort; de habits en oefeningen wisselen elke dag
+  const dag3 = (arr, salt, n) => { const out = []; for (let k = 0; out.length < n && k < n * 4; k++) { const x = arr[((DAY * 7 + salt * 13 + k * 31) % arr.length + arr.length) % arr.length]; if (!out.includes(x)) out.push(x); } return out; };
+  const groepen = [
+    ["⚽ Voetbal", [["15 minuten voeten trainen","gemiddeld"],["Training gedaan","groot"],["Oefening: " + pick(DRILLS, 3).title,"gemiddeld"],["Muuroefening: " + dag3(MUUR, 2, 1)[0].title,"gemiddeld"],["Trucje oefenen: " + dag3(TRICKS, 4, 1)[0].title,"gemiddeld"],["100 keer jongleren (in totaal)","gemiddeld"],["10 minuten zwakke voet","klein"],["20 schoten op doel","gemiddeld"],["Partijtje met vrienden","groot"],["Dagles lezen en oefenen","klein"],["Voetbal-IQ quiz gedaan","klein"],["Een speler of wedstrijd analyseren","klein"],["30 minuten techniektraining","gemiddeld"],["Aannames oefenen tegen de muur","gemiddeld"],["Passen en trappen 15 minuten","gemiddeld"],["Dribbelen door pionnen 15 minuten","gemiddeld"],["Koppen oefenen","gemiddeld"],["Vrije trappen of penalty's oefenen","gemiddeld"],["Afronden: 30 schoten","gemiddeld"],["Snelheid met de bal: 10 sprints","gemiddeld"]]],
+    ["💪 Kracht en conditie", [["Krachttraining 20 minuten","groot"],["Kracht: " + dag3(KRACHT, 5, 1)[0].title,"gemiddeld"],["Thuisoefening: " + dag3(EXERCISES, 6, 1)[0].title,"klein"],["3 x 30 seconden plank","klein"],["50 squats (in totaal)","gemiddeld"],["30 push-ups (in totaal)","gemiddeld"],["Buikspieren 10 minuten","gemiddeld"],["Sprinttraining: 8 sprintjes","gemiddeld"],["20 minuten hardlopen of fietsen","groot"],["Nordic hamstrings","klein"],["Touwtjespringen 5 minuten","klein"],["Benen-training 15 minuten","gemiddeld"],["Core-training 15 minuten","gemiddeld"],["Bovenlichaam-training 15 minuten","gemiddeld"],["Explosief springen: 5 oefeningen","gemiddeld"],["Wendbaarheid: ladder of pionnen","gemiddeld"],["Blessurepreventie-oefeningen","gemiddeld"],["Intervaltraining 15 minuten","gemiddeld"]]],
+    ["🌱 Kleine habits", [...dag3(SMALL, 7, 6).map(h => ["Habit: " + h.title, "klein"]), ["Bed opgemaakt","klein"],["2 liter water gedronken","klein"],["Groente bij het eten","klein"],["Fruit gegeten","klein"],["Ontbijt gegeten","klein"],["Tas klaargezet voor morgen","klein"],["Schermen een uur voor bedtijd weg","klein"],["Op tijd naar bed","klein"],["Iemand een compliment gegeven","klein"],["Iets geholpen in huis","klein"],["10 minuten gelezen","klein"],["Voetbalschoenen schoongemaakt","klein"]]],
+    ["🧘 Herstel en mindset", [["10 minuten benen rekken","klein"],["Rekoefening: " + dag3(LEG_STRETCHES, 8, 1)[0].title,"klein"],["5 minuten ademhaling","klein"],["Doel voor morgen opgeschreven","klein"],["Twee goede dingen van vandaag opgeschreven","klein"],["Motivatie van de dag gelezen","klein"],["Focus-oefening gedaan","klein"],["Herstelroutine 20 minuten (rekken en rollen)","gemiddeld"],["Een hele avondroutine gedaan","gemiddeld"],["Een hele ochtendroutine gedaan","gemiddeld"]]],
+    ["📚 School en thuis", [["Huiswerk af","gemiddeld"],["Leren voor een toets","groot"],["Kamer opgeruimd","klein"],["Taak in huis gedaan","klein"],["Een uur geconcentreerd leren","gemiddeld"],["Boodschappen of koken helpen","gemiddeld"]]]
+  ];
+  const sw = el("details", "md-ideas"); sw.open = !vandaag.length;
+  sw.append(el("summary", null, "💡 Ideeën om toe te voegen (tik om te openen)"));
+  groepen.forEach(([naam, lijst]) => {
+    const rest = lijst.filter(([t]) => !vandaag.some(x => x.t === t)); if (!rest.length) return;
+    const sg = el("div", "md-sug"); rest.forEach(([t, sz]) => { const c = el("button", "chip", "+ " + t + " (" + PUNTEN[sz] + ")"); c.type = "button"; c.onclick = () => add(t, sz); sg.append(c); });
+    sw.append(el("h4", null, naam), sg);
+  });
+  tb.append(sw);
+  tc.append(tb); box.append(tc);
+  // chilltijd
+  const ch = el("div", "md-chill");
+  const tot = (totaal % CHILL_PER);
+  ch.append(el("div", "eyebrow", "Chilltijd"), el("b", "big", over ? "😎 " + over + " kwartier chillen verdiend" : "Nog geen kwartier chillen"), el("p", "intro", "Elke " + CHILL_PER + " punten = een kwartier chillen. Nog " + (CHILL_PER - tot) + " punten tot je volgende kwartier."));
+  const bar = el("div", "md-bar"), bi = el("i"); bi.style.width = Math.round(tot / CHILL_PER * 100) + "%"; bar.append(bi); ch.append(bar);
+  const end = store("stayhard-chill-end") || 0, row = el("div", "actions"); row.style.alignItems = "center";
+  const tm = el("div", "timer");
+  if (end > Date.now()) {
+    const tick = () => { const left = Math.max(0, Math.round((end - Date.now()) / 1000)); tm.textContent = "Chillen: " + Math.floor(left / 60) + ":" + String(left % 60).padStart(2, "0"); if (!left) { clearInterval(chillIv); chillIv = null; store("stayhard-chill-end", 0); toast("Chilltijd is voorbij. Tijd voor je volgende taak! 💪"); renderMijnDag(); } };
+    clearInterval(chillIv); chillIv = setInterval(tick, 1000); tick(); row.append(tm);
+  } else if (over) {
+    const ub = el("button", "btn play", "Start een kwartier chillen"); ub.type = "button";
+    ub.onclick = () => { store("stayhard-chill-used", (store("stayhard-chill-used") || 0) + 1); store("stayhard-chill-end", Date.now() + 15 * 60e3); renderMijnDag(); };
+    row.append(ub);
+  }
+  if (row.childNodes.length) ch.append(row);
+  box.append(ch);
+}
+
 // ---------- start ----------
 function renderStart() {
   const d = now.toLocaleDateString("nl-NL", {weekday:"long", day:"numeric", month:"long"});
@@ -775,7 +992,7 @@ function isSaved(kind, title) { return getSaved().some(x => x.kind === kind && x
 function toggleSaved(kind, title, snap) {
   let v = getSaved();
   if (v.some(x => x.kind === kind && x.title === title)) { v = v.filter(x => !(x.kind === kind && x.title === title)); putSaved(v); toast("Uit je opslag gehaald"); }
-  else { v.unshift({id: Date.now().toString(36), kind, title, text: snap.text || "", url: snap.url || "", savedAt: Date.now()}); putSaved(v); toast("Bewaard in je opslag"); }
+  else { v.unshift({id: Date.now().toString(36), kind, title, text: snap.text || "", url: snap.url || "", ...(snap.items ? {items: snap.items} : {}), savedAt: Date.now()}); putSaved(v); toast("Bewaard in je opslag"); }
   if (!$("#v-opslag").hidden) renderOpslag();
   refreshSaveButtons(kind, title);
 }
@@ -804,6 +1021,12 @@ function savedCard(it) {
     else if (it.kind === "Thuis") { const x = find(EXERCISES) || find(KRACHT); if (x) c = exerciseCard(x, false, "Thuis"); }
     else if (it.kind === "Herstel") { const x = find(RECOVERY); if (x) c = exerciseCard(x, false, "Herstel"); }
     else if (it.kind === "Kracht") { const x = find(KRACHT); if (x) c = exerciseCard(x, false, "Kracht"); }
+    else if (it.kind === "Speler") { const x = find(SPELERS, "name"); if (x) c = playerCard(x, false); }
+    else if (it.kind === "Focus") { const x = find(FOCUS_TIPS); if (x) c = tipCard("Focus", x, false, x.wanneer); }
+    else if (it.kind === "Routine") { const x = find(ROUTINES); if (x) c = routineCard(x); }
+    else if (it.kind === "Leider") { const x = find(LEIDER); if (x) c = tipCard("Leider", x, false); }
+    else if (it.kind === "Tegenslag") { const x = find(TEGENSLAG); if (x) c = tegenCard(x, false); }
+    else if (it.kind === "Wedstrijd") { const x = find(WEDSTRIJDEN); if (x) c = matchCard(x, false); }
     else if (it.kind === "Hersteltip") { const h = find(RECOVERY_TIPS); if (h) c = habitCard({...h, size:"klein"}, false); }
     else if (it.kind === "Habit" || it.kind === "Grote habit") { const h = find(HABITS); if (h) c = habitCard(h, false); }
     else if (it.kind === "Voetbal IQ") { const l = find(IQ_LESSONS); if (l) c = iqCard(l, false); }
@@ -813,6 +1036,16 @@ function savedCard(it) {
     else if (it.kind === "Motivatie") c = quoteCard(it.title);
     else if (it.kind === "Trucje") { const t = find(TRICKS); if (t) c = trickCard(t, false); }
     else if (it.kind === "Product") { const p = find(PRODUCTS, "name"); if (p) c = productCard(p); }
+    else if (it.kind === "Voorbeelddag" && Array.isArray(it.items)) {
+      c = el("article", "card vdsaved"); const det = el("details"), sum = el("summary");
+      sum.append(el("span", "pill hot", "Voorbeelddag"), el("b", null, it.title), el("small", null, it.items.length + " onderdelen · tik om te openen"));
+      const tl = el("div", "timeline");
+      it.items.forEach(t => { const r = el("div", "tl"); const x = el("div"); x.append(el("b", null, t.title)); if (t.sub) x.append(el("span", null, t.sub)); r.append(el("time", null, t.t), x); tl.append(r); });
+      const del = el("button", "btn ghost", "★ Uit opslag"); del.type = "button";
+      del.onclick = () => { if (del.dataset.sure) { putSaved(getSaved().filter(y => y.id !== it.id)); renderOpslag(); toast("Verwijderd"); return; } del.dataset.sure = 1; del.textContent = "Zeker weten?"; setTimeout(() => { if (del.isConnected) { delete del.dataset.sure; del.textContent = "★ Uit opslag"; } }, 3000); };
+      const inner = el("div", "body"); if (it.text) inner.append(el("p", "intro", it.text)); inner.append(tl); const act = el("div", "actions"); act.append(del); inner.append(act);
+      det.append(sum, inner); c.append(det);
+    }
   } catch (e) { c = null; }
   if (!c) {   // nieuws, eigen notities en dingen die niet meer in de app staan
     c = el("article", "card notecard"); const b = el("div", "body");
@@ -834,19 +1067,55 @@ function savedCard(it) {
   return c;
 }
 let ofilter = "Alles";
+// Vakken in de opslag: grote tegels die je opent zoals een map
+const OVAKKEN = [
+  ["Oefeningen", ["Voetbal", "Thuis", "Kracht", "Herstel", "Trucje"], "⚽", "Voetbal, thuis, kracht, herstel en trucjes"],
+  ["Mindset", ["Motivatie", "Filmpje", "Focus", "Leider", "Tegenslag"], "🔥", "Motivatie, filmpjes, focus, leiderschap en tegenslag"],
+  ["Voetbalkennis", ["Dagles", "Voetbal IQ", "Wat doe jij?", "Speler", "Wedstrijd", "Spelhervatting"], "🧠", "Dagles, IQ, spelers, wedstrijden en spelhervattingen"],
+  ["Gezond", ["Habit", "Grote habit", "Hersteltip", "Product"], "🥦", "Habits, hersteltips en producten"],
+  ["Voorbeelddagen", ["Voorbeelddag", "Routine"], "📅", "Bewaarde dagschema's en routines"],
+  ["Nieuws", ["Nieuws"], "📰", "Bewaarde nieuwsberichten"],
+  ["Eigen notities", ["Eigen"], "✏️", "Je eigen notities en analyses"]
+];
+const vakOf = kind => (OVAKKEN.find(([, ks]) => ks.includes(kind)) || ["Overig"])[0];
 function renderOpslag() {
   const all = getSaved(), q = ($("#osearch").value || "").trim().toLowerCase();
-  const kinds = ["Alles", ...new Set(all.map(x => x.kind))];
-  if (!kinds.includes(ofilter)) ofilter = "Alles";
   const chips = $("#ochips"); chips.textContent = "";
-  kinds.forEach(k => { const c = el("button", "chip", k === "Eigen" ? "Eigen notities" : k); c.type = "button"; c.setAttribute("aria-pressed", k === ofilter);
-    c.onclick = () => { ofilter = k; renderOpslag(); }; chips.append(c); });
   const list = $("#olist"); list.textContent = "";
-  const shown = all.filter(x => (ofilter === "Alles" || x.kind === ofilter) && (!q || (x.title + " " + x.text).toLowerCase().includes(q)));
-  if (!all.length) { list.append(el("div", "oempty", "Je opslag is nog leeg. Tik bij een oefening, habit, les, filmpje of nieuwsbericht op ☆ Bewaar, of schrijf hierboven je eigen notitie.")); return; }
-  if (!shown.length) { list.append(el("div", "oempty", "Niets gevonden. Probeer een ander woord of kies Alles.")); return; }
-  list.append(el("p", "ometa", shown.length + (shown.length === 1 ? " item" : " items")));
-  shown.forEach(it => list.append(savedCard(it)));
+  if (q) {   // zoeken gaat door alle vakken heen
+    const hits = all.filter(x => (x.title + " " + x.text).toLowerCase().includes(q));
+    if (!hits.length) { list.append(el("div", "oempty", "Niets gevonden. Probeer een ander woord.")); return; }
+    list.append(el("p", "ometa", hits.length + (hits.length === 1 ? " item gevonden" : " items gevonden")));
+    hits.forEach(it => list.append(savedCard(it))); return;
+  }
+  const vakken = [...OVAKKEN, ...(all.some(x => vakOf(x.kind) === "Overig") ? [["Overig", [], "📦", "Overige dingen"]] : [])];
+  if (ofilter === "Alles" || !vakken.some(v => v[0] === ofilter)) {
+    ofilter = "Alles";
+    if (!all.length) list.append(el("div", "oempty", "Je opslag is nog leeg. Tik bij een oefening, habit, les, filmpje, voorbeelddag of nieuwsbericht op ☆ Bewaar, of schrijf hierboven je eigen notitie."));
+    const grid = el("div", "vakgrid");
+    vakken.forEach(([name, , icon, sub]) => {
+      const n = all.filter(x => vakOf(x.kind) === name).length;
+      const t = el("button", "vak" + (n ? "" : " leeg")); t.type = "button";
+      t.append(el("span", "vicon", icon), el("b", null, name), el("small", null, sub), el("span", "vcount", n + (n === 1 ? " item" : " items")));
+      t.onclick = () => { ofilter = name; renderOpslag(); $("#v-opslag").scrollIntoView({behavior: "smooth"}); };
+      grid.append(t);
+    });
+    list.append(grid); return;
+  }
+  // één vak open
+  const [name, , icon] = vakken.find(v => v[0] === ofilter);
+  const items = all.filter(x => vakOf(x.kind) === name);
+  const back = el("button", "btn ghost", "← Alle vakken"); back.type = "button"; back.onclick = () => { ofilter = "Alles"; renderOpslag(); };
+  const h = el("h2", "osec"); h.append(icon + " " + name, el("small", null, items.length + (items.length === 1 ? " item" : " items")));
+  list.append(back, h);
+  if (!items.length) { list.append(el("div", "oempty", "Dit vak is nog leeg.")); return; }
+  // binnen een vak: sorteren per soort
+  const kinds = [...new Set(items.map(x => x.kind))];
+  kinds.forEach(k => {
+    const its = items.filter(x => x.kind === k);
+    if (kinds.length > 1) list.append(el("p", "ometa", (k === "Eigen" ? "Eigen notities" : k) + " · " + its.length));
+    its.forEach(it => list.append(savedCard(it)));
+  });
 }
 let editingId = null;
 function editNote(it) {
@@ -866,7 +1135,7 @@ $("#notefrm").addEventListener("submit", e => {
   const v = getSaved();
   if (editingId) { const n = v.find(x => x.id === editingId); if (n) { n.title = title || "Notitie"; n.text = text; n.url = url; } toast("Notitie aangepast"); }
   else { v.unshift({id: Date.now().toString(36), kind: "Eigen", title: title || "Notitie", text, url, savedAt: Date.now()}); toast("Notitie opgeslagen"); }
-  putSaved(v); resetNoteForm(); ofilter = "Alles"; renderOpslag();
+  putSaved(v); resetNoteForm(); ofilter = "Eigen notities"; renderOpslag();
 });
 $("#osearch").addEventListener("input", renderOpslag);
 
@@ -990,16 +1259,229 @@ function renderIqLessons() {
 }
 renderIqLessons();
 function vbSeg(which) {
-  const map = {drills:["#drills", "Oefeningen met <em>de bal</em>"], tricks:["#tricksbox", "Trucjes <em>leren</em>"], iq:["#iq", "Slimmer <em>spelen</em>"]};
+  const map = {drills:["#drills", "Oefeningen met <em>de bal</em>"], tricks:["#tricksbox", "Trucjes <em>leren</em>"], iq:["#iq", "Slimmer <em>spelen</em>"], analyse:["#analyse", "Kijken als een <em>analist</em>"]};
   Object.entries(map).forEach(([k, [sel]]) => { $("#seg-" + k).setAttribute("aria-pressed", k === which); $(sel).hidden = k !== which; });
   $("#vb-title").innerHTML = map[which][1];
 }
-$("#seg-drills").onclick = () => vbSeg("drills"); $("#seg-tricks").onclick = () => vbSeg("tricks"); $("#seg-iq").onclick = () => vbSeg("iq");
+$("#seg-drills").onclick = () => vbSeg("drills"); $("#seg-tricks").onclick = () => vbSeg("tricks"); $("#seg-iq").onclick = () => vbSeg("iq"); $("#seg-analyse").onclick = () => vbSeg("analyse");
+
+// ---------- tabblad Speler ----------
+function spSeg(which) {
+  const map = {rec:["Mijn <em>records</em>", "Test jezelf één keer per maand en zie hoe je beter wordt."], check:["Klaar voor de <em>wedstrijd</em>", "Vink alles af op wedstrijddag. Zo wordt het een vaste routine."], pos:["Alle <em>posities</em>", "Tik op een positie op het veld en zie wat je daar het beste kunt doen."], bles:["Blessures <em>voorkomen</em>", "Zo blijf je fit, en dit doe je als er toch iets gebeurt."]};
+  Object.keys(map).forEach(k => { $("#seg-" + k).setAttribute("aria-pressed", k === which); $("#sp-" + k).hidden = k !== which; });
+  $("#sp-title").innerHTML = map[which][0]; $("#sp-intro").textContent = map[which][1];
+}
+["rec", "check", "pos", "bles"].forEach(k => $("#seg-" + k).onclick = () => spSeg(k));
+// records
+const getRecords = () => { const r = store("stayhard-records"); return r && typeof r === "object" ? r : {}; };
+function sparkline(vals, lower) {
+  const sv = svgEl("svg", {viewBox:"0 0 100 30", preserveAspectRatio:"none", role:"img", "aria-label":"Verloop van je scores"});
+  if (vals.length < 2) return sv;
+  const mn = Math.min(...vals), mx = Math.max(...vals), span = mx - mn || 1;
+  const pts = vals.map((v, i) => [i / (vals.length - 1) * 96 + 2, lower ? 4 + (v - mn) / span * 22 : 26 - (v - mn) / span * 22]);
+  sv.append(svgEl("polyline", {points: pts.map(p => p.join(",")).join(" "), fill:"none", stroke:"var(--accent)", "stroke-width":"2", "stroke-linejoin":"round", "vector-effect":"non-scaling-stroke"}));
+  const [lx, ly] = pts[pts.length - 1]; sv.append(svgEl("circle", {cx:lx, cy:ly, r:2.2, fill:"var(--accent)"}));
+  return sv;
+}
+function renderRecords() {
+  const box = $("#sp-rec"); box.textContent = ""; const recs = getRecords();
+  const tested = RECORD_TESTS.filter(t => (recs[t.id] || []).length).length;
+  const top = el("article", "card"), tb = el("div", "body");
+  tb.append(el("div", "eyebrow", tested + " van de " + RECORD_TESTS.length + " tests gedaan"), el("p", null, "Tip: kies één vaste testdag per maand, bijvoorbeeld de eerste zondag. Doe eerst een warming-up. Een volwassene of vriend kan helpen met tijden opnemen."));
+  top.append(tb); box.append(top);
+  RECORD_TESTS.forEach(t => {
+    const list = recs[t.id] || [], vals = list.map(x => x.v);
+    const best = vals.length ? (t.lower ? Math.min(...vals) : Math.max(...vals)) : null, last = list[list.length - 1];
+    const c = el("article", "card"), b = el("div", "body rec");
+    const pills = el("div", "rbest");
+    if (best != null) { pills.append(el("span", "pill hot", "Record: " + String(best).replace(".", ",") + " " + t.unit), el("span", "pill", "Laatste: " + String(last.v).replace(".", ",") + " (" + last.d.split("-").reverse().slice(0, 2).join("-") + ")")); if (list.length > 1) { const first = list[0].v, diff = t.lower ? first - last.v : last.v - first; pills.append(el("span", "pill " + (diff > 0 ? "new" : ""), (diff > 0 ? "▲ " : diff < 0 ? "▼ " : "") + Math.abs(Math.round(diff * 100) / 100).toString().replace(".", ",") + " sinds je eerste test")); } }
+    else pills.append(el("span", "pill", "Nog niet getest"));
+    const add = el("div", "radd"); const inp = document.createElement("input"); inp.type = "text"; inp.inputMode = "decimal"; inp.placeholder = "Nieuwe score (" + t.unit + ")"; inp.setAttribute("aria-label", "Nieuwe score voor " + t.name);
+    const ok = el("button", "btn play", "Opslaan"); ok.type = "button";
+    ok.onclick = () => {
+      const v = parseFloat(inp.value.replace(",", ".")); if (!(v >= 0)) { toast("Vul een getal in"); inp.focus(); return; }
+      const r = getRecords(); const arr = r[t.id] || []; const prevBest = arr.length ? (t.lower ? Math.min(...arr.map(x => x.v)) : Math.max(...arr.map(x => x.v))) : null;
+      arr.push({d: TODAY, v}); r[t.id] = arr.slice(-40); store("stayhard-records", r);
+      toast(prevBest == null ? "Eerste score opgeslagen" : (t.lower ? v < prevBest : v > prevBest) ? "🎉 Nieuw record!" : "Score opgeslagen"); renderRecords();
+    };
+    add.append(inp, ok);
+    b.append(el("span", "ricon", t.icon), el("h3", null, t.name), pills, el("p", "rhow", t.how));
+    if (vals.length > 1) b.append(sparkline(vals, t.lower));
+    b.append(add);
+    if (list.length) { const undo = el("button", "btn ghost", "Laatste score weghalen"); undo.type = "button"; undo.style.gridColumn = "1/-1"; undo.style.justifySelf = "start";
+      undo.onclick = () => { if (!confirmDel(undo)) return; const r = getRecords(); (r[t.id] || []).pop(); store("stayhard-records", r); renderRecords(); }; b.append(undo); }
+    c.append(b); box.append(c);
+  });
+}
+renderRecords();
+// wedstrijddag-checklist (begint elke dag opnieuw)
+function getCheck() { const c = store("stayhard-checklist"); return c && c.date === TODAY ? c : {date: TODAY, done: []}; }
+function renderChecklist() {
+  const box = $("#sp-check"); box.textContent = ""; const st = getCheck(); const total = MATCH_CHECKLIST.reduce((n, [, its]) => n + its.length, 0);
+  const pct = Math.round(st.done.length / total * 100);
+  const top = el("article", "card"), tb = el("div", "body"), bar = el("div", "progress"), fill = el("i"); fill.style.width = pct + "%"; bar.append(fill);
+  const reset = el("button", "btn ghost", "Opnieuw beginnen"); reset.type = "button"; reset.style.alignSelf = "flex-start";
+  reset.onclick = () => { store("stayhard-checklist", {date: TODAY, done: []}); renderChecklist(); };
+  tb.append(el("div", "eyebrow", st.done.length + " van " + total + " gedaan"), bar, el("p", null, pct === 100 ? "Alles gedaan. Top voorbereid! 💪" : "Vink af wat je gedaan hebt. Morgen begint de lijst weer leeg."), reset);
+  top.append(tb); box.append(top);
+  MATCH_CHECKLIST.forEach(([phase, items], pi) => {
+    const c = el("article", "card"), b = el("div", "body"), list = el("div", "chk");
+    const n = items.filter((_, i) => st.done.includes(pi + ":" + i)).length;
+    b.append(el("div", "eyebrow", phase + " · " + n + "/" + items.length));
+    items.forEach((t, i) => {
+      const key = pi + ":" + i, lab = el("label", st.done.includes(key) ? "done" : ""), cb = document.createElement("input"); cb.type = "checkbox"; cb.checked = st.done.includes(key);
+      cb.onchange = () => { const s2 = getCheck(); s2.done = cb.checked ? [...new Set([...s2.done, key])] : s2.done.filter(k => k !== key); store("stayhard-checklist", s2); renderChecklist(); };
+      lab.append(cb, el("span", null, t)); list.append(lab);
+    });
+    b.append(list); c.append(b); box.append(c);
+  });
+}
+renderChecklist();
+// posities op het veld
+let posSel = null, posView = "spelen";
+function renderPosities() {
+  const box = $("#sp-pos"); box.textContent = "";
+  const wrap = el("div", "pitchwrap"), sv = svgEl("svg", {viewBox:"0 0 100 150", role:"group", "aria-label":"Voetbalveld met posities"});
+  const L = (a) => sv.append(svgEl(a[0], {...a[1], fill:"none", stroke:"rgba(255,255,255,.55)", "stroke-width":".6"}));
+  for (let k = 0; k < 6; k++) sv.append(svgEl("rect", {x:0, y:k * 25, width:100, height:12.5, fill:"rgba(255,255,255,.04)"}));
+  [["rect", {x:3, y:3, width:94, height:144}], ["line", {x1:3, y1:75, x2:97, y2:75}], ["circle", {cx:50, cy:75, r:12}], ["rect", {x:24, y:3, width:52, height:22}], ["rect", {x:38, y:3, width:24, height:8}], ["rect", {x:24, y:125, width:52, height:22}], ["rect", {x:38, y:139, width:24, height:8}]].forEach(L);
+  sv.append(svgEl("text", {x:50, y:-0.5, "text-anchor":"middle", "font-size":"3.2", fill:"#fff", opacity:".8"}));
+  POSITIES.forEach(p => p.spots.forEach(([x, y]) => {
+    const g = svgEl("g", {class:"posbtn" + (p.id === posSel ? " on" : ""), tabindex:"0", role:"button", "aria-label":p.name + ", nummer " + p.nr});
+    g.append(svgEl("circle", {cx:x, cy:y, r:p.id === posSel ? 6.4 : 5.4, fill:p.id === "k" ? "#F59E0B" : p.id === posSel ? "var(--accent)" : "#2563EB", stroke:"#fff", "stroke-width":".8"}));
+    const t = svgEl("text", {x:x, y:y + 1.6, "text-anchor":"middle", "font-size":"4.6", "font-weight":"800", fill:"#fff", "font-family":"Figtree,system-ui"}); t.textContent = p.nr; g.append(t);
+    const lb = svgEl("text", {x:x, y:y + 10.5, "text-anchor":"middle", "font-size":"3.4", "font-weight":"700", fill:"#fff", "font-family":"Figtree,system-ui"}); lb.textContent = p.short; g.append(lb);
+    const pick = () => { posSel = p.id; posView = "spelen"; renderPosities(); $("#posdetail").scrollIntoView({behavior:"smooth"}); };
+    g.addEventListener("click", pick); g.addEventListener("keydown", e => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); pick(); } });
+    sv.append(g);
+  }));
+  wrap.append(sv); box.append(wrap);
+  if (!posSel) { const hint = el("p", "intro", "👆 Tik op een positie om te zien wat je daar het beste kunt doen, inclusief spelhervattingen en spelers om te analyseren."); hint.id = "posdetail"; box.append(hint); return; }
+  const p = POSITIES.find(x => x.id === posSel);
+  // onderwerpen binnen de positie
+  const sub = el("div", "seg"); sub.id = "posdetail"; sub.setAttribute("role", "group"); sub.setAttribute("aria-label", "Onderwerp");
+  [["spelen", p.name], ["hervat", "Spelhervattingen"]].forEach(([k, lab]) => { const bt = el("button", null, lab); bt.type = "button"; bt.setAttribute("aria-pressed", posView === k); bt.onclick = () => { posView = k; renderPosities(); $("#posdetail").scrollIntoView({behavior:"smooth"}); }; sub.append(bt); });
+  box.append(sub);
+  if (posView === "hervat") {
+    const g = SH_GROEPEN[SH_GROEP_VAN[p.id]];
+    box.append(el("p", "intro", "Zo doe je het als " + p.name.toLowerCase() + " bij elke spelhervatting. Tik op een situatie om hem open te klappen. Luister altijd ook naar de afspraken van je trainer."));
+    const list = el("div", "view bles"); list.style.gap = "10px";
+    SH_SITUATIES.forEach(([id, title, icon], n) => {
+      const x = g[id]; if (!x) return;
+      const d = el("details"); if (n === 0) d.open = true;
+      const inner = el("div", "bin");
+      const row = (lab, txt) => { const q = el("p"); q.append(el("b", null, lab + ": "), txt); return q; };
+      inner.append(row("Jouw plek", x.plek), row("Jouw taak", x.taak), row("Let op", x.let));
+      const act = el("div", "actions"); act.append(saveBtn("Spelhervatting", p.name + " – " + title, {text: x.taak})); inner.append(act);
+      d.append(el("summary", null, icon + " " + title), inner); list.append(d);
+    });
+    box.append(list); return;
+  }
+  const c = el("article", "card poscard"), b = el("div", "body");
+  const ul = arr => { const u = el("ul"); arr.forEach(t => u.append(el("li", null, t))); return u; };
+  const sec = (h, node) => { const d = el("div"); d.append(el("h4", null, h), node); return d; };
+  const meta = el("div", "meta"); meta.append(el("span", "pill hot", "Nummer " + p.nr));
+  const best = el("div", "onthoud"); best.style.cssText = "background:var(--dark);color:var(--dark-fg);border-radius:16px;padding:14px 16px;font-weight:800;font-size:18px;line-height:1.3";
+  best.append(el("small", null, "Het beste wat je kunt doen"), document.createElement("br"), p.bezit[0] + ". " + p.verlies[0] + ".");
+  best.querySelector("small").style.cssText = "display:block;font-size:11px;letter-spacing:.08em;text-transform:uppercase;opacity:.75";
+  b.append(meta, el("h3", null, p.name), el("p", null, p.kort), best, sec("Als jouw team de bal heeft", ul(p.bezit)), sec("Als de tegenstander de bal heeft", ul(p.verlies)), sec("Belangrijkste vaardigheden", ul(p.skills)));
+  if (p.uitleg) { const ua = el("div", "actions"); ua.append(playBtn({video: p.uitleg})); b.append(sec("Uitlegfilmpje over deze positie (Engels)", ua)); }
+  const vb = p.uitleg ? videoBlock({video: p.uitleg, title: "Uitleg: " + p.name}) : null; if (vb) c.append(vb);
+  c.append(b); box.append(c);
+  const pl = p.spelers.map(n => SPELERS.find(s => s.name === n)).filter(Boolean);
+  if (pl.length) {
+    box.append(el("h2", "sub", "Analyses van spelers op deze plek"));
+    const pbox = el("div", "view"); pbox.style.gap = "12px"; box.append(pbox);
+    pl.slice(0, 2).forEach(x => pbox.append(playerCard(x, false)));
+    if (pl.length > 2) { const m = el("button", "more", "Toon alle " + pl.length + " spelers"); m.type = "button"; m.onclick = () => { m.remove(); pl.slice(2).forEach(x => pbox.append(playerCard(x, false))); }; pbox.append(m); }
+  }
+}
+renderPosities();
+// blessures voorkomen
+function renderBlessures() {
+  const box = $("#sp-bles"); box.textContent = "";
+  const r = el("article", "card"), rb = el("div", "body"), ol = el("ol"); BLESSURE_REGELS.forEach(t => ol.append(el("li", null, t)));
+  rb.append(el("div", "eyebrow", "10 regels tegen blessures"), ol); r.append(rb); box.append(r);
+  const w = el("article", "card"), wb = el("div", "body"), wl = el("ol");
+  WARMUP_PREVENT.forEach(([n, reps, txt]) => { const li = el("li"); li.append(el("b", null, n + " (" + reps + ") "), txt); wl.append(li); });
+  const act = el("div", "actions"); act.append(planBtn({kind:"Warming-up", title:"Warming-up tegen blessures", meta:"± 12 minuten"}));
+  wb.append(el("div", "eyebrow", "Warming-up tegen blessures · ± 12 minuten"), el("p", null, "Doe dit voor elke training en wedstrijd. Het traint je spieren, balans en landen, en dat voorkomt veel blessures."), wl, act); w.append(wb); box.append(w);
+  box.append(el("h2", "sub", "Wat doe je als…"));
+  const list = el("div", "view bles"); list.style.gap = "10px";
+  BLESSURES.forEach(x => {
+    const d = el("details"), inner = el("div", "bin"), u = el("ul"); x.doe.forEach(t => u.append(el("li", null, t)));
+    const warn = el("div", "warn"); warn.append(el("b", null, "Wanneer naar een dokter of fysio? "), x.stop);
+    inner.append(el("p", null, x.wat), el("h4", null, "Wat je doet"), u, warn, el("p", null, "Voorkomen: " + x.voorkom));
+    d.append(el("summary", null, x.title), inner); list.append(d);
+  });
+  box.append(list, el("p", "intro", "Twijfel je? Vraag het altijd aan je ouders, trainer, huisarts of fysiotherapeut. Deze tips vervangen geen dokter."));
+}
+renderBlessures();
+
+// ---------- analyse: wedstrijden en spelers van anderen bekijken als een analist ----------
+// Een eigen aantekening bij een analyse komt als notitie in de opslag.
+function analyseNotes(title) {
+  const wrap = el("div", "anform"); const l = el("label", "wide"); const ta = document.createElement("textarea");
+  ta.placeholder = "Wat zag jij? Schrijf je antwoorden op…"; l.append("Mijn analyse", ta); wrap.append(l);
+  const b = el("button", "btn ghost", "Bewaar mijn analyse in de opslag"); b.type = "button"; b.style.gridColumn = "1/-1"; b.style.justifySelf = "start";
+  b.onclick = () => { const t = ta.value.trim(); if (!t) { toast("Schrijf eerst wat je zag"); ta.focus(); return; }
+    const v = getSaved(); v.unshift({id: Date.now().toString(36), kind: "Eigen", title: "Analyse: " + title, text: t, url: "", savedAt: Date.now()}); putSaved(v); ta.value = ""; toast("Je analyse staat in je opslag"); };
+  wrap.append(b); return wrap;
+}
+function playerCard(p, fresh) {
+  const c = el("article", "card player");
+  const vb = videoBlock({...p, title: p.name}); if (vb) c.append(vb);
+  const b = el("div", "body");
+  const meta = el("div", "meta"); meta.append(...newPill(fresh), el("span", "pill hot", p.pos), el("span", "pill", p.video ? "Met filmpje" : "Zoek filmpjes"));
+  const sec = (h, node) => { const d = el("div"); d.append(el("h4", null, h), node); return d; };
+  const ul = el("ol"); p.sterk.forEach(t => ul.append(el("li", null, "Let op: " + t.charAt(0).toLowerCase() + t.slice(1) + ". Wanneer en hoe doet hij dat?")));
+  const ans = el("details", "answer"); ans.append(el("summary", null, "Wat je kunt leren (lees na het kijken)"), el("p", null, p.leer), el("p", null, "Zelf doen: " + p.oefening));
+  const act = el("div", "actions"); act.append(playBtn(p.video ? {video: p.video} : {yt: p.yt}), planBtn({kind:"Analyse", title:"Oefenen zoals " + p.name, meta:p.oefening}), saveBtn("Speler", p.name, {text: p.leer}));
+  b.append(meta, el("h3", null, p.name), el("p", null, p.stijl), sec("Jouw analyse-opdracht", ul), ans, analyseNotes(p.name), act);
+  c.append(b); return c;
+}
+function matchCard(m, fresh) {
+  const c = el("article", "card player");
+  const vb = videoBlock(m); if (vb) c.append(vb);
+  const b = el("div", "body");
+  const meta = el("div", "meta"); meta.append(...newPill(fresh), el("span", "pill", m.jaar));
+  const sec = (h, node) => { const d = el("div"); d.append(el("h4", null, h), node); return d; };
+  const ol = el("ol"); (m.opdracht || []).forEach(t => ol.append(el("li", null, t)));
+  const ans = el("details", "answer"); ans.append(el("summary", null, "De les (lees na het kijken)"), el("p", null, m.les), el("p", null, "Wat jij ermee doet: " + m.jij));
+  const act = el("div", "actions"); act.append(playBtn(m.video ? {video: m.video} : {yt: m.yt}), saveBtn("Wedstrijd", m.title, {text: m.les}));
+  b.append(meta, el("h3", null, m.title), el("p", null, m.wat), sec("Jouw analyse-opdracht", ol), ans, analyseNotes(m.title), act);
+  c.append(b); return c;
+}
+function renderAnalyse() {
+  const box = $("#analyse"); box.textContent = "";
+  box.append(el("p", "intro", "Kijk elke dag een wedstrijd en een speler zoals een echte analist. Bekijk het filmpje, let op de opdracht en schrijf op wat je ziet. Lees daarna pas de les."));
+  box.append(el("h2", "sub", "Wedstrijd van de dag"));
+  const mbox = el("div", "view"); mbox.style.gap = "12px"; box.append(mbox);
+  rotatedList(mbox, WEDSTRIJDEN, 1, 62, (m, f) => matchCard(m, f), "wedstrijdanalyses", true);
+  box.append(el("h2", "sub", "Speler van de dag"));
+  const pbox = el("div", "view"); pbox.style.gap = "12px"; box.append(pbox);
+  rotatedList(pbox, SPELERS, 1, 61, (p, f) => playerCard(p, f), "speleranalyses", true);
+  box.append(el("h2", "sub", "Zo kijk je als een analist"));
+  const tc = el("article", "card"), tb = el("div", "body"), ol = el("ol");
+  shuffle(ANALYSE_TIPS, REL + 3).slice(0, 4).forEach(t => ol.append(el("li", null, t)));
+  tb.append(el("p", null, "Gebruik deze tips bij elk filmpje of elke wedstrijd die je kijkt:"), ol); tc.append(tb); box.append(tc);
+}
+// verwijderen pas na een tweede tik (geen pop-up)
+function confirmDel(btn) { if (btn.dataset.sure) return true; btn.dataset.sure = 1; btn.textContent = "Zeker? Tik nog een keer"; setTimeout(() => { delete btn.dataset.sure; btn.textContent = "Verwijder"; }, 3000); return false; }
+renderAnalyse();
 
 // ---------- voetbal en thuis ----------
 const LEG_RE = /been|kuit|heup|lies|bil|hamstring|enkel|voet|tenen|achilles|scheen|knie/i;
 const LEG_STRETCHES = RECOVERY.filter(x => x.leg || LEG_RE.test(x.target || "")), OTHER_STRETCHES = RECOVERY.filter(x => !LEG_STRETCHES.includes(x));
-rotatedList($("#drills"), DRILLS, 6, 1, (d, f) => drillCard(d, f), "oefeningen");
+let drillSoort = "alle";
+const MUUR = DRILLS.filter(d => d.fig && d.fig.wall);
+function renderDrills() {
+  const ch = $("#drillchips"); ch.textContent = "";
+  [["alle", "Alle oefeningen (" + DRILLS.length + ")"], ["muur", "🧱 Tegen de muur (" + MUUR.length + ")"]].forEach(([k, lab]) => { const c = el("button", "chip", lab); c.type = "button"; c.setAttribute("aria-pressed", drillSoort === k); c.onclick = () => { drillSoort = k; renderDrills(); }; ch.append(c); });
+  if (drillSoort === "muur") rotatedList($("#drills"), MUUR, 6, 31, (d, f) => drillCard(d, f), "muuroefeningen");
+  else rotatedList($("#drills"), DRILLS, 6, 1, (d, f) => drillCard(d, f), "oefeningen");
+}
+renderDrills();
 // Thuistraining = gewone oefeningen + de krachtoefeningen voor voetballers
 const THUIS_ALL = [...EXERCISES, ...(typeof KRACHT !== "undefined" ? KRACHT : [])];
 // Drie vakken: onderlichaam, middenlichaam (buik/romp/rug) en bovenlichaam (armen/borst/schouders)
@@ -1394,20 +1876,22 @@ function lessonCard(l, nr, today) {
   const sec = (h, node) => { const d = el("div"); d.append(el("h4", null, h), node); return d; };
   const tips = el("ol"); l.steps.forEach(t => tips.append(el("li", null, t)));
   // oefening met timer van 3 minuten
-  const doe = el("div", "doe"); doe.append(el("h4", null, "Doe het nu"), el("p", null, l.doe));
+  const doe = el("div", "doe"); doe.append(el("h4", null, "Train het nu"), el("p", null, l.doe));
   const tm = el("div", "timer", "3:00"); const tb = el("button", "btn play", "Start 3 minuten"); tb.type = "button"; let iv = null;
   tb.onclick = () => { if (iv) { clearInterval(iv); iv = null; tm.textContent = "3:00"; tb.textContent = "Start 3 minuten"; return; }
     let left = 180; tb.textContent = "Stop"; iv = setInterval(() => { left--; tm.textContent = Math.floor(left / 60) + ":" + String(left % 60).padStart(2, "0");
       if (left <= 0) { clearInterval(iv); iv = null; tm.textContent = "Klaar!"; tb.textContent = "Start 3 minuten"; } }, 1000); };
   const row = el("div", "actions"); row.style.alignItems = "center"; row.append(tb, tm); doe.append(row);
-  const ont = el("div", "onthoud"); ont.append(el("small", null, "Onthoud"), l.onthoud);
+  const ont = el("div", "onthoud best"); ont.append(el("small", null, "Het beste wat je kunt doen"), l.onthoud);
   const done = new Set(store("stayhard-lessen") || []); const key = "les:" + l.title;
   const db = el("button", "btn ghost"); db.type = "button";
   const set = on => { db.setAttribute("aria-pressed", on); db.textContent = on ? "✓ Les gedaan" : "Les gedaan"; };
   set(done.has(key)); db.onclick = () => { const d = new Set(store("stayhard-lessen") || []); d.has(key) ? d.delete(key) : d.add(key); store("stayhard-lessen", [...d]); set(d.has(key)); };
   const act = el("div", "actions"); act.append(db, planBtn({kind:"Dagles", title:l.title, meta:"± 5 minuten"}), saveBtn("Dagles", l.title, {text: l.intro}));
-  b.append(meta, el("h3", null, l.title), el("p", "situ", l.intro), sec("Waarom dit belangrijk is", el("p", null, l.why)),
-    sec("Zo doe je het", tips), doe, sec("Veelgemaakte fout", el("p", null, l.fout)), ont, act);
+  // Opbouw zoals een profcoach het uitlegt: eerst de beste keuze, dan wat profs doen, waarom, wat je vermijdt en de training.
+  const pro = el("ol", "prolist"); l.steps.forEach((t, k) => { const li = el("li"); li.append(el("b", null, (["Eerst", "Dan", "Tot slot"][k] || "Daarna") + ":"), " " + t); pro.append(li); });
+  const avoid = el("div", "avoid"); avoid.append(el("small", null, "Vermijd"), l.fout);
+  b.append(meta, el("h3", null, l.title), el("p", "situ", l.intro), ont, sec("Wat de profs doen", pro), sec("Waarom dit werkt", el("p", null, l.why)), avoid, doe, act);
   c.append(b); return c;
 }
 function renderDagles() {
@@ -1440,10 +1924,70 @@ function renderDagles() {
 }
 renderDagles();
 function mindsetSeg(which) {
-  $("#seg-mot").setAttribute("aria-pressed", which === "mot"); $("#seg-les").setAttribute("aria-pressed", which === "les");
-  $("#motivatie").hidden = which !== "mot"; $("#dagles").hidden = which !== "les";
+  [["mot", "#motivatie"], ["les", "#dagles"], ["focus", "#focus"], ["leider", "#leider"], ["tegen", "#tegenslag"]].forEach(([k, sel]) => { $("#seg-" + k).setAttribute("aria-pressed", which === k); $(sel).hidden = which !== k; });
 }
-$("#seg-mot").onclick = () => mindsetSeg("mot"); $("#seg-les").onclick = () => mindsetSeg("les");
+$("#seg-mot").onclick = () => mindsetSeg("mot"); $("#seg-les").onclick = () => mindsetSeg("les"); $("#seg-focus").onclick = () => mindsetSeg("focus"); $("#seg-leider").onclick = () => mindsetSeg("leider");
+// ---------- focus, geen excuses en leiderschap ----------
+function tipCard(kind, t, fresh, extra) {
+  const c = el("article", "card"), b = el("div", "body");
+  const meta = el("div", "meta"); meta.append(...newPill(fresh), el("span", "pill hot", kind === "Focus" ? "Focus" : "Leiderschap")); if (extra) meta.append(el("span", "pill", extra));
+  const how = el("p", "how"); how.append(el("b", null, kind === "Focus" ? "Zo doe je het: " : "Wat jij doet: "), t.hoe || t.doe);
+  const act = el("div", "actions"); act.append(tryBtn((kind === "Focus" ? "fo:" : "le:") + t.title), saveBtn(kind, t.title, {text: t.wat}));
+  b.append(meta, el("h3", null, t.title), el("p", null, t.wat), how);
+  if (t.voorbeeld) b.append(el("p", "situ", t.voorbeeld));
+  b.append(act); c.append(b); return c;
+}
+function excuseCard([ex, ans], fresh) {
+  const c = el("article", "card"), b = el("div", "body");
+  const meta = el("div", "meta"); meta.append(...newPill(fresh), el("span", "pill hot", "Geen excuses"));
+  const q = el("p"); q.style.cssText = "font-size:18px;font-weight:700;margin:0;text-decoration:line-through;color:var(--muted)"; q.textContent = "“" + ex + "”";
+  const a = el("div", "onthoud"); a.style.cssText = "background:var(--dark);color:var(--dark-fg);border-radius:16px;padding:14px 16px;font-weight:800;font-size:18px;line-height:1.3"; a.textContent = ans;
+  b.append(meta, q, a); c.append(b); return c;
+}
+function renderFocus() {
+  const box = $("#focus"); box.textContent = "";
+  box.append(el("p", "intro", "Concentratie is een spier: hoe vaker je hem traint, hoe sterker hij wordt. En excuses? Die laten we vanaf nu achter ons."));
+  box.append(el("h2", "sub", "Focus-tips van vandaag"));
+  const f = el("div", "view"); f.style.gap = "12px"; box.append(f);
+  rotatedList(f, FOCUS_TIPS, 3, 71, (t, fr) => tipCard("Focus", t, fr, t.wanneer), "focus-tips");
+  const [on, ot] = FOCUS_OEFENINGEN[((REL % FOCUS_OEFENINGEN.length) + FOCUS_OEFENINGEN.length) % FOCUS_OEFENINGEN.length];
+  const oc = el("article", "card"), ob = el("div", "body"); ob.append(el("div", "eyebrow", "Focus-oefening van vandaag"), el("h3", null, on), el("p", null, ot)); oc.append(ob); box.append(oc);
+  box.append(el("h2", "sub", "Geen excuses meer"));
+  const e = el("div", "view"); e.style.gap = "12px"; box.append(e);
+  rotatedList(e, EXCUSES, 3, 72, (x, fr) => excuseCard(x, fr), "excuses");
+}
+function renderLeider() {
+  const box = $("#leider"); box.textContent = "";
+  box.append(el("p", "intro", "Je hoeft geen aanvoerder te zijn om een leider te zijn. Een leider maakt zijn team beter, met zijn inzet, zijn woorden en zijn voorbeeld."));
+  const wk = Math.floor((DAY - todayIdx) / 7), opd = LEIDER_OPDRACHTEN[((wk % LEIDER_OPDRACHTEN.length) + LEIDER_OPDRACHTEN.length) % LEIDER_OPDRACHTEN.length];
+  const oc = el("article", "card"), ob = el("div", "body"), a = el("div", "actions"); a.append(planBtn({kind:"Leider", title:"Leider-opdracht: " + opd, meta:"deze week"}));
+  ob.append(el("div", "eyebrow", "Leider-opdracht van deze week"), el("h3", null, opd), a); oc.append(ob); box.append(oc);
+  box.append(el("h2", "sub", "Leider-lessen van vandaag"));
+  const l = el("div", "view"); l.style.gap = "12px"; box.append(l);
+  rotatedList(l, LEIDER, 3, 73, (t, fr) => tipCard("Leider", t, fr), "leider-lessen");
+}
+$("#seg-tegen").onclick = () => mindsetSeg("tegen");
+function tegenCard(t, fresh) {
+  const c = el("article", "card"), b = el("div", "body");
+  const meta = el("div", "meta"); meta.append(...newPill(fresh), el("span", "pill hot", "Tegenslag"));
+  const u = el("ol"); u.style.cssText = "margin:0;padding-left:20px;display:flex;flex-direction:column;gap:4px"; t.doe.forEach(x => u.append(el("li", null, x)));
+  const sec = (h, node) => { const d = el("div"); d.append(el("h4", null, h), node); return d; };
+  const denk = el("div", "onthoud"); denk.style.cssText = "background:var(--dark);color:var(--dark-fg);border-radius:16px;padding:14px 16px;font-weight:800;font-size:17px;line-height:1.3"; denk.textContent = t.denk;
+  const act = el("div", "actions"); act.append(saveBtn("Tegenslag", t.title, {text: t.denk}));
+  b.append(meta, el("h3", null, t.title), sec("Wat je voelt", el("p", null, t.gevoel)), sec("Wat je doet", u), denk, act); c.append(b); return c;
+}
+function renderTegenslag() {
+  const box = $("#tegenslag"); box.textContent = "";
+  box.append(el("p", "intro", "Elke speler krijgt tegenslagen. Het verschil zit in wat je daarna doet. Hier lees je hoe je sterker terugkomt."));
+  const hc = el("article", "card"), hb = el("div", "body"), ol = el("ol"); ol.style.cssText = "margin:0;padding-left:20px;display:flex;flex-direction:column;gap:6px";
+  HERSTEL_STAPPEN.forEach(([k, t]) => { const li = el("li"); li.append(el("b", null, k + ": "), t); ol.append(li); });
+  hb.append(el("div", "eyebrow", "Na elke tegenslag: 5 stappen"), ol); hc.append(hb); box.append(hc);
+  box.append(el("h2", "sub", "Situaties van vandaag"));
+  const l = el("div", "view"); l.style.gap = "12px"; box.append(l);
+  rotatedList(l, TEGENSLAG, 3, 74, (t, fr) => tegenCard(t, fr), "situaties");
+  box.append(el("p", "intro", "Zit je ergens echt mee? Praat erover met je ouders, je trainer of iemand die je vertrouwt."));
+}
+renderFocus(); renderLeider(); renderTegenslag();
 (() => {   // kaart op de startpagina
   const l = DAILY_LESSONS[lesIdx], box = $("#startles");
   const b = el("button", "btn play", "Start de les"); b.type = "button";
@@ -1870,6 +2414,8 @@ function renderVoorbeeld(skipEditor) {
   const dt = $("#daytype"); dt.textContent = "";
   dt.append(el("div", "eyebrow", "Voorbeeldweek " + fmtD(mon) + " t/m " + fmtD(sun) + " · elke maandag een nieuwe")); dt.append(el("h2", "sub", DAYS[vdDay] + ": " + type.name), el("p", "intro", type.text));
   const tl = $("#timeline"); tl.textContent = "";
+  const vdTitle = DAYS[vdDay] + ": " + type.name + (vdFree ? " (zonder school)" : "") + " · week van " + fmtD(mon);
+  const vs = $("#vdsave"); vs.textContent = ""; vs.append(saveBtn("Voorbeelddag", vdTitle, {text: type.text, items: items.map(t => ({t: toHM(t.m), title: t.title, sub: t.sub || ""}))}));
   items.forEach(t => { const r = el("div", "tl" + (t.key ? " key" : "")); const x = el("div"); x.append(el("b", null, t.title)); if (t.sub) x.append(el("span", null, t.sub)); r.append(el("time", null, toHM(t.m)), x); tl.append(r); });
   if (!skipEditor) renderSchedEditor();
 }
@@ -1885,11 +2431,36 @@ $("#tasks2plan").onclick = () => {
 };
 function plannerSeg(which) {
   $("#seg-week").setAttribute("aria-pressed", which === "week"); $("#seg-voorbeeld").setAttribute("aria-pressed", which === "voorbeeld");
-  $("#wk").hidden = which !== "week"; $("#voorbeeld").hidden = which !== "voorbeeld";
+  $("#seg-routine").setAttribute("aria-pressed", which === "routine");
+  $("#wk").hidden = which !== "week"; $("#voorbeeld").hidden = which !== "voorbeeld"; $("#routines").hidden = which !== "routine";
+  if (which === "routine") renderRoutines();
   if (which === "voorbeeld") renderVoorbeeld();
 }
 $("#vd-school").onclick = () => { vdFree = false; store("stayhard-vrij", false); renderVoorbeeld(true); };
 $("#vd-vrij").onclick = () => { vdFree = true; store("stayhard-vrij", true); renderVoorbeeld(true); };
+$("#seg-routine").onclick = () => plannerSeg("routine");
+let rtSoort = "Ochtend";
+function routineCard(r) {
+  const c = el("article", "card"), b = el("div", "body");
+  const meta = el("div", "meta"); meta.append(el("span", "pill hot", r.soort), el("span", "pill", r.wanneer));
+  const ol = el("ol", "rtlist");
+  r.stappen.forEach(([t, w, u]) => { const li = el("li"); li.append(el("b", null, t), el("span", null, w)); if (u) li.append(el("small", null, u)); ol.append(li); });
+  const act = el("div", "actions");
+  const pb = el("button", "btn play", "Zet in mijn planner"); pb.type = "button";
+  pb.onclick = () => { const p = getPlan(), k = todayIdx; let n = 0;
+    r.stappen.forEach(([t, w]) => { const title = (/^\d/.test(t) ? t + " " : "") + w; if (!p[k].some(x => x.title === title)) { p[k].push({id: Date.now().toString(36) + Math.random().toString(36).slice(2, 6), kind:"Routine", title, meta: r.title}); n++; } });
+    store("dagstart-plan", p); renderPlanner(); toast(n ? n + " stappen gepland voor vandaag" : "Die stappen staan er al in"); };
+  act.append(pb, saveBtn("Routine", r.title, {text: r.waarom}));
+  b.append(meta, el("h3", null, r.title), el("p", null, r.waarom), ol, act); c.append(b); return c;
+}
+function renderRoutines() {
+  const box = $("#routines"); box.textContent = "";
+  box.append(el("p", "intro", "Voorbeelden van een goede ochtend en avond. Kies er een die past bij je dag, of zet hem in je planner."));
+  const ch = el("div", "chips");
+  ["Ochtend", "Avond"].forEach(k => { const c = el("button", "chip", (k === "Ochtend" ? "🌅 " : "🌙 ") + k); c.type = "button"; c.setAttribute("aria-pressed", rtSoort === k); c.onclick = () => { rtSoort = k; renderRoutines(); }; ch.append(c); });
+  box.append(ch);
+  ROUTINES.filter(r => r.soort === rtSoort).forEach(r => box.append(routineCard(r)));
+}
 $("#seg-week").onclick = () => plannerSeg("week"); $("#seg-voorbeeld").onclick = () => plannerSeg("voorbeeld");
 
 // Vraag de telefoon om opslag, planner en notities niet automatisch op te ruimen.
@@ -1905,7 +2476,7 @@ function show(v) {
   window.scrollTo(0, 0);
 }
 document.querySelectorAll(".tab").forEach(t => t.onclick = () => { history.replaceState(null, "", "#" + t.dataset.v); show(t.dataset.v); });
-renderStart();
+renderStart(); renderMijnDag();
 renderPlanner();
 show((location.hash || "").slice(1) || "start");
 </script>

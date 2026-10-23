@@ -64,7 +64,7 @@ op GitHub spelen ze gewoon af.
 - Herstel, grote habits, plaatjes en mindset-filmpjes: ook in `data.js`
 - Dagles (de lessen van 5 minuten): `lessen.js`
 - Trucjes (met filmpjes), product van de dag, krachttraining en de standaardweek: `extra.js`. Je eigen trainingstijden pas je in de app aan (Planner → Voorbeelddag).
-- Alle extra oefeningen, habits, lessen, situaties, uitdagingen en producten: `meer.js` t/m `meer8.js` (in meer7.js staan ook de krachtoefeningen voor voetballers) en `maak.js` (de grote uitbreidingen, met ook extra trucjes, posters, motivatie en rekoefeningen voor je benen)
+- Alle extra oefeningen, habits, lessen, situaties, uitdagingen en producten: `meer.js` t/m `meer8.js`, `analyse.js` (spelers en wedstrijden bij Voetbal → Analyse), `speler.js` (tabblad Speler: records, wedstrijddag, posities, blessures), `focus.js`, `hervatting.js` (spelhervattingen per positie, omgaan met tegenslag) (Mindset: focus, geen excuses, leider), `meer9.js`, `meer10.js` en `meer11.js` (muuroefeningen en ochtend- en avondroutines) (uitbreidingen van al deze nieuwe onderdelen) (in meer7.js staan ook de krachtoefeningen voor voetballers) en `maak.js` (de grote uitbreidingen, met ook extra trucjes, posters, motivatie en rekoefeningen voor je benen)
 - Nieuwsbronnen: bovenaan `update_news.py`
 
 Wijzig een bestand in GitHub via het potloodje en klik **Commit changes**. De app is binnen een minuut bijgewerkt.
@@ -77,3 +77,6 @@ Wijzig een bestand in GitHub via het potloodje en klik **Commit changes**. De ap
 - Elke dag wisselt de helft van wat je ziet: de helft die er al twee dagen stond gaat weg, de rest blijft. Wat weggaat kan later terugkomen. Met **Toon alle** zie je altijd alles.
 - De weekplanner, de Opslag en "Geprobeerd" worden op de telefoon zelf bewaard en nooit vanzelf gewist. Open de app daarom altijd via het icoon op het beginscherm, niet via een losse Safari-tab.
 - De filmpjes van David Goggins zijn Engels en hij gebruikt stoere taal. Kijk ze eerst zelf of vervang ze in `data.js` (bij `MINDSET_VIDEOS`).
+
+## Mijn dag (Start)
+Bovenaan Start schrijf je elke dag je taken op. Afgevinkte taken geven punten (klein 3, gemiddeld 5, groot 8). Elke 15 punten = een kwartier chillen. Vink je minstens 3 taken af, dan groeit je streak, en je streak bepaalt je rang (van Beginner tot Legende). Alles wordt bewaard en reset nooit.

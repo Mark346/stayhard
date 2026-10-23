@@ -137,3 +137,60 @@
     IQ_QUIZ.push({q:"Hoe moeilijk is het trucje '" + t.title + "'?", options:opts, answer:opts.indexOf(t.level), why:t.tip});
   });
 })();
+
+// ---------- Ronde 4: van posities, blessures, records, focus en leiderschap ----------
+(() => {
+  const r = (n, s) => { const x = Math.sin(n * 57.3 + s * 11.1) * 31337.77; return x - Math.floor(x); };
+  const pick2 = (arr, i, s) => { const o = arr.filter((_, j) => j !== i); const a = o[Math.floor(r(i, s) * o.length)]; const rest = o.filter(x => x !== a); return [a, rest[Math.floor(r(i, s + 1) * rest.length)]]; };
+  if (typeof POSITIES !== "undefined") POSITIES.forEach((p, i) => {
+    let [a, b] = pick2(POSITIES, i, 1), pos = i % 3, o = [a.bezit[0], b.bezit[0]]; o.splice(pos, 0, p.bezit[0]);
+    IQ_QUIZ.push({q:"Je speelt als " + p.name.toLowerCase() + " en jouw team heeft de bal. Wat is slim?", options:o, answer:pos, why:p.kort});
+    [a, b] = pick2(POSITIES, i, 3); pos = (i + 1) % 3; o = [a.verlies[0], b.verlies[0]]; o.splice(pos, 0, p.verlies[0]);
+    IQ_QUIZ.push({q:"Je speelt als " + p.name.toLowerCase() + " en de tegenstander heeft de bal. Wat doe je?", options:o, answer:pos, why:p.kort});
+  });
+  if (typeof BLESSURES !== "undefined") BLESSURES.forEach((x, i) => {
+    const [a, b] = pick2(BLESSURES, i, 5), pos = (i + 2) % 3, o = [a.voorkom, b.voorkom]; o.splice(pos, 0, x.voorkom);
+    IQ_QUIZ.push({q:"Hoe voorkom je: " + x.title.toLowerCase() + "?", options:o, answer:pos, why:x.wat});
+  });
+  const seen = new Set(CHALLENGES), push = t => { if (!seen.has(t)) { seen.add(t); CHALLENGES.push(t); } };
+  if (typeof RECORD_TESTS !== "undefined") RECORD_TESTS.forEach(t => push("Record-poging: " + t.name.toLowerCase() + ". " + t.how + " Zet je score bij Speler → Records."));
+  const have = new Set(TIPS.map(t => t.title));
+  const tip = (title, text, how, theme) => { if (!have.has(title)) { have.add(title); TIPS.push({title, text, how, theme}); } };
+  if (typeof FOCUS_TIPS !== "undefined") FOCUS_TIPS.forEach(f => tip("Focus: " + f.title.toLowerCase(), f.wat, f.hoe, "hoofd"));
+  if (typeof LEIDER !== "undefined") LEIDER.forEach(l => tip("Leider: " + l.title.toLowerCase(), l.wat, l.doe, "hoofd"));
+  if (typeof EXCUSES !== "undefined") EXCUSES.forEach(([ex, ans]) => push("Geen excuus vandaag: “" + ex + "” " + ans));
+})();
+
+// ---------- Ronde 5: van spelhervattingen, tegenslag, spelers, wedstrijden en focus ----------
+(() => {
+  const r = (n, s) => { const x = Math.sin(n * 41.7 + s * 13.3) * 24631.31; return x - Math.floor(x); };
+  const seenQ = new Set(IQ_QUIZ.map(q => q.q)), addQ = q => { if (!seenQ.has(q.q)) { seenQ.add(q.q); IQ_QUIZ.push(q); } };
+  const seen = new Set(CHALLENGES), push = t => { if (!seen.has(t)) { seen.add(t); CHALLENGES.push(t); } };
+  const naam = {keeper:"keeper", verdediger:"centrale verdediger", back:"back", middenvelder:"middenvelder", vleugel:"vleugelspeler", spits:"spits"};
+  if (typeof SH_GROEPEN !== "undefined") {
+    const groepen = Object.keys(SH_GROEPEN);
+    let n = 0;
+    groepen.forEach(g => SH_SITUATIES.forEach(([id, title]) => {
+      const x = SH_GROEPEN[g][id]; if (!x) return;
+      const others = groepen.filter(o => o !== g && SH_GROEPEN[o][id] && SH_GROEPEN[o][id].taak !== x.taak);
+      if (others.length < 2) return;
+      const a = others[Math.floor(r(n, 1) * others.length)], rest = others.filter(o => o !== a), b = rest[Math.floor(r(n, 2) * rest.length)];
+      const pos = n % 3, o = [SH_GROEPEN[a][id].taak, SH_GROEPEN[b][id].taak]; o.splice(pos, 0, x.taak);
+      addQ({q:title + ": wat is jouw taak als " + naam[g] + "?", options:o, answer:pos, why:"Jouw plek: " + x.plek + " Let op: " + x.let});
+      n++;
+    }));
+  }
+  if (typeof TEGENSLAG !== "undefined") TEGENSLAG.forEach((t, i) => {
+    push("Tegenslag-plan: stel je voor dat dit gebeurt: " + t.title.toLowerCase() + ". Wat doe je? " + t.doe[0] + ".");
+    const o = TEGENSLAG.filter((_, j) => j !== i), a = o[Math.floor(r(i, 3) * o.length)], b = o[Math.floor(r(i, 4) * o.length)];
+    if (a === b) return;
+    const pos = i % 3, opts = [a.denk, b.denk]; opts.splice(pos, 0, t.denk);
+    addQ({q:"Tegenslag: " + t.title.toLowerCase() + ". Welke gedachte past hier het best?", options:opts, answer:pos, why:t.doe.join(". ") + "."});
+  });
+  if (typeof SPELERS !== "undefined") SPELERS.forEach(p => push("Train zoals " + p.name + ": " + p.oefening));
+  if (typeof WEDSTRIJDEN !== "undefined") WEDSTRIJDEN.forEach(w => { if (w.jij) push("Les uit '" + w.title + "': " + w.jij); });
+  if (typeof FOCUS_OEFENINGEN !== "undefined") FOCUS_OEFENINGEN.forEach(([t, h]) => push("Focus-oefening '" + t + "': " + h));
+  if (typeof LEIDER_OPDRACHTEN !== "undefined") LEIDER_OPDRACHTEN.forEach(t => push("Leider-opdracht: " + t));
+  const have = new Set(TIPS.map(t => t.title));
+  if (typeof BLESSURE_REGELS !== "undefined") BLESSURE_REGELS.forEach((t, i) => { const title = "Fit blijven " + (i + 1); if (!have.has(title)) { have.add(title); TIPS.push({title, text:t, how:"Maak er een vaste gewoonte van.", theme:"herstel"}); } });
+})();
