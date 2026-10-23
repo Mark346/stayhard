@@ -1,75 +1,8 @@
 {
- "updated": "2026-10-23T11:20+02:00",
+ "updated": "2026-10-22T15:00+02:00",
  "items": [
-  {
-   "cat": "voetbal",
-   "title": "Maaskant aan de slag als bondscoach van Oceanische eilandstaat Tuvalu",
-   "text": "Robert Maaskant wordt de nieuwe bondscoach van Tuvalu, een kleine eilandstaat in Oceanië met minder dan tienduizend inwoners.",
-   "url": "https://nos.nl/l/2636303",
-   "source": "NOS"
-  },
-  {
-   "cat": "voetbal",
-   "title": "Na veel vallen en opstaan geeft Ajax zichzelf lucht: 'Zie de spelers groeien'",
-   "text": "Een mengeling van opluchting en euforie golfde donderdagavond door de Johan Cruijff Arena toen Tolu Arokodare vlak voor tijd de verlossende goal maakte.",
-   "url": "https://nos.nl/l/2636286",
-   "source": "NOS"
-  },
-  {
-   "cat": "voetbal",
-   "title": "Historische avond voor eredivisieclubs met vier zeges in Europese toernooien",
-   "text": "Het Nederlands voetbal kende donderdag een bijzonder succesvolle avond: alle vier de eredivisieclubs die in actie kwamen in Europese toernooien, boekten een overwinning.…",
-   "url": "https://nos.nl/l/2636276",
-   "source": "NOS"
-  },
-  {
-   "cat": "voetbal",
-   "title": "Japanner Hashimoto pakt in Rotterdam vierde WK-goud op meerkamp op rij",
-   "text": "Daiki Hashimoto heeft in Rotterdam op de WK turnen voor de vierde keer op een rij het goud op de meerkamp in de wacht gesleept.",
-   "url": "https://nos.nl/l/2636262",
-   "source": "NOS"
-  },
-  {
-   "cat": "fitness",
-   "title": "Van Westering zwemt zestien jaar oud Nederlands record uit de boeken",
-   "text": "Kai van Westering heeft op de openingsdag van de open NK kortebaan in Rotterdam het Nederlands record op de 200 meter rugslag verbeterd.",
-   "url": "https://nos.nl/l/2636275",
-   "source": "NOS"
-  },
-  {
-   "cat": "fitness",
-   "title": "Sportdirecteur Picnic-PostNL Kemna zwaargewond na val van dak",
-   "text": "Rudi Kemna, sportdirecteur van wielerploeg Picnic-PostNL, is deze week geopereerd na een ongeluk.",
-   "url": "https://nos.nl/l/2636230",
-   "source": "NOS"
-  },
-  {
-   "cat": "fitness",
-   "title": "Dierenpark ziet recordaantal bezoekers na geboorte acht capibara's",
-   "text": "Drukte in het capibara-verblijf een dierenpark van Isle of Man. In twee weken tijd zijn daar acht capibara-jongen geboren. Veel mensen willen de dieren zien.",
-   "url": "https://jeugdjournaal.nl/l/2636088",
-   "source": "NOS Jeugdjournaal"
-  },
-  {
-   "cat": "gezondheid",
-   "title": "Fransman die overleed met shamondavirus was al zwaar ziek",
-   "text": "De Fransman die overleed met het shamondavirus was al vanwege een ernstige ziekte opgenomen in het ziekenhuis.",
-   "url": "https://nos.nl/l/2636256",
-   "source": "NOS"
-  },
-  {
-   "cat": "gezondheid",
-   "title": "Politie haalt webshops met gevaarlijke neppillen offline, link met drie doden",
-   "text": "De politie heeft dertig websites offline gehaald waar illegale medicijnen en drugs werden verkocht.",
-   "url": "https://nos.nl/l/2636169",
-   "source": "NOS"
-  },
-  {
-   "cat": "gezondheid",
-   "title": "VGZ wil dat 34 gemeenten polis voor mensen met laag inkomen (her)invoeren",
-   "text": "Zorgverzekeraar VGZ heeft een brief gestuurd aan de burgemeesters van de 34 gemeenten in Nederland die geen gemeentepolis aanbieden.",
-   "url": "https://nos.nl/l/2636107",
-   "source": "NOS"
-  }
+  {"cat":"fitness","title":"Vier minuten per dag maakt sterker","text":"Dagelijks vier minuten krachttraining verbeterde in 12 weken de kracht en beweeglijkheid van ouderen.","url":"https://www.sciencedaily.com/news/top/health/","source":"ScienceDaily"},
+  {"cat":"fitness","title":"Ook astronauten blijven fit door te trainen","text":"Harten van astronauten bleven gezond tijdens maanden in de ruimte, vooral bij wie regelmatig trainde.","url":"https://www.sciencedaily.com/news/top/health/","source":"ScienceDaily"},
+  {"cat":"gezondheid","title":"Wie jong begint met sporten, blijft sterker","text":"Een Zweedse studie volgde mensen van 16 tot 63 jaar. Wie bleef bewegen, hield meer kracht en conditie over.","url":"https://www.sciencedaily.com/releases/2026/10/261014000912.htm","source":"ScienceDaily"}
  ]
 }

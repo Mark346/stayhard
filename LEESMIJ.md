@@ -63,6 +63,8 @@ op GitHub spelen ze gewoon af.
 - Voetbaloefeningen, thuisoefeningen, filmpjes, motivatie en uitdagingen: `data.js`
 - Herstel, grote habits, plaatjes en mindset-filmpjes: ook in `data.js`
 - Dagles (de lessen van 5 minuten): `lessen.js`
+- Trucjes (met filmpjes), product van de dag, krachttraining en de standaardweek: `extra.js`. Je eigen trainingstijden pas je in de app aan (Planner → Voorbeelddag).
+- Alle extra oefeningen, habits, lessen, situaties, uitdagingen en producten: `meer.js` t/m `meer8.js` (in meer7.js staan ook de krachtoefeningen voor voetballers) en `maak.js` (de grote uitbreidingen, met ook extra trucjes, posters, motivatie en rekoefeningen voor je benen)
 - Nieuwsbronnen: bovenaan `update_news.py`
 
 Wijzig een bestand in GitHub via het potloodje en klik **Commit changes**. De app is binnen een minuut bijgewerkt.
@@ -73,5 +75,5 @@ Wijzig een bestand in GitHub via het potloodje en klik **Commit changes**. De ap
 - Kijk de filmpjes in `data.js` (bij `video:`) eerst zelf even na. Vervang of verwijder er een als je hem niet geschikt vindt.
 - GitHub zet geplande taken uit als een repository 60 dagen geen activiteit heeft. Stopt het nieuws ooit, ga dan naar **Actions → Nieuws bijwerken** en klik **Enable workflow**.
 - Elke dag wisselt de helft van wat je ziet: de helft die er al twee dagen stond gaat weg, de rest blijft. Wat weggaat kan later terugkomen. Met **Toon alle** zie je altijd alles.
-- De weekplanner en "Geprobeerd" worden op de telefoon zelf bewaard. Open de app daarom altijd via het icoon op het beginscherm, niet via een losse Safari-tab.
+- De weekplanner, de Opslag en "Geprobeerd" worden op de telefoon zelf bewaard en nooit vanzelf gewist. Open de app daarom altijd via het icoon op het beginscherm, niet via een losse Safari-tab.
 - De filmpjes van David Goggins zijn Engels en hij gebruikt stoere taal. Kijk ze eerst zelf of vervang ze in `data.js` (bij `MINDSET_VIDEOS`).

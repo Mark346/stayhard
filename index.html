@@ -41,6 +41,7 @@
   --fig:#E8EDE9; --fig-back:#5F6B64; color-scheme:dark}
 
 *{box-sizing:border-box}
+[hidden]{display:none!important}
 html{-webkit-text-size-adjust:100%}
 body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--f-body);font-size:16px;line-height:1.5;
   padding-top:env(safe-area-inset-top,0px)}
@@ -48,7 +49,6 @@ a{color:inherit}
 .page{max-width:620px;margin:0 auto;
   padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));
   padding-block:18px calc(96px + env(safe-area-inset-bottom,0px));display:flex;flex-direction:column;gap:22px}
-.view[hidden]{display:none}
 .view{display:flex;flex-direction:column;gap:18px}
 
 .eyebrow{font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
@@ -114,8 +114,8 @@ ol.steps{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:4px;c
 .tabbar{position:fixed;left:0;right:0;bottom:0;z-index:20;background:color-mix(in srgb,var(--surface) 92%,transparent);
   -webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);border-top:1px solid var(--line);
   padding:6px max(8px,env(safe-area-inset-right,0px)) calc(6px + env(safe-area-inset-bottom,0px)) max(8px,env(safe-area-inset-left,0px))}
-.tabbar .row{max-width:620px;margin:0 auto;display:grid;grid-template-columns:repeat(6,1fr)}
-.tab{background:none;border:0;color:var(--muted);font:600 11px var(--f-body);display:flex;flex-direction:column;align-items:center;gap:3px;padding:6px 0;cursor:pointer;border-radius:12px}
+.tabbar .row{max-width:620px;margin:0 auto;display:grid;grid-template-columns:repeat(7,1fr)}
+.tab{background:none;border:0;color:var(--muted);font:600 10.5px var(--f-body);min-width:0;display:flex;flex-direction:column;align-items:center;gap:3px;padding:6px 0;cursor:pointer;border-radius:12px}
 .tab svg{width:24px;height:24px}
 .tab[aria-selected="true"]{color:var(--accent)}
 
@@ -169,6 +169,7 @@ details.past .plist button{text-align:left;font:600 15px var(--f-body);backgroun
 .legend i{width:12px;height:12px;border-radius:50%;display:inline-block}
 
 /* gesegmenteerde keuze */
+.seg.seg3{grid-template-columns:repeat(3,1fr)}
 .seg{display:grid;grid-template-columns:1fr 1fr;background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:4px}
 .seg button{font:700 15px var(--f-body);border:0;background:none;color:var(--muted);padding:9px;border-radius:999px;cursor:pointer}
 .seg button[aria-pressed="true"]{background:var(--dark);color:var(--dark-fg)}
@@ -216,6 +217,9 @@ details.past .plist button{text-align:left;font:600 15px var(--f-body);backgroun
 .gear{position:fixed;z-index:30;top:calc(env(safe-area-inset-top,0px) + 12px);right:max(12px,calc(env(safe-area-inset-right,0px) + 12px));
   width:36px;height:36px;border-radius:50%;border:1px solid var(--line);background:var(--surface);color:var(--fg);display:grid;place-items:center;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,.08)}
 .gear svg{width:19px;height:19px}
+.gear.refresh{right:max(56px,calc(env(safe-area-inset-right,0px) + 56px))}
+.gear.refresh.spin svg{animation:spin .8s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
 .gear.playing{color:var(--accent);border-color:var(--accent)}
 .gear:focus-visible,.swatch:focus-visible,.bgopt:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
 .view > header{padding-right:44px}
@@ -243,6 +247,91 @@ details.past .plist button{text-align:left;font:600 15px var(--f-body);backgroun
 .beat button{flex:none;width:42px;height:42px;border-radius:50%;border:0;background:var(--accent);color:var(--accent-ink);font-size:16px;cursor:pointer}
 .vol{display:flex;align-items:center;gap:10px;font-size:14px;color:var(--muted)}
 .vol input{flex:1;accent-color:var(--accent)}
+
+/* trucjes */
+.frames{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;padding:10px;background:var(--pitch)}
+.frame{background:rgba(0,0,0,.12);border-radius:12px;overflow:hidden;display:flex;flex-direction:column;min-width:0}
+.frame svg{display:block;width:100%;height:auto}
+.frame p{margin:0;padding:8px 10px 10px;font-size:13px;line-height:1.35;color:#fff;font-weight:500}
+.frame p b{display:inline-grid;place-items:center;width:20px;height:20px;border-radius:50%;background:#fff;color:#15201A;font-size:12px;margin-right:6px}
+.tlegend{display:flex;flex-wrap:wrap;gap:12px;font-size:13px;color:var(--muted)}
+.tlegend span{display:inline-flex;align-items:center;gap:6px}
+.tlegend i{display:inline-block;width:12px;height:12px;border-radius:50%}
+
+.trick .tview{background:#0F1512;padding:0 0 12px;display:flex;flex-direction:column;gap:8px}
+.tspeed{display:flex;flex-wrap:wrap;align-items:center;gap:6px;padding:0 12px;color:rgba(255,255,255,.8);font-size:13px;font-weight:700}
+.tspeed button{font:700 13px var(--f-body);border-radius:999px;border:1px solid rgba(255,255,255,.35);background:transparent;color:#fff;padding:6px 12px;cursor:pointer}
+.tspeed button.on{background:#fff;color:#15201A}
+.tlabel{font:700 12px var(--f-body);letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.7);padding:4px 12px 0}
+.tphotos{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px;padding:0 12px}
+.tphoto{position:relative;border:0;padding:0;border-radius:10px;overflow:hidden;cursor:pointer;background:#222;aspect-ratio:4/3;max-width:100%}
+.tphoto img{width:100%;height:100%;object-fit:cover;display:block}
+.tphoto span{position:absolute;left:6px;top:6px;width:22px;height:22px;border-radius:50%;background:var(--accent);color:#fff;font:800 12px var(--f-body);display:grid;place-items:center}
+.tnote{grid-column:1/-1;margin:0;color:rgba(255,255,255,.8);font-size:14px;padding:10px 0}
+.tsub{font:800 13px var(--f-body);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:4px 0 0}
+.tsteps{margin:0;padding-left:22px;display:flex;flex-direction:column;gap:8px;font-size:16px;line-height:1.4}
+.tsteps li::marker{font-weight:800;color:var(--accent)}
+.tstage{background:rgba(0,0,0,.14);border-radius:14px;overflow:hidden;max-width:420px;width:100%;align-self:center}
+.tstage svg{display:block;width:100%;height:auto}
+.tcap{margin:0;color:#fff;font-size:16px;line-height:1.4;font-weight:500;min-height:3em;text-wrap:balance}
+.tcap b{display:block;font-size:12px;letter-spacing:.08em;text-transform:uppercase;opacity:.8;margin-bottom:2px}
+.tnav{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.tbtn{font:800 18px var(--f-body);min-width:46px;height:42px;border-radius:999px;border:0;background:rgba(255,255,255,.92);color:#15201A;cursor:pointer;padding:0 14px}
+.tplay{font-size:15px;align-self:center;padding:0 20px}
+.tdots{display:flex;gap:8px}
+.tdots button{width:12px;height:12px;border-radius:50%;border:0;background:rgba(255,255,255,.4);padding:0;cursor:pointer}
+.tdots button.on{background:#fff}
+.tbtn:focus-visible,.tdots button:focus-visible{outline:2px solid #fff;outline-offset:2px}
+.mirror{display:flex;align-items:center;gap:10px;font-weight:600;font-size:15px;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:12px 14px;cursor:pointer}
+.mirror input{width:20px;height:20px;accent-color:var(--accent)}
+
+/* product van de dag */
+.product{display:grid;grid-template-columns:56px 1fr;gap:14px;padding:16px;align-items:start}
+.product .pico{width:56px;height:56px;border-radius:16px;display:grid;place-items:center;background:var(--accent-soft);color:var(--accent)}
+.product .pico svg{width:30px;height:30px}
+.product .txt{display:flex;flex-direction:column;gap:6px;min-width:0}
+
+/* voorbeelddag */
+.daypick{display:grid;grid-template-columns:repeat(7,1fr);gap:6px}
+.daypick button{font:700 14px var(--f-body);padding:10px 0;border-radius:12px;border:1px solid var(--line);background:var(--surface);color:var(--fg);cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:2px}
+.daypick button small{font-size:9px;font-weight:700;color:var(--accent);height:11px}
+.daypick button[aria-pressed="true"]{background:var(--dark);color:var(--dark-fg);border-color:var(--dark)}
+.timeline{background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:6px 16px}
+.tl{display:grid;grid-template-columns:52px 1fr;gap:12px;padding:12px 0;border-top:1px solid var(--line)}
+.tl:first-child{border-top:0}
+.tl time{font-weight:800;font-variant-numeric:tabular-nums;color:var(--muted);font-size:14px;padding-top:1px}
+.tl b{display:block;font-size:15px;line-height:1.3}
+.tl span{font-size:13px;color:var(--muted)}
+.tl.key time{color:var(--accent)}
+.tl.key b{color:var(--accent)}
+.daytype{display:flex;flex-direction:column;gap:6px}
+.fixedset{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:12px 16px}
+.fixedset summary{cursor:pointer;font-weight:700}
+.sday{display:flex;flex-direction:column;gap:6px;padding:12px 0;border-top:1px solid var(--line)}
+.sday:first-child{border-top:0}
+.sday > .btn{align-self:flex-start;padding:7px 12px;font-size:13px}
+.fixrow{display:grid;grid-template-columns:minmax(0,1fr) 100px 58px 32px;gap:6px;align-items:center}
+.fixrow input,.fixrow select{font:600 15px var(--f-body);padding:7px 6px;border-radius:10px;border:1px solid var(--line);background:var(--bg);color:var(--fg);width:100%;min-width:0}
+.fixrow .x{width:32px;height:32px;border:0;background:none;color:var(--muted);font-size:20px;border-radius:50%;cursor:pointer}
+.pitem.fixed .t b{color:var(--accent)}
+
+/* opslag */
+.btn.save{background:transparent;color:var(--fg);box-shadow:inset 0 0 0 1.5px var(--line)}
+.btn.save[aria-pressed="true"]{color:var(--accent);box-shadow:inset 0 0 0 1.5px var(--accent)}
+.item .savelink{background:none;border:0;padding:0;font:700 12px var(--f-body);color:var(--muted);cursor:pointer;align-self:flex-start}
+.item .savelink[aria-pressed="true"]{color:var(--accent)}
+.item .ilinks{display:flex;gap:14px;align-items:center;margin-top:2px}
+.quote{position:relative}
+.qsave{position:absolute;top:10px;right:10px;width:34px;height:34px;border-radius:50%;border:0;background:rgba(255,255,255,.18);color:inherit;font-size:17px;cursor:pointer}
+.notefrm{background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:16px;display:flex;flex-direction:column;gap:10px}
+.notefrm input,.notefrm textarea,.osearch{font:500 16px var(--f-body);padding:11px 14px;border-radius:14px;border:1px solid var(--line);background:var(--bg);color:var(--fg);width:100%;min-width:0}
+.notefrm textarea{min-height:110px;resize:vertical;line-height:1.45}
+.notefrm input:focus-visible,.notefrm textarea:focus-visible,.osearch:focus-visible{outline:2px solid var(--accent);outline-offset:1px}
+.notecard .body{gap:8px}
+.notecard .ntext{white-space:pre-wrap;overflow-wrap:anywhere;margin:0}
+.notecard a.nlink{font-weight:700;color:var(--accent);overflow-wrap:anywhere}
+.ometa{font-size:12px;color:var(--muted)}
+.oempty{background:var(--surface);border:1px dashed var(--line);border-radius:18px;padding:18px;color:var(--muted)}
 
 /* dag kiezen */
 .sheet-bg{position:fixed;inset:0;background:rgba(0,0,0,.4);z-index:40}
@@ -273,6 +362,7 @@ details.past .plist button{text-align:left;font:600 15px var(--f-body);backgroun
     </header>
     <div class="quote" id="q-today"><div class="eyebrow">Motivatie van de dag</div><p></p></div>
     <div class="challenge" id="challenge"><div class="eyebrow">Uitdaging van vandaag</div><p></p></div>
+    <div id="product-today" style="display:flex;flex-direction:column;gap:8px"></div>
     <div class="startles" id="startles"></div>
     <div id="habit-today"></div>
     <div id="drill-today"></div>
@@ -287,7 +377,12 @@ details.past .plist button{text-align:left;font:600 15px var(--f-body);backgroun
       <h1 id="vb-title">Oefeningen met <em>de bal</em></h1>
       <p class="intro">Alleen, tegen een muur of met een maatje. Tik op de knop voor een voorbeeldfilmpje.</p>
     </header>
-    <div class="seg" role="group" aria-label="Kies"><button type="button" id="seg-drills" aria-pressed="true">Oefeningen</button><button type="button" id="seg-iq" aria-pressed="false">Voetbal IQ</button></div>
+    <div class="seg seg3" role="group" aria-label="Kies"><button type="button" id="seg-drills" aria-pressed="true">Oefeningen</button><button type="button" id="seg-tricks" aria-pressed="false">Trucjes</button><button type="button" id="seg-iq" aria-pressed="false">Voetbal IQ</button></div>
+    <div id="tricksbox" class="view" hidden>
+      <p class="intro">Elke dag nieuwe trucjes. Kijk eerst het filmpje, bekijk de beelden en lees daarna de stappen. Oefen eerst langzaam, zonder tegenstander.</p>
+      <label class="mirror"><input type="checkbox" id="mirror"> Ik ben linksbenig (links en rechts omdraaien in de uitleg)</label>
+      <div id="tricks" class="view"></div>
+    </div>
     <div id="drills" class="view"></div>
     <div id="iq" class="view" hidden>
       <p class="intro">Slimmer spelen begint in je hoofd. Elke dag nieuwe lessen en situaties om jezelf te testen.</p>
@@ -305,8 +400,9 @@ details.past .plist button{text-align:left;font:600 15px var(--f-body);backgroun
       <h1>Sterk worden <em>zonder sportschool</em></h1>
       <p class="intro">Geen spullen nodig. Kies er 4 en doe ze achter elkaar, dan heb je een complete training. Na het trainen: herstel.</p>
     </header>
-    <div class="seg" role="group" aria-label="Kies"><button type="button" id="seg-train" aria-pressed="true">Training</button><button type="button" id="seg-rest" aria-pressed="false">Herstel</button></div>
+    <div class="seg seg3" role="group" aria-label="Kies"><button type="button" id="seg-train" aria-pressed="true">Training</button><button type="button" id="seg-kracht" aria-pressed="false">Kracht</button><button type="button" id="seg-rest" aria-pressed="false">Herstel</button></div>
     <div id="exercises" class="view"></div>
+    <div id="kracht" class="view" hidden></div>
     <div id="recovery" class="view" hidden></div>
   </section>
 
@@ -326,6 +422,17 @@ details.past .plist button{text-align:left;font:600 15px var(--f-body);backgroun
       <h1>Mijn <em>weekplanner</em></h1>
       <p class="intro">Tik bij een oefening of habit op <b>+ Planner</b>, of typ zelf iets bij een dag. Je kunt per dag ook een notitie schrijven.</p>
     </header>
+    <div class="seg" role="group" aria-label="Kies"><button type="button" id="seg-week" aria-pressed="true">Weekplanner</button><button type="button" id="seg-voorbeeld" aria-pressed="false">Voorbeelddag</button></div>
+    <div id="voorbeeld" class="view" hidden>
+      <p class="intro">Zo kan je dag eruitzien, met je vaste trainingen en de taken uit de app van vandaag. Kies een dag om die te bekijken. Je trainingen zet je zelf in je weekplanner.</p>
+      <div class="seg" role="group" aria-label="Soort week"><button type="button" id="vd-school" aria-pressed="true">Schoolweek</button><button type="button" id="vd-vrij" aria-pressed="false">Week zonder school</button></div>
+      <div class="daypick" id="daypick"></div>
+      <div class="daytype" id="daytype"></div>
+      <div class="timeline" id="timeline"></div>
+      <div class="actions"><button class="btn play" type="button" id="tasks2plan">Zet de taken in mijn planner</button></div>
+      <details class="fixedset" id="fixedset"><summary>Mijn vaste week aanpassen (trainingen, gym, wedstrijd)</summary><div id="fixrows"></div></details>
+    </div>
+    <div id="wk" class="view">
     <div class="progress" aria-hidden="true"><i id="prog"></i></div>
     <div class="updated" id="progtxt"></div>
     <form class="addform" id="addform">
@@ -334,6 +441,25 @@ details.past .plist button{text-align:left;font:600 15px var(--f-body);backgroun
       <button class="btn play" type="submit">Zet erin</button>
     </form>
     <div class="week" id="week"></div>
+    </div>
+  </section>
+
+  <section class="view" id="v-opslag" hidden>
+    <header>
+      <div class="eyebrow">Opslag</div>
+      <h1>Mijn <em>opslag</em></h1>
+      <p class="intro">Alles wat je bewaart met <b>☆ Bewaar</b> staat hier. Je kunt ook zelf informatie en notities opschrijven.</p>
+    </header>
+    <form class="notefrm" id="notefrm" novalidate>
+      <div class="eyebrow" id="notefrm-label">Nieuwe notitie</div>
+      <input id="note-title" type="text" maxlength="80" placeholder="Titel, bijvoorbeeld: tips van de trainer" aria-label="Titel">
+      <textarea id="note-text" maxlength="3000" placeholder="Schrijf hier je informatie, oefening of tip…" aria-label="Tekst"></textarea>
+      <input id="note-link" type="text" inputmode="url" autocapitalize="off" autocorrect="off" placeholder="Link (mag leeg blijven)" aria-label="Link">
+      <div class="actions"><button class="btn play" type="submit" id="note-save">Opslaan</button><button class="btn ghost" type="button" id="note-cancel" hidden>Annuleren</button></div>
+    </form>
+    <input class="osearch" id="osearch" type="search" placeholder="Zoek in je opslag…" aria-label="Zoek in je opslag">
+    <div class="chips" id="ochips"></div>
+    <div id="olist" class="view" style="gap:12px"></div>
   </section>
 
   <section class="view" id="v-mindset" hidden>
@@ -354,6 +480,7 @@ details.past .plist button{text-align:left;font:600 15px var(--f-body);backgroun
   </section>
 </main>
 
+<button class="gear refresh" id="refresh" type="button" aria-label="Alles verversen"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-2.6-6.4"/><path d="M21 4v5h-5"/></svg></button>
 <button class="gear" id="gear" type="button" aria-label="Instellingen"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg></button>
 
 <nav class="tabbar" aria-label="Menu">
@@ -363,6 +490,7 @@ details.past .plist button{text-align:left;font:600 15px var(--f-body);backgroun
     <button class="tab" role="tab" data-v="thuis" aria-selected="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 7v10M18 7v10M3 10v4M21 10v4M6 12h12"/></svg>Thuis</button>
     <button class="tab" role="tab" data-v="gezond" aria-selected="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M12 20s-7-4.5-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.5-7 10-7 10z"/></svg>Gezond</button>
     <button class="tab" role="tab" data-v="mindset" aria-selected="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M13 2L4 14h7l-1 8 9-12h-7z"/></svg>Mindset</button>
+    <button class="tab" role="tab" data-v="opslag" aria-selected="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M6 3h12v18l-6-4-6 4z"/></svg>Opslag</button>
     <button class="tab" role="tab" data-v="planner" aria-selected="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"><rect x="3.5" y="5" width="17" height="15" rx="2.5"/><path d="M3.5 10h17M8 3v4M16 3v4M8 14l2 2 4-4"/></svg>Planner</button>
   </div>
 </nav>
@@ -370,6 +498,16 @@ details.past .plist button{text-align:left;font:600 15px var(--f-body);backgroun
 <script src="tips.js"></script>
 <script src="data.js"></script>
 <script src="lessen.js"></script>
+<script src="extra.js"></script>
+<script src="meer.js"></script>
+<script src="meer2.js"></script>
+<script src="meer3.js"></script>
+<script src="meer4.js"></script>
+<script src="meer5.js"></script>
+<script src="meer6.js"></script>
+<script src="meer7.js"></script>
+<script src="meer8.js"></script>
+<script src="maak.js"></script>
 <script>
 const $ = s => document.querySelector(s);
 const el = (tag, cls, text) => { const e = document.createElement(tag); if (cls) e.className = cls; if (text != null) e.textContent = text; return e; };
@@ -393,7 +531,13 @@ const TODAY = isoOf(now);
 // (de eerste weken is elke wissel echt nieuw). Daarna komen dingen gewoon terug.
 const DAY = Math.floor(Date.UTC(now.getFullYear(), now.getMonth(), now.getDate()) / 864e5);
 const START = (() => { const s = store("dagstart-start"); if (typeof s === "number" && s <= DAY) return s; store("dagstart-start", DAY); return DAY; })();
-const REL = DAY - START;                              // dagen sinds de eerste keer openen op deze telefoon
+const REL = DAY - START;
+// Nieuwe dag? Dan alles opnieuw laden (iPhone houdt een beginscherm-app vaak open van gisteren).
+const reloadIfNewDay = () => { if (isoOf(new Date()) !== TODAY) location.reload(); };
+document.addEventListener("visibilitychange", () => { if (!document.hidden) reloadIfNewDay(); });
+window.addEventListener("focus", reloadIfNewDay);
+window.addEventListener("pageshow", reloadIfNewDay);
+setInterval(reloadIfNewDay, 60000);                              // dagen sinds de eerste keer openen op deze telefoon
 function rng(seed) { let x = (seed >>> 0) || 1; return () => (x = (Math.imul(x, 1664525) + 1013904223) >>> 0) / 4294967296; }
 function shuffle(arr, seed) { const a = [...arr], r = rng(seed); for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(r() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; }
 function rotate(pool, size, salt) {
@@ -413,9 +557,14 @@ function rotate(pool, size, salt) {
   return mixed;
 }
 // Toon de selectie van vandaag, met een knop om alles te zien.
-function rotatedList(box, pool, size, salt, make, label) {
+// Alles elke dag nieuw: loopt de (gemengde) lijst in blokken door, pas als alles geweest is komt iets terug.
+function rotateFull(pool, size, salt) {
+  const base = shuffle(pool, 9973 * salt + 7), k = Math.min(size, base.length);
+  return Array.from({length: k}, (_, n) => ({item: base[(REL * k + n) % base.length], fresh: true}));
+}
+function rotatedList(box, pool, size, salt, make, label, full) {
   box.textContent = "";
-  rotate(pool, size, salt).forEach(({item, fresh}) => box.append(make(item, fresh)));
+  (full ? rotateFull : rotate)(pool, size, salt).forEach(({item, fresh}) => box.append(make(item, fresh)));
   if (pool.length > size) {
     const m = el("button", "more", "Toon alle " + pool.length + " " + label); m.type = "button";
     m.onclick = () => { box.textContent = ""; pool.forEach(it => box.append(make(it, false))); };
@@ -516,7 +665,8 @@ function habitCard(h, fresh) {
   meta.append(el("span", "pill", (THEMES[h.theme] || THEMES.bewegen).label));
   t.append(meta, el("h3", null, h.title), el("p", null, h.text));
   const how = el("p", "how"); how.append(el("b", null, "Zo doe je het: "), h.how); t.append(how);
-  const act = el("div", "actions"); act.append(planBtn({kind: h.size === "groot" ? "Grote habit" : (h.theme === "herstel" ? "Herstel" : "Habit"), title: h.title, meta: h.how}));
+  const act = el("div", "actions"); act.append(planBtn({kind: h.size === "groot" ? "Grote habit" : (h.theme === "herstel" ? "Herstel" : "Habit"), title: h.title, meta: h.how}),
+    saveBtn(h.theme === "herstel" ? "Hersteltip" : (h.size === "groot" ? "Grote habit" : "Habit"), h.title, {text: h.text + " " + h.how}));
   t.append(act);
   c.append(t); return c;
 }
@@ -544,7 +694,7 @@ function videoBlock(item) {
   b.append(img, pb, el("span", "vlabel", "Filmpje"));
   b.onclick = () => {
     const f = document.createElement("iframe");
-    f.src = "https://www.youtube-nocookie.com/embed/" + item.video + "?autoplay=1&rel=0&playsinline=1" + (item.maxSec ? "&end=" + item.maxSec : "");
+    f.src = "https://www.youtube-nocookie.com/embed/" + item.video + "?autoplay=1&rel=0&playsinline=1&enablejsapi=1" + (item.maxSec ? "&end=" + item.maxSec : "");
     f.allow = "autoplay; encrypted-media; picture-in-picture; fullscreen"; f.allowFullscreen = true; f.title = item.title;
     b.replaceChildren(f); b.onclick = null; b.style.cursor = "default";
   };
@@ -558,7 +708,7 @@ function drillCard(d, fresh) {
   const meta = el("div", "meta"); meta.append(...newPill(fresh), el("span", "pill hot", d.level), el("span", "pill", d.time));
   const ol = el("ol", "steps"); d.steps.forEach(s => ol.append(el("li", null, s)));
   const vb = videoBlock(d); if (vb) c.append(vb);
-  const act = el("div", "actions"); act.append(playBtn(d), planBtn({kind:"Voetbal", title:d.title, meta:d.time}), tryBtn("d:" + d.title));
+  const act = el("div", "actions"); act.append(playBtn(d), planBtn({kind:"Voetbal", title:d.title, meta:d.time}), tryBtn("d:" + d.title), saveBtn("Voetbal", d.title, {text: d.text}));
   b.append(meta, el("h3", null, d.title), el("p", null, d.text), ol, act);
   c.append(b); return c;
 }
@@ -568,7 +718,7 @@ function exerciseCard(x, fresh, kind = "Thuis") {
   const b = el("div", "body");
   const meta = el("div", "meta"); meta.append(...newPill(fresh), el("span", "pill hot", x.reps), el("span", "pill", x.target));
   const vb = videoBlock(x); if (vb) c.append(vb);
-  const act = el("div", "actions"); act.append(playBtn(x), planBtn({kind, title:x.title, meta:x.reps}), tryBtn("x:" + x.title));
+  const act = el("div", "actions"); act.append(playBtn(x), planBtn({kind, title:x.title, meta:x.reps}), tryBtn("x:" + x.title), saveBtn(kind === "Herstel" || kind === "Kracht" ? kind : "Thuis", x.title, {text: x.text}));
   b.append(meta, el("h3", null, x.title), el("p", null, x.text), act);
   c.append(b); return c;
 }
@@ -604,7 +754,9 @@ async function loadNews() {
       lane.append(dot, el("h3", null, CATS[key].label));
       const list = el("div", "news");
       items.forEach(it => { const a = el("div", "item"); a.append(el("h4", null, it.title)); if (it.text) a.append(el("p", null, it.text));
-        if (it.url) { const l = el("a", null, (it.source || "Bron") + " ↗"); l.href = it.url; l.target = "_blank"; l.rel = "noopener"; a.append(l); } list.append(a); });
+        const links = el("div", "ilinks");
+        if (it.url) { const l = el("a", null, (it.source || "Bron") + " ↗"); l.href = it.url; l.target = "_blank"; l.rel = "noopener"; links.append(l); }
+        links.append(saveBtn("Nieuws", it.title, {text: it.text, url: it.url}, true)); a.append(links); list.append(a); });
       box.append(lane, list);
     }
     if (!any) box.append(el("p", "intro", "Vandaag nog geen nieuws gevonden. Kijk later nog eens."));
@@ -613,6 +765,110 @@ async function loadNews() {
     box.textContent = ""; box.append(el("p", "intro", "Het nieuws kon niet geladen worden. Heb je internet?"));
   }
 }
+
+// ---------- opslag ----------
+// Bewaarde dingen en eigen notities, op de telefoon zelf. Elk item: {id, kind, title, text, url, savedAt}.
+const getSaved = () => { const v = store("stayhard-saved"); return Array.isArray(v) ? v : []; };
+const putSaved = v => store("stayhard-saved", v);
+const savedKey = (kind, title) => kind + "|" + title;
+function isSaved(kind, title) { return getSaved().some(x => x.kind === kind && x.title === title); }
+function toggleSaved(kind, title, snap) {
+  let v = getSaved();
+  if (v.some(x => x.kind === kind && x.title === title)) { v = v.filter(x => !(x.kind === kind && x.title === title)); putSaved(v); toast("Uit je opslag gehaald"); }
+  else { v.unshift({id: Date.now().toString(36), kind, title, text: snap.text || "", url: snap.url || "", savedAt: Date.now()}); putSaved(v); toast("Bewaard in je opslag"); }
+  if (!$("#v-opslag").hidden) renderOpslag();
+  refreshSaveButtons(kind, title);
+}
+function paintSave(b, on, small, round) {
+  b.setAttribute("aria-pressed", on);
+  b.textContent = round ? (on ? "★" : "☆") : (on ? "★ Bewaard" : "☆ Bewaar");
+}
+function saveBtn(kind, title, snap = {}, small = false, round = false) {
+  const b = el("button", small ? "savelink" : round ? "qsave" : "btn save"); b.type = "button";
+  b.dataset.save = savedKey(kind, title); b.dataset.small = small ? 1 : ""; b.dataset.round = round ? 1 : "";
+  b.setAttribute("aria-label", "Bewaar " + title);
+  paintSave(b, isSaved(kind, title), small, round);
+  b.onclick = () => toggleSaved(kind, title, snap);
+  return b;
+}
+function refreshSaveButtons(kind, title) {
+  const key = savedKey(kind, title), on = isSaved(kind, title);
+  document.querySelectorAll("[data-save]").forEach(b => { if (b.dataset.save === key) paintSave(b, on, !!b.dataset.small, !!b.dataset.round); });
+}
+// Bij een bewaard item zoeken we de volledige kaart op; anders tonen we wat er bewaard is.
+function savedCard(it) {
+  const find = (arr, k = "title") => (arr || []).find(x => x[k] === it.title);
+  let c = null;
+  try {
+    if (it.kind === "Voetbal") { const d = find(DRILLS); if (d) c = drillCard(d, false); }
+    else if (it.kind === "Thuis") { const x = find(EXERCISES) || find(KRACHT); if (x) c = exerciseCard(x, false, "Thuis"); }
+    else if (it.kind === "Herstel") { const x = find(RECOVERY); if (x) c = exerciseCard(x, false, "Herstel"); }
+    else if (it.kind === "Kracht") { const x = find(KRACHT); if (x) c = exerciseCard(x, false, "Kracht"); }
+    else if (it.kind === "Hersteltip") { const h = find(RECOVERY_TIPS); if (h) c = habitCard({...h, size:"klein"}, false); }
+    else if (it.kind === "Habit" || it.kind === "Grote habit") { const h = find(HABITS); if (h) c = habitCard(h, false); }
+    else if (it.kind === "Voetbal IQ") { const l = find(IQ_LESSONS); if (l) c = iqCard(l, false); }
+    else if (it.kind === "Wat doe jij?") { const q = find(IQ_QUIZ, "q"); if (q) c = quizCard(q, false); }
+    else if (it.kind === "Dagles") { const i = DAILY_LESSONS.findIndex(l => l.title === it.title); if (i >= 0) c = lessonCard(DAILY_LESSONS[i], i + 1, false); }
+    else if (it.kind === "Filmpje") { const v = find([...GOGGINS_VIDEOS, ...MINDSET_VIDEOS, ...LONG_VIDEOS]); if (v) c = mvideoCard({...v, maxSec: 600}, false); }
+    else if (it.kind === "Motivatie") c = quoteCard(it.title);
+    else if (it.kind === "Trucje") { const t = find(TRICKS); if (t) c = trickCard(t, false); }
+    else if (it.kind === "Product") { const p = find(PRODUCTS, "name"); if (p) c = productCard(p); }
+  } catch (e) { c = null; }
+  if (!c) {   // nieuws, eigen notities en dingen die niet meer in de app staan
+    c = el("article", "card notecard"); const b = el("div", "body");
+    const meta = el("div", "meta"); meta.append(el("span", "pill hot", it.kind === "Eigen" ? "Eigen notitie" : it.kind)); b.append(meta, el("h3", null, it.title));
+    if (it.text) b.append(el("p", "ntext", it.text));
+    if (it.url) { const a = el("a", "nlink", it.url.length > 60 ? it.url.slice(0, 57) + "…" : it.url); a.href = it.url; a.target = "_blank"; a.rel = "noopener"; b.append(a); }
+    const act = el("div", "actions");
+    if (it.kind === "Eigen") {
+      const e = el("button", "btn ghost", "Bewerk"); e.type = "button"; e.onclick = () => editNote(it);
+      act.append(e, planBtn({kind:"Notitie", title:it.title}));
+    }
+    const del = el("button", "btn ghost", it.kind === "Eigen" ? "Verwijder" : "★ Uit opslag"); del.type = "button";
+    del.onclick = () => {
+      if (del.dataset.sure) { putSaved(getSaved().filter(x => x.id !== it.id)); renderOpslag(); toast("Verwijderd"); return; }
+      del.dataset.sure = 1; del.textContent = "Zeker weten?"; setTimeout(() => { if (del.isConnected) { delete del.dataset.sure; del.textContent = it.kind === "Eigen" ? "Verwijder" : "★ Uit opslag"; } }, 3000);
+    };
+    act.append(del); b.append(act); c.append(b);
+  }
+  return c;
+}
+let ofilter = "Alles";
+function renderOpslag() {
+  const all = getSaved(), q = ($("#osearch").value || "").trim().toLowerCase();
+  const kinds = ["Alles", ...new Set(all.map(x => x.kind))];
+  if (!kinds.includes(ofilter)) ofilter = "Alles";
+  const chips = $("#ochips"); chips.textContent = "";
+  kinds.forEach(k => { const c = el("button", "chip", k === "Eigen" ? "Eigen notities" : k); c.type = "button"; c.setAttribute("aria-pressed", k === ofilter);
+    c.onclick = () => { ofilter = k; renderOpslag(); }; chips.append(c); });
+  const list = $("#olist"); list.textContent = "";
+  const shown = all.filter(x => (ofilter === "Alles" || x.kind === ofilter) && (!q || (x.title + " " + x.text).toLowerCase().includes(q)));
+  if (!all.length) { list.append(el("div", "oempty", "Je opslag is nog leeg. Tik bij een oefening, habit, les, filmpje of nieuwsbericht op ☆ Bewaar, of schrijf hierboven je eigen notitie.")); return; }
+  if (!shown.length) { list.append(el("div", "oempty", "Niets gevonden. Probeer een ander woord of kies Alles.")); return; }
+  list.append(el("p", "ometa", shown.length + (shown.length === 1 ? " item" : " items")));
+  shown.forEach(it => list.append(savedCard(it)));
+}
+let editingId = null;
+function editNote(it) {
+  editingId = it.id; $("#note-title").value = it.title; $("#note-text").value = it.text; $("#note-link").value = it.url || "";
+  $("#notefrm-label").textContent = "Notitie bewerken"; $("#note-save").textContent = "Wijziging opslaan"; $("#note-cancel").hidden = false;
+  $("#notefrm").scrollIntoView({behavior:"smooth"}); $("#note-title").focus();
+}
+function resetNoteForm() {
+  editingId = null; $("#notefrm").reset(); $("#notefrm-label").textContent = "Nieuwe notitie"; $("#note-save").textContent = "Opslaan"; $("#note-cancel").hidden = true;
+}
+$("#note-cancel").onclick = resetNoteForm;
+$("#notefrm").addEventListener("submit", e => {
+  e.preventDefault();
+  const title = $("#note-title").value.trim(), text = $("#note-text").value.trim(); let url = $("#note-link").value.trim();
+  if (!title && !text) { toast("Schrijf eerst een titel of tekst"); $("#note-title").focus(); return; }
+  if (url && !/^https?:\/\//i.test(url)) url = "https://" + url;
+  const v = getSaved();
+  if (editingId) { const n = v.find(x => x.id === editingId); if (n) { n.title = title || "Notitie"; n.text = text; n.url = url; } toast("Notitie aangepast"); }
+  else { v.unshift({id: Date.now().toString(36), kind: "Eigen", title: title || "Notitie", text, url, savedAt: Date.now()}); toast("Notitie opgeslagen"); }
+  putSaved(v); resetNoteForm(); ofilter = "Alles"; renderOpslag();
+});
+$("#osearch").addEventListener("input", renderOpslag);
 
 // ---------- planner ----------
 // Een vaste weekplanning (per weekdag) die op de telefoon zelf wordt bewaard.
@@ -698,7 +954,7 @@ function iqCard(l, fresh) {
   const b = el("div", "body");
   const meta = el("div", "meta"); meta.append(...newPill(fresh), el("span", "pill hot", "Voetbal IQ"));
   const how = el("p", "how"); how.style.cssText = "font-size:15px;color:var(--muted)"; how.append(el("b", null, "Zo oefen je het: "), l.how);
-  const act = el("div", "actions"); act.append(planBtn({kind:"Voetbal IQ", title:l.title, meta:l.how}), tryBtn("iq:" + l.title));
+  const act = el("div", "actions"); act.append(planBtn({kind:"Voetbal IQ", title:l.title, meta:l.how}), tryBtn("iq:" + l.title), saveBtn("Voetbal IQ", l.title, {text: l.text}));
   b.append(meta, el("h3", null, l.title), el("p", null, l.text), how, act); c.append(b);
   return c;
 }
@@ -715,7 +971,8 @@ function quizCard(q, fresh) {
     };
     opts.append(btn);
   });
-  b.append(meta, el("h3", null, q.q), opts, why); c.append(b);
+  const qa = el("div", "actions"); qa.append(saveBtn("Wat doe jij?", q.q, {text: q.why}));
+  b.append(meta, el("h3", null, q.q), opts, why, qa); c.append(b);
   return c;
 }
 rotatedList($("#iq-quiz"), IQ_QUIZ, 3, 11, (q, f) => quizCard(q, f), "situaties");
@@ -732,25 +989,79 @@ function renderIqLessons() {
   box.append(m);
 }
 renderIqLessons();
-$("#seg-drills").onclick = () => { $("#seg-drills").setAttribute("aria-pressed", true); $("#seg-iq").setAttribute("aria-pressed", false); $("#drills").hidden = false; $("#iq").hidden = true; $("#vb-title").innerHTML = "Oefeningen met <em>de bal</em>"; };
-$("#seg-iq").onclick = () => { $("#seg-drills").setAttribute("aria-pressed", false); $("#seg-iq").setAttribute("aria-pressed", true); $("#drills").hidden = true; $("#iq").hidden = false; $("#vb-title").innerHTML = "Slimmer <em>spelen</em>"; };
+function vbSeg(which) {
+  const map = {drills:["#drills", "Oefeningen met <em>de bal</em>"], tricks:["#tricksbox", "Trucjes <em>leren</em>"], iq:["#iq", "Slimmer <em>spelen</em>"]};
+  Object.entries(map).forEach(([k, [sel]]) => { $("#seg-" + k).setAttribute("aria-pressed", k === which); $(sel).hidden = k !== which; });
+  $("#vb-title").innerHTML = map[which][1];
+}
+$("#seg-drills").onclick = () => vbSeg("drills"); $("#seg-tricks").onclick = () => vbSeg("tricks"); $("#seg-iq").onclick = () => vbSeg("iq");
 
 // ---------- voetbal en thuis ----------
+const LEG_RE = /been|kuit|heup|lies|bil|hamstring|enkel|voet|tenen|achilles|scheen|knie/i;
+const LEG_STRETCHES = RECOVERY.filter(x => x.leg || LEG_RE.test(x.target || "")), OTHER_STRETCHES = RECOVERY.filter(x => !LEG_STRETCHES.includes(x));
 rotatedList($("#drills"), DRILLS, 6, 1, (d, f) => drillCard(d, f), "oefeningen");
-rotatedList($("#exercises"), EXERCISES, 6, 2, (x, f) => exerciseCard(x, f, "Thuis"), "oefeningen");
+// Thuistraining = gewone oefeningen + de krachtoefeningen voor voetballers
+const THUIS_ALL = [...EXERCISES, ...(typeof KRACHT !== "undefined" ? KRACHT : [])];
+// Drie vakken: onderlichaam, middenlichaam (buik/romp/rug) en bovenlichaam (armen/borst/schouders)
+const ZONES = ["Onderlichaam", "Middenlichaam", "Bovenlichaam"];
+function zoneOf(x) {
+  const t = (x.target || "").toLowerCase();
+  if (/^(schouders en buik|hele lichaam|conditie en buik)/.test(t)) return "Middenlichaam";
+  if (/^(arm|borst|schouder|bovenrug|explosiviteit armen|rug en arm|rug en schouder)/.test(t)) return "Bovenlichaam";
+  if (/^(buik|onderbuik|zijkant buik|zijkant romp|romp|rug)/.test(t)) return "Middenlichaam";
+  return "Onderlichaam";
+}
+function zoneChips(list, current, onPick) {
+  const chips = el("div", "chips"); chips.setAttribute("role", "group"); chips.setAttribute("aria-label", "Kies een deel van je lichaam");
+  ZONES.forEach(z => { const c = el("button", "chip", z + " (" + list.filter(x => zoneOf(x) === z).length + ")"); c.type = "button"; c.setAttribute("aria-pressed", z === current); c.onclick = () => onPick(z); chips.append(c); });
+  return chips;
+}
+let thuisZone = "Onderlichaam";
+function renderThuis() {
+  const box = $("#exercises"); box.textContent = "";
+  box.append(zoneChips(THUIS_ALL, thuisZone, z => { thuisZone = z; renderThuis(); }));
+  const list = el("div", "view"); list.style.gap = "12px"; box.append(list);
+  rotatedList(list, THUIS_ALL.filter(x => zoneOf(x) === thuisZone), 6, 2 + thuisZone.length, (x, f) => exerciseCard(x, f, "Thuis"), "oefeningen voor je " + thuisZone.toLowerCase());
+}
+renderThuis();
 function renderRecovery() {
-  const box = $("#recovery");
-  rotatedList(box, RECOVERY, 6, 3, (x, f) => exerciseCard(x, f, "Herstel"), "rekoefeningen");
+  const box = $("#recovery"); box.textContent = "";
+  box.append(el("h2", "sub", "Benen rekken na de training"), el("p", "intro", "Doe deze 6 na elke training of wedstrijd: 20 tot 30 seconden per kant, rustig ademen, niet veren. Elke dag zijn er een paar nieuw."));
+  const legs = el("div", "view"); legs.style.gap = "12px"; box.append(legs);
+  rotatedList(legs, LEG_STRETCHES, 6, 21, (x, f) => exerciseCard(x, f, "Herstel"), "rekoefeningen voor je benen");
+  box.append(el("h2", "sub", "Meer rekken en ontspannen"));
+  const other = el("div", "view"); other.style.gap = "12px"; box.append(other);
+  rotatedList(other, OTHER_STRETCHES, 4, 3, (x, f) => exerciseCard(x, f, "Herstel"), "oefeningen");
   box.append(el("h2", "sub", "Herstel-tips"));
   const tips = el("div", "view"); tips.style.gap = "12px"; box.append(tips);
   rotatedList(tips, RECOVERY_TIPS, 4, 4, (h, f) => habitCard(h, f), "tips");
 }
 renderRecovery();
 function seg(which) {
-  $("#seg-train").setAttribute("aria-pressed", which === "train"); $("#seg-rest").setAttribute("aria-pressed", which === "rest");
-  $("#exercises").hidden = which !== "train"; $("#recovery").hidden = which !== "rest";
+  $("#seg-train").setAttribute("aria-pressed", which === "train"); $("#seg-rest").setAttribute("aria-pressed", which === "rest"); $("#seg-kracht").setAttribute("aria-pressed", which === "kracht");
+  $("#exercises").hidden = which !== "train"; $("#recovery").hidden = which !== "rest"; $("#kracht").hidden = which !== "kracht";
 }
-$("#seg-train").onclick = () => seg("train"); $("#seg-rest").onclick = () => seg("rest");
+$("#seg-train").onclick = () => seg("train"); $("#seg-rest").onclick = () => seg("rest"); $("#seg-kracht").onclick = () => seg("kracht");
+// ---------- krachttraining voor voetballers ----------
+const krCat = x => /buik/i.test(x.target) ? "Buik" : /sprong|jump|bound|hink/i.test(x.title + " " + x.yt) ? "Sprongen" : /romp|rug|schouder|arm|borst/i.test(x.target) ? "Romp en rug" : /enkel|balans|voet/i.test(x.target) ? "Balans en enkels" : "Benen";
+let krZone = "Onderlichaam";
+function renderKracht() {
+  const box = $("#kracht"); box.textContent = "";
+  box.append(el("h2", "sub", "Kracht voor voetballers"), el("p", "intro", "Oefeningen met je eigen gewicht die je sterker, sneller en blessurevrijer maken op het veld. Rustig tempo en goede techniek gaan voor zwaar. Doe 2 tot 3 keer per week kracht, niet op de dag voor een wedstrijd."));
+  // schema van vandaag: 2 benen, 1 buik, 1 romp/balans, 1 sprong
+  const byCat = c => shuffle(KRACHT.filter(x => krCat(x) === c), 7 + c.length);
+  const pick = (c, k) => { const l = byCat(c); return l.length ? l[(REL + k) % l.length] : null; };
+  const plan = [pick("Benen", 0), pick("Benen", 3), pick("Buik", 0), pick(REL % 2 ? "Romp en rug" : "Balans en enkels", 0), pick("Sprongen", 0)].filter(Boolean);
+  const card = el("article", "card"), cb = el("div", "body");
+  const ol = el("ol"); plan.forEach(x => ol.append(el("li", null, x.title + " – " + x.reps)));
+  cb.append(el("div", "eyebrow", "Krachtschema van vandaag · ± 25 minuten"), el("p", null, "Warm 5 minuten op (joggen, armen zwaaien, squats zonder sprong). Doe dan deze 5 oefeningen achter elkaar, 3 rondes, 1 minuut rust tussen de rondes."), ol);
+  const act = el("div", "actions"); act.append(planBtn({kind:"Kracht", title:"Krachtschema: " + plan.map(x => x.title).join(", "), meta:"± 25 min"})); cb.append(act);
+  card.append(cb); box.append(card);
+  box.append(zoneChips(KRACHT, krZone, z => { krZone = z; renderKracht(); }));
+  const list = el("div", "view"); list.style.gap = "12px"; box.append(list);
+  rotatedList(list, KRACHT.filter(x => zoneOf(x) === krZone), 6, 41 + krZone.length, (x, f) => exerciseCard(x, f, "Kracht"), "krachtoefeningen voor je " + krZone.toLowerCase());
+}
+renderKracht();
 
 // ---------- habits ----------
 let filter = "vandaag";
@@ -798,7 +1109,7 @@ function mvideoCard(v, fresh) {
   meta.append(el("span", "pill", v.short ? "Short" : "Filmpje"));
   b.append(meta);
   const a = el("a", "btn play"); a.href = "https://www.youtube.com/" + (v.short ? "shorts/" : "watch?v=") + v.video; a.target = "_blank"; a.rel = "noopener"; a.textContent = "Bekijk op YouTube ↗";
-  const act = el("div", "actions"); act.append(a);
+  const act = el("div", "actions"); act.append(a, saveBtn("Filmpje", v.title, {text: v.note, url: "https://www.youtube.com/watch?v=" + v.video}));
   b.append(el("h3", null, (v.goggins ? "David Goggins: " : "") + v.title), el("p", "note", v.note), act); c.append(b);
   return c;
 }
@@ -817,7 +1128,8 @@ function renderMindsetVideos() {
 }
 renderMindsetVideos();
 const styles = ["", "alt", "green"]; let qi = 0;
-rotatedList($("#quotes"), MOTIVATION, 8, 9, m => { const q = el("div", "quote small " + styles[qi++ % 3]); q.append(el("p", null, m)); return q; }, "teksten");
+function quoteCard(m) { const q = el("div", "quote small " + styles[qi++ % 3]); q.append(el("p", null, m)); const sb = saveBtn("Motivatie", m, {text: m}, false, true); q.append(sb); return q; }
+rotatedList($("#quotes"), MOTIVATION, 8, 9, m => quoteCard(m), "teksten");
 
 // ---------- instellingen: kleuren ----------
 const ACCENTS = [["oranje","#E2541B"],["rood","#DC2626"],["roze","#DB2777"],["paars","#7C3AED"],["blauw","#2563EB"],["cyaan","#0891B2"],["groen","#16A34A"],["goud","#CA8A04"]];
@@ -1066,6 +1378,12 @@ function openSettings() {
   sh.querySelector("button").focus();
 }
 $("#gear").onclick = openSettings;
+// Verversen: haalt de nieuwste versie van de app en het nieuws op. Opslag, planner en notities blijven gewoon bewaard.
+$("#refresh").onclick = async () => {
+  $("#refresh").classList.add("spin");
+  try { if (window.caches) for (const k of await caches.keys()) await caches.delete(k); } catch (e) {}
+  const u = new URL(location.href); u.searchParams.set("v", Date.now()); location.replace(u.toString());
+};
 
 // ---------- dagles: elke dag één les van ongeveer 5 minuten ----------
 const lesIdx = REL % DAILY_LESSONS.length;
@@ -1087,7 +1405,7 @@ function lessonCard(l, nr, today) {
   const db = el("button", "btn ghost"); db.type = "button";
   const set = on => { db.setAttribute("aria-pressed", on); db.textContent = on ? "✓ Les gedaan" : "Les gedaan"; };
   set(done.has(key)); db.onclick = () => { const d = new Set(store("stayhard-lessen") || []); d.has(key) ? d.delete(key) : d.add(key); store("stayhard-lessen", [...d]); set(d.has(key)); };
-  const act = el("div", "actions"); act.append(db, planBtn({kind:"Dagles", title:l.title, meta:"± 5 minuten"}));
+  const act = el("div", "actions"); act.append(db, planBtn({kind:"Dagles", title:l.title, meta:"± 5 minuten"}), saveBtn("Dagles", l.title, {text: l.intro}));
   b.append(meta, el("h3", null, l.title), el("p", "situ", l.intro), sec("Waarom dit belangrijk is", el("p", null, l.why)),
     sec("Zo doe je het", tips), doe, sec("Veelgemaakte fout", el("p", null, l.fout)), ont, act);
   c.append(b); return c;
@@ -1096,6 +1414,19 @@ function renderDagles() {
   const box = $("#dagles"); box.textContent = "";
   box.append(el("p", "intro", "Elke dag een voetballes van 5 minuten over techniek, aannames, duelkracht en voorbereiden. Lees de les en doe daarna de oefening."));
   const holder = el("div"); holder.append(lessonCard(DAILY_LESSONS[lesIdx], lesIdx + 1, true)); box.append(holder);
+  // Zin in meer? Elke klik geeft een andere les die je nog niet als 'gedaan' hebt aangevinkt.
+  const more = el("button", "btn ghost", "↻ Andere les"); more.type = "button"; more.style.alignSelf = "flex-start";
+  more.onclick = () => {
+    const done = new Set(store("stayhard-lessen") || []), shown = holder.dataset.shown;
+    let pool = DAILY_LESSONS.map((l, i) => i).filter(i => i !== lesIdx && String(i) !== shown && !done.has("les:" + DAILY_LESSONS[i].title));
+    if (!pool.length) pool = DAILY_LESSONS.map((l, i) => i).filter(i => String(i) !== shown);
+    const i = pool[Math.floor(Math.random() * pool.length)];
+    holder.dataset.shown = i; holder.textContent = ""; holder.append(lessonCard(DAILY_LESSONS[i], i + 1, false));
+    holder.scrollIntoView({behavior:"smooth"});
+  };
+  const back = el("button", "btn ghost", "Terug naar de les van vandaag"); back.type = "button"; back.style.alignSelf = "flex-start";
+  back.onclick = () => { delete holder.dataset.shown; holder.textContent = ""; holder.append(lessonCard(DAILY_LESSONS[lesIdx], lesIdx + 1, true)); holder.scrollIntoView({behavior:"smooth"}); };
+  const row = el("div", "actions"); row.append(more, back); box.append(row);
   if (REL > 0) {
     const det = el("details", "past"); det.append(el("summary", null, "Eerdere lessen teruglezen"));
     const list = el("div", "plist");
@@ -1122,12 +1453,455 @@ $("#seg-mot").onclick = () => mindsetSeg("mot"); $("#seg-les").onclick = () => m
   box.append(meta, el("h3", null, l.title), el("p", "note", l.intro), act);
 })();
 
+// ---------- trucjes ----------
+// De stappen staan in extra.js van bovenaf. Hier tekenen we ze als poppetje van achteren gezien:
+// x blijft links/rechts, diepte (y) wordt omgezet naar hoogte in beeld.
+const PRJ = (x, y) => [50 + (x - 50) * 1.25, 14 + y * .72];
+const mirrorX = x => 100 - x;
+function mirrorFrame(f) {
+  if (!f.L) return {t: swapLR(f.t)};
+  const m = p => p && [mirrorX(p[0]), p[1], -(p[2] || 0)];
+  const mp = d => d && d.replace(/(-?\d+(?:\.\d+)?) (-?\d+(?:\.\d+)?)/g, (_, x, y) => mirrorX(+x) + " " + y);
+  const sw = t => t.replace(/rechter/g, "§1").replace(/linker/g, "rechter").replace(/§1/g, "linker")
+                   .replace(/rechtsom/g, "§2").replace(/linksom/g, "rechtsom").replace(/§2/g, "linksom")
+                   .replace(/\brechts\b/g, "§3").replace(/\blinks\b/g, "rechts").replace(/§3/g, "links");
+  return {L: m(f.R), R: m(f.L), act: f.act === "L" ? "R" : f.act === "R" ? "L" : f.act, ball: m(f.ball).slice(0, 2), cone: f.cone && m(f.cone).slice(0, 2), fa: mp(f.fa), ba: mp(f.ba), t: sw(f.t)};
+}
+function swapLR(t) {
+  return t.replace(/rechter/g, "§1").replace(/linker/g, "rechter").replace(/§1/g, "linker")
+          .replace(/rechtsom/g, "§2").replace(/linksom/g, "rechtsom").replace(/§2/g, "linksom")
+          .replace(/\brechts\b/g, "§3").replace(/\blinks\b/g, "rechts").replace(/§3/g, "links");
+}
+const projPath = d => d.replace(/(-?\d+(?:\.\d+)?) (-?\d+(?:\.\d+)?)/g, (_, x, y) => PRJ(+x, +y).map(v => v.toFixed(1)).join(" "));
+function leg(g, hip, foot, side, col) {
+  const L = 16, d = Math.hypot(foot[0] - hip[0], foot[1] - hip[1]), bend = Math.sqrt(Math.max(0, L * L - (d / 2) ** 2)) * .55;
+  const knee = [(hip[0] + foot[0]) / 2 + side * bend, (hip[1] + foot[1]) / 2];
+  g.append(svgEl("polyline", {points:[hip, knee, foot].map(p => p.map(v => v.toFixed(1)).join(",")).join(" "), fill:"none", stroke:"#E9EEEA", "stroke-width":"6", "stroke-linecap":"round", "stroke-linejoin":"round"}));
+  // sok + schoen in de kleur van het been
+  const sx = knee[0] + (foot[0] - knee[0]) * .55, sy = knee[1] + (foot[1] - knee[1]) * .55;
+  g.append(svgEl("line", {x1:sx, y1:sy, x2:foot[0], y2:foot[1], stroke:col, "stroke-width":"6.5", "stroke-linecap":"round"}));
+  g.append(svgEl("ellipse", {cx:foot[0], cy:foot[1] + 1.5, rx:5.5, ry:3, fill:col, stroke:"#15201A", "stroke-width":".6"}));
+}
+function playerFig(fr, prev) {
+  const s = svgEl("svg", {viewBox:"0 0 100 92", role:"img", "aria-label":fr.t});
+  const defs = svgEl("defs", {});
+  [["tb","#fff"],["tf","var(--run)"]].forEach(([id, c]) => { const m = svgEl("marker", {id, viewBox:"0 0 10 10", refX:"8", refY:"5", markerWidth:"4", markerHeight:"4", orient:"auto-start-reverse"}); m.append(svgEl("path", {d:"M0 0L10 5L0 10z", fill:c})); defs.append(m); });
+  s.append(defs);
+  for (let k = 0; k < 7; k++) s.append(svgEl("line", {x1:0, y1:20 + k * 11, x2:100, y2:20 + k * 11, stroke:"rgba(255,255,255,.07)", "stroke-width":"5"}));
+  const up = svgEl("text", {x:4, y:8, "font-size":"5", fill:"rgba(255,255,255,.7)", "font-family":"Figtree,system-ui", "font-weight":"700"}); up.textContent = "▲ vooruit"; s.append(up);
+  if (fr.cone) { const [cx, cy] = PRJ(...fr.cone); s.append(svgEl("path", {d:`M${cx} ${cy - 8}L${cx + 5} ${cy + 2}H${cx - 5}z`, fill:"var(--cone)", stroke:"#fff", "stroke-width":".7"})); const t = svgEl("text", {x:cx + 7, y:cy, "font-size":"4.5", fill:"rgba(255,255,255,.8)", "font-family":"Figtree,system-ui"}); t.textContent = "tegenstander"; s.append(t); }
+  if (prev) { const [bx, by] = PRJ(...prev.ball); s.append(svgEl("circle", {cx:bx, cy:by - 3.5, r:4.5, fill:"none", stroke:"#fff", "stroke-width":"1", "stroke-dasharray":"2 1.5", opacity:".5"})); }
+  const ball = PRJ(...fr.ball), fL = PRJ(fr.L[0], fr.L[1]), fR = PRJ(fr.R[0], fr.R[1]);
+  if (fr.act === "L" && fr.fa) fL[1] -= 5;
+  if (fr.act === "R" && fr.fa) fR[1] -= 5;
+  const hipY = Math.max(fL[1], fR[1]) - 26, hipX = (fL[0] + fR[0]) / 2;
+  const drawBall = () => {
+    s.append(svgEl("ellipse", {cx:ball[0], cy:ball[1] + 1.5, rx:4.5, ry:1.4, fill:"rgba(0,0,0,.25)"}));
+    s.append(svgEl("circle", {cx:ball[0], cy:ball[1] - 3.5, r:4.6, fill:"#fff", stroke:"#15201A", "stroke-width":".8"}));
+    s.append(svgEl("path", {d:`M${ball[0]} ${ball[1] - 6}l2 1.4-.8 2.3h-2.4l-.8-2.3z`, fill:"#15201A"}));
+  };
+  const ballBehind = ball[1] < Math.min(fL[1], fR[1]) - 2;
+  if (ballBehind) drawBall();
+  if (fr.ba) s.append(svgEl("path", {d:projPath(fr.ba), fill:"none", stroke:"#fff", "stroke-width":"1.5", "stroke-dasharray":"2.5 2", "marker-end":"url(#tb)"}));
+  const g = svgEl("g", {});
+  const colL = fr.act === "L" ? "var(--accent)" : "#9AA5A0", colR = fr.act === "R" ? "var(--accent)" : "#9AA5A0";
+  // shirt en broek (van achteren), benen eronder
+  g.append(svgEl("rect", {x:hipX - 9, y:hipY - 16, width:18, height:12, rx:4, fill:"#2563EB"}));
+  g.append(svgEl("rect", {x:hipX - 9, y:hipY - 6, width:18, height:9, rx:3, fill:"#15201A"}));
+  leg(g, [hipX - 4.5, hipY + 2], fL, -1, colL);
+  leg(g, [hipX + 4.5, hipY + 2], fR, 1, colR);
+  s.append(g);
+  [[fL, "L"], [fR, "R"]].forEach(([p, l]) => { const t = svgEl("text", {x:p[0], y:p[1] + 10, "text-anchor":"middle", "font-size":"6", "font-weight":"800", fill:"#fff", "font-family":"Figtree,system-ui"}); t.textContent = l; s.append(t); });
+  if (fr.fa) s.append(svgEl("path", {d:projPath(fr.fa), fill:"none", stroke:"var(--run)", "stroke-width":"2", "marker-end":"url(#tf)", "stroke-linecap":"round"}));
+  if (!ballBehind) drawBall();
+  return s;
+}
+const isMirror = () => !!store("stayhard-mirror");
+// Beelden uit het uitlegfilmpje: YouTube maakt zelf 3 foto's op ongeveer 1/4, 1/2 en 3/4 van het filmpje.
+function trickPhotos(tr, playFrom) {
+  const strip = el("div", "tphotos");
+  if (IN_CLAUDE) { strip.append(el("p", "tnote", "De beelden uit het filmpje zie je in de app op de telefoon.")); return strip; }
+  [1, 2, 3].forEach(n => {
+    const b = el("button", "tphoto"); b.type = "button"; b.setAttribute("aria-label", "Beeld " + n + " uit het filmpje, tik om af te spelen");
+    const img = document.createElement("img"); img.alt = "Beeld " + n + " uit het filmpje over " + tr.title; img.loading = "lazy";
+    img.src = "https://i.ytimg.com/vi/" + tr.video + "/hq" + n + ".jpg";
+    img.onerror = () => { if (!img.dataset.small) { img.dataset.small = 1; img.src = "https://i.ytimg.com/vi/" + tr.video + "/" + n + ".jpg"; } else b.remove(); };
+    b.append(img, el("span", null, String(n)));
+    b.onclick = playFrom; strip.append(b);
+  });
+  return strip;
+}
+function trickCard(tr, fresh) {
+  const raw = tr.frames || tr.steps.map(t => ({t}));
+  const frames = isMirror() ? raw.map(mirrorFrame) : raw;
+  const c = el("article", "card trick");
+  const vb = videoBlock(tr);
+  const top = el("div", "tview");
+  if (vb) {
+    top.append(vb);
+    // slow motion: stuur de snelheid naar het YouTube-filmpje
+    const sp = el("div", "tspeed"); sp.append(el("span", null, "Snelheid:"));
+    [["Normaal", 1], ["Langzaam", .5], ["Heel langzaam", .25]].forEach(([lbl, r]) => {
+      const bt = el("button", r === 1 ? "on" : "", lbl); bt.type = "button";
+      bt.onclick = () => {
+        sp.querySelectorAll("button").forEach(x => x.classList.toggle("on", x === bt));
+        const send = () => { const fr = vb.querySelector("iframe"); if (fr && fr.contentWindow) { ["playVideo", "setPlaybackRate"].forEach(fn => fr.contentWindow.postMessage(JSON.stringify({event:"command", func:fn, args: fn === "setPlaybackRate" ? [r] : []}), "*")); } };
+        if (!vb.querySelector("iframe")) { vb.click(); const fr = vb.querySelector("iframe"); if (fr) fr.addEventListener("load", () => setTimeout(send, 800)); } else send();
+      };
+      sp.append(bt);
+    });
+    top.append(sp);
+  }
+  top.append(el("div", "tlabel", "Beelden uit het filmpje"), trickPhotos(tr, () => { const v = top.querySelector(".video"); if (v) { v.scrollIntoView({behavior:"smooth", block:"center"}); v.click(); } }));
+  c.append(top);
+  const b = el("div", "body");
+  const meta = el("div", "meta"); meta.append(...newPill(fresh), el("span", "pill hot", tr.level), el("span", "pill", frames.length + " stappen"));
+  const ol = el("ol", "tsteps"); frames.forEach(f => ol.append(el("li", null, f.t)));
+  const tip = el("p", "how"); tip.style.cssText = "font-size:15px;color:var(--muted);margin:0"; tip.append(el("b", null, "Tip: "), tr.tip);
+  const act = el("div", "actions"); act.append(playBtn({video: tr.video, yt: tr.yt}), planBtn({kind:"Trucje", title:tr.title, meta:"10 min oefenen"}), tryBtn("tr:" + tr.title), saveBtn("Trucje", tr.title, {text: tr.tip}));
+  b.append(meta, el("h3", null, tr.title), el("h4", "tsub", "Zo doe je het"), ol, tip, act); c.append(b);
+  return c;
+}
+// Elke dag 2 trucjes die je gisteren niet had; de lijst loopt op volgorde door.
+// Volgorde: elke dag één uitdagend trucje (om en om moeilijk en gemiddeld) en één trucje uit de rest.
+const TRICK_ORDER = (() => {
+  const by = lv => shuffle(TRICKS.filter(t => t.level === lv), 9973 * 15 + lv.length);
+  const hard = by("Moeilijk"), mid = by("Gemiddeld"), easy = by("Makkelijk");
+  const days = Math.floor(TRICKS.length / 2), A = [];
+  while (A.length < days && (hard.length || mid.length)) {
+    const wantHard = A.length % 2 === 0;
+    A.push(wantHard && hard.length ? hard.shift() : mid.length ? mid.shift() : hard.shift());
+  }
+  const B = [...mid, ...hard, ...easy];
+  const mixB = shuffle(B, 4242), out = [];
+  for (let d = 0; d < Math.max(A.length, mixB.length); d++) { if (A[d]) out.push(A[d]); if (mixB[d]) out.push(mixB[d]); }
+  return out;
+})(), TRICKS_PER_DAY = 2;
+const tricksOfDay = () => Array.from({length: TRICKS_PER_DAY}, (_, k) => TRICK_ORDER[(REL * TRICKS_PER_DAY + k) % TRICK_ORDER.length]);
+function renderTricks() {
+  const box = $("#tricks"); box.textContent = "";
+  tricksOfDay().forEach(t => box.append(trickCard(t, true)));
+  const left = Math.max(0, Math.ceil((TRICK_ORDER.length - (REL + 1) * TRICKS_PER_DAY) / TRICKS_PER_DAY));
+  box.append(el("p", "note", left ? "Nog " + left + " dagen met trucjes die je nog nooit hebt gehad." : "Je hebt alle trucjes gehad. Vraag om een nieuwe set, dan komen er nieuwe bij."));
+  const m = el("button", "more", "Toon alle " + TRICKS.length + " trucjes"); m.type = "button";
+  m.onclick = () => { box.textContent = ""; TRICKS.forEach(t => box.append(trickCard(t, false))); };
+  box.append(m);
+}
+renderTricks();
+$("#mirror").checked = isMirror();
+$("#mirror").onchange = () => { store("stayhard-mirror", $("#mirror").checked); renderTricks(); };
+const trickToday = tricksOfDay()[0];
+
+// ---------- product van de dag ----------
+const PICO = {
+  "Voetbal": '<circle cx="12" cy="12" r="9"/><path d="M12 7l4 3-1.5 4.5h-5L8 10z"/>',
+  "Training": '<path d="M6 7v10M18 7v10M3 10v4M21 10v4M6 12h12"/>',
+  "Herstel": '<path d="M4 14c3 0 3-4 6-4s3 4 6 4 3-4 4-4M4 19c3 0 3-4 6-4s3 4 6 4 3-4 4-4"/>',
+  "Gezond eten": '<path d="M12 8c-4-2-8 0-8 5 0 4 3 8 5 8 1.2 0 2-.6 3-.6s1.8.6 3 .6c2 0 5-4 5-8 0-5-4-7-8-5zM12 8c0-2 1-4 3-5"/>'
+};
+function productCard(p) {
+  const c = el("article", "card product");
+  const ic = el("div", "pico"); ic.innerHTML = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">${PICO[p.kind] || PICO.Voetbal}</svg>`;
+  const t = el("div", "txt");
+  const meta = el("div", "meta"); meta.append(el("span", "pill hot", p.kind));
+  const how = el("p", "how"); how.style.cssText = "font-size:15px;color:var(--muted);margin:0"; how.append(el("b", null, "Tip: "), p.tip);
+  const a = el("a", "btn play", p.shop === "ah" ? "Bekijk bij de supermarkt ↗" : "Bekijk in de winkel ↗"); a.href = shopUrl(p); a.target = "_blank"; a.rel = "noopener";
+  const act = el("div", "actions"); act.append(a, saveBtn("Product", p.name, {text: p.why, url: shopUrl(p)}));
+  t.append(meta, el("h3", null, p.name), el("p", null, p.what + " " + p.why), how, act);
+  c.append(ic, t); return c;
+}
+const PRODUCT_ORDER = shuffle(PRODUCTS, 4242);           // vaste gemengde volgorde, elke dag de volgende
+const productToday = PRODUCT_ORDER[REL % PRODUCT_ORDER.length];
+$("#product-today").append(el("div", "eyebrow", "Product van de dag"), productCard(productToday));
+
+// ---------- vaste week + voorbeelddag ----------
+function getSched() {
+  const st = store("stayhard-week");
+  if (st && typeof st === "object") return st;
+  return JSON.parse(JSON.stringify(SCHED_DEFAULT));
+}
+const putSched = v => store("stayhard-week", v);
+function strengthToday() {
+  const pool = typeof KRACHT !== "undefined" && KRACHT.length ? shuffle(KRACHT, 77) : EXERCISES.filter(x => STRENGTH.includes(x.title));
+  return Array.from({length: 5}, (_, k) => pool[(REL * 5 + k) % pool.length]);
+}
+const getBike = () => { const b = Number(store("stayhard-bike")); return b > 0 && b < 120 ? b : 20; };
+const toMin = hm => { const [h, m] = String(hm || "0:0").split(":").map(Number); return (h || 0) * 60 + (m || 0); };
+const toHM = m => { m = Math.max(0, Math.min(23 * 60 + 59, Math.round(m))); return String(Math.floor(m / 60)).padStart(2, "0") + ":" + String(m % 60).padStart(2, "0"); };
+const hrs = h => (String(h).replace(".", ",")) + " uur";
+const actName = a => a.type === "anders" ? (a.name || "Activiteit") : (ACT_TYPES[a.type] || "Training");
+let vdFree = !!store("stayhard-vrij");
+function weekSched(free) {   // zonder school vallen gym op school en de ochtendtrainingen (op school) weg
+  const sch = getSched(); if (!free) return sch;
+  const o = {}; Object.keys(sch).forEach(k => o[k] = (sch[k] || []).filter(a => a.type !== "gym" && !(a.type === "training" && +k < 5 && toMin(a.start) < 12 * 60))); return o;
+}
+// De voorbeeldweek wisselt elke maandag: andere oefeningen, trucjes, habits, eten en tijden.
+const WEEK = Math.floor((DAY - todayIdx) / 7);
+const BREAKFASTS = ["Havermout met banaan en kaneel","Volkoren brood met ei","Yoghurt met muesli en blauwe bessen","Volkoren brood met pindakaas en banaan","Kwark met fruit en noten","Roerei met volkoren toast","Havermout met appel en rozijnen","Volkoren crackers met kaas en tomaat","Smoothie van banaan, melk en havermout","Muesli met melk en een stuk fruit","Volkoren wrap met ei en kaas","Yoghurt met granola en kiwi","Pannenkoekjes van banaan en ei","Volkoren brood met hüttenkäse en komkommer"];
+const LUNCHES = ["Volkoren broodjes met kip en sla","Wrap met hummus en groente","Pasta-salade met tonijn","Volkoren pita met ei en tomaat","Soep met volkoren brood","Broodjes met kaas, komkommer en een appel","Restje avondeten van gisteren","Rijstsalade met kip en paprika","Volkoren brood met zalm en een peer","Wrap met kip en avocado","Tosti van volkoren brood met tomaat","Couscous met groente en feta","Broodjes met pindakaas en snoeptomaatjes","Omelet met groente en brood"];
+const DINNERS = ["Volkoren pasta met kip en broccoli","Rijst met zalm en sperziebonen","Aardappelen met kipfilet en wortels","Wraps met gehakt en paprika","Zoete aardappel met kip en spinazie","Pasta met tomatensaus, gehakt en courgette","Nasi met ei en veel groente","Stamppot met rookworst of kip","Rijst met kikkererwten-curry","Visstick-bord met aardappels en erwten","Couscous met kip en groente","Lasagne met spinazie","Ovenschotel met aardappel, gehakt en bloemkool","Pasta pesto met kip en tomaatjes","Burrito-bowl met rijst, bonen en mais","Kip-teriyaki met rijst en broccoli","Pannenkoeken met spinazie en kaas","Zalm uit de oven met krieltjes en salade","Chili met bonen en rijst","Volkoren spaghetti bolognese","Roerbak met noedels, kip en groente"];
+function weekPick(pool, salt, i, k = 1) {   // vaste gemengde volgorde, elke week en elke dag een ander stuk
+  const base = shuffle(pool, 7919 * salt + 3), n = WEEK * 7 + i;
+  return Array.from({length: Math.min(k, base.length)}, (_, j) => base[((n * k + j) % base.length + base.length) % base.length]);
+}
+function dayPlan(i, free = vdFree) {
+  const sch = weekSched(free), acts = [...(sch[i] || [])].sort((a, b) => toMin(a.start) - toMin(b.start));
+  const habit = weekPick(SMALL, 5, i)[0], drill = weekPick(DRILLS, 1, i)[0], ex = weekPick(THUIS_ALL, 2, i, 4).map(item => ({item})), rec = {title: weekPick(LEG_STRETCHES, 21, i, 3).map(x => x.title.toLowerCase()).join(", ")};
+  const les = DAILY_LESSONS[((REL - todayIdx + i) % DAILY_LESSONS.length + DAILY_LESSONS.length) % DAILY_LESSONS.length], iq = {item: weekPick(IQ_LESSONS, 12, i)[0]};
+  const trickToday = weekPick(TRICKS, 15, i)[0];
+  const T = [], add = (m, title, sub, key) => T.push({m, title, sub, key});
+  const isType = (d, t) => (sch[(d + 7) % 7] || []).some(a => a.type === t);
+  const trainings = acts.filter(a => a.type === "training"), match = acts.find(a => a.type === "wedstrijd"), gym = acts.find(a => a.type === "gym");
+  const schoolDay = i < 5 && !free, nextIsMatch = isType(i + 1, "wedstrijd");
+  const busy = (from, to) => acts.some(a => { const s = toMin(a.start), e = s + a.hours * 60; return from < e && to > s; });
+  let type;
+  const bike = getBike(), SCHOOL = 8 * 60 + 30;
+  if (acts.length) {
+    const first = toMin(acts[0].start);
+    const morningTr = trainings.find(a => toMin(a.start) < 12 * 60);
+    const leave = morningTr ? toMin(morningTr.start) - bike - 10 : (schoolDay ? SCHOOL - bike - 5 : first - 60);
+    let wake = Math.min(schoolDay || morningTr ? 7 * 60 : free ? 8 * 60 : 8 * 60 + 30, leave - 60);
+    if (match) wake = Math.min(wake, toMin(match.start) - 180);
+    add(wake, "Opstaan + glas water", morningTr ? "Vroeg op: om " + morningTr.start + " heb je training" : "");
+    add(wake + 15, "Ontbijt" + (morningTr ? " (minstens 1 uur voor je training)" : " met eiwit"), "Havermout, volkoren brood of yoghurt met fruit");
+    if (morningTr) add(leave, "Fietsen naar " + (free ? "de training" : "school") + " (" + bike + " min)", "Daarna omkleden voor de training. Rustig fietsen is meteen een goede warming-up");
+    if (match) {
+      const s = toMin(match.start), e = s + match.hours * 60;
+      type = {name:"Wedstrijddag", text:"Vandaag gaat het om fris en scherp zijn. Goed ontbijten, rustig opwarmen en daarna herstellen."};
+      add(s - 90, "Tas checken", "Schoenen, scheenbeschermers, bidon, tenue");
+      add(s - 40, "Warming-up", "Joggen, knieheffen, sprintjes en balcontacten", true);
+      add(s, "Wedstrijd", hrs(match.hours) + " · speel met plezier", true);
+      add(e + 15, "Herstel", "Eten en drinken binnen een uur, 10 minuten benen rekken: " + rec.title + " (zie Herstel)");
+      add(e + 240, "Terugblik", "Schrijf 1 ding dat goed ging en 1 leerpunt op");
+    }
+    if (trainings.length && !match) {
+      const n = trainings.length + (gym ? .5 : 0);
+      type = {name: trainings.length > 1 ? "Zware trainingsdag" : "Trainingsdag",
+        text: (trainings.length > 1 ? "Vandaag heb je " + trainings.length + " trainingen" + (gym ? " en gym" : "") + ". Geen extra thuistraining: eten, drinken en herstellen zijn vandaag je belangrijkste taken."
+                                     : "Vandaag heb je training" + (gym ? " en gym" : "") + ". Zorg voor energie op tijd en herstel daarna goed.")};
+      if (toMin(trainings[0].start) < 12 * 60) add(wake + 5, "Tas pakken", "Schooltas én trainingsspullen. Had je hem gisteravond al klaargezet? Top.");
+    }
+    if (schoolDay) {
+      if (morningTr) {
+        const e = toMin(morningTr.start) + morningTr.hours * 60;
+        add(e, "Lessen op school", "Drink meteen wat water en eet in de pauze iets" + (gym ? ". Vergeet je gymkleding niet" : ""));
+      } else {
+        add(SCHOOL - bike - 5, "Fietsen naar school (" + bike + " min)", "");
+        add(SCHOOL, "School", "Neem je bidon en fruit mee" + (gym ? " en je gymkleding" : ""));
+      }
+    }
+    let lastEnd = 0;
+    acts.forEach(a => {
+      const s = toMin(a.start), e = s + a.hours * 60; lastEnd = Math.max(lastEnd, e);
+      if (a.type === "training") {
+        if (s >= 12 * 60) {
+          const early = s < 17 * 60 + 45;
+          if (early) add(Math.max(15 * 60 + 30, s - 90), "Licht eten", "Banaan, krentenbol of boterham, minstens 1 uur voor de training");
+          else { add(15 * 60 + 30, "Tussendoortje", "Fruit of een krentenbol en water"); add(Math.min(s - 120, 17 * 60), "Avondeten", "Met pasta of rijst, minstens 1,5 uur voor de training"); }
+          add(s - 45, "Tas inpakken + bidon vullen", "");
+        }
+        add(s, "Training", hrs(a.hours) + (trainings.length > 1 ? " · training " + (trainings.indexOf(a) + 1) + " van " + trainings.length : "") + " · let op: " + les.title.toLowerCase(), true);
+        if (s < 12 * 60) add(e + 120, free ? "Tussendoortje" : "Tussendoortje in de pauze", "Fruit of een krentenbol: je hebt vanochtend al getraind");
+        if (s < 12 * 60 && free && trainings.length > 1) add(13 * 60 + 30, "Rustmoment (30 min)", "Benen omhoog, lezen of muziek. Vanavond heb je nog een training");
+        else add(e + 10, s < 17 * 60 + 45 ? "Avondeten + herstel" : "Herstel", "Iets eten met eiwit, water drinken, 5 minuten benen rekken: " + rec.title + " (zie Herstel)");
+      } else if (a.type === "kracht") {
+        const list = strengthToday();
+        add(s - 5, "Opwarmen (5 min)", "Jumping jacks, knieheffen en armen rondzwaaien");
+        add(s, "Krachttraining", hrs(a.hours) + " · 3 rondes: " + list.map(x => x.title + " (" + x.reps + ")").join(", "), true);
+        add(e + 5, "Eten met eiwit + rekken", "Bijvoorbeeld yoghurt of een glas melk, daarna 5 minuten rekken");
+      } else if (a.type === "gym") {
+        add(s, "Gym op school", hrs(a.hours) + (trainings.length ? " · doe mee, maar spaar jezelf een beetje voor de training" : ""), true);
+        add(e + 5, "Drinken na gym", "Een paar slokken water uit je bidon");
+      } else if (a.type === "anders") add(s, actName(a), hrs(a.hours), true);
+    });
+    if (free && !busy(12 * 60, 13 * 60) && !match) add(12 * 60 + 30, "Lunch", "Brood met iets met eiwit, plus fruit of groente");
+    const hasEvening = acts.some(a => toMin(a.start) >= 17 * 60);
+    if (!hasEvening && !match) add(18 * 60, "Avondeten", "Met groente en iets met eiwit");
+    if (!busy(15 * 60 + 45, 16 * 60 + 15) && !T.some(t => t.title.startsWith("Dagles"))) add(15 * 60 + 45, "Dagles (5 min)", les.title);
+    else if (!T.some(t => t.title.startsWith("Dagles"))) add(lastEnd + 30, "Dagles (5 min)", les.title);
+    if (!type && acts.some(a => a.type === "kracht")) type = {name:"Krachttrainingsdag", text:"Vandaag " + hrs(acts.find(a => a.type === "kracht").hours) + " krachttraining met je eigen lichaamsgewicht. Rustig tempo en goede techniek zijn belangrijker dan veel herhalingen."};
+    if (!type) type = {name:"Dag met " + acts.map(actName).join(" en ").toLowerCase(), text:"Plan je dag rondom je vaste activiteiten."};
+    if (i === 6) add(17 * 60, "Week plannen", "Zet je trainingen en doelen in je planner");
+    if (trainings.length < 2 && !match && !busy(16 * 60 + 30, 17 * 60)) add(T.some(t => t.m === 16 * 60 + 30) ? 14 * 60 : 16 * 60 + 30, "Trucje oefenen (10 min)", trickToday.title, true);
+    const bed = nextIsMatch ? 21 * 60 : (lastEnd >= 20 * 60 ? Math.max(21 * 60 + 15, lastEnd + 45) : 21 * 60);
+    add(bed - 15, "Schermen uit", "");
+    add(bed, "Naar bed", trainings.length > 1 ? "Na 2 trainingen heeft je lichaam extra slaap nodig" : "Je lichaam herstelt in je slaap");
+  } else if (nextIsMatch) {
+    type = {name:"Dag voor de wedstrijd", text:"Rustig aan vandaag. Een beetje techniek, goed eten en vroeg naar bed."};
+    add(free ? 8 * 60 : 7 * 60, "Opstaan + glas water", "");
+    if (!free) add(7 * 60 + 15, "Ontbijt", "");
+    if (free) { add(8 * 60 + 15, "Ontbijt", ""); add(12 * 60 + 30, "Lunch", "Pasta, rijst of brood: koolhydraten voor morgen"); add(14 * 60, "Rustig naar buiten", "30 minuten wandelen of rustig fietsen, niet hard sporten", true); }
+    if (schoolDay) { add(8 * 60 + 30 - getBike() - 5, "Fietsen naar school (" + getBike() + " min)", ""); add(8 * 60 + 30, "School", ""); }
+    add(15 * 60 + 30, "Dagles (5 min)", les.title);
+    add(16 * 60, "Rustig trucje oefenen (10 min)", trickToday.title, true);
+    add(17 * 60 + 30, "Avondeten met pasta of rijst", "Brandstof voor morgen");
+    add(19 * 60 + 30, "Tas inpakken", "Alles klaarleggen voor de wedstrijd");
+    add(20 * 60 + 45, "Schermen uit", "");
+    add(21 * 60, "Naar bed", "Uitgerust aan de wedstrijd beginnen");
+  } else if (!schoolDay && !(free && i < 5)) {
+    type = {name:"Hersteldag", text:"Een dag om bij te komen: rustig bewegen, rekken en je week plannen."};
+    add(8 * 60 + 30, "Uitslapen + ontbijt", "");
+    add(10 * 60 + 30, "Actief herstel", "20 minuten wandelen of rustig fietsen", true);
+    add(11 * 60 + 15, "Rekken (10 min)", rec.title + " en de rest uit Herstel");
+    add(14 * 60, "Voetbal IQ", iq.item.title);
+    add(17 * 60, "Week plannen", "Zet je trainingen en doelen in je planner");
+    add(20 * 60 + 45, "Schermen uit", "");
+    add(21 * 60, "Naar bed", free ? "Uitgerust de nieuwe week in" : "Morgen weer school");
+  } else {
+    const prevTraining = isType(i - 1, "training");
+    type = prevTraining ? {name:"Dag na de training", text:"Licht trainen vandaag: techniek en een beetje kracht. Je lichaam herstelt nog van gisteren."}
+                        : {name: free ? "Vrije dag zonder training" : "Thuis-trainingsdag", text: free ? "Geen school en geen training: lekker buiten zijn en zelf beter worden met de bal." : "Geen club-training vandaag, dus een mooie dag om zelf beter te worden."};
+    if (free) {
+      add(8 * 60, "Opstaan + glas water", "Geen school: wel op een vaste tijd op, dan blijft je ritme goed");
+      add(8 * 60 + 15, "Ontbijt", "");
+      add(10 * 60 + 30, "Buiten voetballen (45 min)", "Op een pleintje of veldje, alleen of met vrienden", true);
+      add(12 * 60 + 30, "Lunch", "Brood met iets met eiwit, plus fruit of groente");
+      add(14 * 60, "Vrije tijd buiten", "Fietsen, zwemmen of met vrienden afspreken");
+    } else {
+      add(7 * 60, "Opstaan + glas water", "");
+      add(7 * 60 + 15, "Ontbijt", "");
+      add(8 * 60 + 30 - getBike() - 5, "Fietsen naar school (" + getBike() + " min)", "Telt mee als beweging voor vandaag");
+      add(8 * 60 + 30, "School", "");
+    }
+    add(15 * 60 + 30, "Dagles (5 min)", les.title);
+    add(16 * 60, "Trucje oefenen (10 min)", trickToday.title, true);
+    add(16 * 60 + 15, "Voetbaloefening (10 min)", drill.title, true);
+    if (!prevTraining) add(16 * 60 + 30, "Thuistraining (15 min)", ex.slice(0, 4).map(x => x.item.title).join(", "), true);
+    add(18 * 60, "Avondeten", "Met groente");
+    add(19 * 60, "Habit van de dag", habit.title);
+    add(20 * 60 + 45, "Schermen uit", "");
+    add(21 * 60, "Naar bed", "");
+  }
+  // ---- elke dag: 2x VR (15 min) en 15 min voeten trainen, op vrije momenten ----
+  {
+    const end = (T.find(t => t.title === "Schermen uit") || {m: 20 * 60 + 45}).m;
+    const free = (m, len) => m >= 7 * 60 && m + len <= end && !busy(m - 30, m + len + 30)
+      && !(schoolDay && m < 15 * 60 + 15 && m + len > 8 * 60)
+      && !T.some(t => t.m > m - 15 && t.m < m + len);
+    const turn = a => { const k = WEEK % a.length; return [...a.slice(k), ...a.slice(0, k)]; };   // elke week andere volgorde van tijden
+    const place = (cands, len, title, sub, key) => { const m = turn(cands).find(c => free(c, len)); if (m != null) add(m, title, sub, key); };
+    const FEET = ["Snelle voetjes op de plaats en zijwaarts (tikken op de bal)", "Binnenkant-binnenkant tikken en zooltrekken", "Ladder of lijntjes: in-in-uit-uit, zijwaarts, één been", "Rond pionnen dribbelen met kleine tikjes", "Zool rollen, V-trekken en Cruijff-draai", "Touwtjespringen en kniehefjes", "Hooghouden met links en rechts"];
+    const H = h => Math.round(h * 60);
+    place([16.75, 17, 15.5, 14, 10, 19.25, 12.5, 18.75, 13].map(H), 15, "Voeten trainen (15 min)", FEET[((WEEK * 7 + i) % FEET.length + FEET.length) % FEET.length], true);
+    place([17.25, 16.5, 14.5, 13.5, 11.5, 15.75, 18.5, 12].map(H), 15, "VR (15 min)", "Kwartier, daarna weg ermee en even naar buiten kijken voor je ogen");
+    place([19.5, 20, 19.75, 18.75, 20.25, 17.75, 16].map(H), 15, "VR (15 min)", "Tweede kwartier van vandaag. Uiterlijk een kwartier voor schermen uit klaar");
+  }
+  // ---- meer kleine habits door de dag heen: één per thema, elke dag andere ----
+  {
+    const end = (T.find(t => t.title === "Schermen uit") || {m: 20 * 60 + 45}).m;
+    const H = h => Math.round(h * 60), PAUZE = [H(10.25), H(12.5)];
+    const wakeM = Math.min(...T.map(t => t.m));
+    const meals = T.filter(t => /^(ontbijt|avondeten|licht eten|eten met|tussendoortje)/i.test(t.title)).map(t => t.m + 5);
+    const ok = m => m > wakeM && m < end + 10 && !busy(m - 10, m + 10)
+      && (!schoolDay || m < 8 * 60 || m >= 15 * 60 + 15 || PAUZE.includes(m))
+      && !T.some(t => Math.abs(t.m - m) < 5);
+    const used = new Set(T.map(t => t.sub));
+    const slots = [
+      ["hoofd",    [H(7.42), H(19.17), H(15.33), H(10.25)], "Mindset"],
+      ["drinken",  [H(12.5), H(10.25), H(14), H(15.25)], "Drinken"],
+      ["bewegen",  [H(12.5), H(10.25), H(15.33), H(19.17), H(13)], "Bewegen"],
+      ["eten",     [...meals.reverse(), H(12.58)], "Eten"],
+      ["slapen",   [end - 10, H(20.5), end - 20], "Slapen"]];
+    slots.forEach(([th, cands, lab], n) => {
+      const m = cands.find(ok);
+      if (m == null) return;
+      // past de habit bij het moment van de dag?
+      const bad = m < 9 * 60 ? /avond|bed\b|na school|slapen|na het eten/
+        : schoolDay && m < 15 * 60 + 15 ? /na school|thuis|avond|ochtend|opstaan|bed\b|slapen|gamen|tv\b/
+        : m >= 19 * 60 + 30 ? /ochtend|opstaan|ontbijt|na school|overdag|middag|gordijn/
+        : /ochtend|opstaan|ontbijt|bed\b|slapen/;
+      const notFit = h => { const x = (h.title + " " + h.how).toLowerCase(); return bad.test(x) || (!schoolDay && /school/.test(x)) || (m > 8 * 60 && /naar school/.test(x)); };
+      const list = SMALL.filter(h => h.theme === th && !used.has(h.title) && !notFit(h));
+      if (!list.length) return;
+      const h = list[((WEEK * 7 + i) * 5 + n) % list.length];
+      { add(m, "Habit · " + lab, h.title + ". " + (h.how || "")); used.add(h.title); }
+    });
+  }
+  // eten-ideeën die elke week wisselen
+  T.forEach(t => {
+    const idea = /^Ontbijt/.test(t.title) ? weekPick(BREAKFASTS, 31, i)[0] : /^Lunch/.test(t.title) ? weekPick(LUNCHES, 32, i)[0] : /^Avondeten/.test(t.title) ? weekPick(DINNERS, 33, i)[0] : null;
+    if (idea) t.sub = "Idee: " + idea + (t.sub ? ". " + t.sub : "");
+  });
+  T.sort((a, b) => a.m - b.m);
+  return {type, items: T};
+}
+let vdDay = todayIdx;
+function renderSchedEditor() {
+  const rows = $("#fixrows"); rows.textContent = "";
+  const sch = getSched();
+  DAYS.forEach((d, i) => {
+    const box = el("div", "sday"); box.append(el("b", null, d));
+    (sch[i] || []).forEach((a, n) => {
+      const r = el("div", "fixrow");
+      const ty = document.createElement("select"); ty.id = `fx-type-${i}-${n}`; ty.setAttribute("aria-label", "Soort activiteit");
+      Object.entries(ACT_TYPES).forEach(([k, v]) => { const o = el("option", null, v); o.value = k; if (a.type === k) o.selected = true; ty.append(o); });
+      const st = document.createElement("input"); st.type = "time"; st.value = a.start; st.id = `fx-start-${i}-${n}`; st.setAttribute("aria-label", "Begintijd");
+      const hr = document.createElement("input"); hr.type = "number"; hr.min = .5; hr.max = 6; hr.step = .5; hr.value = a.hours; hr.id = `fx-hours-${i}-${n}`; hr.setAttribute("aria-label", "Aantal uur"); hr.inputMode = "decimal";
+      const del = el("button", "x", "×"); del.type = "button"; del.setAttribute("aria-label", "Verwijder " + actName(a) + " op " + d);
+      const save = () => { const all = getSched(); all[i][n] = {...all[i][n], type: ty.value, start: st.value || a.start, hours: Number(String(hr.value).replace(",", ".")) || a.hours}; putSched(all); afterSched(false); };
+      ty.onchange = save; st.onchange = save; hr.onchange = save;
+      del.onclick = () => { const all = getSched(); all[i].splice(n, 1); putSched(all); afterSched(true); };
+      r.append(ty, st, hr, del); box.append(r);
+    });
+    const addb = el("button", "btn ghost", "+ Activiteit"); addb.type = "button";
+    addb.onclick = () => { const all = getSched(); (all[i] = all[i] || []).push({type:"training", start:"18:30", hours:1.5}); putSched(all); afterSched(true); };
+    box.append(addb); rows.append(box);
+  });
+  const br = el("div", "fixrow"); br.style.gridTemplateColumns = "minmax(0,1fr) 92px";
+  const bi = document.createElement("input"); bi.type = "number"; bi.min = 1; bi.max = 90; bi.value = getBike(); bi.id = "fx-bike"; bi.setAttribute("aria-label", "Fietstijd in minuten"); bi.inputMode = "numeric";
+  bi.onchange = () => { store("stayhard-bike", Number(bi.value) || 20); afterSched(false); };
+  br.append(el("span", null, "Fietsen naar school / training (minuten)"), bi);
+  const bd = el("div", "sday"); bd.append(el("b", null, "Reistijd"), br); rows.append(bd);
+  const reset = el("button", "btn ghost", "Terug naar standaardweek"); reset.type = "button";
+  reset.onclick = () => { putSched(JSON.parse(JSON.stringify(SCHED_DEFAULT))); afterSched(true); toast("Standaardweek teruggezet"); };
+  rows.append(el("p", "note", "Per activiteit: soort, begintijd en aantal uur. Alles wordt meteen bewaard."), reset);
+}
+function afterSched(rebuild) { if (rebuild) renderSchedEditor(); renderVoorbeeld(true); renderPlanner(); }
+function renderVoorbeeld(skipEditor) {
+  $("#vd-school").setAttribute("aria-pressed", !vdFree); $("#vd-vrij").setAttribute("aria-pressed", vdFree);
+  const sch = weekSched(vdFree), pick = $("#daypick"); pick.textContent = "";
+  DAYS.forEach((d, i) => { const b = el("button"); b.type = "button"; b.setAttribute("aria-pressed", i === vdDay); b.setAttribute("aria-label", d);
+    const acts = sch[i] || [], tr = acts.filter(a => a.type === "training").length;
+    b.append(d.slice(0, 2), el("small", null, acts.some(a => a.type === "wedstrijd") ? "match" : tr ? tr + "x train" : acts.some(a => a.type === "kracht") ? "kracht" : acts.length ? "gym" : (i === todayIdx ? "nu" : "")));
+    b.onclick = () => { vdDay = i; renderVoorbeeld(true); }; pick.append(b); });
+  const {type, items} = dayPlan(vdDay);
+  const mon = new Date(now); mon.setDate(now.getDate() - todayIdx); const sun = new Date(mon); sun.setDate(mon.getDate() + 6);
+  const fmtD = d => d.getDate() + " " + ["jan","feb","mrt","apr","mei","jun","jul","aug","sep","okt","nov","dec"][d.getMonth()];
+  const dt = $("#daytype"); dt.textContent = "";
+  dt.append(el("div", "eyebrow", "Voorbeeldweek " + fmtD(mon) + " t/m " + fmtD(sun) + " · elke maandag een nieuwe")); dt.append(el("h2", "sub", DAYS[vdDay] + ": " + type.name), el("p", "intro", type.text));
+  const tl = $("#timeline"); tl.textContent = "";
+  items.forEach(t => { const r = el("div", "tl" + (t.key ? " key" : "")); const x = el("div"); x.append(el("b", null, t.title)); if (t.sub) x.append(el("span", null, t.sub)); r.append(el("time", null, toHM(t.m)), x); tl.append(r); });
+  if (!skipEditor) renderSchedEditor();
+}
+$("#tasks2plan").onclick = () => {
+  const {items} = dayPlan(vdDay), p = getPlan();
+  const skip = /^(Opstaan|School|Lessen op school|Naar bed|Schermen uit|Uitslapen|Fietsen|Training$|Krachttraining$|Wedstrijd$|Gym op school$)/;
+  let n = 0;
+  items.filter(t => !skip.test(t.title)).forEach(t => {
+    const title = toHM(t.m) + " " + t.title;
+    if (!p[vdDay].some(e => e.title === title)) { p[vdDay].push({id: Date.now().toString(36) + Math.random().toString(36).slice(2, 6), kind:"Voorbeelddag", title, meta: t.sub || ""}); n++; }
+  });
+  store("dagstart-plan", p); renderPlanner(); toast(n ? n + " taken gepland op " + DAYS[vdDay].toLowerCase() : "Die taken staan er al in");
+};
+function plannerSeg(which) {
+  $("#seg-week").setAttribute("aria-pressed", which === "week"); $("#seg-voorbeeld").setAttribute("aria-pressed", which === "voorbeeld");
+  $("#wk").hidden = which !== "week"; $("#voorbeeld").hidden = which !== "voorbeeld";
+  if (which === "voorbeeld") renderVoorbeeld();
+}
+$("#vd-school").onclick = () => { vdFree = false; store("stayhard-vrij", false); renderVoorbeeld(true); };
+$("#vd-vrij").onclick = () => { vdFree = true; store("stayhard-vrij", true); renderVoorbeeld(true); };
+$("#seg-week").onclick = () => plannerSeg("week"); $("#seg-voorbeeld").onclick = () => plannerSeg("voorbeeld");
+
+// Vraag de telefoon om opslag, planner en notities niet automatisch op te ruimen.
+try { if (navigator.storage && navigator.storage.persist) navigator.storage.persist(); } catch (e) {}
+
 // ---------- tabs ----------
 function show(v) {
   if (!document.getElementById("v-" + v)) v = "start";
   document.querySelectorAll(".view[id^='v-']").forEach(s => s.hidden = s.id !== "v-" + v);
   document.querySelectorAll(".tab").forEach(t => t.setAttribute("aria-selected", t.dataset.v === v));
   if (v === "planner") renderPlanner();
+  if (v === "opslag") renderOpslag();
   window.scrollTo(0, 0);
 }
 document.querySelectorAll(".tab").forEach(t => t.onclick = () => { history.replaceState(null, "", "#" + t.dataset.v); show(t.dataset.v); });
