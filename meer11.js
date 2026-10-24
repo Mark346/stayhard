@@ -71,3 +71,17 @@ const ROUTINES = [
   RT2("Avond", "Vrije avond", "Weekend of vakantie", [["18:00","Avondeten",""],["19:00","Tijd met familie of vrienden",""],["20:00","15 minuten VR",""],["20:30","10 minuten rekken",""],["21:00","Schermen weg en lezen",""],["21:30","Slapen","Ook in het weekend ongeveer op dezelfde tijd."]], "Een vaste bedtijd, ook in het weekend, houdt je ritme goed."),
   RT2("Avond", "Rustige avond voor beter slapen", "Als je moeilijk in slaap komt", [["20:00","Schermen uit",""],["20:15","Warm douchen",""],["20:30","Tas klaarzetten","Dan hoef je er niet meer aan te denken."],["20:40","Schrijf op wat je morgen moet doen","Je hoofd wordt rustiger."],["20:50","Ademhaling 4-4-4","4 tellen in, 4 vasthouden, 4 uit, 5 minuten."],["21:00","Lezen in bed",""],["21:15","Licht uit",""]], "Een rustig ritueel vertelt je lichaam dat het tijd is om te slapen.")
 ];
+
+// ---------- Records: 5 vaste tests ----------
+// Tests waar al een score bij staat, blijven ook zichtbaar, zodat er niets kwijtraakt.
+(() => {
+  const keep = ["hoog", "hoogzwak", "sprint20", "plank", "pushup"];
+  const weg = ["slalom", "versprong", "muur30", "raak10"]; // bewust verwijderd
+  let saved = {}; try { saved = JSON.parse(localStorage.getItem("stayhard-records") || "{}") || {}; } catch (e) {}
+  const kept = RECORD_TESTS.filter(t => keep.includes(t.id) || (!weg.includes(t.id) && (saved[t.id] || []).length));
+  RECORD_TESTS.length = 0; RECORD_TESTS.push(...kept);
+  // Hooghouden: gewoon je record, zo vaak proberen als je wilt
+  const h = RECORD_TESTS.find(t => t.id === "hoog"), hz = RECORD_TESTS.find(t => t.id === "hoogzwak");
+  if (h) { h.name = "Record hooghouden"; h.how = "Houd de bal zo vaak mogelijk hoog zonder dat hij de grond raakt. Je mag zo vaak proberen als je wilt: je hoogste score is je record."; }
+  if (hz) { hz.name = "Record hooghouden met je zwakke voet"; hz.how = "Alleen je zwakke voet. Je mag zo vaak proberen als je wilt: je hoogste score is je record."; }
+})();

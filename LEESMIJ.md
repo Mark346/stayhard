@@ -80,3 +80,12 @@ Wijzig een bestand in GitHub via het potloodje en klik **Commit changes**. De ap
 
 ## Mijn dag (Start)
 Bovenaan Start schrijf je elke dag je taken op. Afgevinkte taken geven punten (klein 3, gemiddeld 5, groot 8). Elke 15 punten = een kwartier chillen. Vink je minstens 3 taken af, dan groeit je streak, en je streak bepaalt je rang (van Beginner tot Legende). Alles wordt bewaard en reset nooit.
+
+## Laatste uitbreiding
+- `meer12.js`: meer habits, motivatie, oefeningen, IQ, thuisoefeningen, producten, mindset, spelers en routines.
+- `recepten.js`: Gezond → Recepten (ontbijt, voor en na het sporten, lunch, avondeten, snacks, drankjes).
+- `dertig.js`: Speler → 30 dagen (30-dagen-uitdagingen).
+- Recepten wisselen elke dag; 30-dagen-uitdagingen hebben 3 niveaus (makkelijk, gemiddeld, moeilijk).
+- `meer13.js`: lichte habits (Gezond → Niet zwaar), kleine habits in routines en meer wedstrijdroutines (Planner → Routines → Wedstrijddag). Recepten hebben een plaatje.
+- `meer14.js`: weer meer oefeningen, lessen, mindset, habits, recepten, uitdagingen, routines en spelers.
+- `meer15.js`: nog meer oefeningen, lessen, mindset, habits, recepten, routines en spelers.

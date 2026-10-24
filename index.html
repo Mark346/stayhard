@@ -222,6 +222,12 @@ details.past .plist button{text-align:left;font:600 15px var(--f-body);backgroun
 .osec small{font:600 13px var(--f-body);color:var(--muted)}
 .seg.seg4 button{padding:9px 4px;font-size:14px}
 .seg.seg5{grid-template-columns:repeat(5,1fr)}
+.d30{display:grid;grid-template-columns:repeat(10,1fr);gap:4px}
+.d30 span{aspect-ratio:1;border-radius:8px;display:grid;place-items:center;font-size:11px;font-weight:700;background:var(--bg);color:var(--muted);border:1px solid var(--line)}
+.d30 span.on{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+.d30 span.now{border:2px solid var(--accent);color:var(--fg)}
+.d30 span.rust{font-style:italic;opacity:.7}
+.rcp ul,.rcp ol{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:4px}
 .md-top{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px}
 .md-stat{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:12px 10px;display:flex;flex-direction:column;align-items:center;text-align:center;gap:2px;min-width:0}
 .md-stat b{font-family:var(--f-display);font-size:28px;line-height:1}
@@ -246,6 +252,13 @@ details.past .plist button{text-align:left;font:600 15px var(--f-body);backgroun
 .md-ideas h4{margin:12px 0 6px;font-size:14px}
 .md-chill{background:var(--accent-soft);border-radius:20px;padding:16px 18px;display:flex;flex-direction:column;gap:8px}
 .md-chill b.big{font-family:var(--f-display);font-size:22px}
+.rtextra{background:var(--accent-soft);border-radius:14px;padding:10px 14px}
+.rtextra small{font-weight:700}
+.rtextra ul{margin:6px 0 0;padding-left:18px}
+.rcpimg{position:relative;height:150px;display:grid;place-items:center;overflow:hidden}
+.rcpimg .plate{width:124px;height:124px;border-radius:50%;background:#fff;box-shadow:0 6px 18px rgba(0,0,0,.18),inset 0 0 0 10px #F3F1EC;display:grid;place-items:center;font-size:54px;line-height:1}
+.rcpimg .plate.glass{border-radius:14px 14px 30px 30px;width:84px;background:rgba(255,255,255,.75)}
+.rcpimg .ing{position:absolute;font-size:30px;line-height:1;filter:drop-shadow(0 2px 3px rgba(0,0,0,.2))}
 .rtlist{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px}
 .rtlist li{display:grid;grid-template-columns:auto 1fr;column-gap:10px;padding:8px 0;border-top:1px solid var(--line)}
 .rtlist li b{font-size:13px;color:var(--accent);white-space:nowrap}
@@ -510,11 +523,15 @@ details.past .plist button{text-align:left;font:600 15px var(--f-body);backgroun
   <section class="view" id="v-gezond" hidden>
     <header>
       <div class="eyebrow">Gezond leven</div>
-      <h1>Kleine habits, <em>groot verschil</em></h1>
-      <p class="intro">Kleine habits voor vandaag en grote habits voor een hele week. Zet ze in je planner.</p>
+      <h1 id="gz-title">Kleine habits, <em>groot verschil</em></h1>
+      <p class="intro" id="gz-intro">Kleine habits voor vandaag en grote habits voor een hele week. Zet ze in je planner.</p>
     </header>
+    <div class="seg" role="group" aria-label="Kies"><button type="button" id="seg-hab" aria-pressed="true">Habits</button><button type="button" id="seg-rcp" aria-pressed="false">Recepten</button></div>
+    <div id="habwrap" class="view">
     <div class="chips" id="chips"></div>
     <div id="habits" class="view" style="gap:12px"></div>
+    </div>
+    <div id="recepten" class="view" hidden></div>
   </section>
 
   <section class="view" id="v-speler" hidden>
@@ -523,11 +540,12 @@ details.past .plist button{text-align:left;font:600 15px var(--f-body);backgroun
       <h1 id="sp-title">Mijn <em>records</em></h1>
       <p class="intro" id="sp-intro">Test jezelf één keer per maand en zie hoe je beter wordt.</p>
     </header>
-    <div class="seg seg4" role="group" aria-label="Kies"><button type="button" id="seg-rec" aria-pressed="true">Records</button><button type="button" id="seg-check" aria-pressed="false">Wedstrijd</button><button type="button" id="seg-pos" aria-pressed="false">Posities</button><button type="button" id="seg-bles" aria-pressed="false">Blessures</button></div>
+    <div class="seg seg5" role="group" aria-label="Kies"><button type="button" id="seg-dertig" aria-pressed="false">30 dagen</button><button type="button" id="seg-rec" aria-pressed="true">Records</button><button type="button" id="seg-check" aria-pressed="false">Wedstrijd</button><button type="button" id="seg-pos" aria-pressed="false">Posities</button><button type="button" id="seg-bles" aria-pressed="false">Blessures</button></div>
     <div id="sp-rec" class="view"></div>
     <div id="sp-check" class="view" hidden></div>
     <div id="sp-pos" class="view" hidden></div>
     <div id="sp-bles" class="view" hidden></div>
+    <div id="sp-dertig" class="view" hidden></div>
   </section>
 
   <section class="view" id="v-planner" hidden>
@@ -633,6 +651,12 @@ details.past .plist button{text-align:left;font:600 15px var(--f-body);backgroun
 <script src="meer9.js"></script>
 <script src="meer10.js"></script>
 <script src="meer11.js"></script>
+<script src="meer12.js"></script>
+<script src="recepten.js"></script>
+<script src="dertig.js"></script>
+<script src="meer13.js"></script>
+<script src="meer14.js"></script>
+<script src="meer15.js"></script>
 <script src="maak.js"></script>
 <script>
 const $ = s => document.querySelector(s);
@@ -905,7 +929,9 @@ function renderMijnDag() {
   f.append(inp, sel, ab); tb.append(el("small", null, "Typ zelf een taak, kies hoe groot hij is en tik op + Voeg toe. Hoe groter de taak, hoe meer punten. Of kies hieronder een idee (het getal is het aantal punten)."), f);
   // ideeën om toe te voegen, per soort; de habits en oefeningen wisselen elke dag
   const dag3 = (arr, salt, n) => { const out = []; for (let k = 0; out.length < n && k < n * 4; k++) { const x = arr[((DAY * 7 + salt * 13 + k * 31) % arr.length + arr.length) % arr.length]; if (!out.includes(x)) out.push(x); } return out; };
+  const a30 = typeof UITDAGINGEN !== "undefined" ? UITDAGINGEN.filter(u => { const st = get30()[u.id]; return st && !st.stop && (st.done || []).length < 30 && !(st.done || []).includes(DAY); }) : [];
   const groepen = [
+    ...(a30.length ? [["🏁 Mijn 30-dagen-uitdagingen", a30.map(u => ["30 dagen: " + u.title.replace("30 dagen ", "") + " (dag " + dag30(get30()[u.id]) + ")", "gemiddeld"])]] : []),
     ["⚽ Voetbal", [["15 minuten voeten trainen","gemiddeld"],["Training gedaan","groot"],["Oefening: " + pick(DRILLS, 3).title,"gemiddeld"],["Muuroefening: " + dag3(MUUR, 2, 1)[0].title,"gemiddeld"],["Trucje oefenen: " + dag3(TRICKS, 4, 1)[0].title,"gemiddeld"],["100 keer jongleren (in totaal)","gemiddeld"],["10 minuten zwakke voet","klein"],["20 schoten op doel","gemiddeld"],["Partijtje met vrienden","groot"],["Dagles lezen en oefenen","klein"],["Voetbal-IQ quiz gedaan","klein"],["Een speler of wedstrijd analyseren","klein"],["30 minuten techniektraining","gemiddeld"],["Aannames oefenen tegen de muur","gemiddeld"],["Passen en trappen 15 minuten","gemiddeld"],["Dribbelen door pionnen 15 minuten","gemiddeld"],["Koppen oefenen","gemiddeld"],["Vrije trappen of penalty's oefenen","gemiddeld"],["Afronden: 30 schoten","gemiddeld"],["Snelheid met de bal: 10 sprints","gemiddeld"]]],
     ["💪 Kracht en conditie", [["Krachttraining 20 minuten","groot"],["Kracht: " + dag3(KRACHT, 5, 1)[0].title,"gemiddeld"],["Thuisoefening: " + dag3(EXERCISES, 6, 1)[0].title,"klein"],["3 x 30 seconden plank","klein"],["50 squats (in totaal)","gemiddeld"],["30 push-ups (in totaal)","gemiddeld"],["Buikspieren 10 minuten","gemiddeld"],["Sprinttraining: 8 sprintjes","gemiddeld"],["20 minuten hardlopen of fietsen","groot"],["Nordic hamstrings","klein"],["Touwtjespringen 5 minuten","klein"],["Benen-training 15 minuten","gemiddeld"],["Core-training 15 minuten","gemiddeld"],["Bovenlichaam-training 15 minuten","gemiddeld"],["Explosief springen: 5 oefeningen","gemiddeld"],["Wendbaarheid: ladder of pionnen","gemiddeld"],["Blessurepreventie-oefeningen","gemiddeld"],["Intervaltraining 15 minuten","gemiddeld"]]],
     ["🌱 Kleine habits", [...dag3(SMALL, 7, 6).map(h => ["Habit: " + h.title, "klein"]), ["Bed opgemaakt","klein"],["2 liter water gedronken","klein"],["Groente bij het eten","klein"],["Fruit gegeten","klein"],["Ontbijt gegeten","klein"],["Tas klaargezet voor morgen","klein"],["Schermen een uur voor bedtijd weg","klein"],["Op tijd naar bed","klein"],["Iemand een compliment gegeven","klein"],["Iets geholpen in huis","klein"],["10 minuten gelezen","klein"],["Voetbalschoenen schoongemaakt","klein"]]],
@@ -1023,6 +1049,7 @@ function savedCard(it) {
     else if (it.kind === "Kracht") { const x = find(KRACHT); if (x) c = exerciseCard(x, false, "Kracht"); }
     else if (it.kind === "Speler") { const x = find(SPELERS, "name"); if (x) c = playerCard(x, false); }
     else if (it.kind === "Focus") { const x = find(FOCUS_TIPS); if (x) c = tipCard("Focus", x, false, x.wanneer); }
+    else if (it.kind === "Recept") { const x = find(RECEPTEN); if (x) c = receptCard(x, false); }
     else if (it.kind === "Routine") { const x = find(ROUTINES); if (x) c = routineCard(x); }
     else if (it.kind === "Leider") { const x = find(LEIDER); if (x) c = tipCard("Leider", x, false); }
     else if (it.kind === "Tegenslag") { const x = find(TEGENSLAG); if (x) c = tegenCard(x, false); }
@@ -1072,7 +1099,7 @@ const OVAKKEN = [
   ["Oefeningen", ["Voetbal", "Thuis", "Kracht", "Herstel", "Trucje"], "⚽", "Voetbal, thuis, kracht, herstel en trucjes"],
   ["Mindset", ["Motivatie", "Filmpje", "Focus", "Leider", "Tegenslag"], "🔥", "Motivatie, filmpjes, focus, leiderschap en tegenslag"],
   ["Voetbalkennis", ["Dagles", "Voetbal IQ", "Wat doe jij?", "Speler", "Wedstrijd", "Spelhervatting"], "🧠", "Dagles, IQ, spelers, wedstrijden en spelhervattingen"],
-  ["Gezond", ["Habit", "Grote habit", "Hersteltip", "Product"], "🥦", "Habits, hersteltips en producten"],
+  ["Gezond", ["Habit", "Grote habit", "Hersteltip", "Product", "Recept"], "🥦", "Habits, hersteltips, producten en recepten"],
   ["Voorbeelddagen", ["Voorbeelddag", "Routine"], "📅", "Bewaarde dagschema's en routines"],
   ["Nieuws", ["Nieuws"], "📰", "Bewaarde nieuwsberichten"],
   ["Eigen notities", ["Eigen"], "✏️", "Je eigen notities en analyses"]
@@ -1267,11 +1294,52 @@ $("#seg-drills").onclick = () => vbSeg("drills"); $("#seg-tricks").onclick = () 
 
 // ---------- tabblad Speler ----------
 function spSeg(which) {
-  const map = {rec:["Mijn <em>records</em>", "Test jezelf één keer per maand en zie hoe je beter wordt."], check:["Klaar voor de <em>wedstrijd</em>", "Vink alles af op wedstrijddag. Zo wordt het een vaste routine."], pos:["Alle <em>posities</em>", "Tik op een positie op het veld en zie wat je daar het beste kunt doen."], bles:["Blessures <em>voorkomen</em>", "Zo blijf je fit, en dit doe je als er toch iets gebeurt."]};
+  const map = {dertig:["30-dagen-<em>uitdaging</em>", "Kies een uitdaging en doe 30 dagen lang elke dag de opdracht. Elke dag wordt het iets zwaarder."], rec:["Mijn <em>records</em>", "Test jezelf één keer per maand en zie hoe je beter wordt."], check:["Klaar voor de <em>wedstrijd</em>", "Vink alles af op wedstrijddag. Zo wordt het een vaste routine."], pos:["Alle <em>posities</em>", "Tik op een positie op het veld en zie wat je daar het beste kunt doen."], bles:["Blessures <em>voorkomen</em>", "Zo blijf je fit, en dit doe je als er toch iets gebeurt."]};
   Object.keys(map).forEach(k => { $("#seg-" + k).setAttribute("aria-pressed", k === which); $("#sp-" + k).hidden = k !== which; });
   $("#sp-title").innerHTML = map[which][0]; $("#sp-intro").textContent = map[which][1];
 }
-["rec", "check", "pos", "bles"].forEach(k => $("#seg-" + k).onclick = () => spSeg(k));
+["dertig", "rec", "check", "pos", "bles"].forEach(k => $("#seg-" + k).onclick = () => spSeg(k));
+// ---------- 30-dagen-uitdagingen ----------
+const get30 = () => store("stayhard-30") || {};
+const rr30 = lvl => { const f = factor30(lvl); return x => Math.max(1, Math.round(x * f)); };
+const opdr30 = (u, st, n) => u.dag(n, rr30(st && st.lvl));
+function dag30(st) { const done = st.done || []; return Math.min(30, done.includes(DAY) ? done.length : done.length + 1); }
+function renderDertig() {
+  const box = $("#sp-dertig"); box.textContent = "";
+  const all = get30(), actief = UITDAGINGEN.filter(u => all[u.id] && !all[u.id].stop);
+  const save = a => { store("stayhard-30", a); renderDertig(); if (typeof renderMijnDag === "function") renderMijnDag(); };
+  if (!actief.length) box.append(el("p", "intro", "Je hebt nog geen uitdaging. Kies er hieronder één (of meer) en tik op Start."));
+  actief.forEach(u => {
+    const st = all[u.id], done = st.done || [], n = dag30(st), vandaag = done.includes(DAY), klaar = done.length >= 30;
+    const c = el("article", "card"), b = el("div", "body");
+    const lvlNaam = (NIVEAUS.find(x => x[0] === (st.lvl || "gemiddeld")) || NIVEAUS[1])[1];
+    const meta = el("div", "meta"); meta.append(el("span", "pill hot", klaar ? "Voltooid 🏆" : "Dag " + n + " van 30"), el("span", "pill", lvlNaam), el("span", "pill", done.length + (done.length === 1 ? " dag" : " dagen") + " gedaan"));
+    b.append(meta, el("h3", null, u.icon + " " + u.title));
+    if (klaar) b.append(el("p", null, "Je hebt alle 30 dagen gedaan. Echt sterk! Begin een nieuwe uitdaging of doe deze nog een keer."));
+    else { const opd = el("div", "onthoud best"); opd.append(el("small", null, vandaag ? "Vandaag gedaan ✓ — morgen dag " + Math.min(30, n + 1) + ":" : "Opdracht van vandaag:"), document.createElement("br"), vandaag && n < 30 ? opdr30(u, st, n + 1) : opdr30(u, st, n)); b.append(opd); }
+    const grid = el("div", "d30"); for (let i = 1; i <= 30; i++) { const d = el("span", i <= done.length ? "on" : i === n && !vandaag ? "now" : rust30(i) ? "rust" : null, String(i)); grid.append(d); } b.append(grid);
+    const act = el("div", "actions");
+    if (!klaar) { const db = el("button", "btn play", vandaag ? "✓ Vandaag gedaan" : "Vandaag gedaan"); db.type = "button"; db.setAttribute("aria-pressed", vandaag);
+      db.onclick = () => { const a = get30(), s2 = a[u.id]; s2.done = s2.done || []; if (s2.done.includes(DAY)) s2.done = s2.done.filter(d => d !== DAY); else { s2.done.push(DAY); toast(s2.done.length >= 30 ? "🏆 Uitdaging voltooid!" : "Dag " + s2.done.length + " gedaan! 🔥"); } save(a); };
+      act.append(db); }
+    const stop = el("button", "btn ghost", klaar ? "Opnieuw beginnen" : "Stoppen"); stop.type = "button";
+    stop.onclick = () => { if (!klaar && !confirmDel(stop)) return; const a = get30(); if (klaar) a[u.id] = {start: DAY, done: [], lvl: a[u.id].lvl}; else delete a[u.id]; save(a); };
+    act.append(stop); b.append(act); c.append(b); box.append(c);
+  });
+  box.append(el("h2", "sub", "Kies een uitdaging"));
+  UITDAGINGEN.filter(u => !all[u.id]).forEach(u => {
+    const c = el("article", "card"), b = el("div", "body");
+    b.append(el("h3", null, u.icon + " " + u.title), el("p", null, u.wat));
+    let keuze = "gemiddeld";
+    const vb = el("div"), lv = el("div", "chips");
+    const toon = () => { vb.textContent = ""; vb.append(el("p", "intro", "Dag 1: " + u.dag(1, rr30(keuze))), el("p", "intro", "Dag 30: " + u.dag(30, rr30(keuze)))); lv.querySelectorAll(".chip").forEach(x => x.setAttribute("aria-pressed", x.dataset.k === keuze)); };
+    NIVEAUS.forEach(([k, naam]) => { const c2 = el("button", "chip", naam); c2.type = "button"; c2.dataset.k = k; c2.onclick = () => { keuze = k; toon(); }; lv.append(c2); });
+    b.append(lv, vb); toon();
+    const sb = el("button", "btn play", "Start"); sb.type = "button"; sb.onclick = () => { const a = get30(); a[u.id] = {start: DAY, done: [], lvl: keuze}; save(a); toast("Uitdaging gestart. Succes! 💪"); window.scrollTo({top: 0, behavior: "smooth"}); };
+    const act = el("div", "actions"); act.append(sb); b.append(act); c.append(b); box.append(c);
+  });
+}
+renderDertig();
 // records
 const getRecords = () => { const r = store("stayhard-records"); return r && typeof r === "object" ? r : {}; };
 function sparkline(vals, lower) {
@@ -1287,7 +1355,7 @@ function renderRecords() {
   const box = $("#sp-rec"); box.textContent = ""; const recs = getRecords();
   const tested = RECORD_TESTS.filter(t => (recs[t.id] || []).length).length;
   const top = el("article", "card"), tb = el("div", "body");
-  tb.append(el("div", "eyebrow", tested + " van de " + RECORD_TESTS.length + " tests gedaan"), el("p", null, "Tip: kies één vaste testdag per maand, bijvoorbeeld de eerste zondag. Doe eerst een warming-up. Een volwassene of vriend kan helpen met tijden opnemen."));
+  tb.append(el("div", "eyebrow", tested + " van de " + RECORD_TESTS.length + " tests gedaan"), el("p", null, "Hooghouden mag je zo vaak proberen als je wilt: vul gewoon je nieuwe record in. De sprint, plank en push-ups test je het best één keer per maand, na een warming-up. Een volwassene of vriend kan helpen met tijden opnemen."));
   top.append(tb); box.append(top);
   RECORD_TESTS.forEach(t => {
     const list = recs[t.id] || [], vals = list.map(x => x.v);
@@ -1551,18 +1619,64 @@ function renderHabits() {
   const box = $("#habits"); box.textContent = "";
   if (filter === "vandaag") {
     rotate(SMALL, 8, 5).forEach(({item, fresh}) => box.append(habitCard(item, fresh)));
+    box.append(el("h2", "sub", "🪶 Even tussendoor"), el("p", "intro", "Kleine habits die bijna geen moeite kosten. Doe er een paar vandaag."));
+    rotate(SMALL.filter(h => h.licht), 5, 15).forEach(({item, fresh}) => box.append(habitCard(item, fresh)));
     box.append(el("h2", "sub", "Grote habits"));
     rotate(BIG, 4, 6).forEach(({item, fresh}) => box.append(habitCard(item, fresh)));
     return;
   }
+  if (filter === "licht") { box.append(el("p", "intro", "Habits die maar een paar seconden of minuten kosten.")); SMALL.filter(h => h.licht).forEach(h => box.append(habitCard(h, false))); return; }
   HABITS.filter(h => filter === "alles" || (filter === "groot" ? h.size === "groot" : h.theme === filter)).forEach(h => box.append(habitCard(h, false)));
 }
-[["vandaag","Vandaag"], ["groot","Grote habits"], ["alles","Alles"], ...Object.entries(THEMES).map(([k,v]) => [k, v.label])].forEach(([k, label]) => {
+[["vandaag","Vandaag"], ["licht","🪶 Niet zwaar"], ["groot","Grote habits"], ["alles","Alles"], ...Object.entries(THEMES).map(([k,v]) => [k, v.label])].forEach(([k, label]) => {
   const c = el("button", "chip", label); c.type = "button"; c.setAttribute("aria-pressed", k === filter);
   c.onclick = () => { filter = k; document.querySelectorAll("#chips .chip").forEach(x => x.setAttribute("aria-pressed", x === c)); renderHabits(); };
   $("#chips").append(c);
 });
 renderHabits();
+// ---------- recepten ----------
+let rcpSoort = "vandaag";
+const RCP_EMOJI = [[/smoothie|shake/i,"🥤"],[/thee/i,"🍵"],[/water/i,"💧"],[/chocolademelk|warme melk/i,"🥛"],[/sportdrank/i,"🧃"],[/pizza/i,"🍕"],[/soep/i,"🍲"],[/curry|chili|stoof/i,"🍛"],[/salade/i,"🥗"],[/wrap|burrito|pita/i,"🌯"],[/pannenko|wentelteef/i,"🥞"],[/omelet|roerei|ei-muffin|gekookt ei/i,"🍳"],[/tosti|boterham|broodje|brood/i,"🥪"],[/pasta|spaghetti|lasagne|noedels/i,"🍝"],[/rijst|nasi|saté/i,"🍚"],[/havermout|oats|muesli|granola|rijstpap|yoghurt|kwark/i,"🥣"],[/popcorn/i,"🍿"],[/spiesjes/i,"🍡"],[/stamppot|aardappel/i,"🥔"],[/balletjes|reep/i,"🍪"]];
+const ING_EMOJI = [[/banaan|bananen/i,"🍌"],[/aardbei/i,"🍓"],[/bessen/i,"🫐"],[/appel/i,"🍎"],[/peer/i,"🍐"],[/druiven|rozijnen/i,"🍇"],[/meloen/i,"🍈"],[/kiwi/i,"🥝"],[/citroen|limoen/i,"🍋"],[/sinaasappel/i,"🍊"],[/avocado/i,"🥑"],[/tomaat|tomaten|passata|tomatensaus/i,"🍅"],[/broccoli/i,"🥦"],[/wortel/i,"🥕"],[/komkommer/i,"🥒"],[/paprika/i,"🫑"],[/sla\b|spinazie|boerenkool|wokgroente/i,"🥬"],[/mais/i,"🌽"],[/bonen|kikkererwten|linzen|edamame|hummus/i,"🫘"],[/champignon/i,"🍄"],[/\bui\b|prei/i,"🧅"],[/knoflook/i,"🧄"],[/ei\b|eieren/i,"🥚"],[/kip|kalkoen/i,"🍗"],[/zalm|vis|tonijn/i,"🐟"],[/gehakt/i,"🥩"],[/kaas|feta|mozzarella|hüttenkäse|ricotta/i,"🧀"],[/melk|yoghurt|kwark/i,"🥛"],[/havermout|muesli|granola/i,"🌾"],[/brood|wrap|pita|crackers|krentenbol/i,"🍞"],[/rijst/i,"🍚"],[/pasta|spaghetti|noedels/i,"🍝"],[/aardappel/i,"🥔"],[/noten|pindakaas/i,"🥜"],[/honing/i,"🍯"],[/kaneel|cacao/i,"🤎"],[/kokos/i,"🥥"],[/munt|basilicum|dille|bieslook/i,"🌿"]];
+const RCP_BG = {"Ontbijt":"#FDE7C2","Voor het sporten":"#D9F0DC","Na het sporten":"#DCE7FB","Lunch":"#FBE3D7","Avondeten":"#F3DCC8","Snacks":"#E9E1F7","Drankjes":"#D4EEF2"};
+function receptPlaatje(r) {
+  const w = el("div", "rcpimg"); w.style.background = RCP_BG[r.soort] || "#EEE";
+  w.setAttribute("role", "img"); w.setAttribute("aria-label", "Plaatje van " + r.title);
+  const main = (RCP_EMOJI.find(([re]) => re.test(r.title)) || [, "🍽️"])[1];
+  const plate = el("div", "plate" + (r.soort === "Drankjes" ? " glass" : ""), main); w.append(plate);
+  const txt = r.title + " " + r.ingr.join(" "), ings = [];
+  ING_EMOJI.forEach(([re, e]) => { if (re.test(txt) && e !== main && !ings.includes(e)) ings.push(e); });
+  const spots = [[14, 22], [80, 18], [10, 70], [84, 68], [30, 82], [66, 84]];
+  ings.slice(0, 6).forEach((e, k) => { const s2 = el("span", "ing", e); s2.style.left = spots[k][0] + "%"; s2.style.top = spots[k][1] + "%"; s2.style.transform = "translate(-50%,-50%) rotate(" + ((k * 37) % 40 - 20) + "deg)"; w.append(s2); });
+  return w;
+}
+function receptCard(r, fresh) {
+  const c = el("article", "card rcp"), b = el("div", "body");
+  c.append(receptPlaatje(r));
+  const icon = (RECEPT_SOORTEN.find(x => x[0] === r.soort) || [, "🍽️"])[1];
+  const meta = el("div", "meta"); meta.append(...newPill(fresh), el("span", "pill hot", icon + " " + r.soort), el("span", "pill", "⏱ " + r.tijd), el("span", "pill", r.voor));
+  const sec = (h, node) => { const d = el("div"); d.append(el("h4", null, h), node); return d; };
+  const ul = el("ul"); r.ingr.forEach(x => ul.append(el("li", null, x)));
+  const ol = el("ol"); r.stappen.forEach(x => ol.append(el("li", null, x)));
+  const why = el("div", "onthoud best"); why.append(el("small", null, "Waarom goed voor een sporter"), document.createElement("br"), r.waarom);
+  const act = el("div", "actions"); act.append(planBtn({kind:"Recept", title:r.title, meta:r.tijd}), saveBtn("Recept", r.title, {text: r.waarom}));
+  b.append(meta, el("h3", null, r.title), why, sec("Wat heb je nodig", ul), sec("Zo maak je het", ol), el("p", "intro", "💡 " + r.tip), act);
+  c.append(b); return c;
+}
+function renderRecepten() {
+  const box = $("#recepten"); box.textContent = "";
+  box.append(el("p", "intro", "Makkelijke, gezonde recepten voor sporters. Vraag even of je de keuken mag gebruiken en pas op met messen, de oven en hete pannen."));
+  const ch = el("div", "chips");
+  [["vandaag", "Vandaag"], ...RECEPT_SOORTEN.map(([k, i]) => [k, i + " " + k])].forEach(([k, lab]) => { const c = el("button", "chip", lab); c.type = "button"; c.setAttribute("aria-pressed", rcpSoort === k); c.onclick = () => { rcpSoort = k; renderRecepten(); }; ch.append(c); });
+  box.append(ch);
+  const l = el("div", "view"); l.style.gap = "12px"; box.append(l);
+  if (rcpSoort === "vandaag") { l.append(el("p", "intro", "Elke dag nieuwe recepten: een ontbijt, iets voor of na het sporten en een avondeten.")); ["Ontbijt", "Voor het sporten", "Na het sporten", "Avondeten"].forEach((k, j) => { const pool = RECEPTEN.filter(r => r.soort === k); rotateFull(pool, 1, 90 + j).forEach(({item}) => l.append(receptCard(item, true))); }); }
+  else rotatedList(l, RECEPTEN.filter(r => r.soort === rcpSoort), 3, 82 + rcpSoort.length, (r, f) => receptCard(r, f), "recepten " + rcpSoort.toLowerCase());
+}
+function gezondSeg(w) { $("#seg-hab").setAttribute("aria-pressed", w === "hab"); $("#seg-rcp").setAttribute("aria-pressed", w === "rcp"); $("#habwrap").hidden = w !== "hab"; $("#recepten").hidden = w !== "rcp"; if (w === "rcp") renderRecepten();
+  $("#gz-title").innerHTML = w === "rcp" ? "Gezonde <em>recepten</em>" : "Kleine habits, <em>groot verschil</em>";
+  $("#gz-intro").textContent = w === "rcp" ? "Brandstof voor je spel: ontbijt, eten voor en na het sporten, lunch, avondeten, snacks en drankjes." : "Kleine habits voor vandaag en grote habits voor een hele week. Zet ze in je planner."; }
+$("#seg-hab").onclick = () => gezondSeg("hab"); $("#seg-rcp").onclick = () => gezondSeg("rcp");
 
 // ---------- mindset ----------
 const ART = {
@@ -2183,7 +2297,9 @@ function weekSched(free) {   // zonder school vallen gym op school en de ochtend
 const WEEK = Math.floor((DAY - todayIdx) / 7);
 const BREAKFASTS = ["Havermout met banaan en kaneel","Volkoren brood met ei","Yoghurt met muesli en blauwe bessen","Volkoren brood met pindakaas en banaan","Kwark met fruit en noten","Roerei met volkoren toast","Havermout met appel en rozijnen","Volkoren crackers met kaas en tomaat","Smoothie van banaan, melk en havermout","Muesli met melk en een stuk fruit","Volkoren wrap met ei en kaas","Yoghurt met granola en kiwi","Pannenkoekjes van banaan en ei","Volkoren brood met hüttenkäse en komkommer"];
 const LUNCHES = ["Volkoren broodjes met kip en sla","Wrap met hummus en groente","Pasta-salade met tonijn","Volkoren pita met ei en tomaat","Soep met volkoren brood","Broodjes met kaas, komkommer en een appel","Restje avondeten van gisteren","Rijstsalade met kip en paprika","Volkoren brood met zalm en een peer","Wrap met kip en avocado","Tosti van volkoren brood met tomaat","Couscous met groente en feta","Broodjes met pindakaas en snoeptomaatjes","Omelet met groente en brood"];
-const DINNERS = ["Volkoren pasta met kip en broccoli","Rijst met zalm en sperziebonen","Aardappelen met kipfilet en wortels","Wraps met gehakt en paprika","Zoete aardappel met kip en spinazie","Pasta met tomatensaus, gehakt en courgette","Nasi met ei en veel groente","Stamppot met rookworst of kip","Rijst met kikkererwten-curry","Visstick-bord met aardappels en erwten","Couscous met kip en groente","Lasagne met spinazie","Ovenschotel met aardappel, gehakt en bloemkool","Pasta pesto met kip en tomaatjes","Burrito-bowl met rijst, bonen en mais","Kip-teriyaki met rijst en broccoli","Pannenkoeken met spinazie en kaas","Zalm uit de oven met krieltjes en salade","Chili met bonen en rijst","Volkoren spaghetti bolognese","Roerbak met noedels, kip en groente"];
+const DINNERS = ["Volkoren pasta met kip en broccoli","Rijst met zalm en sperziebonen","Aardappelen met kipfilet en wortels","Wraps met gehakt en paprika","Zoete aardappel met kip en spinazie","Pasta met tomatensaus, gehakt en courgette","Nasi met ei en veel groente","Stamppot met kipgehaktballetjes","Rijst met kikkererwten-curry","Witvis uit de oven met aardappels en erwten","Couscous met kip en groente","Lasagne met spinazie","Ovenschotel met aardappel, gehakt en bloemkool","Pasta pesto met kip en tomaatjes","Burrito-bowl met rijst, bonen en mais","Kip-teriyaki met rijst en broccoli","Volkoren pannenkoeken met spinazie","Zalm uit de oven met krieltjes en salade","Chili met bonen en rijst","Volkoren spaghetti bolognese","Roerbak met noedels, kip en groente"];
+// recepten uit Gezond → Recepten ook als idee in de voorbeelddagen
+if (typeof RECEPTEN !== "undefined") { const t = k => RECEPTEN.filter(r => r.soort === k).map(r => r.title); BREAKFASTS.push(...t("Ontbijt").filter(x => !BREAKFASTS.includes(x))); LUNCHES.push(...t("Lunch").filter(x => !LUNCHES.includes(x))); DINNERS.push(...[...t("Avondeten"), ...t("Voor het sporten").filter(x => !/banaan|reep|koek|wafel/i.test(x))].filter(x => !DINNERS.includes(x))); }
 function weekPick(pool, salt, i, k = 1) {   // vaste gemengde volgorde, elke week en elke dag een ander stuk
   const base = shuffle(pool, 7919 * salt + 3), n = WEEK * 7 + i;
   return Array.from({length: Math.min(k, base.length)}, (_, j) => base[((n * k + j) % base.length + base.length) % base.length]);
@@ -2448,17 +2564,20 @@ function routineCard(r) {
   const act = el("div", "actions");
   const pb = el("button", "btn play", "Zet in mijn planner"); pb.type = "button";
   pb.onclick = () => { const p = getPlan(), k = todayIdx; let n = 0;
-    r.stappen.forEach(([t, w]) => { const title = (/^\d/.test(t) ? t + " " : "") + w; if (!p[k].some(x => x.title === title)) { p[k].push({id: Date.now().toString(36) + Math.random().toString(36).slice(2, 6), kind:"Routine", title, meta: r.title}); n++; } });
+    [...r.stappen, ...(r.extra || []).map(x => ["", x])].forEach(([t, w]) => { const title = (/^\d/.test(t) ? t + " " : "") + w; if (!p[k].some(x => x.title === title)) { p[k].push({id: Date.now().toString(36) + Math.random().toString(36).slice(2, 6), kind:"Routine", title, meta: r.title}); n++; } });
     store("dagstart-plan", p); renderPlanner(); toast(n ? n + " stappen gepland voor vandaag" : "Die stappen staan er al in"); };
   act.append(pb, saveBtn("Routine", r.title, {text: r.waarom}));
-  b.append(meta, el("h3", null, r.title), el("p", null, r.waarom), ol, act); c.append(b); return c;
+  b.append(meta, el("h3", null, r.title), el("p", null, r.waarom), ol);
+  if (r.extra && r.extra.length) { const ex = el("div", "rtextra"); ex.append(el("small", null, "🪶 Kleine habits erbij (kost bijna geen moeite)")); const u = el("ul"); r.extra.forEach(x => u.append(el("li", null, x))); ex.append(u); b.append(ex); }
+  b.append(act); c.append(b); return c;
 }
 function renderRoutines() {
   const box = $("#routines"); box.textContent = "";
   box.append(el("p", "intro", "Voorbeelden van een goede ochtend en avond. Kies er een die past bij je dag, of zet hem in je planner."));
   const ch = el("div", "chips");
-  ["Ochtend", "Avond"].forEach(k => { const c = el("button", "chip", (k === "Ochtend" ? "🌅 " : "🌙 ") + k); c.type = "button"; c.setAttribute("aria-pressed", rtSoort === k); c.onclick = () => { rtSoort = k; renderRoutines(); }; ch.append(c); });
+  [["Ochtend", "🌅 Ochtend"], ["Avond", "🌙 Avond"], ["Wedstrijd", "⚽ Wedstrijddag"]].forEach(([k, lab]) => { const c = el("button", "chip", lab); c.type = "button"; c.setAttribute("aria-pressed", rtSoort === k); c.onclick = () => { rtSoort = k; renderRoutines(); }; ch.append(c); });
   box.append(ch);
+  if (rtSoort === "Wedstrijd") { box.append(el("p", "intro", "Kies de routine die past bij hoe laat je speelt.")); ["Ochtend", "Avond"].forEach(k => { box.append(el("h2", "sub", k === "Ochtend" ? "De ochtend van de wedstrijd" : "De avond ervoor")); ROUTINES.filter(r => r.wedstrijd && r.soort === k).forEach(r => box.append(routineCard(r))); }); return; }
   ROUTINES.filter(r => r.soort === rtSoort).forEach(r => box.append(routineCard(r)));
 }
 $("#seg-week").onclick = () => plannerSeg("week"); $("#seg-voorbeeld").onclick = () => plannerSeg("voorbeeld");

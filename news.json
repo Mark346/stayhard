@@ -1,75 +1,8 @@
 {
- "updated": "2026-10-24T10:51+02:00",
+ "updated": "2026-10-22T15:00+02:00",
  "items": [
-  {
-   "cat": "voetbal",
-   "title": "Kompany moet nog paar dagen in ziekenhuis blijven: 'Hij is stabiel'",
-   "text": "Bayern München heeft vanmorgen een update gegeven over de toestand van coach Vincent Kompany.",
-   "url": "https://nos.nl/l/2636435",
-   "source": "NOS"
-  },
-  {
-   "cat": "voetbal",
-   "title": "Toornstra op drempel 500ste eredivisiewedstrijd: 'Mijn debuut was in de ijstijd'",
-   "text": "Vijfhonderd wedstrijden in de eredivisie, kom daar nog maar eens om. Als Sparta Rotterdam-trainer Rogier Meijer hem zondag tegen Ajax speeltijd gunt, speelt Jens…",
-   "url": "https://nos.nl/l/2636417",
-   "source": "NOS"
-  },
-  {
-   "cat": "voetbal",
-   "title": "PSG-spelers missen Ballon d'Or-gala door onrust in Parijs, Trump bezorgd om NFL-duel",
-   "text": "De topper tussen Paris Saint-Germain en Olympique Lyonnais in de Franse voetbalcompetitie is uitgesteld van zondag naar maandag.",
-   "url": "https://nos.nl/l/2636400",
-   "source": "NOS"
-  },
-  {
-   "cat": "voetbal",
-   "title": "Eredivisietopscorer Tengstedt helpt Go Ahead Eagles langs Telstar",
-   "text": "Go Ahead Eagles heeft weer eens een overwinning geboekt in de eredivisie. De Deventenaren, die geen van de laatste zes competitieduels gewonnen hadden, boekten in eigen…",
-   "url": "https://nos.nl/l/2636392",
-   "source": "NOS"
-  },
-  {
-   "cat": "fitness",
-   "title": "Zak pepernoten mee naar Vancouver: Van 't Wout komt 8 kilo aan voor nieuw seizoen",
-   "text": "Ruim acht maanden na de succesvolle Olympische Spelen voor de Nederlandse ploeg barst het internationale shorttrackseizoen weer los in Canada.",
-   "url": "https://nos.nl/l/2636433",
-   "source": "NOS"
-  },
-  {
-   "cat": "fitness",
-   "title": "Verstappen nipt trager dan Leclerc tijdens eerste trainingen in Texas",
-   "text": "Max Verstappen heeft een veelbelovende eerste dag beleefd bij de GP van de Verenigde Staten.",
-   "url": "https://nos.nl/l/2636408",
-   "source": "NOS"
-  },
-  {
-   "cat": "fitness",
-   "title": "Van Westering pakt opnieuw oud Nederlands zwemrecord af van Driebergen",
-   "text": "Kai van Westering heeft op de open NK kortebaan in Rotterdam voor de tweede dag op rij een Nederlands record gezwommen.",
-   "url": "https://nos.nl/l/2636385",
-   "source": "NOS"
-  },
-  {
-   "cat": "gezondheid",
-   "title": "Wekdienst 24/10: Protestdag in Frankrijk • Wintertijd gaat in",
-   "text": "Goedemorgen! In Frankrijk worden weer grote protesten verwacht en vannacht kun je een uurtje langer slapen, omdat de wintertijd ingaat.",
-   "url": "https://nos.nl/l/2636418",
-   "source": "NOS"
-  },
-  {
-   "cat": "gezondheid",
-   "title": "Grotschilderingen in Indonesië in gevaar door bosbranden",
-   "text": "Onderzoekers in Indonesië maken zich zorgen om hele oude kunst in grotten. In de grotten zijn muurschilderingen van meer dan 67 duizend jaar oud.",
-   "url": "https://jeugdjournaal.nl/l/2636373",
-   "source": "NOS Jeugdjournaal"
-  },
-  {
-   "cat": "gezondheid",
-   "title": "Riley van 10 zamelt knuffels in voor kinderen in het ziekenhuis",
-   "text": "Riley is 10 jaar oud en heeft bijna 300 knuffels ingezameld. Dat heeft ze niet zomaar gedaan. De knuffels zijn voor kinderen in een ziekenhuis.",
-   "url": "https://jeugdjournaal.nl/l/2636323",
-   "source": "NOS Jeugdjournaal"
-  }
+  {"cat":"fitness","title":"Vier minuten per dag maakt sterker","text":"Dagelijks vier minuten krachttraining verbeterde in 12 weken de kracht en beweeglijkheid van ouderen.","url":"https://www.sciencedaily.com/news/top/health/","source":"ScienceDaily"},
+  {"cat":"fitness","title":"Ook astronauten blijven fit door te trainen","text":"Harten van astronauten bleven gezond tijdens maanden in de ruimte, vooral bij wie regelmatig trainde.","url":"https://www.sciencedaily.com/news/top/health/","source":"ScienceDaily"},
+  {"cat":"gezondheid","title":"Wie jong begint met sporten, blijft sterker","text":"Een Zweedse studie volgde mensen van 16 tot 63 jaar. Wie bleef bewegen, hield meer kracht en conditie over.","url":"https://www.sciencedaily.com/releases/2026/10/261014000912.htm","source":"ScienceDaily"}
  ]
 }
