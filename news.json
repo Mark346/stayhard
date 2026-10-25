@@ -1,8 +1,61 @@
 {
- "updated": "2026-10-22T15:00+02:00",
+ "updated": "2026-10-25T10:08+01:00",
  "items": [
-  {"cat":"fitness","title":"Vier minuten per dag maakt sterker","text":"Dagelijks vier minuten krachttraining verbeterde in 12 weken de kracht en beweeglijkheid van ouderen.","url":"https://www.sciencedaily.com/news/top/health/","source":"ScienceDaily"},
-  {"cat":"fitness","title":"Ook astronauten blijven fit door te trainen","text":"Harten van astronauten bleven gezond tijdens maanden in de ruimte, vooral bij wie regelmatig trainde.","url":"https://www.sciencedaily.com/news/top/health/","source":"ScienceDaily"},
-  {"cat":"gezondheid","title":"Wie jong begint met sporten, blijft sterker","text":"Een Zweedse studie volgde mensen van 16 tot 63 jaar. Wie bleef bewegen, hield meer kracht en conditie over.","url":"https://www.sciencedaily.com/releases/2026/10/261014000912.htm","source":"ScienceDaily"}
+  {
+   "cat": "voetbal",
+   "title": "Barça wordt elk jaar weer wat meer Barça: 'Nog meer wapens dan vorig jaar'",
+   "text": "Het is al even geleden dat men bij FC Barcelona met zo veel vertrouwen naar El Clasico toeleefde.",
+   "url": "https://nos.nl/l/2636558",
+   "source": "NOS"
+  },
+  {
+   "cat": "voetbal",
+   "title": "Eenhoorn na 100 dagen bij Feyenoord: 'Financieel opletten, maar situatie niet desastreus'",
+   "text": "Rond Feyenoord overheerst de laatste weken vrolijkheid. De Rotterdammers staan bovenaan in de eredivisie en spelen onder trainer Giovanni van Bronckhorst fris voetbal.…",
+   "url": "https://nos.nl/l/2636551",
+   "source": "NOS"
+  },
+  {
+   "cat": "voetbal",
+   "title": "Gedoodverfde degradant Cambuur staat opeens tiende, dankzij 'monster' in de spits",
+   "text": "SC Cambuur begon het eredivisieseizoen met vier nederlagen op rij, maar is nu al zes opeenvolgende wedstrijden ongeslagen.",
+   "url": "https://nos.nl/l/2636533",
+   "source": "NOS"
+  },
+  {
+   "cat": "voetbal",
+   "title": "Oud-voetballer Van Iperen krijgt miljoen euro schadevergoeding na botsing in Moldavië",
+   "text": "De Moldavische club FC Zimbru moet oud-voetballer Donny van Iperen ruim 1 miljoen euro betalen. Die sanctie heeft het Internationaal Sporttribunaal CAS bepaald.",
+   "url": "https://nos.nl/l/2636503",
+   "source": "NOS"
+  },
+  {
+   "cat": "fitness",
+   "title": "Niewold zwemt Nederlands record op 100 meter vrij tijdens NK kortebaan",
+   "text": "Sean Niewold heeft in Rotterdam op de derde dag van de open NK kortebaan het Nederlands record aangescherpt op de 100 meter vrije slag.",
+   "url": "https://nos.nl/l/2636515",
+   "source": "NOS"
+  },
+  {
+   "cat": "gezondheid",
+   "title": "Artsen kritisch op longcovidbeleid minister Hermans: 'Funest voor patiëntvertrouwen'",
+   "text": "Huisartsen, medisch specialisten en wetenschappers kraken de plannen van zorgminister Sophie Hermans voor patiënten met long covid en soortgelijke aandoeningen als ME en…",
+   "url": "https://nos.nl/l/2636540",
+   "source": "NOS"
+  },
+  {
+   "cat": "gezondheid",
+   "title": "Wekdienst 25/10: Le Pen lanceert presidentscampagne Frankrijk • PSV-Feyenoord in…",
+   "text": "Goedemorgen! Vannacht is de wintertijd ingegaan. De klok ging een uur achteruit en de meeste mensen hebben een uurtje langer kunnen slapen.",
+   "url": "https://nos.nl/l/2636538",
+   "source": "NOS"
+  },
+  {
+   "cat": "gezondheid",
+   "title": "Zomertijd voorbij: vannacht is de klok weer een uur teruggegaan",
+   "text": "Vannacht is de zomertijd geëindigd. Dat betekent dat de klok een uur achteruit is gezet en de meeste mensen een uurtje langer kunnen slapen.",
+   "url": "https://nos.nl/l/2636525",
+   "source": "NOS"
+  }
  ]
 }
