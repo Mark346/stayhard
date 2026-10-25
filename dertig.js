@@ -2,7 +2,7 @@
 // Elke dag wordt de opdracht iets zwaarder. Dag 7, 14, 21 en 28 zijn rustige dagen.
 
 const rust30 = n => n % 7 === 0;
-const NIVEAUS = [["makkelijk", "Makkelijk", 0.6], ["gemiddeld", "Gemiddeld", 1], ["moeilijk", "Moeilijk", 1.8]];
+const NIVEAUS = [["makkelijk", "Makkelijk", 0.6], ["gemiddeld", "Gemiddeld", 1], ["moeilijk", "Moeilijk", 1.8], ["extreem", "Extreem 🔥", 2.8]];
 const factor30 = lvl => (NIVEAUS.find(x => x[0] === lvl) || NIVEAUS[1])[2];
 // r(x) rondt af en houdt minstens 1
 const U = (id, icon, title, wat, dag) => ({id, icon, title, wat, dag});
@@ -10,7 +10,7 @@ const UITDAGINGEN = [
   U("zwak", "🦶", "30 dagen zwakke voet", "Na 30 dagen is je zwakke voet een stuk sterker.",
     (n, r) => rust30(n) ? "Rustdag: 5 minuten rustig jongleren met je zwakke voet." : r(20 + n * 3) + " muurpasses met alleen je zwakke voet, daarna " + r(5 + n / 3) + " schoten met je zwakke voet."),
   U("jongleer", "⚽", "30 dagen jongleren", "Elke dag hooghouden. Je record gaat omhoog.",
-    (n, r) => rust30(n) ? "Rustdag: probeer je record van deze week één keer te verbeteren." : "Houd hoog tot je in totaal " + r(50 + n * 10) + " keer hebt geraakt. " + (n > 15 ? "Gebruik ook je dijen en hoofd." : "Gebruik beide voeten.")),
+    (n, r) => rust30(n) ? "Rustdag: probeer je record van deze week één keer te verbeteren." : r(50 + n * 10) + " keer hooghouden. " + (n > 15 ? "Gebruik ook je dijen en hoofd." : "Gebruik beide voeten.")),
   U("buik", "🧱", "30 dagen buikspieren", "Een sterke romp maakt je stabieler in duels.",
     (n, r) => rust30(n) ? "Rustdag: 5 minuten rustig rekken." : "Plank " + r(20 + n * 3) + " seconden, " + r(8 + n) + " crunches en " + r(5 + n / 2) + " dead bugs per kant."),
   U("pushup", "💪", "30 dagen push-ups", "Een sterker bovenlichaam voor duels en ingooien.",
@@ -55,4 +55,39 @@ const UITDAGINGEN = [
     (n, r) => "Maximaal " + Math.max(30, Math.round((120 - n * 2) / (r(10) / 10))) + " minuten scherm vandaag buiten school en VR. Telefoon weg om " + (n < 15 ? "20:30" : "20:00") + "."),
   U("taken", "✅", "30 dagen taken afvinken", "Elke dag je taken opschrijven en afmaken.",
     (n, r) => "Schrijf bij Start minstens " + r(3 + n / 10) + " taken op en vink ze allemaal af.")
+];
+
+// ---------- 15-dagen-uitdagingen (andere onderwerpen, korter en intens) ----------
+// Dag 5 en 10 zijn rustige dagen.
+const rust15 = n => n === 5 || n === 10;
+const U15 = (id, icon, title, wat, dag) => ({id: "k_" + id, icon, title, wat, dag, len: 15, rust: rust15});
+const UITDAGINGEN15 = [
+  U15("panna", "🦵", "15 dagen panna's", "Leer de bal door de benen te spelen.",
+    (n, r) => rust15(n) ? "Rustdag: 5 minuten rustig dribbelen met je zool." : "Oefen " + r(10 + n * 2) + " panna's tussen twee pionnen. " + (n > 8 ? "Doe het nu op snelheid." : "Eerst langzaam en zuiver.")),
+  U15("trucje", "✨", "15 dagen trucjes", "Elke dag een trucje beter onder de knie.",
+    (n, r) => rust15(n) ? "Rustdag: laat iemand je beste trucje zien." : "Oefen " + r(5 + n / 2) + " minuten " + ["de schaar","de Cruijff-draai","de elastico","de stepover","de rabona","de zoolrol","de Maradona-draai","de body feint","de croqueta","de Zidane-draai","de hakbal","de V-beweging","de lichaamsschijn"][(n - 1) % 13] + ". Kijk eerst het filmpje bij Trucjes."),
+  U15("vrijetrap", "🎯", "15 dagen vrije trappen", "Elke dag beter in vrije trappen.",
+    (n, r) => rust15(n) ? "Rustdag: kijk 5 minuten naar vrije trappen van profs." : r(8 + n) + " vrije trappen over een muurtje van pionnen. Mik op " + (n % 2 ? "de hoek boven" : "de hoek onder") + "."),
+  U15("penalty", "🥅", "15 dagen penalty's", "Een vaste routine en zuiver schieten.",
+    (n, r) => rust15(n) ? "Rustdag: bedenk je vaste penalty-routine en schrijf hem op." : r(5 + n / 2) + " penalty's met dezelfde aanloop. Kies je hoek voor de aanloop en verander niet."),
+  U15("voorzet", "📐", "15 dagen voorzetten", "Strakke en zuivere voorzetten.",
+    (n, r) => rust15(n) ? "Rustdag: 5 minuten rustig passen tegen de muur." : r(8 + n) + " voorzetten op een vak voor het doel. " + (n > 7 ? "Ook met je zwakke voet." : "Met je sterke voet.")),
+  U15("keeper", "🧤", "15 dagen keeper-reflexen", "Sneller reageren, ook als je geen keeper bent.",
+    (n, r) => rust15(n) ? "Rustdag: 3 minuten polsen en vingers losmaken." : "Gooi een tennisbal " + r(20 + n * 3) + " keer tegen de muur en vang hem met één hand. Wissel van hand."),
+  U15("sprong", "🦘", "15 dagen springkracht", "Hoger in de lucht bij kopduels.",
+    (n, r) => rust15(n) ? "Rustdag: kuiten en bovenbenen rekken." : r(3 + n / 3) + " x 5 sprongen omhoog met stille landing, en " + r(10 + n) + " keer kuitheffen."),
+  U15("core", "🧱", "15 dagen core-power", "Een rotsvaste romp.",
+    (n, r) => rust15(n) ? "Rustdag: 5 minuten kat en koe en kindhouding." : "Plank " + r(30 + n * 4) + " sec, zijplank " + r(15 + n * 2) + " sec per kant en " + r(8 + n) + " omgekeerde crunches."),
+  U15("boven", "💪", "15 dagen bovenlichaam", "Sterkere armen en schouders voor duels.",
+    (n, r) => rust15(n) ? "Rustdag: schouders en borst rekken." : r(8 + n) + " push-ups, " + r(8 + n) + " keer roeien met een rugzak en " + r(5 + n / 2) + " dips op een stoel."),
+  U15("hamstring", "🛡️", "15 dagen blessurevrij", "De oefeningen tegen de meest voorkomende blessures.",
+    (n, r) => rust15(n) ? "Rustdag: rustig rekken van hamstrings en liezen." : "Nordic hamstring " + r(3 + n / 4) + " keer, copenhagen plank " + r(10 + n) + " sec per kant en " + r(20 + n * 2) + " sec balans op één been."),
+  U15("interval", "⏱️", "15 dagen intervallen", "Een snellere herstel tussen sprints.",
+    (n, r) => rust15(n) ? "Rustdag: 15 minuten rustig wandelen." : r(5 + n / 2) + " keer 30 seconden hard rennen met 30 seconden wandelen ertussen."),
+  U15("inzicht", "🧠", "15 dagen voetbal-IQ", "Slimmer spelen door elke dag te leren.",
+    (n, r) => rust15(n) ? "Rustdag: kijk 10 minuten voetbal en let op één speler." : "Doe " + r(5) + " vragen van de IQ-quiz en lees de dagles van vandaag."),
+  U15("dankbaar", "🙏", "15 dagen dankbaar", "Positiever in je hoofd, op en naast het veld.",
+    (n, r) => "Schrijf vandaag " + r(3) + " dingen op waar je dankbaar voor bent." + (n > 7 ? " Zeg er één hardop tegen iemand." : "")),
+  U15("opruimen", "🧹", "15 dagen discipline", "Kleine dingen goed doen, elke dag.",
+    (n, r) => ["Bed opmaken en kamer 5 minuten opruimen.","Voetbalschoenen schoonmaken.","Tas de avond ervoor klaar.","Telefoon een uur voor bedtijd weg.","Rustdag: alleen je bed opmaken.","Op tijd bij de training.","Helpen met afwassen of koken."][(n - 1) % 7])
 ];

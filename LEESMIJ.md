@@ -79,7 +79,7 @@ Wijzig een bestand in GitHub via het potloodje en klik **Commit changes**. De ap
 - De filmpjes van David Goggins zijn Engels en hij gebruikt stoere taal. Kijk ze eerst zelf of vervang ze in `data.js` (bij `MINDSET_VIDEOS`).
 
 ## Mijn dag (Start)
-Bovenaan Start schrijf je elke dag je taken op. Afgevinkte taken geven punten (klein 3, gemiddeld 5, groot 8). Elke 15 punten = een kwartier chillen. Vink je minstens 3 taken af, dan groeit je streak, en je streak bepaalt je rang (van Beginner tot Legende). Alles wordt bewaard en reset nooit.
+Bovenaan Start schrijf je elke dag je taken op. Afgevinkte taken geven punten (klein 3, gemiddeld 5, groot 8). Elke 15 punten = een kwartier chillen. Taken, punten en chilltijd beginnen elke dag opnieuw; streak en rang blijven. Vink je minstens 3 taken af, dan groeit je streak, en je streak bepaalt je rang (van Beginner tot Legende). Alles wordt bewaard en reset nooit.
 
 ## Laatste uitbreiding
 - `meer12.js`: meer habits, motivatie, oefeningen, IQ, thuisoefeningen, producten, mindset, spelers en routines.
@@ -89,3 +89,58 @@ Bovenaan Start schrijf je elke dag je taken op. Afgevinkte taken geven punten (k
 - `meer13.js`: lichte habits (Gezond → Niet zwaar), kleine habits in routines en meer wedstrijdroutines (Planner → Routines → Wedstrijddag). Recepten hebben een plaatje.
 - `meer14.js`: weer meer oefeningen, lessen, mindset, habits, recepten, uitdagingen, routines en spelers.
 - `meer15.js`: nog meer oefeningen, lessen, mindset, habits, recepten, routines en spelers.
+- `trainingen.js`: voorbeeldtrainingen per lichaamsdeel (Thuis → Training/Kracht) en voorbeeld-strekroutines (Thuis → Herstel).
+- `preventie.js`: Speler → Blessures: elke dag 5 nieuwe tips om blessures te voorkomen.
+- `meer16.js`: meer voorbeeldtrainingen, strekroutines, blessuretips, recepten, routines, oefeningen, lessen, mindset en spelers.
+- Speler → Challenges: 30-dagen- en 15-dagen-challenges (in `dertig.js`).
+- `meer17.js`: meer hersteltips, rekoefeningen, strekroutines, voetbaloefeningen en wedstrijden om te analyseren.
+- `meer18.js`: heel veel nieuwe habits (klein, licht en groot).
+- `meer19.js`: dubbel zoveel extra habits, hersteltips, rekoefeningen, strekroutines, voetbaloefeningen en wedstrijden.
+- Zoekknop (🔍 naast verversen), wedstrijd-aftelling op Start en een kwartier extra chilltijd bij elke week streak.
+- Streak: elke dag 5 taken (zondag 3). Chilltijd: elke 15 punten een kwartier (zondag elke 10). Wedstrijd: automatisch elke zaterdag, met vaste aftrap-tijd.
+- `meer20.js`: heel veel recepten, rekoefeningen en strekroutines.
+- `meer21.js`: meer trainingen, blessuretips, routines, 15-dagen-challenges, habits, hersteltips, oefeningen en wedstrijden.
+- `meer22.js`: meer recepten, rekken, strekroutines, trainingen, blessuretips, routines, 15-dagen-challenges, hersteltips, oefeningen en wedstrijden; plus moeilijkheid (makkelijk/gemiddeld/moeilijk) bij thuis- en krachtoefeningen.
+- Start: timer (aftellen en stopwatch) toegevoegd; uitdaging, habit, dagles en oefening van vandaag staan niet meer op Start (wel nog in hun eigen onderwerp).
+- `zoet.js`: Gezond → Recepten → Zoet & gezond (koekjes, ijs, taart zonder of met weinig suiker).
+- `boeken.js`: Boek van de dag op Start.
+- `spelers2.js`: ruim 120 extra spelers per positie (Posities toont elke dag 3 andere).
+- `meer23.js`: meer boeken, oefeningen, lessen, mindset, wedstrijden, blessuretips, recepten en challenges.
+- Start: taken voor morgen alvast klaarzetten.
+- `meer24.js`: extra backs en rechtsbuitens, boeken, recepten, oefeningen, IQ, lessen en mindset.
+- Start: intervaltimer (werken/rust/rondes) en "Wat kan ik doen?"-knop.
+- `meer25.js`: meer recepten, oefeningen, lessen, mindset, boeken en blessuretips.
+- Start: klok bovenaan.
+- Start: waterteller en slaapteller. Instellingen: nachtmodus (automatisch 20:00-7:00, aan of uit).
+
+## Update: Extra, nachtmodus-tijden en achtergrond-maker
+- Speler → Extra: timer (aftellen / interval / stopwatch), water- en slaapteller, "Wat kan ik doen?".
+- Nachtmodus: zelf instellen van wanneer tot wanneer (bij Automatisch).
+- Instellingen → Achtergrond-maker: maak je eigen telefoon-achtergrond.
+- Motivatie van de dag weg van het beginscherm.
+
+## Update: 2 versies per routine en alleen motivatie-Shorts
+- Planner → Routines: elke voorbeeldroutine heeft nu Versie 1 en Versie 2 (nieuw bestand routines2.js).
+- Mindset → Motivatie: alleen nog Shorts met een echte motiverende speech (nieuw bestand videos2.js). Elke dag 1 van David Goggins en 4 andere.
+- Kapotte filmpjes verdwijnen vanzelf. Speelt een filmpje niet af in de app, dan krijg je een knop om het in YouTube te openen. Met "Werkt niet? Verberg" haal je een filmpje voorgoed weg.
+
+## Update: zesentwintigste uitbreiding (meer26.js)
+- 18 nieuwe gezonde recepten, 6 voetbaloefeningen, 5 IQ-lessen, 3 daglessen, 3 tegenslag-situaties, 3 focus-tips, 3 leider-tips, 8 motivatiezinnen, 2 boeken, 4 blessuretips en 4 lichte habits.
+
+## Update: nieuw tabblad Extra
+- In de balk onderin staat nu Extra, met: Timer, Water/slaap, Wat doen?, Wedstrijddagboek, Weekoverzicht en Ademen.
+- Wedstrijddagboek: na elke wedstrijd tegenstander, uitslag, minuten, goals, assists, een cijfer voor jezelf, wat goed ging en een leerpunt. Met seizoensoverzicht.
+- Weekoverzicht: taken, punten, streakdagen, water, slaap en wedstrijden per week, met vergelijking met de week ervoor.
+- Ademen: animatie met een cirkel (Vierkant, Slapen, Wedstrijd).
+
+## Update: bovenlichaam met halters (gewichten.js)
+- 22 nieuwe krachtoefeningen voor het bovenlichaam met losse gewichten (halters of een kettlebell), geen apparaten. Herkenbaar aan "🏋️ Met halters".
+- 6 nieuwe voorbeeldtrainingen bij Thuis → Bovenlichaam, van makkelijk tot zwaar.
+
+## Update: grammen bij recepten en halters op de plaatjes
+- hoeveel.js: bij elk recept staat nu hoeveel gram of ml je nodig hebt, passend bij het aantal personen. Getelde dingen (2 eieren, 1 banaan) blijven zo.
+- Bij de oefeningen met halters houdt het poppetje nu halters (of een kettlebell) vast. Borstdrukken, fly en pullover laten het poppetje liggend zien, bij de bank met een bankje.
+
+## Update: zevenentwintigste uitbreiding (meer27.js)
+- 21 nieuwe recepten bij Zoet & gezond die geen koekjes of ijs zijn (bijv. gebakken banaan, cheesecake in een glaasje, griesmeelpudding, appelchips, banaan-sushi, baked oats, dadel-karameldip).
+- 4 andere recepten, 5 voetbaloefeningen, 4 IQ-lessen, 2 daglessen, 3 tegenslag-situaties, focus- en leidertips, motivatiezinnen, blessuretips en lichte habits.
