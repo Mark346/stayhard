@@ -231,6 +231,18 @@ details.past .plist button{text-align:left;font:600 15px var(--f-body);backgroun
 .d30 span.skip{background:var(--accent-soft);color:var(--accent);border-style:dashed}
 .d30 span.rust{font-style:italic;opacity:.7}
 .rcp ul,.rcp ol{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:4px}
+.rcp ol.rcp-stappen{gap:10px}
+.rcp-stappen li b{font-weight:600}
+.rcp-stappen li small{display:block;color:var(--muted);font-size:13.5px;line-height:1.4;margin-top:3px}
+.rcp-voor{margin:0 0 10px;padding:8px 10px;border-radius:12px;background:color-mix(in srgb,var(--accent) 8%,transparent);font-size:14px}
+.rcp-spul{display:flex;flex-wrap:wrap;gap:6px}
+.rcp-spul span{font-size:13px;padding:4px 10px;border-radius:999px;border:1px solid var(--line)}
+.rcp-video{display:flex;align-items:center;gap:12px;padding:12px;border-radius:16px;background:#111;color:#fff;text-decoration:none}
+.rcp-video .pl{width:44px;height:44px;border-radius:50%;background:#E62117;display:grid;place-items:center;flex:none}
+.rcp-video b{display:block;font-size:15px}
+.rcp-video small{opacity:.75;font-size:12.5px}
+.rcp-extra{display:flex;flex-direction:column;gap:8px}
+.rcp-extra p{margin:0;font-size:14.5px}
 .md-top{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px}
 .md-stat{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:12px 10px;display:flex;flex-direction:column;align-items:center;text-align:center;gap:2px;min-width:0}
 .md-stat b{font-family:var(--f-display);font-size:28px;line-height:1}
@@ -854,9 +866,13 @@ html.nacht .ws-glas.vol{background:#1E3A5F;border-color:#2563EB}
 <script src="meer26.js"></script>
 <script src="gewichten.js"></script>
 <script src="meer27.js"></script>
+<script src="meer28.js"></script>
 <script src="routines2.js"></script>
 <script src="videos2.js"></script>
+<script src="recepten-video.js"></script>
+<script src="recepten-video-aanpas.js"></script>
 <script src="hoeveel.js"></script>
+<script src="uitleg.js"></script>
 <script src="maak.js"></script>
 <script>
 const $ = s => document.querySelector(s);
@@ -2264,12 +2280,31 @@ function receptCard(r, fresh) {
   c.append(receptPlaatje(r));
   const icon = (RECEPT_SOORTEN.find(x => x[0] === r.soort) || [, "🍽️"])[1];
   const meta = el("div", "meta"); meta.append(...newPill(fresh), el("span", "pill hot", icon + " " + r.soort), el("span", "pill", "⏱ " + r.tijd), el("span", "pill", r.voor));
+  if (r.niveau) meta.append(el("span", "pill lvl lvl-" + r.niveau.toLowerCase(), r.niveau === "Makkelijk" ? "🟢 Makkelijk" : "🟠 Gemiddeld"));
   const sec = (h, node) => { const d = el("div"); d.append(el("h4", null, h), node); return d; };
   const ul = el("ul"); r.ingr.forEach(x => ul.append(el("li", null, x)));
-  const ol = el("ol"); r.stappen.forEach(x => ol.append(el("li", null, x)));
+  const ol = el("ol", "rcp-stappen");
+  const st = (r.stappen.join(" ") + " " + r.title).toLowerCase(), gev = [];
+  if (/oven|graden/.test(st)) gev.push("de oven"); if (/\bbak|kook|pan|wok|verwarm|smelt/.test(st)) gev.push("het fornuis"); if (/snijd|snij |rasp/.test(st)) gev.push("een scherp mes");
+  const voor = el("p", "rcp-voor"); voor.textContent = "👐 Voordat je begint: was je handen, pak alle spullen en ingrediënten en weeg alles af." + (gev.length ? " Vraag een volwassene als je " + gev.join(", ").replace(/, ([^,]*)$/, " of $1") + " gebruikt." : "");
+  r.stappen.forEach((x, i) => { const li = el("li"); li.append(el("b", null, x)); const h = r.uitleg && r.uitleg[i]; if (h) li.append(el("small", null, h)); ol.append(li); });
   const why = el("div", "onthoud best"); why.append(el("small", null, "Waarom goed voor een sporter"), document.createElement("br"), r.waarom);
+  // filmpje: een vast filmpje bij het recept, of anders zoeken op YouTube
+  const vid = el("a", "rcp-video"); vid.target = "_blank"; vid.rel = "noopener";
+  vid.href = r.video ? "https://www.youtube.com/watch?v=" + r.video : yt(r.ytq || r.title + " recept");
+  const pl = el("span", "pl"); pl.innerHTML = '<svg width="18" height="18" viewBox="0 0 24 24" fill="#fff"><path d="M7 4v16l13-8z"/></svg>';
+  const vt = el("span"); vt.append(el("b", null, r.video ? "Open het filmpje op YouTube" : "Bekijk hoe je het maakt"), el("small", null, r.video ? "🎬 " + r.vtitel + " ↗" : "Filmpjes van dit recept op YouTube ↗")); vid.append(pl, vt);
+  const vblok = r.video ? videoBlock({video: r.video, title: r.vtitel}) : null; if (vblok) c.append(vblok);
   const act = el("div", "actions"); act.append(planBtn({kind:"Recept", title:r.title, meta:r.tijd}), saveBtn("Recept", r.title, {text: r.waarom}));
-  b.append(meta, el("h3", null, r.title), why, sec("Wat heb je nodig", ul), sec("Zo maak je het", ol), el("p", "intro", "💡 " + r.tip), act);
+  b.append(meta, el("h3", null, r.title), why, vid);
+  if (r.spullen && r.spullen.length) { const sp = el("div", "rcp-spul"); r.spullen.forEach(x => sp.append(el("span", null, x))); b.append(sec("Spullen", sp)); }
+  const zo = sec("Zo maak je het", voor); zo.append(ol);
+  b.append(sec("Wat heb je nodig", ul), zo);
+  const ex = el("div", "rcp-extra");
+  if (r.klaar) { const p = el("p"); p.append(el("b", null, "✅ Klaar als: "), r.klaar); ex.append(p); }
+  if (r.tip) { const p = el("p"); p.append(el("b", null, "💡 Tip: "), r.tip); ex.append(p); }
+  if (r.bewaar) { const p = el("p"); p.append(el("b", null, "📦 Bewaren: "), r.bewaar); ex.append(p); }
+  b.append(ex, act);
   c.append(b); return c;
 }
 function renderRecepten() {

@@ -144,3 +144,13 @@ Bovenaan Start schrijf je elke dag je taken op. Afgevinkte taken geven punten (k
 ## Update: zevenentwintigste uitbreiding (meer27.js)
 - 21 nieuwe recepten bij Zoet & gezond die geen koekjes of ijs zijn (bijv. gebakken banaan, cheesecake in een glaasje, griesmeelpudding, appelchips, banaan-sushi, baked oats, dadel-karameldip).
 - 4 andere recepten, 5 voetbaloefeningen, 4 IQ-lessen, 2 daglessen, 3 tegenslag-situaties, focus- en leidertips, motivatiezinnen, blessuretips en lichte habits.
+
+## Update: filmpje en betere uitleg bij elk recept (uitleg.js) + meer28.js
+- Elk recept heeft een knop "Bekijk hoe je het maakt" die filmpjes van dat recept op YouTube opent.
+- Elk recept laat nu zien: moeilijkheid, welke spullen je nodig hebt, wat je doet voordat je begint, uitleg bij de stappen, hoe je weet dat het klaar is en hoe je het bewaart.
+- meer28.js: 10 nieuwe recepten en meer oefeningen, IQ-lessen, tips en motivatie.
+
+## Update: een vast filmpje bij de recepten
+- recepten-video.js: 302 recepten hebben nu een eigen YouTube-filmpje, dat je in de app kunt afspelen.
+- recepten-video-aanpas.js: 64 recepten zijn aangepast zodat ze passen bij hun filmpje, waaronder een echte appeltaart met havermoutbodem (Allerhande-filmpje).
+- De andere recepten hebben nog een zoekknop. Die krijgen in de volgende ronde ook een eigen filmpje.
