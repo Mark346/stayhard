@@ -1,8 +1,61 @@
 {
- "updated": "2026-10-22T15:00+02:00",
+ "updated": "2026-10-26T11:05+01:00",
  "items": [
-  {"cat":"fitness","title":"Vier minuten per dag maakt sterker","text":"Dagelijks vier minuten krachttraining verbeterde in 12 weken de kracht en beweeglijkheid van ouderen.","url":"https://www.sciencedaily.com/news/top/health/","source":"ScienceDaily"},
-  {"cat":"fitness","title":"Ook astronauten blijven fit door te trainen","text":"Harten van astronauten bleven gezond tijdens maanden in de ruimte, vooral bij wie regelmatig trainde.","url":"https://www.sciencedaily.com/news/top/health/","source":"ScienceDaily"},
-  {"cat":"gezondheid","title":"Wie jong begint met sporten, blijft sterker","text":"Een Zweedse studie volgde mensen van 16 tot 63 jaar. Wie bleef bewegen, hield meer kracht en conditie over.","url":"https://www.sciencedaily.com/releases/2026/10/261014000912.htm","source":"ScienceDaily"}
+  {
+   "cat": "voetbal",
+   "title": "Van circusvoetballer naar 'Lamine Yamal-niveau': Hadj Moussa is beter dan ooit",
+   "text": "Als na de eerste tien speelronden een 'beste eredivisiespeler' zou worden gekroond, was Feyenoorder Anis Hadj Moussa een van de favorieten.",
+   "url": "https://nos.nl/l/2636721",
+   "source": "NOS"
+  },
+  {
+   "cat": "voetbal",
+   "title": "Exclusieve interviews en bijzondere stemlijstjes: de felle strijd om de Gouden Bal",
+   "text": "Wie is de grote favoriet voor de Gouden Bal en wie bepaalt eigenlijk wie de meest prestigieuze individuele prijs in het voetbal uitgereikt krijgt, maandagavond om 21.00…",
+   "url": "https://nos.nl/l/2636717",
+   "source": "NOS"
+  },
+  {
+   "cat": "voetbal",
+   "title": "Kansen genoeg, maar als PSV het niet afmaakt, is Feyenoord de te kloppen ploeg",
+   "text": "Na de enerverende topper tussen PSV en Feyenoord in Eindhoven keerden vooral de Rotterdammers met een goed gevoel huiswaarts.",
+   "url": "https://nos.nl/l/2636686",
+   "source": "NOS"
+  },
+  {
+   "cat": "voetbal",
+   "title": "Barça wordt elk jaar weer wat meer Barça: 'Nog meer wapens dan vorig jaar'",
+   "text": "Het is al even geleden dat men bij FC Barcelona met zo veel vertrouwen naar El Clásico (vanavond 21.00 uur) toeleefde.",
+   "url": "https://nos.nl/l/2636558",
+   "source": "NOS"
+  },
+  {
+   "cat": "fitness",
+   "title": "Record: 40 kilometer over het water crossen op een motor",
+   "text": "Een man in China reed met zijn motor 40 kilometer over het water! Dat is een wereldrecord. Het vorige record stond op 31 kilometer.",
+   "url": "https://jeugdjournaal.nl/l/2636577",
+   "source": "NOS Jeugdjournaal"
+  },
+  {
+   "cat": "gezondheid",
+   "title": "Stormachtig weer trekt weg, komende week kalm herfstweer",
+   "text": "Dit weekend was de herfst in full swing aanwezig . Maar liefst twee stormen die een naam hadden gekregen zorgden voor kletsnat en onstuimig weer.",
+   "url": "https://nos.nl/l/2636624",
+   "source": "NOS"
+  },
+  {
+   "cat": "gezondheid",
+   "title": "Vrouw zwaargewond na mishandeling tijdens feest in Amsterdam",
+   "text": "In Amsterdam is gisterochtend vroeg een vrouw zwaar mishandeld bij een ruzie. Dat meldt de politie. De vrouw raakte zwaargewond en is naar het ziekenhuis gebracht.",
+   "url": "https://nos.nl/l/2636610",
+   "source": "NOS"
+  },
+  {
+   "cat": "gezondheid",
+   "title": "Artsen kritisch op longcovidbeleid minister Hermans: 'Funest voor patiëntvertrouwen'",
+   "text": "Huisartsen, medisch specialisten en wetenschappers kraken de plannen van zorgminister Sophie Hermans voor patiënten met long covid en soortgelijke aandoeningen als ME en…",
+   "url": "https://nos.nl/l/2636540",
+   "source": "NOS"
+  }
  ]
 }
