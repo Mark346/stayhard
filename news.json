@@ -1,6 +1,20 @@
 {
- "updated": "2026-10-26T11:05+01:00",
+ "updated": "2026-10-27T10:47+01:00",
  "items": [
+  {
+   "cat": "voetbal",
+   "title": "KNVB volgt Amerikaans voorbeeld en looft ring uit voor uitblinkers bekertoernooi",
+   "text": "Vanaf dit seizoen krijgen de beste spelers en de grootste talenten van de Nederlandse bekertoernooien een individuele prijs.",
+   "url": "https://nos.nl/l/2636846",
+   "source": "NOS"
+  },
+  {
+   "cat": "voetbal",
+   "title": "'Corinthians en Seedorf moeten Depay missen in cruciale fase competitie'",
+   "text": "Memphis Depay lijkt opnieuw een aantal weken geblesseerd te moeten toekijken. Braziliaanse media melden dat de 32-jarige aanvaller van Corinthians met een…",
+   "url": "https://nos.nl/l/2636806",
+   "source": "NOS"
+  },
   {
    "cat": "voetbal",
    "title": "Van circusvoetballer naar 'Lamine Yamal-niveau': Hadj Moussa is beter dan ooit",
@@ -16,24 +30,17 @@
    "source": "NOS"
   },
   {
-   "cat": "voetbal",
-   "title": "Kansen genoeg, maar als PSV het niet afmaakt, is Feyenoord de te kloppen ploeg",
-   "text": "Na de enerverende topper tussen PSV en Feyenoord in Eindhoven keerden vooral de Rotterdammers met een goed gevoel huiswaarts.",
-   "url": "https://nos.nl/l/2636686",
+   "cat": "gezondheid",
+   "title": "Schrijver Herman Koch heeft ziekte van Parkinson",
+   "text": "Schrijver Herman Koch (73) heeft de ziekte van Parkinson. Dat maakt hij vanavond bekend in talkshow Eva . Sinds 2020 heeft Koch al uitgezaaide prostaatkanker.",
+   "url": "https://nos.nl/l/2636807",
    "source": "NOS"
   },
   {
-   "cat": "voetbal",
-   "title": "Barça wordt elk jaar weer wat meer Barça: 'Nog meer wapens dan vorig jaar'",
-   "text": "Het is al even geleden dat men bij FC Barcelona met zo veel vertrouwen naar El Clásico (vanavond 21.00 uur) toeleefde.",
-   "url": "https://nos.nl/l/2636558",
-   "source": "NOS"
-  },
-  {
-   "cat": "fitness",
-   "title": "Record: 40 kilometer over het water crossen op een motor",
-   "text": "Een man in China reed met zijn motor 40 kilometer over het water! Dat is een wereldrecord. Het vorige record stond op 31 kilometer.",
-   "url": "https://jeugdjournaal.nl/l/2636577",
+   "cat": "gezondheid",
+   "title": "Man in de gevangenis mag zijn favoriete beleg niet eten",
+   "text": "Een gevangene in Australië mist zijn favoriete broodbeleg. Hij mag het niet eten in de gevangenis. Via de rechter probeerde de man dat te veranderen.",
+   "url": "https://jeugdjournaal.nl/l/2636754",
    "source": "NOS Jeugdjournaal"
   },
   {
@@ -41,20 +48,6 @@
    "title": "Stormachtig weer trekt weg, komende week kalm herfstweer",
    "text": "Dit weekend was de herfst in full swing aanwezig . Maar liefst twee stormen die een naam hadden gekregen zorgden voor kletsnat en onstuimig weer.",
    "url": "https://nos.nl/l/2636624",
-   "source": "NOS"
-  },
-  {
-   "cat": "gezondheid",
-   "title": "Vrouw zwaargewond na mishandeling tijdens feest in Amsterdam",
-   "text": "In Amsterdam is gisterochtend vroeg een vrouw zwaar mishandeld bij een ruzie. Dat meldt de politie. De vrouw raakte zwaargewond en is naar het ziekenhuis gebracht.",
-   "url": "https://nos.nl/l/2636610",
-   "source": "NOS"
-  },
-  {
-   "cat": "gezondheid",
-   "title": "Artsen kritisch op longcovidbeleid minister Hermans: 'Funest voor patiëntvertrouwen'",
-   "text": "Huisartsen, medisch specialisten en wetenschappers kraken de plannen van zorgminister Sophie Hermans voor patiënten met long covid en soortgelijke aandoeningen als ME en…",
-   "url": "https://nos.nl/l/2636540",
    "source": "NOS"
   }
  ]
