@@ -1,6 +1,13 @@
 {
- "updated": "2026-10-30T11:51+01:00",
+ "updated": "2026-10-31T11:22+01:00",
  "items": [
+  {
+   "cat": "voetbal",
+   "title": "Loting KNVB-beker: AZ en Feyenoord op bezoek bij amateurclubs, thuisduels voor Ajax en PSV",
+   "text": "Bekerhouder AZ speelt in de tweede ronde van de KNVB-beker een uitwedstrijd tegen de amateurs van HSV Hoek.",
+   "url": "https://nos.nl/l/2637337",
+   "source": "NOS"
+  },
   {
    "cat": "voetbal",
    "title": "Vaessen vier interlands geschorst voor aandeel in opstootje bij racisme-rel",
@@ -23,53 +30,46 @@
    "source": "NOS"
   },
   {
-   "cat": "voetbal",
-   "title": "Streppel wil saamhorigheid terug bij kwakkelend Willem II: 'Dan is er wat mogelijk'",
-   "text": "Voor Jurgen Streppel wacht de lastige taak om hekkensluiter Willem II weer op het goede spoor te krijgen.",
-   "url": "https://nos.nl/l/2637168",
+   "cat": "fitness",
+   "title": "Nieuwswekker: Gestolen aapjes weer terug + Happy Halloween!",
+   "text": "Iedereen die vandaag een sportwedstrijd moet spelen of een optreden geeft, veel succes! En de rest natuurlijk ook.",
+   "url": "https://jeugdjournaal.nl/l/2637406",
+   "source": "NOS Jeugdjournaal"
+  },
+  {
+   "cat": "fitness",
+   "title": "Verstappen en Lawson krijgen gridstraf na botsing in vrije training Mexico",
+   "text": "Max Verstappen heeft een gridstraf van één plaats gekregen voor de Formule 1 Grand Prix van Mexico na een botsing met Liam Lawson in de tweede vrije training.",
+   "url": "https://nos.nl/l/2637394",
    "source": "NOS"
   },
   {
    "cat": "fitness",
-   "title": "Nageeye voorspelt Zweedse aardverschuiving in New York: 'Die Almgren is niet normaal'",
-   "text": "Als Abdi Nageeye in de laatste dagen voor de New York Marathon bij een wedkantoor zijn geld zou moeten zetten op de winnaar van zondag, lijdt het voor hem geen twijfel…",
-   "url": "https://nos.nl/l/2637239",
-   "source": "NOS"
-  },
-  {
-   "cat": "fitness",
-   "title": "Rijpma-de Jong rijdt winter 'gewoon' op ijs, maar: 'Heb tijd op wielerbaan wel nodig'",
-   "text": "Acht maanden na de gouden medaille op de Olympische Spelen begint Antoinette Rijpma-de Jong 'gewoon' weer aan een nieuw schaatsseizoen.",
-   "url": "https://nos.nl/l/2637177",
-   "source": "NOS"
-  },
-  {
-   "cat": "fitness",
-   "title": "Hier sporten mensen in een winkelcentrum vanwege bosbranden",
-   "text": "Sporten in een winkelcentrum. Dat doen mensen in Maleisië, een land in Azië. Ze doen dat omdat het buiten niet kan.",
-   "url": "https://jeugdjournaal.nl/l/2637143",
+   "title": "Jeugd Olympische Spelen in Senegal beginnen: 'Maakt heel Afrika trots'",
+   "text": "In het West-Afrikaanse land Senegal gaan de Jeugd Olympische Spelen van start. Van over de hele wereld komen jonge sporters naar Senegal om te strijden voor een gouden…",
+   "url": "https://jeugdjournaal.nl/l/2637339",
    "source": "NOS Jeugdjournaal"
   },
   {
    "cat": "gezondheid",
-   "title": "Bedroefde reacties om dood Patrick Stewart: 'Een man om van te houden'",
-   "text": "\"Hij had zijn hart op zijn tong, wat hem een man maakte die je vertrouwde, die je bewonderde en in mijn geval, van wie je hield.\" Met deze woorden herinnert de acteur…",
-   "url": "https://nos.nl/l/2637269",
+   "title": "Ongeneeslijk zieke hoogleraar Jan Rotmans laat 'AI-tweeling' van zichzelf maken",
+   "text": "Lezingen geven en vragen beantwoorden, ook als hij er zelf niet meer is. Dat moet een digitale versie van hoogleraar Jan Rotmans (65) straks kunnen.",
+   "url": "https://nos.nl/l/2637407",
    "source": "NOS"
   },
   {
    "cat": "gezondheid",
-   "title": "Kindervraag: Eten politiemensen echt donuts als ze werken?",
-   "text": "Misschien zie je het weleens in films of series: politiemensen die een hoop donuts eten. Maar... Het antwoord hoor je in de video!",
-   "url": "https://jeugdjournaal.nl/l/2637255",
+   "title": "Dodental ebola in Congo opgelopen tot boven de 5000",
+   "text": "De ebola-uitbraak in Congo heeft inmiddels aan 5000 mensen het leven gekost, melden gezondheidsdiensten in het land.",
+   "url": "https://nos.nl/l/2637398",
+   "source": "NOS"
+  },
+  {
+   "cat": "gezondheid",
+   "title": "Biet gevonden? Bel dan naar kunstenaars uit Groningen",
+   "text": "In de provincie Groningen zijn suikerbieten-boeren druk bezig met de oogst. En dan kan het weleens gebeuren dat bieten tijdens transport van de vrachtwagen vallen.",
+   "url": "https://jeugdjournaal.nl/l/2637302",
    "source": "NOS Jeugdjournaal"
-  },
-  {
-   "cat": "gezondheid",
-   "title": "Honden Schiedam niet dood door paddenstoelen in park",
-   "text": "De zes honden die onlangs zijn doodgegaan nadat ze waren uitgelaten in Schiedam, zijn hoogstwaarschijnlijk niet gestorven na het eten van giftige paddenstoelen.",
-   "url": "https://nos.nl/l/2637134",
-   "source": "NOS"
   }
  ]
 }
