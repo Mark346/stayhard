@@ -1,32 +1,25 @@
 {
- "updated": "2026-10-31T11:22+01:00",
+ "updated": "2026-11-01T12:14+01:00",
  "items": [
+  {
+   "cat": "voetbal",
+   "title": "Klassieker tussen Bayern en Dortmund eindigt gelijk, goudenbalwinnaar Kane mist penalty",
+   "text": "De Duitse Klassiker tussen Bayern München en Borussia Dortmund heeft geen winnaar opgeleverd.",
+   "url": "https://nos.nl/l/2637510",
+   "source": "NOS"
+  },
+  {
+   "cat": "voetbal",
+   "title": "Interim-trainer Kuijt ziet Fenerbahçe instorten, woensdag weerzien met Liverpool",
+   "text": "Dirk Kuijt heeft een teleurstellend debuut als interim-trainer van Fenerbahçe achter de rug.",
+   "url": "https://nos.nl/l/2637488",
+   "source": "NOS"
+  },
   {
    "cat": "voetbal",
    "title": "Loting KNVB-beker: AZ en Feyenoord op bezoek bij amateurclubs, thuisduels voor Ajax en PSV",
    "text": "Bekerhouder AZ speelt in de tweede ronde van de KNVB-beker een uitwedstrijd tegen de amateurs van HSV Hoek.",
    "url": "https://nos.nl/l/2637337",
-   "source": "NOS"
-  },
-  {
-   "cat": "voetbal",
-   "title": "Vaessen vier interlands geschorst voor aandeel in opstootje bij racisme-rel",
-   "text": "Doelman Etienne Vaessen moet de komende vier interlands van Suriname missen. De keeper van FC Groningen is door de tuchtcommissie van de CONCACAF, de Noord- en…",
-   "url": "https://nos.nl/l/2637287",
-   "source": "NOS"
-  },
-  {
-   "cat": "voetbal",
-   "title": "Trainer Theo Janssen leidt amateurs De Treffers naar verrassende bekerzege op Heracles",
-   "text": "Met een grijns van oor tot oor beleefde Theo Janssen donderdag een van de mooiste avonden uit zijn jonge loopbaan als trainer.",
-   "url": "https://nos.nl/l/2637224",
-   "source": "NOS"
-  },
-  {
-   "cat": "voetbal",
-   "title": "Ongeregeldheden bij bekerzege FC Utrecht, Emmen verrast tegen Groningen",
-   "text": "FC Utrecht heeft dankzij een nipte overwinning de tweede ronde van het toernooi om de KNVB-beker bereikt.",
-   "url": "https://nos.nl/l/2637210",
    "source": "NOS"
   },
   {
@@ -38,13 +31,6 @@
   },
   {
    "cat": "fitness",
-   "title": "Verstappen en Lawson krijgen gridstraf na botsing in vrije training Mexico",
-   "text": "Max Verstappen heeft een gridstraf van één plaats gekregen voor de Formule 1 Grand Prix van Mexico na een botsing met Liam Lawson in de tweede vrije training.",
-   "url": "https://nos.nl/l/2637394",
-   "source": "NOS"
-  },
-  {
-   "cat": "fitness",
    "title": "Jeugd Olympische Spelen in Senegal beginnen: 'Maakt heel Afrika trots'",
    "text": "In het West-Afrikaanse land Senegal gaan de Jeugd Olympische Spelen van start. Van over de hele wereld komen jonge sporters naar Senegal om te strijden voor een gouden…",
    "url": "https://jeugdjournaal.nl/l/2637339",
@@ -52,24 +38,17 @@
   },
   {
    "cat": "gezondheid",
+   "title": "Democraten profiteren van zorgen om corruptie: 'We moeten de hebzucht stoppen'",
+   "text": "Overheidscorruptie is in korte tijd uitgegroeid tot een van de belangrijkste thema's van de Amerikaanse Congresverkiezingen komende dinsdag.",
+   "url": "https://nos.nl/l/2637561",
+   "source": "NOS"
+  },
+  {
+   "cat": "gezondheid",
    "title": "Ongeneeslijk zieke hoogleraar Jan Rotmans laat 'AI-tweeling' van zichzelf maken",
    "text": "Lezingen geven en vragen beantwoorden, ook als hij er zelf niet meer is. Dat moet een digitale versie van hoogleraar Jan Rotmans (65) straks kunnen.",
    "url": "https://nos.nl/l/2637407",
    "source": "NOS"
-  },
-  {
-   "cat": "gezondheid",
-   "title": "Dodental ebola in Congo opgelopen tot boven de 5000",
-   "text": "De ebola-uitbraak in Congo heeft inmiddels aan 5000 mensen het leven gekost, melden gezondheidsdiensten in het land.",
-   "url": "https://nos.nl/l/2637398",
-   "source": "NOS"
-  },
-  {
-   "cat": "gezondheid",
-   "title": "Biet gevonden? Bel dan naar kunstenaars uit Groningen",
-   "text": "In de provincie Groningen zijn suikerbieten-boeren druk bezig met de oogst. En dan kan het weleens gebeuren dat bieten tijdens transport van de vrachtwagen vallen.",
-   "url": "https://jeugdjournaal.nl/l/2637302",
-   "source": "NOS Jeugdjournaal"
   }
  ]
 }
