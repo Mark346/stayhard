@@ -1,6 +1,27 @@
 {
- "updated": "2026-11-01T12:14+01:00",
+ "updated": "2026-11-02T13:22+01:00",
  "items": [
+  {
+   "cat": "voetbal",
+   "title": "ADO Den Haag ontslaat hoofdtrainer Peter na tegenvallende seizoensstart",
+   "text": "ADO Den Haag heeft hoofdtrainer Robin Peter ontslagen. De 39-jarige Duitser stond sinds begin vorig seizoen aan het roer en slaagde erin om met ADO te promoveren naar de…",
+   "url": "https://nos.nl/l/2637713",
+   "source": "NOS"
+  },
+  {
+   "cat": "voetbal",
+   "title": "Blunderend Groningen ondanks bliksemstart onderuit tegen Sparta",
+   "text": "Ondanks een bliksemstart en een scheepslading aan kansen heeft FC Groningen de derde thuisnederlaag op rij geleden in de eredivisie.",
+   "url": "https://nos.nl/l/2637639",
+   "source": "NOS"
+  },
+  {
+   "cat": "voetbal",
+   "title": "Sterk Telstar doet oud-trainer Correia pijn met overwinning op Utrecht",
+   "text": "FC Utrecht-trainer Anthony Correia heeft zondagmiddag weinig plezier beleefd aan zijn terugkeer bij Telstar.",
+   "url": "https://nos.nl/l/2637614",
+   "source": "NOS"
+  },
   {
    "cat": "voetbal",
    "title": "Klassieker tussen Bayern en Dortmund eindigt gelijk, goudenbalwinnaar Kane mist penalty",
@@ -9,46 +30,18 @@
    "source": "NOS"
   },
   {
-   "cat": "voetbal",
-   "title": "Interim-trainer Kuijt ziet Fenerbahçe instorten, woensdag weerzien met Liverpool",
-   "text": "Dirk Kuijt heeft een teleurstellend debuut als interim-trainer van Fenerbahçe achter de rug.",
-   "url": "https://nos.nl/l/2637488",
-   "source": "NOS"
-  },
-  {
-   "cat": "voetbal",
-   "title": "Loting KNVB-beker: AZ en Feyenoord op bezoek bij amateurclubs, thuisduels voor Ajax en PSV",
-   "text": "Bekerhouder AZ speelt in de tweede ronde van de KNVB-beker een uitwedstrijd tegen de amateurs van HSV Hoek.",
-   "url": "https://nos.nl/l/2637337",
+   "cat": "fitness",
+   "title": "Door 'trainingen die niemand anders doet' werd Almgren marathonsensatie in New York",
+   "text": "Een gezicht vol ongeloof in Central Park. De Zweedse vlag om de schouders van Andreas Almgren een indicatie van zijn stunt.",
+   "url": "https://nos.nl/l/2637737",
    "source": "NOS"
   },
   {
    "cat": "fitness",
-   "title": "Nieuwswekker: Gestolen aapjes weer terug + Happy Halloween!",
-   "text": "Iedereen die vandaag een sportwedstrijd moet spelen of een optreden geeft, veel succes! En de rest natuurlijk ook.",
-   "url": "https://jeugdjournaal.nl/l/2637406",
+   "title": "Hier houden ze riddergevechten op de fiets",
+   "text": "In de Middeleeuwen waren gevechten tussen ridders op paarden. In de Engelse hoofdstad Londen houden ze nu ook riddertoernooien, maar dan op de fiets!",
+   "url": "https://jeugdjournaal.nl/l/2637579",
    "source": "NOS Jeugdjournaal"
-  },
-  {
-   "cat": "fitness",
-   "title": "Jeugd Olympische Spelen in Senegal beginnen: 'Maakt heel Afrika trots'",
-   "text": "In het West-Afrikaanse land Senegal gaan de Jeugd Olympische Spelen van start. Van over de hele wereld komen jonge sporters naar Senegal om te strijden voor een gouden…",
-   "url": "https://jeugdjournaal.nl/l/2637339",
-   "source": "NOS Jeugdjournaal"
-  },
-  {
-   "cat": "gezondheid",
-   "title": "Democraten profiteren van zorgen om corruptie: 'We moeten de hebzucht stoppen'",
-   "text": "Overheidscorruptie is in korte tijd uitgegroeid tot een van de belangrijkste thema's van de Amerikaanse Congresverkiezingen komende dinsdag.",
-   "url": "https://nos.nl/l/2637561",
-   "source": "NOS"
-  },
-  {
-   "cat": "gezondheid",
-   "title": "Ongeneeslijk zieke hoogleraar Jan Rotmans laat 'AI-tweeling' van zichzelf maken",
-   "text": "Lezingen geven en vragen beantwoorden, ook als hij er zelf niet meer is. Dat moet een digitale versie van hoogleraar Jan Rotmans (65) straks kunnen.",
-   "url": "https://nos.nl/l/2637407",
-   "source": "NOS"
   }
  ]
 }
