@@ -154,3 +154,7 @@ Bovenaan Start schrijf je elke dag je taken op. Afgevinkte taken geven punten (k
 - recepten-video.js: 302 recepten hebben nu een eigen YouTube-filmpje, dat je in de app kunt afspelen.
 - recepten-video-aanpas.js: 64 recepten zijn aangepast zodat ze passen bij hun filmpje, waaronder een echte appeltaart met havermoutbodem (Allerhande-filmpje).
 - De andere recepten hebben nog een zoekknop. Die krijgen in de volgende ronde ook een eigen filmpje.
+
+## Update: taken van vandaag
+- Nieuwe ideeën: VR, VR 2 en VR 3, een groep "Rustig bewegen" en meer kleine dingen.
+- Weg: ideeën met "Habit:" en alle losse oefeningen (Oefening, Muuroefening, Thuisoefening, Kracht, Rekoefening, Trucje), behalve hooghouden. Taken die je al had gekozen met "Habit:" of "Oefening:" (behalve hooghouden) en die nog niet af waren, zijn één keer opgeruimd.

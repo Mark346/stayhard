@@ -1,54 +1,8 @@
 {
- "updated": "2026-11-03T12:54+01:00",
+ "updated": "2026-10-22T15:00+02:00",
  "items": [
-  {
-   "cat": "voetbal",
-   "title": "300 keer De Jong bij Barcelona: over spelen met Messi, leiderschap en ambities",
-   "text": "Toen Frenkie de Jong in 2019 bij FC Barcelona tekende, kwam een jongensdroom uit. Inmiddels is hij 299 duels voor de club verder, waarin hij meerdere prijzen pakte…",
-   "url": "https://nos.nl/l/2637858",
-   "source": "NOS"
-  },
-  {
-   "cat": "voetbal",
-   "title": "Geplaagd Inter moet tegen Feyenoord 'de honger en energie terugvinden'",
-   "text": "Blessures, een griepvirus en een mentaliteitsprobleem. Het rommelt bij Internazionale, dinsdagavond in Rotterdam tegenstander van Feyenoord in de Champions League.…",
-   "url": "https://nos.nl/l/2637846",
-   "source": "NOS"
-  },
-  {
-   "cat": "voetbal",
-   "title": "Tenerife-voetballer De Miguel (30) overleden na harde botsing met keeper",
-   "text": "De Spaanse voetballer Jesús de Miguel is dinsdag op 30-jarige leeftijd overleden. Dat heeft zijn club CD Tenerife bekendgemaakt.",
-   "url": "https://nos.nl/l/2637836",
-   "source": "NOS"
-  },
-  {
-   "cat": "voetbal",
-   "title": "Azië Cup bijna jaar uitgesteld vanwege conflict in Midden-Oosten",
-   "text": "De Aziatische voetbalbond (AFC) heeft besloten de Azië Cup van 2027 bijna een jaar te uit te stellen.",
-   "url": "https://nos.nl/l/2637823",
-   "source": "NOS"
-  },
-  {
-   "cat": "fitness",
-   "title": "Door 'trainingen die niemand anders doet' werd Almgren marathonsensatie in New York",
-   "text": "Een gezicht vol ongeloof in Central Park. De Zweedse vlag om de schouders van Andreas Almgren een indicatie van zijn stunt.",
-   "url": "https://nos.nl/l/2637737",
-   "source": "NOS"
-  },
-  {
-   "cat": "gezondheid",
-   "title": "Philips schikt apneu-zaak met Amerikaanse justitie, topman enthousiast over AI",
-   "text": "Voor Philips komt na vijf jaar een einde in zicht van de grote juridische problemen rond haperende slaapapneu-apparaten.",
-   "url": "https://nos.nl/l/2637844",
-   "source": "NOS"
-  },
-  {
-   "cat": "gezondheid",
-   "title": "Meer dan honderd gewonden in Oekraïense regio Charkiv, ziekenhuis aangevallen",
-   "text": "Bij Russische aanvallen in de regio Charkiv zijn zeker 114 mensen gewond geraakt, melden de Oekraïense autoriteiten.",
-   "url": "https://nos.nl/l/2637840",
-   "source": "NOS"
-  }
+  {"cat":"fitness","title":"Vier minuten per dag maakt sterker","text":"Dagelijks vier minuten krachttraining verbeterde in 12 weken de kracht en beweeglijkheid van ouderen.","url":"https://www.sciencedaily.com/news/top/health/","source":"ScienceDaily"},
+  {"cat":"fitness","title":"Ook astronauten blijven fit door te trainen","text":"Harten van astronauten bleven gezond tijdens maanden in de ruimte, vooral bij wie regelmatig trainde.","url":"https://www.sciencedaily.com/news/top/health/","source":"ScienceDaily"},
+  {"cat":"gezondheid","title":"Wie jong begint met sporten, blijft sterker","text":"Een Zweedse studie volgde mensen van 16 tot 63 jaar. Wie bleef bewegen, hield meer kracht en conditie over.","url":"https://www.sciencedaily.com/releases/2026/10/261014000912.htm","source":"ScienceDaily"}
  ]
 }
