@@ -1,8 +1,75 @@
 {
- "updated": "2026-10-22T15:00+02:00",
+ "updated": "2026-11-04T13:06+01:00",
  "items": [
-  {"cat":"fitness","title":"Vier minuten per dag maakt sterker","text":"Dagelijks vier minuten krachttraining verbeterde in 12 weken de kracht en beweeglijkheid van ouderen.","url":"https://www.sciencedaily.com/news/top/health/","source":"ScienceDaily"},
-  {"cat":"fitness","title":"Ook astronauten blijven fit door te trainen","text":"Harten van astronauten bleven gezond tijdens maanden in de ruimte, vooral bij wie regelmatig trainde.","url":"https://www.sciencedaily.com/news/top/health/","source":"ScienceDaily"},
-  {"cat":"gezondheid","title":"Wie jong begint met sporten, blijft sterker","text":"Een Zweedse studie volgde mensen van 16 tot 63 jaar. Wie bleef bewegen, hield meer kracht en conditie over.","url":"https://www.sciencedaily.com/releases/2026/10/261014000912.htm","source":"ScienceDaily"}
+  {
+   "cat": "voetbal",
+   "title": "FC Utrecht Vrouwen zoekt weg omhoog: 'Anders geen schijn van kans in professionalisering'",
+   "text": "FC Utrecht Vrouwen had na de heroprichting vier seizoenen geleden de ambitie \"beter dan ooit terug te komen\".",
+   "url": "https://nos.nl/l/2638002",
+   "source": "NOS"
+  },
+  {
+   "cat": "voetbal",
+   "title": "Ondanks nieuwe trainer en intense emoties weet Kuijt zeker: 'Ik wil bij Fener blijven'",
+   "text": "\"Eén ding weet ik zeker: ik wil hier graag blijven\", zei Dirk Kuijt dinsdagavond tegen de NOS.",
+   "url": "https://nos.nl/l/2637978",
+   "source": "NOS"
+  },
+  {
+   "cat": "voetbal",
+   "title": "Van Bronckhorst baalt na vuurwerk van buiten De Kuip: 'Zal wel weer een boete worden'",
+   "text": "Feyenoord-trainer Giovanni van Bronckhorst baalt ervan dat het Champions League-duel van dinsdagavond werd stilgelegd door vuurwerk.",
+   "url": "https://nos.nl/l/2637973",
+   "source": "NOS"
+  },
+  {
+   "cat": "voetbal",
+   "title": "Lichtkogels van buiten De Kuip in stadion geschoten, twee arrestaties",
+   "text": "De politie in Rotterdam heeft twee mensen aangehouden voor het afsteken van vuurwerk buiten het Feyenoord-stadion, zegt de politie tegen persbureau ANP.",
+   "url": "https://nos.nl/l/2637946",
+   "source": "NOS"
+  },
+  {
+   "cat": "fitness",
+   "title": "Ochtendjournaal van woensdag 4 november",
+   "text": "Goedemorgen! Kijk hier naar het ochtendjournaal van woensdag 4 november. We hebben nieuws over verkiezingen in Amerika een groot sportevenement voor talenten en een…",
+   "url": "https://jeugdjournaal.nl/l/2637986",
+   "source": "NOS Jeugdjournaal"
+  },
+  {
+   "cat": "fitness",
+   "title": "Nederlandse talenten doen mee aan Youth Olympic Games in Senegal",
+   "text": "In het Afrikaanse land Senegal wordt op dit moment een groot sporttoernooi gehouden, speciaal voor kinderen en jongeren.",
+   "url": "https://jeugdjournaal.nl/l/2637964",
+   "source": "NOS Jeugdjournaal"
+  },
+  {
+   "cat": "fitness",
+   "title": "Nederlands record en bijrol Timmermans bij WK gewichtheffen, wereldrecords Song",
+   "text": "Gewichthefster Myrthe Timmermans is bij de wereldkampioenschappen in het Chinese Ningbo op de 38ste plaats geëindigd in de klasse tot 69 kilogram.",
+   "url": "https://nos.nl/l/2637876",
+   "source": "NOS"
+  },
+  {
+   "cat": "gezondheid",
+   "title": "Gouden hartjes voor oorlogskinderen gestolen in Utrecht",
+   "text": "In Utrecht zijn tientallen gouden hartjes gestolen uit een oorlogsmonument voor kinderen. Het gaat om het Hartjespad, een pad dat bestaat uit 150 gouden hartjes.",
+   "url": "https://jeugdjournaal.nl/l/2637998",
+   "source": "NOS Jeugdjournaal"
+  },
+  {
+   "cat": "gezondheid",
+   "title": "Tientallen gouden hartjes voor oorlogskinderen gestolen van pad in Utrecht",
+   "text": "Het hartjespad in het Wilhelminapark in Utrecht, een oorlogsmonument bestaande uit 150 gouden hartjes voor geredde oorlogskinderen, is een stuk korter geworden.",
+   "url": "https://nos.nl/l/2637975",
+   "source": "NOS"
+  },
+  {
+   "cat": "gezondheid",
+   "title": "Drenten willen strengere aanpak wolf: 'Kinderen durven niet meer op de fiets'",
+   "text": "Inwoners van Drenthe maken zich grote zorgen over de wolf in de provincie. Burgemeesters van tien gemeenten stuurden daarover een brandbrief naar staatssecretaris Silvio…",
+   "url": "https://nos.nl/l/2637932",
+   "source": "NOS"
+  }
  ]
 }
