@@ -1,33 +1,40 @@
 {
- "updated": "2026-11-07T12:02+01:00",
+ "updated": "2026-11-08T12:15+01:00",
  "items": [
   {
    "cat": "voetbal",
-   "title": "PEC Zwolle stelt Pastoor aan als nieuwe trainer",
+   "title": "Spelers De Graafschap geblokkeerd door eigen fans, Vitesse-De Graafschap onzeker",
+   "text": "Het is de vraag of de Gelderse derby tussen Vitesse en De Graafschap zondagmiddag (12.15 uur) door kan gaan.",
+   "url": "https://nos.nl/l/2638547",
+   "source": "NOS"
+  },
+  {
+   "cat": "voetbal",
+   "title": "Van Bronckhorst houdt vertrouwen in Feyenoord-keeper Ernst, maar cijfers liegen niet",
+   "text": "De machine van Feyenoord hapert momenteel en opnieuw krijgt doelman Tjark Ernst veel kritiek.",
+   "url": "https://nos.nl/l/2638519",
+   "source": "NOS"
+  },
+  {
+   "cat": "voetbal",
+   "title": "Steeds meer 35-plussers in de eredivisie: wat is hun geheim?",
+   "text": "Geluk, genen en gezondheid. Het geheim om in je veertigste levensjaar nog in de eredivisie te spelen?",
+   "url": "https://nos.nl/l/2638416",
+   "source": "NOS"
+  },
+  {
+   "cat": "voetbal",
+   "title": "PEC Zwolle kiest met nieuwe trainer Pastoor voor kortetermijnoplossing",
    "text": "PEC Zwolle heeft Alex Pastoor aangesteld als nieuwe hoofdtrainer. Hij volgt Henry van der Vegt op, die half oktober werd ontslagen wegens tegenvallende prestaties.",
    "url": "https://nos.nl/l/2638407",
    "source": "NOS"
   },
   {
-   "cat": "voetbal",
-   "title": "Hoe Fortuna's succescoach Buijs 'jongens die buiten de lijntjes kleuren' raakt",
-   "text": "\"Ik denk dat ik jullie wel heel aardig in kan schatten. Ik ga jullie helpen, vertrouwen geven, maar wanneer het nodig is, ga ik jullie ook hard aanpakken.\" Zo begint…",
-   "url": "https://nos.nl/l/2638385",
-   "source": "NOS"
-  },
-  {
-   "cat": "voetbal",
-   "title": "'Jongetje' Plat en oude rot De Jong hebben bij Cambuur de weg omhoog gevonden",
-   "text": "Nieuwkomer SC Cambuur kende een beroerde start in de eredivisie met vier verliespartijen op rij.",
-   "url": "https://nos.nl/l/2638343",
-   "source": "NOS"
-  },
-  {
-   "cat": "voetbal",
-   "title": "Infantino-uitdager Tashima: uitgesproken bestuurder die voetbal naar Japan haalde",
-   "text": "Kohzo Tashima stapte gisteren naar voren als eerste serieuze rivaal voor Gianni Infantino in de strijd om het voorzitterschap van wereldvoetbalbond FIFA.",
-   "url": "https://nos.nl/l/2638316",
-   "source": "NOS"
+   "cat": "fitness",
+   "title": "Fietsen, bibberen en modder: de EK Veldrijden zijn in Nederland",
+   "text": "In de bossen bij het Gelderse Zeddam is vandaag een groot sportevenement begonnen: de EK Veldrijden. Dat is een wielren-sport waarbij je door de modder ploetert.",
+   "url": "https://jeugdjournaal.nl/l/2638476",
+   "source": "NOS Jeugdjournaal"
   },
   {
    "cat": "fitness",
@@ -44,25 +51,25 @@
    "source": "NOS Jeugdjournaal"
   },
   {
-   "cat": "fitness",
-   "title": "Veelbesproken Khelif maakt rentree in ring tegen boksster uit Nederland",
-   "text": "De Algerijnse boksster Imane Khelif maakt op 15 december haar rentree in de ring. In Parijs neemt de 27-jarige olympisch kampioene van 2024 het op tegen Clarida Sarabia…",
-   "url": "https://nos.nl/l/2638301",
+   "cat": "gezondheid",
+   "title": "Tien jaar na Hirak-protesten in Marokko: de straten zijn stil, de onvrede blijft",
+   "text": "De roep om ziekenhuizen, een universiteit, maar vooral ook waardigheid klonk tien jaar geleden luid door de straten van Al Hoceima.",
+   "url": "https://nos.nl/l/2638548",
    "source": "NOS"
   },
   {
    "cat": "gezondheid",
-   "title": "Voormalig Midden-Oostencorrespondent Thomas Loudon (56) overleden",
-   "text": "Journalist en oud-correspondent Thomas Loudon is overleden. Hij kampte met neuro-endocriene tumoren (NET), een langzaam groeiende vorm van kanker.",
-   "url": "https://nos.nl/l/2638410",
-   "source": "NOS"
+   "title": "Steeds meer kinderen willen schaken: 'Is goed voor je hersenen!'",
+   "text": "Schaken is hartstikke populair bij kinderen. Sommige schaakclubs zitten zelfs zo vol dat ze geen leden meer aan kunnen nemen. En dus zijn er lange wachtlijsten.",
+   "url": "https://jeugdjournaal.nl/l/2638478",
+   "source": "NOS Jeugdjournaal"
   },
   {
    "cat": "gezondheid",
-   "title": "6/11 in Nieuwsuur: Verantwoordelijkheid van bergbeklimmers • De AI-strategie van het…",
-   "text": "De AI-strategie van het kabinet Het kabinet komt vandaag met een nieuwe AI-strategie. Die moet zorgen voor een veilige, verantwoorde en toekomstbestendige inzet van AI.…",
-   "url": "https://nos.nl/l/2638282",
-   "source": "NOS"
+   "title": "Benson Boone laat zieke fan meezingen op podium",
+   "text": "Meezingen op het podium met je favoriete artiest: voor veel kinderen is het een droom. Die droom kwam voor de 13-jarige Kenzie uit.",
+   "url": "https://jeugdjournaal.nl/l/2638433",
+   "source": "NOS Jeugdjournaal"
   }
  ]
 }
