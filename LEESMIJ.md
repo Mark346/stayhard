@@ -158,3 +158,21 @@ Bovenaan Start schrijf je elke dag je taken op. Afgevinkte taken geven punten (k
 ## Update: taken van vandaag
 - Nieuwe ideeën: VR, VR 2 en VR 3, een groep "Rustig bewegen" en meer kleine dingen.
 - Weg: ideeën met "Habit:" en alle losse oefeningen (Oefening, Muuroefening, Thuisoefening, Kracht, Rekoefening, Trucje), behalve hooghouden. Taken die je al had gekozen met "Habit:" of "Oefening:" (behalve hooghouden) en die nog niet af waren, zijn één keer opgeruimd.
+
+## Update: onderdelen verwijderd
+- Speler: Records is weg. Speler opent nu op Challenges.
+- Extra: Water/slaap, Dagboek en Week zijn weg. Extra heeft nu Timer, Wat doen? en Ademen.
+- Taken en tips die naar deze onderdelen verwezen zijn aangepast of weggehaald.
+
+## Update: taken voor vandaag
+- 44 taken uit de ideeënlijst gehaald (o.a. losse voetbal- en krachtoefeningen en klusjes in huis). Ook "Oefening: …" is helemaal weg.
+- Nieuwe groep "🏆 Prof worden" met 21 taken die echt helpen om profvoetballer te worden.
+- Gekozen taken uit de verwijderde lijst die nog niet af waren, zijn één keer opgeruimd.
+
+## Update: "Wat kan ik doen?" uitgebreid
+- 7 vragen: tijd, plek, spullen, energie, alleen of samen, waar je beter in wilt worden en wat voor dag het is.
+- 3 ideeën tegelijk, uit veel meer soorten (techniek, conditie, kracht, spelinzicht, mindset, herstel, gezond eten, school) plus 46 eigen ideeën die je met één tik als taak voor vandaag toevoegt.
+- Elke combinatie geeft minstens één idee.
+
+## Update: Video's bij Speler (videos-pro.js)
+- Nieuw onderwerp Speler → Video's met 33 filmpjes over gezond eten, drinken, slaap en herstel, blessures voorkomen, kracht en snelheid, slimmer spelen, mentaliteit en prof worden.

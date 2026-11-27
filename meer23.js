@@ -64,7 +64,7 @@ TEGENSLAG.push(
   TS("Je mist een open doel", "Je schaamt je.", ["Zeg 'volgende'","Blijf de kansen opzoeken","Oefen afronden op de training"], "Ook de beste spitsen missen open kansen."),
   TS("Je team speelt niet zoals afgesproken", "Gefrustreerd.", ["Doe zelf wat afgesproken is","Coach je teamgenoten rustig","Praat er in de rust over"], "Begin bij jezelf, dan volgen anderen."),
   TS("Je wordt vergeleken met je broer of vriend", "Je voelt je minder.", ["Weet dat iedereen anders is","Kijk naar je eigen groei","Wees trots op wat jij kunt"], "Jouw weg is jouw weg."),
-  TS("Je hebt het gevoel dat je niet groeit", "Ongeduldig.", ["Kijk naar je records","Vraag feedback","Probeer een nieuwe challenge"], "Groei gaat soms langzaam, maar hij gaat wel door."),
+  TS("Je hebt het gevoel dat je niet groeit", "Ongeduldig.", ["Kijk hoe ver je bent met je challenges","Vraag feedback","Probeer een nieuwe challenge"], "Groei gaat soms langzaam, maar hij gaat wel door."),
   TS("Je wordt aan de kant gezet door een nieuwe speler", "Onzeker en jaloers.", ["Leer van de nieuwe speler","Train extra","Blijf een goede teamgenoot"], "Concurrentie maakt je beter."),
   TS("Je speelt een wedstrijd in de regen en alles gaat mis", "Gefrustreerd.", ["Speel simpel","Pas je spel aan aan het veld","Blijf positief"], "Slechte omstandigheden zijn voor iedereen hetzelfde.")
 );

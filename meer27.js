@@ -54,7 +54,7 @@ DAILY_LESSONS.push(
 );
 
 TEGENSLAG.push(
-  TS("Je ouders kunnen niet komen kijken", "Je vindt het jammer.", ["Vertel na de wedstrijd hoe het ging","Schrijf het op in je dagboek","Speel voor jezelf en je team"], "Je speelt het beste als je speelt voor het plezier."),
+  TS("Je ouders kunnen niet komen kijken", "Je vindt het jammer.", ["Vertel na de wedstrijd hoe het ging","Vertel het daarna aan je ouders","Speel voor jezelf en je team"], "Je speelt het beste als je speelt voor het plezier."),
   TS("Je hebt een blessure en moet een paar weken rusten", "Je baalt en verveelt je.", ["Volg het advies van de dokter of fysio","Train wat wél kan, zoals je bovenlichaam","Kijk filmpjes en leer van het spel"], "Rust is ook een deel van trainen."),
   TS("Iemand anders krijgt de aanvoerdersband", "Je wilde het zelf.", ["Feliciteer hem","Wees een leider zonder band","Laat zien wat je waard bent"], "Om een leider te zijn heb je geen band nodig.")
 );
@@ -76,8 +76,7 @@ PREVENTIE.push(
 );
 TIPS.push(
   LH("Iets zoets? Kies fruit", "Fruit geeft zoet en vitamines.", "Pak een recept bij Zoet & gezond.", "eten"),
-  LH("Je wedstrijd opschrijven", "Zo zie je hoe je groeit.", "Vul na de wedstrijd je dagboek in bij Extra.", "hoofd"),
-  LH("Kijk naar je week", "Zondag is een mooi moment om terug te kijken.", "Open het weekoverzicht bij Extra.", "hoofd")
+  LH("Je wedstrijd bespreken", "Zo zie je hoe je groeit.", "Vertel na de wedstrijd één ding dat goed ging en één leerpunt.", "hoofd")
 );
 (() => {
   const dedupe = (arr, key) => { const seen = new Set(), keep = arr.filter(x => { const k = typeof x === "string" ? x : x[key] || x.title || x.titel; if (seen.has(k)) return false; seen.add(k); return true; }); arr.length = 0; arr.push(...keep); };
