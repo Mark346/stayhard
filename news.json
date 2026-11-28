@@ -1,6 +1,27 @@
 {
- "updated": "2026-11-27T14:49+01:00",
+ "updated": "2026-11-28T13:57+01:00",
  "items": [
+  {
+   "cat": "voetbal",
+   "title": "Bescheiden en geen behoefte aan interviews, maar Eagles-topschutter Tengstedt straalt",
+   "text": "Heel Deventer is gek op Søren Tengstedt (26), maar Alfred Knippenberg nog een beetje meer.",
+   "url": "https://nos.nl/l/2641386",
+   "source": "NOS"
+  },
+  {
+   "cat": "voetbal",
+   "title": "Geen titelprolongatie voor Messi in VS: Inter Miami uitgeschakeld in play-offs",
+   "text": "Het seizoen zit erop voor Lionel Messi, Luis Suárez en hun teamgenoten. Met Inter Miami verloren ze van Columbus Crew in de eerste ronde van de play-offs van de MLS…",
+   "url": "https://nos.nl/l/2641364",
+   "source": "NOS"
+  },
+  {
+   "cat": "voetbal",
+   "title": "RKC Waalwijk zet trainer Duits aan de kant na tegenvallende resultaten",
+   "text": "RKC Waalwijk heeft trainer Sander Duits ontslagen. De coach, die bezig was aan zijn tweede seizoen in Waalwijk, moet vanwege de tegenvallende resultaten de club…",
+   "url": "https://nos.nl/l/2641266",
+   "source": "NOS"
+  },
   {
    "cat": "voetbal",
    "title": "Kou in Nederland: schaatsen op natuurijs, eerstedivisieduels en hockeyprogramma afgelast",
@@ -9,24 +30,10 @@
    "source": "NOS"
   },
   {
-   "cat": "voetbal",
-   "title": "Peddemors valt op bij Oranje: 'Kan uitgroeien tot een van de beste middenvelders'",
-   "text": "Vijf jaar geleden lag Ella Peddemors (24) op koers voor een plek bij het Nederlands elftal.",
-   "url": "https://nos.nl/l/2641187",
-   "source": "NOS"
-  },
-  {
-   "cat": "voetbal",
-   "title": "Laatste F1-loodjes wegen zwaar voor Russell en Leclerc, die snakken naar winterstop",
-   "text": "De een begon als topfavoriet, de ander als gevaarlijke outsider. George Russell zou dit Formule 1-seizoen geen kind hebben aan zijn jonge, onervaren Mercedes-teamgenoot…",
-   "url": "https://nos.nl/l/2641184",
-   "source": "NOS"
-  },
-  {
-   "cat": "voetbal",
-   "title": "Besiktas tegen Israëlisch Hapoel Beer-Sheva in Georgië stilgelegd na vechtpartijen",
-   "text": "Het Europa League-duel tussen het Turkse Besiktas en het Israëlische Hapoel Beer-Sheva heeft in de eerste helft lange tijd stilgelegen.",
-   "url": "https://nos.nl/l/2641157",
+   "cat": "fitness",
+   "title": "Verstappen en Red Bull komen vooralsnog tekort in Qatar, Mercedes oppermachtig",
+   "text": "Max Verstappen is tijdens de eerste vrije trainingen in Qatar als zesde en vijfde geëindigd.",
+   "url": "https://nos.nl/l/2641300",
    "source": "NOS"
   },
   {
@@ -38,38 +45,24 @@
   },
   {
    "cat": "fitness",
-   "title": "Kindervraag: Waarom bestaat er Black Friday?",
+   "title": "Black Friday: Veel deals en grote kortingen, of toch niet?",
    "text": "Nieuwe schoenen, een fiets, spelcomputer of oorbellen: als je door een winkelstraat loopt of online kijkt, zie je overal korting.",
    "url": "https://jeugdjournaal.nl/l/2641194",
    "source": "NOS Jeugdjournaal"
   },
   {
-   "cat": "fitness",
-   "title": "Eerste vrouwelijke IOC-vicevoorzitter DeFrantz (74) overleden",
-   "text": "De Amerikaanse Anita DeFrantz, die in 1997 de eerste vrouwelijke vicevoorzitter van het Internationaal Olympisch Comité (IOC) werd, is op 74-jarige leeftijd overleden.…",
-   "url": "https://nos.nl/l/2641143",
+   "cat": "gezondheid",
+   "title": "Bewakers Artsen zonder Grenzen gedood in Gaza, Israël spreekt van Hamas-leden",
+   "text": "Artsen zonder Grenzen (AzG) heeft vol afschuw gereageerd op een Israëlische aanval op de Gazastrook waarbij twee medewerkers zijn gedood.",
+   "url": "https://nos.nl/l/2641333",
    "source": "NOS"
   },
   {
    "cat": "gezondheid",
-   "title": "Weer meer mensen met corona, maar geen reden tot zorg, zegt RIVM",
-   "text": "Het aantal mensen met corona neemt toe, bleek deze week uit cijfers van het Rijkinstituut voor Volksgezondheid en Milieu (RIVM).",
-   "url": "https://nos.nl/l/2641234",
+   "title": "Gewonden bij brand in winkel Rotterdam",
+   "text": "Bij een brand in een winkelpand in Rotterdam zijn zeker twee mensen gewond geraakt. Een iemand liep brandwonden op en is naar het ziekenhuis gebracht.",
+   "url": "https://nos.nl/l/2641331",
    "source": "NOS"
-  },
-  {
-   "cat": "gezondheid",
-   "title": "Schaatskoorts loopt op, maar de tijd dringt",
-   "text": "Het was de afgelopen dagen stralend zonnig, maar ook ijzig koud. Zeker woensdag zorgde de snijdende oostenwind voor lage gevoelstemperaturen.",
-   "url": "https://nos.nl/l/2641141",
-   "source": "NOS"
-  },
-  {
-   "cat": "gezondheid",
-   "title": "Metershoge golven zorgen voor overstromingen in VS",
-   "text": "Golven zo hoog als huizen. In de Amerikaanse staat Californië is de zee al dagen erg wild. Het zeewater staat op dit moment erg hoog.",
-   "url": "https://jeugdjournaal.nl/l/2641085",
-   "source": "NOS Jeugdjournaal"
   }
  ]
 }
